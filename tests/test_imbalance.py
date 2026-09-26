@@ -153,3 +153,45 @@ def test_evaluate_cv_without_flags_unchanged_shape():
     )
     assert "anomaly_baseline_mean_ap" not in res
     assert res["mean_average_precision"] is not None
+
+
+def test_evaluate_cv_single_class_training_split_is_unscored():
+    """Regression: a degenerate training batch must not crash the run.
+
+    With only a handful of positives, the blocked plan (or the buffer
+    around the held-out deposits) can leave *zero* positives in a
+    training split - this is exactly how LOO bauxite fold 2 died inside
+    ``predict_proba(Xe)[:, 1]`` with "index 1 is out of bounds".  The
+    fold has to be reported unscored instead, so the caller sees
+    ``mean_average_precision is None`` rather than an IndexError.
+    """
+    import pandas as pd
+    from sklearn.linear_model import LogisticRegression
+
+    from src.models.train import evaluate_spatial_cv
+
+    rng = np.random.default_rng(3)
+    n_neg = 240
+    barren = rng.normal(size=(n_neg, 2)) * 4_000
+    # the only two positives share one far-away block: one test fold then
+    # holds every deposit, and its training batch degenerates to class 0
+    pos = np.array([[20_000.0, 20_000.0], [20_100.0, 20_100.0]])
+    coords = np.vstack([barren, pos])
+    X = pd.DataFrame(
+        rng.normal(size=(n_neg + 2, 5)), columns=[f"f{i}" for i in range(5)]
+    )
+    y = np.array([0] * n_neg + [1, 1])
+
+    res = evaluate_spatial_cv(
+        lambda pw: LogisticRegression(max_iter=1000),
+        X, y, coords,
+        block_size_m=10_000, buffer_m=5_000, n_splits=3,
+    )
+
+    assert res["n_folds"] == 3
+    # no fold ever sees a positive in its test set alongside a fit-able
+    # training batch, so nothing is scored - but nothing raised either
+    assert res["mean_average_precision"] is None
+    degenerate = [f for f in res["folds"] if f["n_test_positives"]]
+    assert len(degenerate) == 1
+    assert "average_precision" not in degenerate[0]

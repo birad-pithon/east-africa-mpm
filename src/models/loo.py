@@ -372,6 +372,9 @@ def run_loo(
         except (OSError, ValueError) as exc:
             logger.warning("ignoring unreadable %s: %s", partial, exc)
     done = {int(r["fold_idx"]) for r in records if "fold_idx" in r}
+    # a recorded fold is a successful one: drop failure notes it may have
+    # left behind on an earlier attempt, so retries do not report stale errors
+    errors = {str(k): v for k, v in errors.items() if not (str(k).isdigit() and int(k) in done)}
 
     for n, fold in enumerate(folds, start=1):
         idx = fold["fold_idx"]
@@ -414,6 +417,9 @@ def run_loo(
                 _write_partial(partial, group, records, len(folds), errors)
                 continue
 
+        # a fold that failed earlier but now succeeds (or reuses a good
+        # cached report) must drop its stale failure from the resume state
+        errors.pop(str(idx), None)
         rec = records[-1]
         logger.info(
             "%s - best=%s rank=%s pct=%s rediscovered=%s",

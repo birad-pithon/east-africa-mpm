@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-09-26T10:00:01.720021+00:00",
+  "group": "copper_zinc",
+  "n_folds_total": 39,
+  "n_folds_done": 1,
+  "errors": {},
+  "records": [
+    {
+      "fold_idx": 0,
+      "label_row": 3,
+      "name": "Kambove West",
+      "lon": 26.59858,
+      "lat": -10.88616,
+      "best_algo": "rf",
+      "in_extent": true,
+      "rank": 1.0,
+      "rank_in_top50": 1,
+      "rediscovered": true,
+      "percentile": 100.0,
+      "prob_at_holdout": 0.9762507081031799,
+      "n_valid_cells": 67527280,
+      "distance_to_top1_km": 52.206728291712224,
+      "n_candidates_within_5km": 107,
+      "n_labels_removed": 1,
+      "n_labels_remaining": 77,
+      "n_positives_trained_on": 38,
+      "mean_ap": 0.9545981795981795,
+      "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_00_Kambove_West\\copper_zinc\\models\\metrics_copper_zinc.json",
+      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_00_Kambove_West\\copper_zinc\\proba_copper_zinc_rf.tif"
+    }
+  ]
+}

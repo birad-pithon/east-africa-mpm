@@ -1,0 +1,20 @@
+{
+  "bands": [
+    {
+      "name": "dist_to_deposit_loo_m",
+      "index": 1
+    }
+  ],
+  "crs": "EPSG:32737",
+  "transform": [
+    30.0,
+    0.0,
+    388800.0,
+    0.0,
+    -30.0,
+    9535500.0
+  ],
+  "width": 3707,
+  "height": 4784,
+  "dtype": "float32"
+}

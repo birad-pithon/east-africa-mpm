@@ -447,6 +447,41 @@ class TestRunLooResume:
         assert "0" in payload["errors"]
         assert "simulated" in payload["errors"]["0"]
 
+    def test_retry_clears_stale_fold_error(self, tmp_path, monkeypatch):
+        """A fold that failed earlier but now succeeds stops being an error."""
+        import src.models.loo as loo_mod
+
+        group_dir = tmp_path / "bauxite"
+        group_dir.mkdir(parents=True)
+        (group_dir / "loo_partial.json").write_text(
+            json.dumps({"records": [], "errors": {"0": "Lushoto: old single-class crash"}}),
+            encoding="utf-8",
+        )
+        monkeypatch.setattr(loo_mod, "run_holdout_test", lambda g, **kw: _result(9))
+
+        payload = run_loo("bauxite", folds=[_fold(0, "Lushoto")], out_root=tmp_path)
+        assert payload["records"][0]["rank"] == pytest.approx(9)
+        assert payload["errors"] == {}
+        saved = json.loads((group_dir / "loo_partial.json").read_text("utf-8"))
+        assert saved["errors"] == {}
+
+    def test_recorded_fold_drops_its_own_stale_error(self, tmp_path):
+        """Resume-time hygiene: record + error for the same fold is nonsense."""
+        group_dir = tmp_path / "bauxite"
+        group_dir.mkdir(parents=True)
+        record = compact_record(_result(42), _fold(0, "Lushoto"))
+        (group_dir / "loo_partial.json").write_text(
+            json.dumps(
+                {
+                    "records": [record],
+                    "errors": {"0": "Lushoto: old failure", "1": "Magamba: still dead"},
+                }
+            ),
+            encoding="utf-8",
+        )
+        payload = run_loo("bauxite", folds=[_fold(0, "Lushoto")], out_root=tmp_path)
+        assert payload["errors"] == {"1": "Magamba: still dead"}
+
 
 class TestCli:
     def test_prints_help_without_arguments(self, monkeypatch, capsys):

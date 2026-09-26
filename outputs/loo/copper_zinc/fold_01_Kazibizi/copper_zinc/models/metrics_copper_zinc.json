@@ -1,0 +1,331 @@
+{
+  "group": "copper_zinc",
+  "n_rows": 95,
+  "n_positives": 37,
+  "features": [
+    "srtm_copperbelt_aligned:elevation_m",
+    "sentinel2_copperbelt_aligned:B2",
+    "sentinel2_copperbelt_aligned:B3",
+    "sentinel2_copperbelt_aligned:B4",
+    "sentinel2_copperbelt_aligned:B8",
+    "sentinel2_copperbelt_aligned:B11",
+    "sentinel2_copperbelt_aligned:B12",
+    "terrain_features_copperbelt:elevation",
+    "terrain_features_copperbelt:slope_deg",
+    "terrain_features_copperbelt:aspect_deg",
+    "terrain_features_copperbelt:tpi_630m",
+    "terrain_features_copperbelt:relief_900m",
+    "terrain_features_copperbelt:plateau_index",
+    "geology_features_copperbelt:lithology_code",
+    "geology_features_copperbelt:geol_is_plutonic_or_metamorphic",
+    "geology_features_copperbelt:dist_to_plutonic_or_metamorphic_m",
+    "geology_features_copperbelt:geol_is_sedimentary",
+    "geology_features_copperbelt:dist_to_sedimentary_m",
+    "geology_features_copperbelt:geol_is_mixed_sedimentary_volcanic",
+    "geology_features_copperbelt:dist_to_mixed_sedimentary_volcanic_m",
+    "geology_features_copperbelt:geol_is_unknown",
+    "geology_features_copperbelt:dist_to_unknown_m",
+    "geology_features_copperbelt:geol_is_volcanic",
+    "geology_features_copperbelt:dist_to_volcanic_m",
+    "geology_features_copperbelt:dist_to_contact_m",
+    "alteration_features_copperbelt:ndwi",
+    "alteration_features_copperbelt:mbi",
+    "alteration_features_copperbelt:bsi",
+    "alteration_features_copperbelt:evi",
+    "alteration_features_copperbelt:savi",
+    "alteration_features_copperbelt:nirv",
+    "alteration_features_copperbelt:ferrous_iron_ratio",
+    "alteration_features_copperbelt:iron_oxide_ratio",
+    "alteration_features_copperbelt:aloh_ratio",
+    "alteration_features_copperbelt:mgoh_carbonate_proxy",
+    "deposit_distance_copper_zinc:dist_to_deposit_loo_m"
+  ],
+  "buffer_km": 5.0,
+  "block_m": 10000.0,
+  "oversample": false,
+  "anomaly_baseline": false,
+  "pu": false,
+  "ensemble": false,
+  "best_algo": "xgb",
+  "results": {
+    "rf": {
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 0,
+          "n_train": 70,
+          "n_test": 20,
+          "n_test_positives": 10,
+          "average_precision": 0.9614285714285714,
+          "roc_auc": 0.9500000000000001,
+          "precision_at_top_decile": 1.0
+        },
+        {
+          "fold": 1,
+          "n_train": 74,
+          "n_test": 20,
+          "n_test_positives": 8,
+          "average_precision": 0.921875,
+          "roc_auc": 0.90625,
+          "precision_at_top_decile": 1.0
+        },
+        {
+          "fold": 2,
+          "n_train": 71,
+          "n_test": 18,
+          "n_test_positives": 7,
+          "average_precision": 0.982142857142857,
+          "roc_auc": 0.987012987012987,
+          "precision_at_top_decile": 1.0
+        },
+        {
+          "fold": 3,
+          "n_train": 77,
+          "n_test": 17,
+          "n_test_positives": 6,
+          "average_precision": 0.9333333333333332,
+          "roc_auc": 0.9393939393939394,
+          "precision_at_top_decile": 1.0
+        },
+        {
+          "fold": 4,
+          "n_train": 72,
+          "n_test": 20,
+          "n_test_positives": 6,
+          "average_precision": 0.8357142857142856,
+          "roc_auc": 0.9285714285714286,
+          "precision_at_top_decile": 1.0
+        }
+      ],
+      "mean_average_precision": 0.9268988095238095,
+      "std_average_precision": 0.050250310239224605,
+      "mean_roc_auc": 0.942245670995671,
+      "mean_precision_at_top_decile": 1.0
+    },
+    "xgb": {
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 0,
+          "n_train": 70,
+          "n_test": 20,
+          "n_test_positives": 10,
+          "average_precision": 0.9426315789473684,
+          "roc_auc": 0.9,
+          "precision_at_top_decile": 1.0
+        },
+        {
+          "fold": 1,
+          "n_train": 74,
+          "n_test": 20,
+          "n_test_positives": 8,
+          "average_precision": 0.9308035714285714,
+          "roc_auc": 0.9270833333333334,
+          "precision_at_top_decile": 1.0
+        },
+        {
+          "fold": 2,
+          "n_train": 71,
+          "n_test": 18,
+          "n_test_positives": 7,
+          "average_precision": 0.9126984126984126,
+          "roc_auc": 0.8571428571428571,
+          "precision_at_top_decile": 1.0
+        },
+        {
+          "fold": 3,
+          "n_train": 77,
+          "n_test": 17,
+          "n_test_positives": 6,
+          "average_precision": 0.9583333333333334,
+          "roc_auc": 0.9696969696969696,
+          "precision_at_top_decile": 1.0
+        },
+        {
+          "fold": 4,
+          "n_train": 72,
+          "n_test": 20,
+          "n_test_positives": 6,
+          "average_precision": 0.8972222222222221,
+          "roc_auc": 0.9523809523809524,
+          "precision_at_top_decile": 1.0
+        }
+      ],
+      "mean_average_precision": 0.9283378237259816,
+      "std_average_precision": 0.02155408908256847,
+      "mean_roc_auc": 0.9212608225108225,
+      "mean_precision_at_top_decile": 1.0
+    },
+    "lgbm": {
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 0,
+          "n_train": 70,
+          "n_test": 20,
+          "n_test_positives": 10,
+          "average_precision": 0.9555555555555556,
+          "roc_auc": 0.92,
+          "precision_at_top_decile": 1.0
+        },
+        {
+          "fold": 1,
+          "n_train": 74,
+          "n_test": 20,
+          "n_test_positives": 8,
+          "average_precision": 0.9149305555555556,
+          "roc_auc": 0.8854166666666666,
+          "precision_at_top_decile": 1.0
+        },
+        {
+          "fold": 2,
+          "n_train": 71,
+          "n_test": 18,
+          "n_test_positives": 7,
+          "average_precision": 0.9159663865546217,
+          "roc_auc": 0.8701298701298701,
+          "precision_at_top_decile": 1.0
+        },
+        {
+          "fold": 3,
+          "n_train": 77,
+          "n_test": 17,
+          "n_test_positives": 6,
+          "average_precision": 0.8631313131313131,
+          "roc_auc": 0.8939393939393939,
+          "precision_at_top_decile": 1.0
+        },
+        {
+          "fold": 4,
+          "n_train": 72,
+          "n_test": 20,
+          "n_test_positives": 6,
+          "average_precision": 0.8968253968253967,
+          "roc_auc": 0.9404761904761905,
+          "precision_at_top_decile": 1.0
+        }
+      ],
+      "mean_average_precision": 0.9092818415244885,
+      "std_average_precision": 0.030009605156364354,
+      "mean_roc_auc": 0.9019924242424242,
+      "mean_precision_at_top_decile": 1.0
+    }
+  },
+  "provenance": {
+    "timestamp_utc": "2026-09-26T10:00:59+00:00",
+    "git": {
+      "commit": "a9b8e06cecf9cbf10eba66b59b2f5495186c85b3",
+      "branch": "main",
+      "dirty": true
+    },
+    "packages": {
+      "python": "3.13.3",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5",
+      "scipy": "1.18.1",
+      "geopandas": "1.1.4",
+      "rasterio": "1.5.1",
+      "shapely": "2.1.2",
+      "pyproj": "3.7.2",
+      "PyYAML": "6.0.3",
+      "requests": "2.34.2",
+      "scikit-learn": "1.9.0",
+      "xgboost": "3.4.1",
+      "lightgbm": "4.7.0",
+      "ruff": "0.16.5",
+      "pytest": "9.1.1"
+    },
+    "input_sha256": {
+      "labels_copper_zinc.gpkg": "9ab413ccd22a85dd59c7e13a49673676320380e3c0401c18901ce8a21c056844",
+      "background_copper_zinc.gpkg": "cd8f5bcbc3f9cdeb094a7d3cea1fe1504057d681443646b25f0f34d26faac3c2",
+      "srtm_copperbelt_aligned.tif": "e1b2a48305ed182344666f7f38d3780d22c06b2dd2cbfa275ff80876078bb581",
+      "sentinel2_copperbelt_aligned.tif": "4c6fb15d7a40557dc865f1ff375cc00c534ce7e75820115731ff3746e1d9bb93",
+      "terrain_features_copperbelt.tif": "dd310c04019e7c190f6a5c027037b4216bf5e3d95fa789112c9f109b4ea412eb",
+      "geology_features_copperbelt.tif": "ac24b869552b235107e6e81735e30e1c7e51b0adbbb91e2b2a405e95366490e0",
+      "alteration_features_copperbelt.tif": "040e6c0166bb23bcfa974391a4557fc1a6e5287e6b8c771d898a7b181e033443",
+      "deposit_distance_copper_zinc.tif": "64f2481bfee8ccee51322c5abfb49416b98d683371bb43ad2a8f8c6c6cc58717"
+    },
+    "config_snapshot": "# \u2500\u2500 Central African Copperbelt (Lufilian Arc) configuration \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# Covers the copperbelt in DRC/Zambia with Cu-Zn targets\n\n# Common analysis grid\ngrid:\n  crs: \"EPSG:32735\"        # UTM Zone 35S \u2014 covers DRC Copperbelt\n  resolution_m: 30          # 30 m to match SRTM / Landsat\n  # AOI bounding box in WGS 84 (lon, lat)\n  aoi_wgs84:\n    min_lon: 26.0\n    max_lon: 28.5\n    min_lat: -11.5\n    max_lat: -9.5\n  # Derived extent in target CRS (filled at runtime)\n  aoi_utm: null             # [min_x, min_y, max_x, max_y] in metres\n\n# \u2500\u2500 Data sources \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nsources:\n  usgs_mrds:\n    name: \"USGS Mineral Resources Data System (MRDS)\"\n    shapefile_url: \"https://mrdata.usgs.gov/mrds/mrds-trim.zip\"\n    csv_url: \"https://mrdata.usgs.gov/mrds/mrds-csv.zip\"\n    wfs_url: \"https://mrdata.usgs.gov/services/wfs/mrds\"\n    commodities:\n      - \"Copper\"\n      - \"Zinc\"\n      - \"Lead\"\n      - \"Cobalt\"\n    africa_bbox:\n      min_lon: 10.0\n      max_lon: 50.0\n      min_lat: -35.0\n      max_lat: 37.0\n\n  sentinel2:\n    collection: \"COPERNICUS/S2_SR_HARMONIZED\"\n    bands:\n      - B2   # Blue   (10 m)\n      - B3   # Green  (10 m)\n      - B4   # Red    (10 m)\n      - B8   # NIR    (10 m)\n      - B11   # SWIR1  (20 m)\n      - B12   # SWIR2  (20 m)\n    date_range:\n      start: \"2023-06-01\"\n      end: \"2023-09-30\"\n    cloud_cover_threshold: 0.20\n    scale_m: 30\n\n  srtm_dem:\n    collection: \"USGS/SRTMGL1_003\"\n    resolution_m: 30\n\n# \u2500\u2500 Feature engineering \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfeatures:\n  # Explicit feature-raster allowlist (SAFEGUARD)\n  rasters_by_group:\n    copper_zinc:\n      - dem/srtm_copperbelt_aligned.tif\n      - sentinel2/sentinel2_copperbelt_aligned.tif\n      - features/terrain_features_copperbelt.tif\n      - features/geology_features_copperbelt.tif\n      - features/alteration_features_copperbelt.tif\n      - features/deposit_distance_copper_zinc.tif\n\n  copper_zinc:\n    stratigraphic_proxies: true\n    structural_traps: true\n    geochemical_anomaly_surfaces: true\n\n# \u2500\u2500 Model settings \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nmodel:\n  commodity_groups:\n    - copper_zinc\n  algorithm: \"random_forest\"\n  params:\n    n_estimators: 500\n    max_depth: 15\n    min_samples_leaf: 3\n    random_state: 42\n  compare_algorithms:\n    - random_forest\n    - xgboost\n    - lightgbm\n\n# \u2500\u2500 Spatial cross-validation \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nvalidation:\n  method: \"spatial_block\"\n  n_groups: 5\n  buffer_km: 5\n  min_train_area_pct: 60\n"
+  },
+  "calibration": {
+    "n": 95,
+    "n_positives": 37,
+    "n_bins_requested": 10,
+    "n_bins_usable": 5,
+    "brier": 0.09792257402757358,
+    "ece": 0.04473126153216551,
+    "max_abs_gap": 0.13802714347839354,
+    "bins": [
+      {
+        "bin_lo": 0.0013398685259744525,
+        "bin_hi": 0.00686904164031148,
+        "n": 10,
+        "mean_predicted": 0.00416314946487546,
+        "fraction_positive": 0.1
+      },
+      {
+        "bin_lo": 0.00686904164031148,
+        "bin_hi": 0.013238608650863171,
+        "n": 9,
+        "mean_predicted": 0.00971607853555017,
+        "fraction_positive": 0.0
+      },
+      {
+        "bin_lo": 0.013238608650863171,
+        "bin_hi": 0.018143780529499054,
+        "n": 10,
+        "mean_predicted": 0.016420530900359154,
+        "fraction_positive": 0.1
+      },
+      {
+        "bin_lo": 0.018143780529499054,
+        "bin_hi": 0.03717409670352936,
+        "n": 9,
+        "mean_predicted": 0.02622324497335487,
+        "fraction_positive": 0.1111111111111111
+      },
+      {
+        "bin_lo": 0.03717409670352936,
+        "bin_hi": 0.08024077117443085,
+        "n": 9,
+        "mean_predicted": 0.05792606001098951,
+        "fraction_positive": 0.1111111111111111
+      },
+      {
+        "bin_lo": 0.08024077117443085,
+        "bin_hi": 0.5263981938362129,
+        "n": 10,
+        "mean_predicted": 0.23802714347839354,
+        "fraction_positive": 0.1
+      },
+      {
+        "bin_lo": 0.5263981938362129,
+        "bin_hi": 0.8519094347953798,
+        "n": 9,
+        "mean_predicted": 0.7634046077728271,
+        "fraction_positive": 0.5555555555555556
+      },
+      {
+        "bin_lo": 0.8519094347953798,
+        "bin_hi": 0.9547719955444336,
+        "n": 10,
+        "mean_predicted": 0.900642603635788,
+        "fraction_positive": 1.0
+      },
+      {
+        "bin_lo": 0.9547719955444336,
+        "bin_hi": 0.9880558729171753,
+        "n": 9,
+        "mean_predicted": 0.9740797546174791,
+        "fraction_positive": 0.7777777777777778
+      },
+      {
+        "bin_lo": 0.9880558729171753,
+        "bin_hi": 0.9951649904251099,
+        "n": 10,
+        "mean_predicted": 0.9918538749217987,
+        "fraction_positive": 1.0
+      }
+    ]
+  }
+}

@@ -296,6 +296,27 @@ def evaluate_spatial_cv(
 
         if oversample:
             Xt, yt = smote_oversample(Xt, yt, seed=42)
+        # Degenerate-split guard: with only a handful of positives the
+        # blocked plan (or the buffer around the test deposits) can strip
+        # every positive out of the training batch.  Such a split cannot be
+        # fit or scored - predict_proba collapses to one column - so keep the
+        # fold entry unscored, exactly like a fold with no positive test
+        # labels below, instead of crashing the whole run.
+        if np.unique(yt).size < 2:
+            logger.warning(
+                "fold %d skipped: training split holds a single class "
+                "(%d positives of %d rows)",
+                k, int(yt.sum()), len(yt),
+            )
+            folds.append(
+                {
+                    "fold": k,
+                    "n_train": int(len(tr)),
+                    "n_test": int(len(te)),
+                    "n_test_positives": int(ye.sum()),
+                }
+            )
+            continue
         pw = scale_pos_weight(yt) if oversample else pos_weight
         clf = make_clf(pw)
         clf.fit(Xt, yt)
