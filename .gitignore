@@ -68,6 +68,15 @@ outputs/holdout/**/*.joblib
 outputs/holdout/**/*.gpkg
 outputs/holdout/**/*.png
 
+# Leave-one-deposit-out runs follow the same policy: one artifact tree per
+# fold means the rasters/models/plots multiply by 51 — only the compact
+# per-fold reports (holdout_report.json, deposit_distance, metrics, model
+# card) plus the aggregate loo_report.json / LOO_VALIDATION.md are tracked.
+outputs/loo/**/*.tif
+outputs/loo/**/*.joblib
+outputs/loo/**/*.gpkg
+outputs/loo/**/*.png
+
 # Reference-evidence GeoPackages are large derivative extracts; the
 # accompanying .md/.json summaries are the tracked artefacts.
 outputs/evidence/*.gpkg
