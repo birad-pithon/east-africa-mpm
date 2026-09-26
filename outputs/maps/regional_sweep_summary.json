@@ -1,0 +1,35 @@
+{
+  "tin_tungsten_tantalum": {
+    "group": "tin_tungsten_tantalum",
+    "config": "configs/karagwe.yml",
+    "best_algo": "lgbm",
+    "bundle": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\models\\model_tin_tungsten_tantalum_lgbm.joblib",
+    "proba": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\models\\proba_tin_tungsten_tantalum_lgbm.tif",
+    "n_candidates": 50,
+    "n_anomalies": 50,
+    "top_prob": 0.9999998807907104,
+    "threshold": 0.9
+  },
+  "copper_zinc": {
+    "group": "copper_zinc",
+    "config": "configs/copperbelt.yml",
+    "best_algo": "xgb",
+    "bundle": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\models\\model_copper_zinc_xgb.joblib",
+    "proba": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\models\\proba_copper_zinc_xgb.tif",
+    "n_candidates": 50,
+    "n_anomalies": 50,
+    "top_prob": 0.9993776679039001,
+    "threshold": 0.9
+  },
+  "bauxite": {
+    "group": "bauxite",
+    "config": "configs/usambara.yml",
+    "best_algo": "lgbm",
+    "bundle": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\models\\model_bauxite_lgbm.joblib",
+    "proba": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\models\\proba_bauxite_lgbm.tif",
+    "n_candidates": 50,
+    "n_anomalies": 50,
+    "top_prob": 0.9999986886978149,
+    "threshold": 0.9
+  }
+}

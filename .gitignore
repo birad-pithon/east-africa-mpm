@@ -1,0 +1,89 @@
+# Byte-compiled / optimised files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extension / shared objects
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment files
+environment.yml.bak
+requirements.txt.bak
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test / tooling caches
+.pytest_cache/
+.coverage
+htmlcov/
+*.coverage.*
+
+# Data — raw downloads are large; tracked only via .gitkeep
+data/raw/*
+!data/raw/.gitkeep
+data/interim/*
+!data/interim/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/archive/*
+data/national/*
+
+# Stray nested data tree written by ad-hoc scripts run from inside src/.
+# Everything here is a duplicate of data/ and must never be tracked.
+/src/data/
+
+# Model artefacts and large outputs (usually not version-controlled)
+outputs/models/*
+!outputs/models/.gitkeep
+outputs/maps/*.tif
+outputs/maps/*.zip
+outputs/maps/*.html
+
+# Holdout / validation runs: keep the small reports (JSON, GeoJSON, model
+# cards, reliability plots) but never the multi-hundred-MB rasters or
+# serialised model bundles, which are regenerable via
+# `python holdout_validation.py --all`.
+outputs/holdout/**/*.tif
+outputs/holdout/**/*.joblib
+outputs/holdout/**/*.gpkg
+outputs/holdout/**/*.png
+
+# Reference-evidence GeoPackages are large derivative extracts; the
+# accompanying .md/.json summaries are the tracked artefacts.
+outputs/evidence/*.gpkg
+
+# Transient WFS probe artefacts
+outputs/wfs_*.xml
+outputs/wfs_*.gpkg
+
+# Ad-hoc scratch/investigation scripts kept at the repo root during analysis
+/_*.py
+
+# Raster / model serialisation artefacts anywhere in the tree
+*.tif
+*.joblib
+*.gpkg-shm
+*.gpkg-wal
+
+# Logs
+*.log

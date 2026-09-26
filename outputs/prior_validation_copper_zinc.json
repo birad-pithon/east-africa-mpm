@@ -1,0 +1,26 @@
+{
+  "group": "copper_zinc",
+  "algo": "rf",
+  "n_rows": 97,
+  "n_positives": 39,
+  "n_folds": 5,
+  "ap_A_full_features": 0.9051935605827093,
+  "ap_B_no_deposit_distance": 0.4638261258000279,
+  "ap_C_no_dd_plus_prior": 0.7764000072260624,
+  "leakage_share_A_minus_B": 0.44136743478268137,
+  "prior_value_C_minus_B": 0.3125738814260345,
+  "prior_sources": [
+    {
+      "name": "deposit_distance",
+      "half_decay_km": 5.0,
+      "weight": 1.0,
+      "sampled": 97
+    },
+    {
+      "name": "geology_contact",
+      "half_decay_km": 3.0,
+      "weight": 0.5,
+      "sampled": 97
+    }
+  ]
+}

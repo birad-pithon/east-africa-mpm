@@ -1,0 +1,2405 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.58785395906694,
+          -1.9875288669767694
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 1,
+        "prob": 0.9999998807907104,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.23893866853531,
+          -1.9757415976497816
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 2,
+        "prob": 0.9999998211860657,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.304117495655497,
+          -1.993742904091177
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 3,
+        "prob": 0.9999998211860657,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.659456691145706,
+          -2.0020367870801765
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 4,
+        "prob": 0.9999997019767761,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.280184053368583,
+          -1.9638812816593105
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 5,
+        "prob": 0.9999995827674866,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.84558893711676,
+          -1.6820819752026204
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 6,
+        "prob": 0.9999995827674866,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.219472077463383,
+          -1.2258572226205815
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 7,
+        "prob": 0.999999463558197,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.066632381570507,
+          -1.901987345611138
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 8,
+        "prob": 0.999999463558197,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.647915056201253,
+          -1.983046584679518
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 9,
+        "prob": 0.999999463558197,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.27869796190669,
+          -1.8814617428673814
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 10,
+        "prob": 0.999999463558197,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.98827421860294,
+          -1.8828786767369252
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 11,
+        "prob": 0.999999463558197,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.28342013228594,
+          -1.9622599200711834
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 12,
+        "prob": 0.9999994039535522,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.911012769200596,
+          -1.6946543296468892
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 13,
+        "prob": 0.9999994039535522,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.04929590276843,
+          -1.9572527846997565
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 14,
+        "prob": 0.9999993443489075,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.844365429937447,
+          -1.6037599648280998
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 15,
+        "prob": 0.9999993443489075,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.82646923226294,
+          -1.6815087581135604
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 16,
+        "prob": 0.9999992847442627,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.285842160698614,
+          -1.9641616504534731
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 17,
+        "prob": 0.9999992847442627,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.27212194957038,
+          -1.9505837975573717
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 18,
+        "prob": 0.9999992847442627,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.98935170719218,
+          -1.882880550597059
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 19,
+        "prob": 0.9999992251396179,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.149640045291445,
+          -1.2938244458685393
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 20,
+        "prob": 0.9999992251396179,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.8615604995142,
+          -1.6298033672203527
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 21,
+        "prob": 0.9999992251396179,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.063101696134876,
+          -1.9187869140595033
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 22,
+        "prob": 0.9999992251396179,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.64359041298826,
+          -1.9908952678394312
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 23,
+        "prob": 0.9999992251396179,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.589742274134306,
+          -1.9859071940963842
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 24,
+        "prob": 0.9999992251396179,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.03247134118503,
+          -1.8715708540398897
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 25,
+        "prob": 0.9999991655349731,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.257499768973688,
+          -1.9944787157372472
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 26,
+        "prob": 0.9999991655349731,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.097540711498056,
+          -1.9448684824555476
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 27,
+        "prob": 0.9999991655349731,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.169337037261055,
+          -2.026045224788039
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 28,
+        "prob": 0.9999990463256836,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.030205319998906,
+          -1.936347999311607
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 29,
+        "prob": 0.9999989867210388,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.034240524128887,
+          -1.9396077255442827
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 30,
+        "prob": 0.9999989867210388,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.58060063025711,
+          -1.9791149034890163
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 31,
+        "prob": 0.9999989867210388,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.070669639843537,
+          -1.9041627307726063
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 32,
+        "prob": 0.999998927116394,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.234916660318316,
+          -1.9638065167287844
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 33,
+        "prob": 0.9999988675117493,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.316247831264597,
+          -1.9910516811647037
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 34,
+        "prob": 0.9999988675117493,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.076304480430537,
+          -1.9174543752739523
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 35,
+        "prob": 0.9999987483024597,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.27358407217854,
+          -1.8779293034099171
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 36,
+        "prob": 0.9999986886978149,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.580272581279093,
+          -2.0075619494626133
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 37,
+        "prob": 0.9999986886978149,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.33449984362995,
+          -2.0352742329014224
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 38,
+        "prob": 0.9999986886978149,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.038675308139723,
+          -1.8667024685644187
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 39,
+        "prob": 0.9999985694885254,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.26072378173374,
+          -2.000177317774635
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 40,
+        "prob": 0.9999985098838806,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.65247893986921,
+          -1.9901006119825935
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 41,
+        "prob": 0.9999985098838806,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.273351771311308,
+          -2.0221581907755803
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 42,
+        "prob": 0.9999984502792358,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.005984145737685,
+          -1.922752895192121
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 43,
+        "prob": 0.9999983906745911,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.32081515750635,
+          -1.9994638214495701
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 44,
+        "prob": 0.9999983906745911,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.08034455273352,
+          -1.9180034420557184
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 45,
+        "prob": 0.9999983310699463,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.593505008301083,
+          -1.9894371561816808
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 46,
+        "prob": 0.9999983310699463,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.060844491797013,
+          -1.9776025211474704
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 47,
+        "prob": 0.9999983310699463,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.12532346703895,
+          -1.9251280059932383
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 48,
+        "prob": 0.9999982118606567,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.19348189378188,
+          -1.3478206961292793
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 49,
+        "prob": 0.9999982118606567,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.048888258484194,
+          -1.8808146103535388
+        ]
+      },
+      "properties": {
+        "group": "tin_tungsten_tantalum",
+        "rank": 50,
+        "prob": 0.9999982118606567,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.506032838969816,
+          -11.14206632641071
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 1,
+        "prob": 0.9993776679039001,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.39088969675596,
+          -11.121618607456652
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 2,
+        "prob": 0.999360978603363,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.279245618576685,
+          -11.297282768033236
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 3,
+        "prob": 0.9993441700935364,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.471745390142832,
+          -11.176035754291005
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 4,
+        "prob": 0.9993422627449036,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.232096084939318,
+          -10.80781436761547
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 5,
+        "prob": 0.9993324875831604,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.276992214928843,
+          -11.240580593026035
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 6,
+        "prob": 0.9993306398391724,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.44682399044359,
+          -11.049914616991321
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 7,
+        "prob": 0.9993265867233276,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.400219872312775,
+          -11.114009603250906
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 8,
+        "prob": 0.9993076324462891,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.33854351602944,
+          -11.230207131558926
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 9,
+        "prob": 0.9993067979812622,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.024416041089488,
+          -11.253188957104278
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 10,
+        "prob": 0.999305009841919,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.249323342730143,
+          -10.721582489617422
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 11,
+        "prob": 0.9993035793304443,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.459389272018353,
+          -11.181481146993264
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 12,
+        "prob": 0.9993033409118652,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.45204696343866,
+          -11.052891285287636
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 13,
+        "prob": 0.9992954730987549,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.27589364053813,
+          -11.241395551764908
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 14,
+        "prob": 0.9992940425872803,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.354424251909176,
+          -11.181623881265311
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 15,
+        "prob": 0.9992812275886536,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.26407832288277,
+          -11.244390710656292
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 16,
+        "prob": 0.9992782473564148,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.451756953175583,
+          -11.0428531942402
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 17,
+        "prob": 0.9992780089378357,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.38702820597791,
+          -11.109957170413168
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 18,
+        "prob": 0.9992769360542297,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.34129655539774,
+          -11.234273664266585
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 19,
+        "prob": 0.9992716908454895,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.337103109298642,
+          -11.172961891576964
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 20,
+        "prob": 0.9992696642875671,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.219239290910767,
+          -10.792046745545134
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 21,
+        "prob": 0.9992679953575134,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.328352589222163,
+          -11.210412752702263
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 22,
+        "prob": 0.9992673993110657,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.377662766469328,
+          -10.747368545030401
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 23,
+        "prob": 0.9992658495903015,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.391971916720923,
+          -11.109136837575543
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 24,
+        "prob": 0.9992644190788269,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.32501465811761,
+          -11.174331820891705
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 25,
+        "prob": 0.9992589354515076,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.50110523044941,
+          -11.152384290694966
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 26,
+        "prob": 0.999258816242218,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.475038214003,
+          -11.17331746372573
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 27,
+        "prob": 0.9992576241493225,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.41092727093437,
+          -11.10938287528364
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 28,
+        "prob": 0.9992551207542419,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.462704229850804,
+          -11.192599691724562
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 29,
+        "prob": 0.9992542862892151,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.422181002048948,
+          -11.102855831099284
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 30,
+        "prob": 0.999254047870636,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.319565311324705,
+          -11.216391162569169
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 31,
+        "prob": 0.9992521405220032,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.399680050984895,
+          -11.121064430838157
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 32,
+        "prob": 0.9992519021034241,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.422184900524265,
+          -11.105568940208064
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 33,
+        "prob": 0.9992503523826599,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.51726733563705,
+          -11.125226116639377
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 34,
+        "prob": 0.9992462396621704,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.31952275460746,
+          -11.1775934890948
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 35,
+        "prob": 0.9992457628250122,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.333602575397197,
+          -11.235367626310117
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 36,
+        "prob": 0.9992451667785645,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.452052780745852,
+          -11.056689635251324
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 37,
+        "prob": 0.9992437362670898,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.26714112791175,
+          -11.287255376987591
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 38,
+        "prob": 0.9992436170578003,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.31998020740903,
+          -10.77654875350868
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 39,
+        "prob": 0.999242901802063,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.5071299058443,
+          -11.14097924436063
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 40,
+        "prob": 0.9992400407791138,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.37629204190233,
+          -10.746823177275777
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 41,
+        "prob": 0.999238133430481,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.309534187656453,
+          -10.78493612944305
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 42,
+        "prob": 0.9992378950119019,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.506558856630864,
+          -11.12850004517095
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 43,
+        "prob": 0.9992369413375854,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.39995588172627,
+          -11.1218779997385
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 44,
+        "prob": 0.9992357492446899,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.46110508092394,
+          -11.049350571130987
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 45,
+        "prob": 0.9992352724075317,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.52265665442193,
+          -10.841771440939661
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 46,
+        "prob": 0.9992349147796631,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.445722512232596,
+          -11.048017059782588
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 47,
+        "prob": 0.9992341995239258,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.33244528064475,
+          -11.18463354596188
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 48,
+        "prob": 0.9992328882217407,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.54656263908595,
+          -11.00432440144619
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 49,
+        "prob": 0.9992306232452393,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.453016495025473,
+          -10.80177285829609
+        ]
+      },
+      "properties": {
+        "group": "copper_zinc",
+        "rank": 50,
+        "prob": 0.9992290735244751,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.267103651504534,
+          -4.766935576841233
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 1,
+        "prob": 0.9999986886978149,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.265167232059184,
+          -4.807097493228874
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 2,
+        "prob": 0.9999963045120239,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.278674933357514,
+          -4.824751549118473
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 3,
+        "prob": 0.9999961256980896,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.28624873358169,
+          -4.825845069036872
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 4,
+        "prob": 0.9999959468841553,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.301973171928836,
+          -4.793024406920995
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 5,
+        "prob": 0.9999957084655762,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.251073495857504,
+          -4.831234718898381
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 6,
+        "prob": 0.9999955892562866,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.294378477576984,
+          -4.812555959785278
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 7,
+        "prob": 0.9999953508377075,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.28138340401071,
+          -4.821769252266679
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 8,
+        "prob": 0.9999953508377075,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.254068618273436,
+          -4.813598494103667
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 9,
+        "prob": 0.9999952912330627,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.27955332984128,
+          -4.760978396554404
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 10,
+        "prob": 0.999995231628418,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.28545130425259,
+          -4.812275268800019
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 11,
+        "prob": 0.9999951720237732,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.302834268277444,
+          -4.7439053917950895
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 12,
+        "prob": 0.9999950528144836,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.32145668169732,
+          -4.787073633267925
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 13,
+        "prob": 0.9999950528144836,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.29228079984087,
+          -4.747693978884352
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 14,
+        "prob": 0.9999949336051941,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.317672349088255,
+          -4.784084675898795
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 15,
+        "prob": 0.9999949336051941,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.253513643729136,
+          -4.826352619051259
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 16,
+        "prob": 0.9999948143959045,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.281108590084855,
+          -4.825839645598696
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 17,
+        "prob": 0.999994695186615,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.28383011834097,
+          -4.810373910963093
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 18,
+        "prob": 0.9999945759773254,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.26979641412917,
+          -4.778607725765181
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 19,
+        "prob": 0.9999945163726807,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.25325111561506,
+          -4.819025144036513
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 20,
+        "prob": 0.9999944567680359,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.25216038849316,
+          -4.826893883916509
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 21,
+        "prob": 0.9999943375587463,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.29095012200777,
+          -4.7262535778854335
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 22,
+        "prob": 0.9999943375587463,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.24972380889357,
+          -4.828519457042961
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 23,
+        "prob": 0.9999943375587463,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.280570379786305,
+          -4.823125286489684
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 24,
+        "prob": 0.9999943375587463,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.291133531658616,
+          -4.811195690525982
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 25,
+        "prob": 0.999994158744812,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.25161813422978,
+          -4.8279787947814095
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 26,
+        "prob": 0.9999940991401672,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.30928217411057,
+          -4.788146977230975
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 27,
+        "prob": 0.9999939203262329,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.28193557134486,
+          -4.8111860533916335
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 28,
+        "prob": 0.9999938011169434,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.309839237086216,
+          -4.772136064040885
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 29,
+        "prob": 0.9999937415122986,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.2521455103512,
+          -4.840462723289039
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 30,
+        "prob": 0.9999935626983643,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.29553811898482,
+          -4.736570715318544
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 31,
+        "prob": 0.9999934434890747,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.25026368254125,
+          -4.829605561932439
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 32,
+        "prob": 0.9999932646751404,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.25406773151181,
+          -4.814412625293574
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 33,
+        "prob": 0.9999932050704956,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.30059760575319,
+          -4.815547559222965
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 34,
+        "prob": 0.9999932050704956,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.278478078916436,
+          -4.754464166780394
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 35,
+        "prob": 0.9999931454658508,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.277668823392574,
+          -4.752292284605244
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 36,
+        "prob": 0.9999931454658508,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.30439798069082,
+          -4.802796576563528
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 37,
+        "prob": 0.9999929070472717,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.25052676172169,
+          -4.836390278164867
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 38,
+        "prob": 0.9999927282333374,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.250793120320886,
+          -4.840189850740453
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 39,
+        "prob": 0.9999926686286926,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.31577197295613,
+          -4.7908673100655195
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 40,
+        "prob": 0.9999924898147583,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.28652634825332,
+          -4.819060879230765
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 41,
+        "prob": 0.9999924302101135,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.28572353023333,
+          -4.810647278644475
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 42,
+        "prob": 0.9999923706054688,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.2885167721629,
+          -4.72516556364693
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 43,
+        "prob": 0.9999920129776001,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.32333617469307,
+          -4.801458718211558
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 44,
+        "prob": 0.9999920129776001,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.25133538850494,
+          -4.839104942635384
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 45,
+        "prob": 0.9999920129776001,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.280369082596515,
+          -4.756908559253578
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 46,
+        "prob": 0.9999918937683105,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.29013753155594,
+          -4.727338266963208
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 47,
+        "prob": 0.999991774559021,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.34823394342447,
+          -4.791713169996807
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 48,
+        "prob": 0.9999917149543762,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.27086353649885,
+          -4.792720550057825
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 49,
+        "prob": 0.9999917149543762,
+        "anomaly": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.27712696585036,
+          -4.75310585433922
+        ]
+      },
+      "properties": {
+        "group": "bauxite",
+        "rank": 50,
+        "prob": 0.9999915361404419,
+        "anomaly": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,2037 @@
+<?xml version="1.0" encoding="UTF-8"?><WMS_Capabilities xmlns:inspire_common="http://inspire.ec.europa.eu/schemas/common/1.0" xmlns:inspire_vs="http://inspire.ec.europa.eu/schemas/inspire_vs/1.0" version="1.3.0" updateSequence="96366" xmlns="http://www.opengis.net/wms" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/wms https://geoservice.dlr.de/eoc/imagery/wms http://inspire.ec.europa.eu/schemas/inspire_vs/1.0 https://inspire.ec.europa.eu/schemas/inspire_vs/1.0/inspire_vs.xsd">
+  <Service>
+    <Name>WMS</Name>
+    <Title>EOC Imagery Map Service</Title>
+    <Abstract>This Web Mapping Service provides access to Orthoimagery products within the Earth Observation Center (EOC).</Abstract>
+    <KeywordList>
+      <Keyword>DLR</Keyword>
+      <Keyword>EOC</Keyword>
+      <Keyword vocabulary="GEMET - INSPIRE themes, version 1.0">Orthoimagery</Keyword>
+      <Keyword>Sentinel-2</Keyword>
+      <Keyword>RapidEye</Keyword>
+      <Keyword>MODIS</Keyword>
+    </KeywordList>
+    <OnlineResource xlink:type="simple" xlink:href="http://www.dlr.de/eoc/en/"/>
+    <ContactInformation>
+      <ContactPersonPrimary>
+        <ContactPerson>Geoservice Manager</ContactPerson>
+        <ContactOrganization>Earth Observation Center (EOC), DLR</ContactOrganization>
+      </ContactPersonPrimary>
+      <ContactPosition>Geospatial Service Manager</ContactPosition>
+      <ContactAddress>
+        <AddressType>Postal</AddressType>
+        <Address>Münchnerstraße 20</Address>
+        <City>Weßling</City>
+        <StateOrProvince>Bavaria</StateOrProvince>
+        <PostCode>82234</PostCode>
+        <Country>Germany</Country>
+      </ContactAddress>
+      <ContactVoiceTelephone/>
+      <ContactFacsimileTelephone/>
+      <ContactElectronicMailAddress>geoservice@dlr.de</ContactElectronicMailAddress>
+    </ContactInformation>
+    <Fees>NONE</Fees>
+    <AccessConstraints>NONE</AccessConstraints>
+  </Service>
+  <Capability>
+    <Request>
+      <GetCapabilities>
+        <Format>text/xml</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?SERVICE=WMS&amp;"/>
+            </Get>
+            <Post>
+              <OnlineResource xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?SERVICE=WMS&amp;"/>
+            </Post>
+          </HTTP>
+        </DCPType>
+      </GetCapabilities>
+      <GetMap>
+        <Format>image/png</Format>
+        <Format>application/atom+xml</Format>
+        <Format>application/geopackage+sqlite3</Format>
+        <Format>application/json;type=geojson</Format>
+        <Format>application/json;type=topojson</Format>
+        <Format>application/json;type=utfgrid</Format>
+        <Format>application/pdf</Format>
+        <Format>application/rss+xml</Format>
+        <Format>application/vnd.google-earth.kml+xml</Format>
+        <Format>application/vnd.google-earth.kml+xml;mode=networklink</Format>
+        <Format>application/vnd.google-earth.kmz</Format>
+        <Format>application/vnd.mapbox-vector-tile</Format>
+        <Format>application/x-sqlite3</Format>
+        <Format>image/geotiff</Format>
+        <Format>image/geotiff8</Format>
+        <Format>image/gif</Format>
+        <Format>image/jpeg</Format>
+        <Format>image/png; mode=8bit</Format>
+        <Format>image/svg+xml</Format>
+        <Format>image/tiff</Format>
+        <Format>image/tiff8</Format>
+        <Format>image/vnd.jpeg-png</Format>
+        <Format>image/vnd.jpeg-png8</Format>
+        <Format>image/webp</Format>
+        <Format>text/html; subtype=openlayers</Format>
+        <Format>text/html; subtype=openlayers10</Format>
+        <Format>text/html; subtype=openlayers2</Format>
+        <Format>text/html; subtype=openlayers3</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?SERVICE=WMS&amp;"/>
+            </Get>
+          </HTTP>
+        </DCPType>
+      </GetMap>
+      <GetFeatureInfo>
+        <Format>text/plain</Format>
+        <Format>text/html</Format>
+        <Format>application/json</Format>
+        <Format>application/ld+json</Format>
+        <Format>application/vnd.ogc.gml</Format>
+        <Format>text/xml</Format>
+        <Format>application/vnd.ogc.gml/3.1.1</Format>
+        <Format>text/xml; subtype=gml/3.1.1</Format>
+        <DCPType>
+          <HTTP>
+            <Get>
+              <OnlineResource xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?SERVICE=WMS&amp;"/>
+            </Get>
+          </HTTP>
+        </DCPType>
+      </GetFeatureInfo>
+    </Request>
+    <Exception>
+      <Format>XML</Format>
+      <Format>INIMAGE</Format>
+      <Format>BLANK</Format>
+      <Format>JSON</Format>
+    </Exception>
+    <Layer>
+      <Title>EOC Imagery Map Service</Title>
+      <Abstract>This Web Mapping Service provides access to Orthoimagery products within the Earth Observation Center (EOC).</Abstract>
+      <!--Limited list of EPSG projections:-->
+      <CRS>EPSG:3035</CRS>
+      <CRS>EPSG:3857</CRS>
+      <CRS>EPSG:4258</CRS>
+      <CRS>EPSG:4326</CRS>
+      <CRS>EPSG:25832</CRS>
+      <CRS>EPSG:32632</CRS>
+      <CRS>EPSG:900913</CRS>
+      <CRS>CRS:84</CRS>
+      <EX_GeographicBoundingBox>
+        <westBoundLongitude>-999.0</westBoundLongitude>
+        <eastBoundLongitude>180.0</eastBoundLongitude>
+        <southBoundLatitude>-999.0</southBoundLatitude>
+        <northBoundLatitude>84.6442794799805</northBoundLatitude>
+      </EX_GeographicBoundingBox>
+      <BoundingBox CRS="CRS:84" minx="-999.0" miny="-999.0" maxx="180.0" maxy="84.6442794799805"/>
+      <BoundingBox CRS="EPSG:3035" minx="-9060943.621521248" miny="-5645549.782070447" maxx="1.4635679991842717E7" maxy="1.3096577062425924E7"/>
+      <BoundingBox CRS="EPSG:3857" minx="-1.112081713024803E8" miny="-1.997186888040857E7" maxx="2.0037508342789244E7" maxy="1.9532919537499566E7"/>
+      <BoundingBox CRS="EPSG:4258" minx="-90.0" miny="-180.0" maxx="84.64427948042564" maxy="180.0"/>
+      <BoundingBox CRS="EPSG:4326" minx="-999.0" miny="-999.0" maxx="84.6442794799805" maxy="180.0"/>
+      <BoundingBox CRS="EPSG:25832" minx="-2.6576989031303295E8" miny="-2.4363165291698015E8" maxx="2.3076305447038162E8" maxy="2.1626995009586042E8"/>
+      <BoundingBox CRS="EPSG:32632" minx="-2.4685418449036577E8" miny="-3.2361537242529607E8" maxx="2.307630544764896E8" maxy="1.0788192447419444E7"/>
+      <BoundingBox CRS="EPSG:900913" minx="-1.112081713024803E8" miny="-1.997186888040857E7" maxx="2.0037508342789244E7" maxy="1.9532919537499566E7"/>
+      <Layer queryable="1" opaque="1">
+        <Name>3K_MOS_BRUNSWICK</Name>
+        <Title>3K - Aerial Mosaic - Brunswick</Title>
+        <Abstract>The dataset depicts an aerial imagery mosaic for the city of Brunswick, Germany.</Abstract>
+        <KeywordList>
+          <Keyword>DLR</Keyword>
+          <Keyword>EOC</Keyword>
+          <Keyword>Arial Imagery</Keyword>
+          <Keyword>3K</Keyword>
+        </KeywordList>
+        <CRS>EPSG:32632</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>10.464907861425443</westBoundLongitude>
+          <eastBoundLongitude>10.494799720710045</eastBoundLongitude>
+          <southBoundLatitude>52.250933587668584</southBoundLatitude>
+          <northBoundLatitude>52.2692759258875</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="10.464907861425443" miny="52.250933587668584" maxx="10.494799720710045" maxy="52.2692759258875"/>
+        <BoundingBox CRS="EPSG:32632" minx="599999.9" miny="5788000.1" maxx="607999.9" maxy="5798000.1"/>
+        <BoundingBox CRS="EPSG:3035" minx="3235952.358029799" miny="4352722.2015766995" maxx="3246064.8191548316" maxy="4360861.843393959"/>
+        <BoundingBox CRS="EPSG:3857" minx="1164882.3233400332" miny="6842149.487525824" maxx="1178274.229037275" maxy="6858776.688970854"/>
+        <BoundingBox CRS="EPSG:4258" minx="52.2318144160014" miny="10.4643159525701" maxx="52.323201308125185" maxy="10.5846174882833"/>
+        <BoundingBox CRS="EPSG:4326" minx="52.2318143770228" miny="10.4643159525701" maxx="52.32320126924127" maxy="10.5846174882833"/>
+        <BoundingBox CRS="EPSG:25832" minx="599999.8999133873" miny="5788000.104210964" maxx="607999.8999065482" maxy="5798000.104200699"/>
+        <BoundingBox CRS="EPSG:900913" minx="1164882.3233400332" miny="6842149.487525824" maxx="1178274.229037275" maxy="6858776.688970854"/>
+        <Attribution>
+          <Title>DLR/EOC</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.dlr.de/eoc/"/>
+        </Attribution>
+        <Style>
+          <Name>generic</Name>
+          <Title>Generic</Title>
+          <Abstract>Generic style</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=3K_MOS_BRUNSWICK"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>ENMAP_HSI_L0_QL_FOOTPRINTS</Name>
+        <Title>EnMAP HSI L0 QL Footprints</Title>
+        <Abstract>EnMAP HSI L0 Quicklook Footprints</Abstract>
+        <KeywordList/>
+        <CRS>EPSG:4326</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-179.942807899</westBoundLongitude>
+          <eastBoundLongitude>179.940289875</eastBoundLongitude>
+          <southBoundLatitude>-82.182148927</southBoundLatitude>
+          <northBoundLatitude>82.622254636</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="-179.942807899" miny="-82.182148927" maxx="179.940289875" maxy="82.622254636"/>
+        <BoundingBox CRS="EPSG:4326" minx="-82.182148927" miny="-179.942807899" maxx="82.622254636" maxy="179.940289875"/>
+        <BoundingBox CRS="EPSG:3035" minx="-9067217.328215329" miny="-6236244.670203198" maxx="1.4827182117505832E7" maxy="1.5529004608695172E7"/>
+        <BoundingBox CRS="EPSG:3857" minx="-2.0031141747228526E7" miny="-1.711516459890829E7" maxx="2.0030861442079037E7" maxy="1.7485809279347174E7"/>
+        <BoundingBox CRS="EPSG:4258" minx="-82.18214892807738" miny="-179.942807899" maxx="82.62225463693485" maxy="179.940289875"/>
+        <BoundingBox CRS="EPSG:25832" minx="-8.169360834950559E7" miny="-2.4159607049128973E8" maxx="2.753012936787821E8" maxy="2.3320950428976738E8"/>
+        <BoundingBox CRS="EPSG:32632" minx="-8.169360842495827E7" miny="-2.4159607092163345E8" maxx="2.7530129367198867E8" maxy="2.332095047419591E8"/>
+        <BoundingBox CRS="EPSG:900913" minx="-2.0031141747228526E7" miny="-1.711516459890829E7" maxx="2.0030861442079037E7" maxy="1.7485809279347174E7"/>
+        <Dimension name="time" default="2026-09-21T09:21:29.862Z" units="ISO8601">2022-04-27T09:28:49.730Z/2026-09-21T09:21:34.353Z/PT1S</Dimension>
+        <Style>
+          <Name>enmap-l0-ql-footprints</Name>
+          <Title>enmap-l0-ql-footprints</Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_FOOTPRINTS"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>enmap-l0-ql-footprints-green</Name>
+          <Title>enmap-l0-ql-footprints-green</Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_FOOTPRINTS&amp;style=enmap-l0-ql-footprints-green"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>enmap-l0-ql-centroids</Name>
+          <Title>enmap-l0-ql-centroids</Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_FOOTPRINTS&amp;style=enmap-l0-ql-centroids"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>polygon</Name>
+          <Title>Default Polygon</Title>
+          <Abstract>A sample style that draws a polygon</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_FOOTPRINTS&amp;style=polygon"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>enmap-l0-ql-heatmap-dynamic</Name>
+          <Title>Heatmap</Title>
+          <Abstract>A heatmap surface showing population density</Abstract>
+          <LegendURL width="100" height="123">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_FOOTPRINTS&amp;style=enmap-l0-ql-heatmap-dynamic"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>enmap-l0-ql-heatmap</Name>
+          <Title>enmap-l0-ql-heatmap</Title>
+          <LegendURL width="22" height="151">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_FOOTPRINTS&amp;style=enmap-l0-ql-heatmap"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>ENMAP_HSI_L0_QL_QUALITY_CIRRUS</Name>
+        <Title>EnMAP HSI L0 QL Cirrus</Title>
+        <Abstract>EnMAP HSI L0 Quicklook Cirrus</Abstract>
+        <KeywordList>
+          <Keyword>{global_keywords}</Keyword>
+          <Keyword>Quality</Keyword>
+          <Keyword>Cloud</Keyword>
+          <Keyword>Cirrus</Keyword>
+        </KeywordList>
+        <CRS>EPSG:4326</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-179.942807899</westBoundLongitude>
+          <eastBoundLongitude>179.940289875</eastBoundLongitude>
+          <southBoundLatitude>-82.182148927</southBoundLatitude>
+          <northBoundLatitude>82.622254636</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="-179.942807899" miny="-82.182148927" maxx="179.940289875" maxy="82.622254636"/>
+        <BoundingBox CRS="EPSG:4326" minx="-82.182148927" miny="-179.942807899" maxx="82.622254636" maxy="179.940289875"/>
+        <BoundingBox CRS="EPSG:3035" minx="-9067217.328215329" miny="-6236244.670203198" maxx="1.4827182117505832E7" maxy="1.5529004608695172E7"/>
+        <BoundingBox CRS="EPSG:3857" minx="-2.0031141747228526E7" miny="-1.711516459890829E7" maxx="2.0030861442079037E7" maxy="1.7485809279347174E7"/>
+        <BoundingBox CRS="EPSG:4258" minx="-82.18214892807738" miny="-179.942807899" maxx="82.62225463693485" maxy="179.940289875"/>
+        <BoundingBox CRS="EPSG:25832" minx="-8.169360834950559E7" miny="-2.4159607049128973E8" maxx="2.753012936787821E8" maxy="2.3320950428976738E8"/>
+        <BoundingBox CRS="EPSG:32632" minx="-8.169360842495827E7" miny="-2.4159607092163345E8" maxx="2.7530129367198867E8" maxy="2.332095047419591E8"/>
+        <BoundingBox CRS="EPSG:900913" minx="-2.0031141747228526E7" miny="-1.711516459890829E7" maxx="2.0030861442079037E7" maxy="1.7485809279347174E7"/>
+        <Dimension name="time" default="2026-09-21T09:21:34.353Z" units="ISO8601">2022-04-27T09:28:49.730Z/2026-09-21T09:21:34.353Z/P1D</Dimension>
+        <Attribution>
+          <Title>EnMAP data © DLR. All rights reserved.</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.enmap.org"/>
+        </Attribution>
+        <MetadataURL type="19139">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:type="simple" xlink:href="https://geoservice.dlr.de/catalogue/srv/api/records/97f6e84c-5db2-4121-b257-d3318cedc059/formatters/xml"/>
+        </MetadataURL>
+        <Style>
+          <Name>enmap-l0-ql-cirrus</Name>
+          <Title>enmap-l0-ql-cirrus</Title>
+          <LegendURL width="72" height="91">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_QUALITY_CIRRUS"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>raster</Name>
+          <Title>Default style</Title>
+          <Abstract>A sample style for rasters</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_QUALITY_CIRRUS&amp;style=raster"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>ENMAP_HSI_L0_QL_QUALITY_CLASSES</Name>
+        <Title>EnMAP HSI L0 QL Classes</Title>
+        <Abstract>EnMAP HSI L0 Quicklook Classes</Abstract>
+        <KeywordList>
+          <Keyword>{global_keywords}</Keyword>
+          <Keyword>Quality</Keyword>
+          <Keyword>Classes</Keyword>
+        </KeywordList>
+        <CRS>EPSG:4326</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-179.942807899</westBoundLongitude>
+          <eastBoundLongitude>179.940289875</eastBoundLongitude>
+          <southBoundLatitude>-82.182148927</southBoundLatitude>
+          <northBoundLatitude>82.622254636</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="-179.942807899" miny="-82.182148927" maxx="179.940289875" maxy="82.622254636"/>
+        <BoundingBox CRS="EPSG:4326" minx="-82.182148927" miny="-179.942807899" maxx="82.622254636" maxy="179.940289875"/>
+        <BoundingBox CRS="EPSG:3035" minx="-9067217.328215329" miny="-6236244.670203198" maxx="1.4827182117505832E7" maxy="1.5529004608695172E7"/>
+        <BoundingBox CRS="EPSG:3857" minx="-2.0031141747228526E7" miny="-1.711516459890829E7" maxx="2.0030861442079037E7" maxy="1.7485809279347174E7"/>
+        <BoundingBox CRS="EPSG:4258" minx="-82.18214892807738" miny="-179.942807899" maxx="82.62225463693485" maxy="179.940289875"/>
+        <BoundingBox CRS="EPSG:25832" minx="-8.169360834950559E7" miny="-2.4159607049128973E8" maxx="2.753012936787821E8" maxy="2.3320950428976738E8"/>
+        <BoundingBox CRS="EPSG:32632" minx="-8.169360842495827E7" miny="-2.4159607092163345E8" maxx="2.7530129367198867E8" maxy="2.332095047419591E8"/>
+        <BoundingBox CRS="EPSG:900913" minx="-2.0031141747228526E7" miny="-1.711516459890829E7" maxx="2.0030861442079037E7" maxy="1.7485809279347174E7"/>
+        <Dimension name="time" default="2026-09-21T09:21:34.353Z" units="ISO8601">2022-04-27T09:28:49.730Z/2026-09-21T09:21:34.353Z/P1D</Dimension>
+        <Attribution>
+          <Title>EnMAP data © DLR. All rights reserved.</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.enmap.org"/>
+        </Attribution>
+        <MetadataURL type="19139">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:type="simple" xlink:href="https://geoservice.dlr.de/catalogue/srv/api/records/97f6e84c-5db2-4121-b257-d3318cedc059/formatters/xml"/>
+        </MetadataURL>
+        <Style>
+          <Name>enmap-l0-ql-classes</Name>
+          <Title>enmap-l0-ql-classes</Title>
+          <LegendURL width="99" height="91">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_QUALITY_CLASSES"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>raster</Name>
+          <Title>Default style</Title>
+          <Abstract>A sample style for rasters</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_QUALITY_CLASSES&amp;style=raster"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>ENMAP_HSI_L0_QL_QUALITY_CLOUD</Name>
+        <Title>EnMAP HSI L0 QL Cloud</Title>
+        <Abstract>EnMAP HSI L0 Quicklook Cloud</Abstract>
+        <KeywordList>
+          <Keyword>{global_keywords}</Keyword>
+          <Keyword>Quality</Keyword>
+          <Keyword>Cloud</Keyword>
+        </KeywordList>
+        <CRS>EPSG:4326</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-179.942807899</westBoundLongitude>
+          <eastBoundLongitude>179.940289875</eastBoundLongitude>
+          <southBoundLatitude>-82.182148927</southBoundLatitude>
+          <northBoundLatitude>82.622254636</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="-179.942807899" miny="-82.182148927" maxx="179.940289875" maxy="82.622254636"/>
+        <BoundingBox CRS="EPSG:4326" minx="-82.182148927" miny="-179.942807899" maxx="82.622254636" maxy="179.940289875"/>
+        <BoundingBox CRS="EPSG:3035" minx="-9067217.328215329" miny="-6236244.670203198" maxx="1.4827182117505832E7" maxy="1.5529004608695172E7"/>
+        <BoundingBox CRS="EPSG:3857" minx="-2.0031141747228526E7" miny="-1.711516459890829E7" maxx="2.0030861442079037E7" maxy="1.7485809279347174E7"/>
+        <BoundingBox CRS="EPSG:4258" minx="-82.18214892807738" miny="-179.942807899" maxx="82.62225463693485" maxy="179.940289875"/>
+        <BoundingBox CRS="EPSG:25832" minx="-8.169360834950559E7" miny="-2.4159607049128973E8" maxx="2.753012936787821E8" maxy="2.3320950428976738E8"/>
+        <BoundingBox CRS="EPSG:32632" minx="-8.169360842495827E7" miny="-2.4159607092163345E8" maxx="2.7530129367198867E8" maxy="2.332095047419591E8"/>
+        <BoundingBox CRS="EPSG:900913" minx="-2.0031141747228526E7" miny="-1.711516459890829E7" maxx="2.0030861442079037E7" maxy="1.7485809279347174E7"/>
+        <Dimension name="time" default="2026-09-21T09:21:34.353Z" units="ISO8601">2022-04-27T09:28:49.730Z/2026-09-21T09:21:34.353Z/P1D</Dimension>
+        <Attribution>
+          <Title>EnMAP data © DLR. All rights reserved.</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.enmap.org"/>
+        </Attribution>
+        <MetadataURL type="19139">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:type="simple" xlink:href="https://geoservice.dlr.de/catalogue/srv/api/records/97f6e84c-5db2-4121-b257-d3318cedc059/formatters/xml"/>
+        </MetadataURL>
+        <Style>
+          <Name>enmap-l0-ql-cloud</Name>
+          <Title>enmap-l0-ql-cloud</Title>
+          <LegendURL width="57" height="43">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_QUALITY_CLOUD"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>raster</Name>
+          <Title>Default style</Title>
+          <Abstract>A sample style for rasters</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_QUALITY_CLOUD&amp;style=raster"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>ENMAP_HSI_L0_QL_QUALITY_CLOUDSHADOW</Name>
+        <Title>EnMAP HSI L0 QL Cloud Shadow</Title>
+        <Abstract>EnMAP HSI L0 Quicklook Cloud Shadow</Abstract>
+        <KeywordList>
+          <Keyword>{global_keywords}</Keyword>
+          <Keyword>Quality</Keyword>
+          <Keyword>Cloud Shadow</Keyword>
+        </KeywordList>
+        <CRS>EPSG:4326</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-179.942807899</westBoundLongitude>
+          <eastBoundLongitude>179.940289875</eastBoundLongitude>
+          <southBoundLatitude>-82.182148927</southBoundLatitude>
+          <northBoundLatitude>82.622254636</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="-179.942807899" miny="-82.182148927" maxx="179.940289875" maxy="82.622254636"/>
+        <BoundingBox CRS="EPSG:4326" minx="-82.182148927" miny="-179.942807899" maxx="82.622254636" maxy="179.940289875"/>
+        <BoundingBox CRS="EPSG:3035" minx="-9067217.328215329" miny="-6236244.670203198" maxx="1.4827182117505832E7" maxy="1.5529004608695172E7"/>
+        <BoundingBox CRS="EPSG:3857" minx="-2.0031141747228526E7" miny="-1.711516459890829E7" maxx="2.0030861442079037E7" maxy="1.7485809279347174E7"/>
+        <BoundingBox CRS="EPSG:4258" minx="-82.18214892807738" miny="-179.942807899" maxx="82.62225463693485" maxy="179.940289875"/>
+        <BoundingBox CRS="EPSG:25832" minx="-8.169360834950559E7" miny="-2.4159607049128973E8" maxx="2.753012936787821E8" maxy="2.3320950428976738E8"/>
+        <BoundingBox CRS="EPSG:32632" minx="-8.169360842495827E7" miny="-2.4159607092163345E8" maxx="2.7530129367198867E8" maxy="2.332095047419591E8"/>
+        <BoundingBox CRS="EPSG:900913" minx="-2.0031141747228526E7" miny="-1.711516459890829E7" maxx="2.0030861442079037E7" maxy="1.7485809279347174E7"/>
+        <Dimension name="time" default="2026-09-21T09:21:34.353Z" units="ISO8601">2022-04-27T09:28:49.730Z/2026-09-21T09:21:34.353Z/P1D</Dimension>
+        <Attribution>
+          <Title>EnMAP data © DLR. All rights reserved.</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.enmap.org"/>
+        </Attribution>
+        <MetadataURL type="19139">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:type="simple" xlink:href="https://geoservice.dlr.de/catalogue/srv/api/records/97f6e84c-5db2-4121-b257-d3318cedc059/formatters/xml"/>
+        </MetadataURL>
+        <Style>
+          <Name>enmap-l0-ql-cloudshadow</Name>
+          <Title>enmap-l0-ql-cloudshadow</Title>
+          <LegendURL width="111" height="45">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_QUALITY_CLOUDSHADOW"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>raster</Name>
+          <Title>Default style</Title>
+          <Abstract>A sample style for rasters</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_QUALITY_CLOUDSHADOW&amp;style=raster"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>ENMAP_HSI_L0_QL_QUALITY_HAZE</Name>
+        <Title>EnMAP HSI L0 QL Haze</Title>
+        <Abstract>EnMAP HSI L0 Quicklook Haze</Abstract>
+        <KeywordList>
+          <Keyword>{global_keywords}</Keyword>
+          <Keyword>Quality</Keyword>
+          <Keyword>Haze</Keyword>
+        </KeywordList>
+        <CRS>EPSG:4326</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-179.942807899</westBoundLongitude>
+          <eastBoundLongitude>179.940289875</eastBoundLongitude>
+          <southBoundLatitude>-82.182148927</southBoundLatitude>
+          <northBoundLatitude>82.622254636</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="-179.942807899" miny="-82.182148927" maxx="179.940289875" maxy="82.622254636"/>
+        <BoundingBox CRS="EPSG:4326" minx="-82.182148927" miny="-179.942807899" maxx="82.622254636" maxy="179.940289875"/>
+        <BoundingBox CRS="EPSG:3035" minx="-9067217.328215329" miny="-6236244.670203198" maxx="1.4827182117505832E7" maxy="1.5529004608695172E7"/>
+        <BoundingBox CRS="EPSG:3857" minx="-2.0031141747228526E7" miny="-1.711516459890829E7" maxx="2.0030861442079037E7" maxy="1.7485809279347174E7"/>
+        <BoundingBox CRS="EPSG:4258" minx="-82.18214892807738" miny="-179.942807899" maxx="82.62225463693485" maxy="179.940289875"/>
+        <BoundingBox CRS="EPSG:25832" minx="-8.169360834950559E7" miny="-2.4159607049128973E8" maxx="2.753012936787821E8" maxy="2.3320950428976738E8"/>
+        <BoundingBox CRS="EPSG:32632" minx="-8.169360842495827E7" miny="-2.4159607092163345E8" maxx="2.7530129367198867E8" maxy="2.332095047419591E8"/>
+        <BoundingBox CRS="EPSG:900913" minx="-2.0031141747228526E7" miny="-1.711516459890829E7" maxx="2.0030861442079037E7" maxy="1.7485809279347174E7"/>
+        <Dimension name="time" default="2026-09-21T09:21:34.353Z" units="ISO8601">2022-04-27T09:28:49.730Z/2026-09-21T09:21:34.353Z/P1D</Dimension>
+        <Attribution>
+          <Title>EnMAP data © DLR. All rights reserved.</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.enmap.org"/>
+        </Attribution>
+        <MetadataURL type="19139">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:type="simple" xlink:href="https://geoservice.dlr.de/catalogue/srv/api/records/97f6e84c-5db2-4121-b257-d3318cedc059/formatters/xml"/>
+        </MetadataURL>
+        <Style>
+          <Name>enmap-l0-ql-haze</Name>
+          <Title>enmap-l0-ql-haze</Title>
+          <LegendURL width="55" height="43">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_QUALITY_HAZE"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>raster</Name>
+          <Title>Default style</Title>
+          <Abstract>A sample style for rasters</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_QUALITY_HAZE&amp;style=raster"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>ENMAP_HSI_L0_QL_QUALITY_SNOW</Name>
+        <Title>EnMAP HSI L0 QL Snow</Title>
+        <Abstract>EnMAP HSI L0 Quicklook Quality Snow</Abstract>
+        <KeywordList>
+          <Keyword>{global_keywords}</Keyword>
+          <Keyword>Quality</Keyword>
+          <Keyword>Snow</Keyword>
+        </KeywordList>
+        <CRS>EPSG:4326</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-179.942807899</westBoundLongitude>
+          <eastBoundLongitude>179.940289875</eastBoundLongitude>
+          <southBoundLatitude>-82.182148927</southBoundLatitude>
+          <northBoundLatitude>82.622254636</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="-179.942807899" miny="-82.182148927" maxx="179.940289875" maxy="82.622254636"/>
+        <BoundingBox CRS="EPSG:4326" minx="-82.182148927" miny="-179.942807899" maxx="82.622254636" maxy="179.940289875"/>
+        <BoundingBox CRS="EPSG:3035" minx="-9067217.328215329" miny="-6236244.670203198" maxx="1.4827182117505832E7" maxy="1.5529004608695172E7"/>
+        <BoundingBox CRS="EPSG:3857" minx="-2.0031141747228526E7" miny="-1.711516459890829E7" maxx="2.0030861442079037E7" maxy="1.7485809279347174E7"/>
+        <BoundingBox CRS="EPSG:4258" minx="-82.18214892807738" miny="-179.942807899" maxx="82.62225463693485" maxy="179.940289875"/>
+        <BoundingBox CRS="EPSG:25832" minx="-8.169360834950559E7" miny="-2.4159607049128973E8" maxx="2.753012936787821E8" maxy="2.3320950428976738E8"/>
+        <BoundingBox CRS="EPSG:32632" minx="-8.169360842495827E7" miny="-2.4159607092163345E8" maxx="2.7530129367198867E8" maxy="2.332095047419591E8"/>
+        <BoundingBox CRS="EPSG:900913" minx="-2.0031141747228526E7" miny="-1.711516459890829E7" maxx="2.0030861442079037E7" maxy="1.7485809279347174E7"/>
+        <Dimension name="time" default="2026-09-21T09:21:34.353Z" units="ISO8601">2022-04-27T09:28:49.730Z/2026-09-21T09:21:34.353Z/P1D</Dimension>
+        <Attribution>
+          <Title>EnMAP data © DLR. All rights reserved.</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.enmap.org"/>
+        </Attribution>
+        <MetadataURL type="19139">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:type="simple" xlink:href="https://geoservice.dlr.de/catalogue/srv/api/records/97f6e84c-5db2-4121-b257-d3318cedc059/formatters/xml"/>
+        </MetadataURL>
+        <Style>
+          <Name>enmap-l0-ql-snow</Name>
+          <Title>enmap-l0-ql-snow</Title>
+          <LegendURL width="55" height="43">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_QUALITY_SNOW"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>raster</Name>
+          <Title>Default style</Title>
+          <Abstract>A sample style for rasters</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_QUALITY_SNOW&amp;style=raster"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>ENMAP_HSI_L0_QL_SWIR</Name>
+        <Title>EnMAP HSI L0 QL SWIR</Title>
+        <Abstract>False color short-wavelength infrared (SWIR) quicklook radiometrically corrected for optimal displaying. Wavelength: 1050nm (blue), 1650nm (green), 2200nm (red)</Abstract>
+        <KeywordList>
+          <Keyword>{global_keywords}</Keyword>
+          <Keyword>SWIR</Keyword>
+        </KeywordList>
+        <CRS>EPSG:4326</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-179.942807899</westBoundLongitude>
+          <eastBoundLongitude>179.940289875</eastBoundLongitude>
+          <southBoundLatitude>-82.182148927</southBoundLatitude>
+          <northBoundLatitude>82.622254636</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="-179.942807899" miny="-82.182148927" maxx="179.940289875" maxy="82.622254636"/>
+        <BoundingBox CRS="EPSG:4326" minx="-82.182148927" miny="-179.942807899" maxx="82.622254636" maxy="179.940289875"/>
+        <BoundingBox CRS="EPSG:3035" minx="-9067217.328215329" miny="-6236244.670203198" maxx="1.4827182117505832E7" maxy="1.5529004608695172E7"/>
+        <BoundingBox CRS="EPSG:3857" minx="-2.0031141747228526E7" miny="-1.711516459890829E7" maxx="2.0030861442079037E7" maxy="1.7485809279347174E7"/>
+        <BoundingBox CRS="EPSG:4258" minx="-82.18214892807738" miny="-179.942807899" maxx="82.62225463693485" maxy="179.940289875"/>
+        <BoundingBox CRS="EPSG:25832" minx="-8.169360834950559E7" miny="-2.4159607049128973E8" maxx="2.753012936787821E8" maxy="2.3320950428976738E8"/>
+        <BoundingBox CRS="EPSG:32632" minx="-8.169360842495827E7" miny="-2.4159607092163345E8" maxx="2.7530129367198867E8" maxy="2.332095047419591E8"/>
+        <BoundingBox CRS="EPSG:900913" minx="-2.0031141747228526E7" miny="-1.711516459890829E7" maxx="2.0030861442079037E7" maxy="1.7485809279347174E7"/>
+        <Dimension name="time" default="2026-09-21T09:21:34.353Z" units="ISO8601">2022-04-27T09:28:49.730Z/2026-09-21T09:21:34.353Z/P1D</Dimension>
+        <Attribution>
+          <Title>EnMAP data © DLR. All rights reserved.</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.enmap.org"/>
+        </Attribution>
+        <MetadataURL type="19139">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:type="simple" xlink:href="https://geoservice.dlr.de/catalogue/srv/api/records/97f6e84c-5db2-4121-b257-d3318cedc059/formatters/xml"/>
+        </MetadataURL>
+        <Style>
+          <Name>enmap-l0-ql-swir</Name>
+          <Title>enmap-l0-ql-swir</Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_SWIR"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>enmap-l0-ql-hybrid</Name>
+          <Title>enmap-l0-ql-hybrid</Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_SWIR&amp;style=enmap-l0-ql-hybrid"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>ENMAP_HSI_L0_QL_VNIR</Name>
+        <Title>EnMAP HSI L0 QL VNIR</Title>
+        <Abstract>Visible and near-infrared (VNIR) quicklook radiometrically corrected for optimal displaying. Wavelength: 550 nm (blue), 670 nm (green), 850 nm (red)</Abstract>
+        <KeywordList>
+          <Keyword>{global_keywords}</Keyword>
+          <Keyword>VNIR</Keyword>
+        </KeywordList>
+        <CRS>EPSG:4326</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-179.942807899</westBoundLongitude>
+          <eastBoundLongitude>179.940289875</eastBoundLongitude>
+          <southBoundLatitude>-82.182148927</southBoundLatitude>
+          <northBoundLatitude>82.622254636</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="-179.942807899" miny="-82.182148927" maxx="179.940289875" maxy="82.622254636"/>
+        <BoundingBox CRS="EPSG:4326" minx="-82.182148927" miny="-179.942807899" maxx="82.622254636" maxy="179.940289875"/>
+        <BoundingBox CRS="EPSG:3035" minx="-9067217.328215329" miny="-6236244.670203198" maxx="1.4827182117505832E7" maxy="1.5529004608695172E7"/>
+        <BoundingBox CRS="EPSG:3857" minx="-2.0031141747228526E7" miny="-1.711516459890829E7" maxx="2.0030861442079037E7" maxy="1.7485809279347174E7"/>
+        <BoundingBox CRS="EPSG:4258" minx="-82.18214892807738" miny="-179.942807899" maxx="82.62225463693485" maxy="179.940289875"/>
+        <BoundingBox CRS="EPSG:25832" minx="-8.169360834950559E7" miny="-2.4159607049128973E8" maxx="2.753012936787821E8" maxy="2.3320950428976738E8"/>
+        <BoundingBox CRS="EPSG:32632" minx="-8.169360842495827E7" miny="-2.4159607092163345E8" maxx="2.7530129367198867E8" maxy="2.332095047419591E8"/>
+        <BoundingBox CRS="EPSG:900913" minx="-2.0031141747228526E7" miny="-1.711516459890829E7" maxx="2.0030861442079037E7" maxy="1.7485809279347174E7"/>
+        <Dimension name="time" default="2026-09-21T09:21:34.353Z" units="ISO8601">2022-04-27T09:28:49.730Z/2026-09-21T09:21:34.353Z/P1D</Dimension>
+        <Attribution>
+          <Title>EnMAP data © DLR. All rights reserved.</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.enmap.org"/>
+        </Attribution>
+        <MetadataURL type="19139">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:type="simple" xlink:href="https://geoservice.dlr.de/catalogue/srv/api/records/97f6e84c-5db2-4121-b257-d3318cedc059/formatters/xml"/>
+        </MetadataURL>
+        <Style>
+          <Name>enmap-l0-ql-vnir</Name>
+          <Title>enmap-l0-ql-vnir</Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_VNIR"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>enmap-l0-ql-hybrid</Name>
+          <Title>enmap-l0-ql-hybrid</Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=ENMAP_HSI_L0_QL_VNIR&amp;style=enmap-l0-ql-hybrid"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>MODIS_EU_DAILY</Name>
+        <Title>MODIS EU Daily</Title>
+        <Abstract>MODIS (or Moderate Resolution Imaging Spectroradiometer) is a key instrument aboard the Terra (EOS AM) and Aqua (EOS PM) satellites. Terra's orbit around the Earth is timed so that it passes from north to south across the equator in the morning, while Aqua passes south to north over the equator in the afternoon. Terra MODIS and Aqua MODIS are viewing the entire Earth's surface every 1 to 2 days, acquiring data in 36 spectral bands, or groups of wavelengths (see MODIS Technical Specifications). These data will improve our understanding of global dynamics and processes occurring on the land, in the oceans, and in the lower atmosphere. MODIS is playing a vital role in the development of validated, global, interactive Earth system models able to predict global change accurately enough to assist policy makers in making sound decisions concerning the protection of our environment (from http://modis.gsfc.nasa.gov/).</Abstract>
+        <KeywordList>
+          <Keyword>DLR</Keyword>
+          <Keyword><![CDATA[ EOC]]></Keyword>
+          <Keyword><![CDATA[ MODIS]]></Keyword>
+          <Keyword><![CDATA[ MODIS-EU]]></Keyword>
+          <Keyword><![CDATA[ Aqua]]></Keyword>
+          <Keyword><![CDATA[ Terra]]></Keyword>
+          <Keyword><![CDATA[ Daily]]></Keyword>
+          <Keyword><![CDATA[ Mosaic]]></Keyword>
+          <Keyword><![CDATA[ Orthoimagery]]></Keyword>
+        </KeywordList>
+        <CRS>EPSG:3035</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-51.8441783601187</westBoundLongitude>
+          <eastBoundLongitude>76.37136493629211</eastBoundLongitude>
+          <southBoundLatitude>27.729951211304723</southBoundLatitude>
+          <northBoundLatitude>77.15122366197546</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="-51.8441783601187" miny="27.729951211304723" maxx="76.37136493629211" maxy="77.15122366197546"/>
+        <BoundingBox CRS="EPSG:3035" minx="1000000.0" miny="2000000.0" maxx="6000000.0" maxy="7000000.0"/>
+        <BoundingBox CRS="EPSG:3857" minx="-5771267.5356440665" miny="3214969.281072471" maxx="8501621.455895307" maxy="1.3929356436246894E7"/>
+        <BoundingBox CRS="EPSG:4258" minx="27.72995118873667" miny="-51.8441783601187" maxx="77.1512236589551" maxy="76.37136493629211"/>
+        <BoundingBox CRS="EPSG:4326" minx="27.729951211304723" miny="-51.8441783601187" maxx="77.15122366197546" maxy="76.37136493629211"/>
+        <BoundingBox CRS="EPSG:25832" minx="-1820491.4797510277" miny="3404987.01968301" maxx="3363311.0547797815" maxy="8818324.851007821"/>
+        <BoundingBox CRS="EPSG:32632" minx="-1820491.477598044" miny="3404987.022580758" maxx="3363311.0530786584" maxy="8818324.852110473"/>
+        <BoundingBox CRS="EPSG:900913" minx="-5771267.5356440665" miny="3214969.281072471" maxx="8501621.455895307" maxy="1.3929356436246894E7"/>
+        <Dimension name="time" default="2026-09-21T00:00:00Z" units="ISO8601" nearestValue="1">2015-03-30T00:00:00.000Z/2026-09-21T00:00:00.000Z/P1D</Dimension>
+        <Attribution>
+          <Title>DLR/EOC</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.dlr.de/eoc/"/>
+        </Attribution>
+        <Style>
+          <Name>raster</Name>
+          <Title>Default style</Title>
+          <Abstract>A sample style for rasters</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=MODIS_EU_DAILY"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>MODIS_EU_DAILY_FOOTPRINTS</Name>
+        <Title>MODIS EU Daily Footprints</Title>
+        <Abstract>Footprints of MODIS Tiles for EU Imagemosaic.</Abstract>
+        <KeywordList>
+          <Keyword>DLR</Keyword>
+          <Keyword>EOC</Keyword>
+          <Keyword>MODIS</Keyword>
+          <Keyword>MODIS-EU</Keyword>
+          <Keyword>Aqua</Keyword>
+          <Keyword>Terra</Keyword>
+          <Keyword>Daily</Keyword>
+          <Keyword>Mosaic</Keyword>
+          <Keyword>Orthoimagery</Keyword>
+          <Keyword>Footprints</Keyword>
+          <Keyword>Tiles</Keyword>
+          <Keyword>MODIS EU Daily Footprints</Keyword>
+        </KeywordList>
+        <CRS>EPSG:4326</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-999.0</westBoundLongitude>
+          <eastBoundLongitude>159.278076171875</eastBoundLongitude>
+          <southBoundLatitude>-999.0</southBoundLatitude>
+          <northBoundLatitude>80.19927215576172</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="-999.0" miny="-999.0" maxx="159.278076171875" maxy="80.19927215576172"/>
+        <BoundingBox CRS="EPSG:4326" minx="-999.0" miny="-999.0" maxx="80.19927215576172" maxy="159.278076171875"/>
+        <BoundingBox CRS="EPSG:3035" minx="-9129599.31546032" miny="-4602932.418656122" maxx="1.415887474648947E7" maxy="1.301666126552368E7"/>
+        <BoundingBox CRS="EPSG:3857" minx="-1.112081713024803E8" miny="-1.997186888040857E7" maxx="1.7730754333985366E7" maxy="1.5667734122882063E7"/>
+        <BoundingBox CRS="EPSG:4258" minx="-90.0" miny="-180.0" maxx="81.00000000153234" maxy="159.278076171875"/>
+        <BoundingBox CRS="EPSG:25832" minx="-2.6986857397377604E8" miny="-1.0808261614973526E8" maxx="1.1150166955594924E8" maxy="3.769340801755804E8"/>
+        <BoundingBox CRS="EPSG:32632" minx="-1.0846549884425892E8" miny="-1.880663356755831E8" maxx="1.1150166956086652E8" maxy="1.121671703151426E7"/>
+        <BoundingBox CRS="EPSG:900913" minx="-1.112081713024803E8" miny="-1.997186888040857E7" maxx="1.7730754333985366E7" maxy="1.5667734122882063E7"/>
+        <Dimension name="time" default="2026-09-21T00:00:00Z" units="ISO8601">2015-03-30T00:00:00.000Z/2026-09-21T00:00:00.000Z/P1D</Dimension>
+        <Attribution>
+          <Title>DLR/EOC published under CC BY-NC 4.0</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.dlr.de/eoc/"/>
+        </Attribution>
+        <Style>
+          <Name>polygon</Name>
+          <Title>Default Polygon</Title>
+          <Abstract>A sample style that draws a polygon</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=MODIS_EU_DAILY_FOOTPRINTS"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>MODIS_EU_NRT</Name>
+        <Title>MODIS EU NRT</Title>
+        <Abstract>MODIS (or Moderate Resolution Imaging Spectroradiometer) is a key instrument aboard the Terra (EOS AM) and Aqua (EOS PM) satellites. Terra's orbit around the Earth is timed so that it passes from north to south across the equator in the morning, while Aqua passes south to north over the equator in the afternoon. Terra MODIS and Aqua MODIS are viewing the entire Earth's surface every 1 to 2 days, acquiring data in 36 spectral bands, or groups of wavelengths (see MODIS Technical Specifications). These data will improve our understanding of global dynamics and processes occurring on the land, in the oceans, and in the lower atmosphere. MODIS is playing a vital role in the development of validated, global, interactive Earth system models able to predict global change accurately enough to assist policy makers in making sound decisions concerning the protection of our environment (from http://modis.gsfc.nasa.gov/).</Abstract>
+        <KeywordList>
+          <Keyword>DLR</Keyword>
+          <Keyword><![CDATA[ EOC]]></Keyword>
+          <Keyword><![CDATA[ MODIS]]></Keyword>
+          <Keyword><![CDATA[ MODIS-EU]]></Keyword>
+          <Keyword><![CDATA[ Aqua]]></Keyword>
+          <Keyword><![CDATA[ Terra]]></Keyword>
+          <Keyword><![CDATA[ Daily]]></Keyword>
+          <Keyword><![CDATA[ Mosaic]]></Keyword>
+          <Keyword><![CDATA[ Orthoimagery]]></Keyword>
+        </KeywordList>
+        <CRS>EPSG:3035</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-51.8441783601187</westBoundLongitude>
+          <eastBoundLongitude>76.37136493629211</eastBoundLongitude>
+          <southBoundLatitude>27.729951211304723</southBoundLatitude>
+          <northBoundLatitude>77.15122366197546</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="-51.8441783601187" miny="27.729951211304723" maxx="76.37136493629211" maxy="77.15122366197546"/>
+        <BoundingBox CRS="EPSG:3035" minx="1000000.0" miny="2000000.0" maxx="6000000.0" maxy="7000000.0"/>
+        <BoundingBox CRS="EPSG:3857" minx="-5771267.5356440665" miny="3214969.281072471" maxx="8501621.455895307" maxy="1.3929356436246894E7"/>
+        <BoundingBox CRS="EPSG:4258" minx="27.72995118873667" miny="-51.8441783601187" maxx="77.1512236589551" maxy="76.37136493629211"/>
+        <BoundingBox CRS="EPSG:4326" minx="27.729951211304723" miny="-51.8441783601187" maxx="77.15122366197546" maxy="76.37136493629211"/>
+        <BoundingBox CRS="EPSG:25832" minx="-1820491.4797510277" miny="3404987.01968301" maxx="3363311.0547797815" maxy="8818324.851007821"/>
+        <BoundingBox CRS="EPSG:32632" minx="-1820491.477598044" miny="3404987.022580758" maxx="3363311.0530786584" maxy="8818324.852110473"/>
+        <BoundingBox CRS="EPSG:900913" minx="-5771267.5356440665" miny="3214969.281072471" maxx="8501621.455895307" maxy="1.3929356436246894E7"/>
+        <Attribution>
+          <Title>DLR/EOC</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.dlr.de/eoc/"/>
+        </Attribution>
+        <Style>
+          <Name>raster</Name>
+          <Title>Default style</Title>
+          <Abstract>A sample style for rasters</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=MODIS_EU_NRT"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>MODIS_EU_NRT_FOOTPRINTS</Name>
+        <Title>MODIS EU NRT Footprints</Title>
+        <Abstract>Footprints of MODIS Tiles for EU Imagemosaic.</Abstract>
+        <KeywordList>
+          <Keyword>DLR</Keyword>
+          <Keyword>EOC</Keyword>
+          <Keyword>MODIS</Keyword>
+          <Keyword>MODIS-EU</Keyword>
+          <Keyword>Aqua</Keyword>
+          <Keyword>Terra</Keyword>
+          <Keyword>Daily</Keyword>
+          <Keyword>Mosaic</Keyword>
+          <Keyword>Orthoimagery</Keyword>
+          <Keyword>Footprints</Keyword>
+          <Keyword>Tiles</Keyword>
+          <Keyword>MODIS EU NRT Footprints</Keyword>
+        </KeywordList>
+        <CRS>EPSG:4326</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-44.15545654296875</westBoundLongitude>
+          <eastBoundLongitude>55.3795051574707</eastBoundLongitude>
+          <southBoundLatitude>25.04574966430664</southBoundLatitude>
+          <northBoundLatitude>76.593017578125</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="-44.15545654296875" miny="25.04574966430664" maxx="55.3795051574707" maxy="76.593017578125"/>
+        <BoundingBox CRS="EPSG:4326" minx="25.04574966430664" miny="-44.15545654296875" maxx="76.593017578125" maxy="55.3795051574707"/>
+        <BoundingBox CRS="EPSG:3035" minx="256892.29953278555" miny="-821548.8973470209" maxx="6475957.251165969" maxy="8750124.79711568"/>
+        <BoundingBox CRS="EPSG:3857" minx="-4915362.938107802" miny="2881364.9867856684" maxx="6164818.314513106" maxy="1.3655725414991336E7"/>
+        <BoundingBox CRS="EPSG:4258" minx="25.04574968387651" miny="-44.15545654296876" maxx="76.5930175824099" maxy="55.37950515747071"/>
+        <BoundingBox CRS="EPSG:25832" minx="-5370802.399030815" miny="2774296.018228215" maxx="5516135.93127913" maxy="9089937.325549828"/>
+        <BoundingBox CRS="EPSG:32632" minx="-5370802.400549718" miny="2774296.0161417974" maxx="5516135.932422167" maxy="9089937.325349241"/>
+        <BoundingBox CRS="EPSG:900913" minx="-4915362.938107802" miny="2881364.9867856684" maxx="6164818.314513106" maxy="1.3655725414991336E7"/>
+        <Dimension name="time" default="2026-09-22T00:00:00Z" units="ISO8601">2026-09-22T00:00:00.000Z/2026-09-22T00:00:00.000Z/P1D</Dimension>
+        <Attribution>
+          <Title>DLR/EOC published under CC BY-NC 4.0</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.dlr.de/eoc/"/>
+        </Attribution>
+        <Style>
+          <Name>polygon</Name>
+          <Title>Default Polygon</Title>
+          <Abstract>A sample style that draws a polygon</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=MODIS_EU_NRT_FOOTPRINTS"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>Modis-Deutschlandmosaik_RGB_ETRS89_32N</Name>
+        <Title>Modis Germany Mosaic ETRS89</Title>
+        <Abstract>MODIS (or Moderate Resolution Imaging Spectroradiometer) is a key instrument aboard the Terra (EOS AM) and Aqua (EOS PM) satellites. Terra&amp;apos;s orbit around the Earth is timed so that it passes from north to south across the equator in the morning, while Aqua passes south to north over the equator in the afternoon. Terra MODIS and Aqua MODIS are viewing the entire Earth&amp;apos;s surface every 1 to 2 days, acquiring data in 36 spectral bands, or groups of wavelengths (see MODIS Technical Specifications). These data will improve our understanding of global dynamics and processes occurring on the land, in the oceans, and in the lower atmosphere. MODIS is playing a vital role in the development of validated, global, interactive Earth system models able to predict global change accurately enough to assist policy makers in making sound decisions concerning the protection of our environment (from http://modis.gsfc.nasa.gov/).&#13;
+&#13;
+On January 16, 2001 the antenna was installed on the roof of the DLR German Remote Sensing Data Center building in Oberpfaffenhofen and put into operation for MODIS reception (see http://www.dlr.de/eoc/en/desktopdefault.aspx/tabid-7251/12237_read-29022/ for more details).</Abstract>
+        <KeywordList>
+          <Keyword>Modis-Deutschlandmosaik_RGB_ETRS89_32N</Keyword>
+          <Keyword>WCS</Keyword>
+          <Keyword>GeoTIFF</Keyword>
+        </KeywordList>
+        <CRS>EPSG:25832</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-5.084798758801483</westBoundLongitude>
+          <eastBoundLongitude>26.10587338733419</eastBoundLongitude>
+          <southBoundLatitude>42.59310125740457</southBoundLatitude>
+          <northBoundLatitude>59.97976998789027</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="-5.084798758801483" miny="42.59310125740457" maxx="26.10587338733419" maxy="59.97976998789027"/>
+        <BoundingBox CRS="EPSG:25832" minx="-299999.98216466745" miny="4785255.588143576" maxx="1479999.4563798138" maxy="6650254.99987698"/>
+        <BoundingBox CRS="EPSG:3035" minx="2230219.6479841527" miny="3439902.147388917" maxx="4105066.1723356093" maxy="5243132.393521197"/>
+        <BoundingBox CRS="EPSG:3857" minx="-566037.2086160505" miny="5250241.3764688205" maxx="2906092.532191714" maxy="8395235.282976272"/>
+        <BoundingBox CRS="EPSG:4258" minx="42.59310125768858" miny="-5.084798758801483" maxx="59.97976998789027" maxy="26.10587338733419"/>
+        <BoundingBox CRS="EPSG:4326" minx="42.5931012981695" miny="-5.084798758801483" maxx="59.97977001437106" maxy="26.10587338733419"/>
+        <BoundingBox CRS="EPSG:32632" minx="-299999.9637883995" miny="4785255.559487328" maxx="1479999.3313354533" maxy="6650255.002948343"/>
+        <BoundingBox CRS="EPSG:900913" minx="-566037.2086160505" miny="5250241.3764688205" maxx="2906092.532191714" maxy="8395235.282976272"/>
+        <MetadataURL type="ISO19115:2003">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/catalogue/srv/eng/csw?service=CSW&amp;version=2.0.2&amp;outputschema=http://www.isotc211.org/2005/gmd&amp;request=GetRecordById&amp;elementsetname=full&amp;id=53da0644-f6ef-4720-a824-ebcde9467234"/>
+        </MetadataURL>
+        <Style>
+          <Name>raster</Name>
+          <Title>Default style</Title>
+          <Abstract>A sample style for rasters</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=Modis-Deutschlandmosaik_RGB_ETRS89_32N"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>RESA_L3M_GERMANY_2015</Name>
+        <Title>RapidEye RESA - L3M Mosaic - Germany, 2015</Title>
+        <Abstract>The RapidEye Germany Mosaic is composed of 374,240 km² of RapidEye imagery acquired from April 2015 through October 2015. The nearly cloud-free view of the country provides an overview of geography, natural resources, and infrastructure.</Abstract>
+        <KeywordList>
+          <Keyword>RESA_L3M_GERMANY_2015</Keyword>
+          <Keyword>GeoTIFF</Keyword>
+          <Keyword>Germany</Keyword>
+          <Keyword>Mosaic</Keyword>
+          <Keyword>2015</Keyword>
+          <Keyword>RESA</Keyword>
+          <Keyword>RapidEye</Keyword>
+        </KeywordList>
+        <CRS>EPSG:25832</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>5.04335428374512</westBoundLongitude>
+          <eastBoundLongitude>16.188945044221686</eastBoundLongitude>
+          <southBoundLatitude>46.841422600805735</southBoundLatitude>
+          <northBoundLatitude>55.50057486008368</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="5.04335428374512" miny="46.841422600805735" maxx="16.188945044221686" maxy="55.50057486008368"/>
+        <BoundingBox CRS="EPSG:25832" minx="249760.91084962216" miny="5204939.999876617" maxx="956070.9108490283" maxy="6151114.999875822"/>
+        <BoundingBox CRS="EPSG:3035" minx="2649205.388078378" miny="3994448.1068322705" maxx="3603833.0599594344" maxy="4713776.550516441"/>
+        <BoundingBox CRS="EPSG:3857" minx="561423.6307565818" miny="5916228.514148181" maxx="1802145.1188030476" maxy="7460677.00752745"/>
+        <BoundingBox CRS="EPSG:4258" minx="46.8414226008073" miny="5.04335428374512" maxx="55.50590207296193" maxy="16.188945044221683"/>
+        <BoundingBox CRS="EPSG:4326" minx="46.84142264149822" miny="5.043354283745121" maxx="55.50590210620641" maxy="16.188945044221683"/>
+        <BoundingBox CRS="EPSG:32632" minx="249760.91103831588" miny="5204940.004057131" maxx="956070.9103647398" maxy="6151115.003700591"/>
+        <BoundingBox CRS="EPSG:900913" minx="561423.6307565818" miny="5916228.514148181" maxx="1802145.1188030476" maxy="7460677.00752745"/>
+        <MetadataURL type="ISO19115:2003">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:type="simple" xlink:href="https://geoservice.dlr.de/catalogue/srv/eng/csw?service=CSW&amp;version=2.0.2&amp;outputschema=http://www.isotc211.org/2005/gmd&amp;request=GetRecordById&amp;elementsetname=full&amp;id=5740f178-e802-47d8-a28c-08edd33a7a5d"/>
+        </MetadataURL>
+        <Style>
+          <Name>raster</Name>
+          <Title>Default style</Title>
+          <Abstract>A sample style for rasters</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=RESA_L3M_GERMANY_2015"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>S2_L2A_MAJA_CLM</Name>
+        <Title>Sentinel-2 L2A CLM (MAJA)</Title>
+        <Abstract>Sentinel-2 L2A MAJA (MACCS-ATCOR Joint Algorithm) cloud mask computed by MACCS software</Abstract>
+        <KeywordList>
+          <Keyword>DLR</Keyword>
+          <Keyword>EOC</Keyword>
+          <Keyword>Sentinel</Keyword>
+          <Keyword>S2</Keyword>
+          <Keyword>Copernicus</Keyword>
+          <Keyword>MAJA</Keyword>
+          <Keyword>L2A</Keyword>
+          <Keyword>Cloud Mask</Keyword>
+        </KeywordList>
+        <CRS>EPSG:4326</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>5.763545147601</westBoundLongitude>
+          <eastBoundLongitude>15.152753273727</eastBoundLongitude>
+          <southBoundLatitude>46.793670688196</southBoundLatitude>
+          <northBoundLatitude>55.945635321533</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="5.763545147601" miny="46.793670688196" maxx="15.152753273727" maxy="55.945635321533"/>
+        <BoundingBox CRS="EPSG:4326" minx="46.793670688196" miny="5.763545147601" maxx="55.945635321533" maxy="15.152753273727"/>
+        <BoundingBox CRS="EPSG:3035" minx="2631244.6781658754" miny="3997452.9101741733" maxx="3660599.920803509" maxy="4714409.515318532"/>
+        <BoundingBox CRS="EPSG:3857" minx="641594.9109949861" miny="5908460.6659432575" maxx="1686796.7785473987" maxy="7547600.789581146"/>
+        <BoundingBox CRS="EPSG:4258" minx="46.7936707307823" miny="5.763545147601" maxx="55.94563535592244" maxy="15.152753273727"/>
+        <BoundingBox CRS="EPSG:25832" minx="253009.13229829888" miny="5182241.430409335" maxx="969507.5281170765" maxy="6217137.838290029"/>
+        <BoundingBox CRS="EPSG:32632" minx="253009.13210542596" miny="5182241.425798249" maxx="969507.5284846782" maxy="6217137.834594839"/>
+        <BoundingBox CRS="EPSG:900913" minx="641594.9109949861" miny="5908460.6659432575" maxx="1686796.7785473987" maxy="7547600.789581146"/>
+        <Dimension name="time" default="2025-02-03T10:01:29.024Z" units="ISO8601">2021-01-01T10:23:29.024Z/2025-02-03T10:01:29.024Z/PT1S</Dimension>
+        <Attribution>
+          <Title>DLR/EOC</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.dlr.de/eoc/"/>
+        </Attribution>
+        <MetadataURL type="19139">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:type="simple" xlink:href="https://geoservice.dlr.de/catalogue/srv/api/records/97f6e84c-5db2-4121-b257-d3318cedc059/formatters/xml"/>
+        </MetadataURL>
+        <Style>
+          <Name>s2-l2a-maja-clm</Name>
+          <Title>Sentinel-2 Maja CLM</Title>
+          <Abstract><![CDATA[CLM: Cloud mask computed by MACCS software, made of 1 band coded over 8 useful bits:
+    1th = cloud_mask_all, result of a âlogical ORâ for all the cloud and shadow maks
+    2th = cloud_mask_all_cloud, result of a âlogical ORâ for all the cloud masks
+    3th = cloud_mask_refl, cloud mask identified by areflectance threshold
+    4th = cloud_mask_refl_var, cloud mask identified by a threshold on reflectance variance
+    5th = cloud_mask_extension, cloud mask identified by the extension of cloud masks
+    6th = cloud_mask_shadow, shadow maskof clouds inside the image
+    7th = cloud_mask_sahdvar, shadow mask of clouds outside the image
+    8th = cloud_mask_cirrus, cloud mask identified with the cirrus spectral band 
+            ]]></Abstract>
+          <LegendURL width="144" height="95">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_CLM"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>S2_L2A_MAJA_CLM_V2</Name>
+        <Title>Sentinel-2 L2A CLM V2 (MAJA)</Title>
+        <Abstract>Sentinel-2 L2A MAJA (MACCS-ATCOR Joint Algorithm) cloud mask computed by MACCS software</Abstract>
+        <KeywordList>
+          <Keyword>DLR</Keyword>
+          <Keyword>EOC</Keyword>
+          <Keyword>Sentinel</Keyword>
+          <Keyword>S2</Keyword>
+          <Keyword>Copernicus</Keyword>
+          <Keyword>MAJA</Keyword>
+          <Keyword>L2A</Keyword>
+          <Keyword>Cloud Mask</Keyword>
+        </KeywordList>
+        <CRS>EPSG:32632</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>5.763545036316</westBoundLongitude>
+          <eastBoundLongitude>15.152752876282</eastBoundLongitude>
+          <southBoundLatitude>46.793670654297</southBoundLatitude>
+          <northBoundLatitude>55.945636749268</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="5.763545036316" miny="46.793670654297" maxx="15.152752876282" maxy="55.945636749268"/>
+        <BoundingBox CRS="EPSG:32632" minx="253009.12345799812" miny="5182241.422052727" maxx="969507.498459665" maxy="6217137.990940676"/>
+        <BoundingBox CRS="EPSG:3035" minx="2626449.5468453527" miny="3997382.609932135" maxx="3669767.138248826" maxy="4728208.311280589"/>
+        <BoundingBox CRS="EPSG:3857" minx="560486.1998651422" miny="5881726.900128752" maxx="1837981.9420398306" maxy="7578206.674522842"/>
+        <BoundingBox CRS="EPSG:4258" minx="46.629003821182906" miny="5.03493319876926" maxx="56.09928874766449" maxy="16.5108727047006"/>
+        <BoundingBox CRS="EPSG:4326" minx="46.629003778554406" miny="5.034933198769261" maxx="56.09928871349385" maxy="16.510872704700603"/>
+        <BoundingBox CRS="EPSG:25832" minx="253009.12364755297" miny="5182241.4261336485" maxx="969507.4979163737" maxy="6217137.994620727"/>
+        <BoundingBox CRS="EPSG:900913" minx="560486.1998651422" miny="5881726.900128752" maxx="1837981.9420398306" maxy="7578206.674522842"/>
+        <Dimension name="time" default="2026-06-09T10:27:06.47Z" units="ISO8601">2024-12-15T10:07:47.119Z/2026-06-09T10:27:06.470Z/PT1S</Dimension>
+        <Attribution>
+          <Title>DLR/EOC</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.dlr.de/eoc/"/>
+        </Attribution>
+        <MetadataURL type="19139">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:type="simple" xlink:href="https://geoservice.dlr.de/catalogue/srv/eng/catalog.search"/>
+        </MetadataURL>
+        <Style>
+          <Name>s2-l2a-maja-clm</Name>
+          <Title>Sentinel-2 Maja CLM</Title>
+          <Abstract><![CDATA[CLM: Cloud mask computed by MACCS software, made of 1 band coded over 8 useful bits:
+    1th = cloud_mask_all, result of a âlogical ORâ for all the cloud and shadow maks
+    2th = cloud_mask_all_cloud, result of a âlogical ORâ for all the cloud masks
+    3th = cloud_mask_refl, cloud mask identified by areflectance threshold
+    4th = cloud_mask_refl_var, cloud mask identified by a threshold on reflectance variance
+    5th = cloud_mask_extension, cloud mask identified by the extension of cloud masks
+    6th = cloud_mask_shadow, shadow maskof clouds inside the image
+    7th = cloud_mask_sahdvar, shadow mask of clouds outside the image
+    8th = cloud_mask_cirrus, cloud mask identified with the cirrus spectral band 
+            ]]></Abstract>
+          <LegendURL width="144" height="95">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_CLM_V2"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>S2_L2A_MAJA_FRE</Name>
+        <Title>Sentinel-2 L2A FRE (MAJA)</Title>
+        <Abstract>Sentinel-2 L2A MAJA (MACCS-ATCOR Joint Algorithm) ground reflectance with the correction of slope effects (FRE) in 10m resolution based on the MAJA processor (https://doi.org/10.5281/zenodo.1209633)</Abstract>
+        <KeywordList>
+          <Keyword>DLR</Keyword>
+          <Keyword>EOC</Keyword>
+          <Keyword>Sentinel</Keyword>
+          <Keyword>S2</Keyword>
+          <Keyword>Copernicus</Keyword>
+          <Keyword>MAJA</Keyword>
+          <Keyword>L2A</Keyword>
+          <Keyword>Terrain Corrected (FRE)</Keyword>
+        </KeywordList>
+        <CRS>EPSG:4326</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>5.763545147601</westBoundLongitude>
+          <eastBoundLongitude>15.152753273727</eastBoundLongitude>
+          <southBoundLatitude>46.793670688196</southBoundLatitude>
+          <northBoundLatitude>55.945635321533</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="5.763545147601" miny="46.793670688196" maxx="15.152753273727" maxy="55.945635321533"/>
+        <BoundingBox CRS="EPSG:4326" minx="46.793670688196" miny="5.763545147601" maxx="55.945635321533" maxy="15.152753273727"/>
+        <BoundingBox CRS="EPSG:3035" minx="2631244.6781658754" miny="3997452.9101741733" maxx="3660599.920803509" maxy="4714409.515318532"/>
+        <BoundingBox CRS="EPSG:3857" minx="641594.9109949861" miny="5908460.6659432575" maxx="1686796.7785473987" maxy="7547600.789581146"/>
+        <BoundingBox CRS="EPSG:4258" minx="46.7936707307823" miny="5.763545147601" maxx="55.94563535592244" maxy="15.152753273727"/>
+        <BoundingBox CRS="EPSG:25832" minx="253009.13229829888" miny="5182241.430409335" maxx="969507.5281170765" maxy="6217137.838290029"/>
+        <BoundingBox CRS="EPSG:32632" minx="253009.13210542596" miny="5182241.425798249" maxx="969507.5284846782" maxy="6217137.834594839"/>
+        <BoundingBox CRS="EPSG:900913" minx="641594.9109949861" miny="5908460.6659432575" maxx="1686796.7785473987" maxy="7547600.789581146"/>
+        <Dimension name="time" default="2025-02-03T10:01:29.024Z" units="ISO8601">2021-01-01T10:23:29.024Z/2025-02-03T10:01:29.024Z/PT1S</Dimension>
+        <Attribution>
+          <Title>DLR/EOC</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.dlr.de/eoc/"/>
+        </Attribution>
+        <MetadataURL type="19139">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:type="simple" xlink:href="https://geoservice.dlr.de/catalogue/srv/api/records/97f6e84c-5db2-4121-b257-d3318cedc059/formatters/xml"/>
+        </MetadataURL>
+        <Style>
+          <Name>s2-swir</Name>
+          <Title>S2 Short-Wave Infrared</Title>
+          <Abstract>Sentinel-2 Short-Wave Infrared (12,8,4)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-land-water</Name>
+          <Title>S2 Land/Water</Title>
+          <Abstract>Sentinel-2 Land/Water (8,11,4)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE&amp;style=s2-land-water"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-natural</Name>
+          <Title>S2 Natural Colors</Title>
+          <Abstract>Sentinel-2 Natural Colors (4,3,2)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE&amp;style=s2-natural"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-vegetation-analysis</Name>
+          <Title>S2 vegetation analysis</Title>
+          <Abstract>Sentinel-2 Vegetation Analysis (11,8,4)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE&amp;style=s2-vegetation-analysis"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-urban</Name>
+          <Title>S2 False Color Urban</Title>
+          <Abstract>Sentinel-2 False Color Urban (12,11,4)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE&amp;style=s2-urban"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-ndvi</Name>
+          <Title>s2-ndvi</Title>
+          <LegendURL width="22" height="181">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE&amp;style=s2-ndvi"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-atmos-penetration</Name>
+          <Title>S2 Atmospheric Penetration</Title>
+          <Abstract>Sentinel-2 Atmospheric Penetration (12,11,8a)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE&amp;style=s2-atmos-penetration"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-infrared</Name>
+          <Title>S2 False Color Infrared</Title>
+          <Abstract>Sentinel-2 False Color Infrared (8,4,3)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE&amp;style=s2-infrared"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-healthy-vegetation</Name>
+          <Title>S2 Healthy Vegetation</Title>
+          <Abstract>Sentinel-2 Healthy Vegetation (8,11,2)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE&amp;style=s2-healthy-vegetation"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-agriculture</Name>
+          <Title>S2 Agriculture</Title>
+          <Abstract>Sentinel-2 Agriculture (11,8,2)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE&amp;style=s2-agriculture"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-natural-atmos-removal</Name>
+          <Title>S2 Natural Colors with Atmospheric Removal</Title>
+          <Abstract>Sentinel-2 Natural Colors with Atmospheric Removal (12,8,3)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE&amp;style=s2-natural-atmos-removal"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>S2_L2A_MAJA_FRE_V2</Name>
+        <Title>Sentinel-2 L2A FRE V2 (MAJA)</Title>
+        <Abstract>Sentinel-2 L2A MAJA (MACCS-ATCOR Joint Algorithm) ground reflectance Terrain Corrected and corrected for atmospheric effects, including adjacency effets (FRE) in 10m resolution based on the MAJA processor (https://doi.org/10.5281/zenodo.1209633)</Abstract>
+        <KeywordList>
+          <Keyword>DLR</Keyword>
+          <Keyword>EOC</Keyword>
+          <Keyword>Sentinel</Keyword>
+          <Keyword>S2</Keyword>
+          <Keyword>Copernicus</Keyword>
+          <Keyword>MAJA</Keyword>
+          <Keyword>L2A</Keyword>
+          <Keyword>Terrain Corrected and corrected for atmospheric effects</Keyword>
+          <Keyword>including adjacency effets (FRE)</Keyword>
+        </KeywordList>
+        <CRS>EPSG:32632</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>5.763545036316</westBoundLongitude>
+          <eastBoundLongitude>15.152752876282</eastBoundLongitude>
+          <southBoundLatitude>46.793670654297</southBoundLatitude>
+          <northBoundLatitude>55.945636749268</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="5.763545036316" miny="46.793670654297" maxx="15.152752876282" maxy="55.945636749268"/>
+        <BoundingBox CRS="EPSG:32632" minx="253009.12345799812" miny="5182241.422052727" maxx="969507.498459665" maxy="6217137.990940676"/>
+        <BoundingBox CRS="EPSG:3035" minx="2626449.5468453527" miny="3997382.609932135" maxx="3669767.138248826" maxy="4728208.311280589"/>
+        <BoundingBox CRS="EPSG:3857" minx="560486.1998651422" miny="5881726.900128752" maxx="1837981.9420398306" maxy="7578206.674522842"/>
+        <BoundingBox CRS="EPSG:4258" minx="46.629003821182906" miny="5.03493319876926" maxx="56.09928874766449" maxy="16.5108727047006"/>
+        <BoundingBox CRS="EPSG:4326" minx="46.629003778554406" miny="5.034933198769261" maxx="56.09928871349385" maxy="16.510872704700603"/>
+        <BoundingBox CRS="EPSG:25832" minx="253009.12364755297" miny="5182241.4261336485" maxx="969507.4979163737" maxy="6217137.994620727"/>
+        <BoundingBox CRS="EPSG:900913" minx="560486.1998651422" miny="5881726.900128752" maxx="1837981.9420398306" maxy="7578206.674522842"/>
+        <Dimension name="time" default="2026-06-09T10:27:06.47Z" units="ISO8601">2024-12-15T10:07:47.119Z/2026-06-09T10:27:06.470Z/PT1S</Dimension>
+        <Attribution>
+          <Title>DLR/EOC</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.dlr.de/eoc/"/>
+        </Attribution>
+        <MetadataURL type="19139">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:type="simple" xlink:href="https://geoservice.dlr.de/catalogue/srv/eng/catalog.search"/>
+        </MetadataURL>
+        <Style>
+          <Name>s2-l2a-maja-fre</Name>
+          <Title>Sentinel-2 L2A Maja True Color Image (FRE)</Title>
+          <Abstract><![CDATA[
+                ]]></Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE_V2"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-swir</Name>
+          <Title>S2 Short-Wave Infrared</Title>
+          <Abstract>Sentinel-2 Short-Wave Infrared (12,8,4)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE_V2&amp;style=s2-swir"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-land-water</Name>
+          <Title>S2 Land/Water</Title>
+          <Abstract>Sentinel-2 Land/Water (8,11,4)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE_V2&amp;style=s2-land-water"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-natural</Name>
+          <Title>S2 Natural Colors</Title>
+          <Abstract>Sentinel-2 Natural Colors (4,3,2)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE_V2&amp;style=s2-natural"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-vegetation-analysis</Name>
+          <Title>S2 vegetation analysis</Title>
+          <Abstract>Sentinel-2 Vegetation Analysis (11,8,4)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE_V2&amp;style=s2-vegetation-analysis"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-urban</Name>
+          <Title>S2 False Color Urban</Title>
+          <Abstract>Sentinel-2 False Color Urban (12,11,4)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE_V2&amp;style=s2-urban"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-ndvi</Name>
+          <Title>s2-ndvi</Title>
+          <LegendURL width="22" height="181">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE_V2&amp;style=s2-ndvi"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-atmos-penetration</Name>
+          <Title>S2 Atmospheric Penetration</Title>
+          <Abstract>Sentinel-2 Atmospheric Penetration (12,11,8a)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE_V2&amp;style=s2-atmos-penetration"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-infrared</Name>
+          <Title>S2 False Color Infrared</Title>
+          <Abstract>Sentinel-2 False Color Infrared (8,4,3)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE_V2&amp;style=s2-infrared"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-healthy-vegetation</Name>
+          <Title>S2 Healthy Vegetation</Title>
+          <Abstract>Sentinel-2 Healthy Vegetation (8,11,2)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE_V2&amp;style=s2-healthy-vegetation"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-agriculture</Name>
+          <Title>S2 Agriculture</Title>
+          <Abstract>Sentinel-2 Agriculture (11,8,2)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE_V2&amp;style=s2-agriculture"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-natural-atmos-removal</Name>
+          <Title>S2 Natural Colors with Atmospheric Removal</Title>
+          <Abstract>Sentinel-2 Natural Colors with Atmospheric Removal (12,8,3)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_FRE_V2&amp;style=s2-natural-atmos-removal"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>S2_L2A_MAJA_MG2</Name>
+        <Title>Sentinel-2 L2A MG2 (MAJA)</Title>
+        <Abstract>Sentinel-2 L2A MAJA (MACCS-ATCOR Joint Algorithm) geophysical mask made of 1 band coded over 8 useful bits</Abstract>
+        <KeywordList>
+          <Keyword>DLR</Keyword>
+          <Keyword>EOC</Keyword>
+          <Keyword>Sentinel</Keyword>
+          <Keyword>S2</Keyword>
+          <Keyword>Copernicus</Keyword>
+          <Keyword>MAJA</Keyword>
+          <Keyword>L2A</Keyword>
+          <Keyword>Geophysical Mask</Keyword>
+        </KeywordList>
+        <CRS>EPSG:4326</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>5.763545147601</westBoundLongitude>
+          <eastBoundLongitude>15.152753273727</eastBoundLongitude>
+          <southBoundLatitude>46.793670688196</southBoundLatitude>
+          <northBoundLatitude>55.945635321533</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="5.763545147601" miny="46.793670688196" maxx="15.152753273727" maxy="55.945635321533"/>
+        <BoundingBox CRS="EPSG:4326" minx="46.793670688196" miny="5.763545147601" maxx="55.945635321533" maxy="15.152753273727"/>
+        <BoundingBox CRS="EPSG:3035" minx="2631244.6781658754" miny="3997452.9101741733" maxx="3660599.920803509" maxy="4714409.515318532"/>
+        <BoundingBox CRS="EPSG:3857" minx="641594.9109949861" miny="5908460.6659432575" maxx="1686796.7785473987" maxy="7547600.789581146"/>
+        <BoundingBox CRS="EPSG:4258" minx="46.7936707307823" miny="5.763545147601" maxx="55.94563535592244" maxy="15.152753273727"/>
+        <BoundingBox CRS="EPSG:25832" minx="253009.13229829888" miny="5182241.430409335" maxx="969507.5281170765" maxy="6217137.838290029"/>
+        <BoundingBox CRS="EPSG:32632" minx="253009.13210542596" miny="5182241.425798249" maxx="969507.5284846782" maxy="6217137.834594839"/>
+        <BoundingBox CRS="EPSG:900913" minx="641594.9109949861" miny="5908460.6659432575" maxx="1686796.7785473987" maxy="7547600.789581146"/>
+        <Dimension name="time" default="2025-02-03T10:01:29.024Z" units="ISO8601">2021-01-01T10:23:29.024Z/2025-02-03T10:01:29.024Z/PT1S</Dimension>
+        <Attribution>
+          <Title>DLR/EOC</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.dlr.de/eoc/"/>
+        </Attribution>
+        <MetadataURL type="19139">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:type="simple" xlink:href="https://geoservice.dlr.de/catalogue/srv/api/records/97f6e84c-5db2-4121-b257-d3318cedc059/formatters/xml"/>
+        </MetadataURL>
+        <Style>
+          <Name>s2-l2a-maja-mg2</Name>
+          <Title>Sentinel-2 L2A Maja MG2</Title>
+          <Abstract><![CDATA[MG2: geophysical mask of level 2, made of 1 band coded over 8 useful bits: 
+1stbit (WTR): water mask
+2ndbit (CM2) : cloud_mask_all_cloud, result of a âlogical ORâ for all the cloud masks
+3rdbit (SNW): snow mask
+4thbit (logical OR between CM7 and CM8): shadow masks of clouds
+5thbit (SHD): topographical shadows mask
+6thbit (HID): hidden areas mask
+7thbit (STL): sun too low mask
+8thbit (TGS): tangent sun mask
+            ]]></Abstract>
+          <LegendURL width="160" height="208">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_MG2"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>S2_L2A_MAJA_MG2_V2</Name>
+        <Title>Sentinel-2 L2A MG2 V2 (MAJA)</Title>
+        <Abstract>Sentinel-2 L2A MAJA (MACCS-ATCOR Joint Algorithm) geophysical mask made of 1 band coded over 8 useful bits</Abstract>
+        <KeywordList>
+          <Keyword>DLR</Keyword>
+          <Keyword>EOC</Keyword>
+          <Keyword>Sentinel</Keyword>
+          <Keyword>S2</Keyword>
+          <Keyword>Copernicus</Keyword>
+          <Keyword>MAJA</Keyword>
+          <Keyword>L2A</Keyword>
+          <Keyword>Geophysical Mask</Keyword>
+        </KeywordList>
+        <CRS>EPSG:32632</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>5.763545036316</westBoundLongitude>
+          <eastBoundLongitude>15.152752876282</eastBoundLongitude>
+          <southBoundLatitude>46.793670654297</southBoundLatitude>
+          <northBoundLatitude>55.945636749268</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="5.763545036316" miny="46.793670654297" maxx="15.152752876282" maxy="55.945636749268"/>
+        <BoundingBox CRS="EPSG:32632" minx="253009.12345799812" miny="5182241.422052727" maxx="969507.498459665" maxy="6217137.990940676"/>
+        <BoundingBox CRS="EPSG:3035" minx="2626449.5468453527" miny="3997382.609932135" maxx="3669767.138248826" maxy="4728208.311280589"/>
+        <BoundingBox CRS="EPSG:3857" minx="560486.1998651422" miny="5881726.900128752" maxx="1837981.9420398306" maxy="7578206.674522842"/>
+        <BoundingBox CRS="EPSG:4258" minx="46.629003821182906" miny="5.03493319876926" maxx="56.09928874766449" maxy="16.5108727047006"/>
+        <BoundingBox CRS="EPSG:4326" minx="46.629003778554406" miny="5.034933198769261" maxx="56.09928871349385" maxy="16.510872704700603"/>
+        <BoundingBox CRS="EPSG:25832" minx="253009.12364755297" miny="5182241.4261336485" maxx="969507.4979163737" maxy="6217137.994620727"/>
+        <BoundingBox CRS="EPSG:900913" minx="560486.1998651422" miny="5881726.900128752" maxx="1837981.9420398306" maxy="7578206.674522842"/>
+        <Dimension name="time" default="2026-06-09T10:27:06.47Z" units="ISO8601">2024-12-15T10:07:47.119Z/2026-06-09T10:27:06.470Z/PT1S</Dimension>
+        <Attribution>
+          <Title>DLR/EOC</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.dlr.de/eoc/"/>
+        </Attribution>
+        <MetadataURL type="19139">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:type="simple" xlink:href="https://geoservice.dlr.de/catalogue/srv/eng/catalog.search"/>
+        </MetadataURL>
+        <Style>
+          <Name>s2-l2a-maja-mg2</Name>
+          <Title>Sentinel-2 L2A Maja MG2</Title>
+          <Abstract><![CDATA[MG2: geophysical mask of level 2, made of 1 band coded over 8 useful bits: 
+1stbit (WTR): water mask
+2ndbit (CM2) : cloud_mask_all_cloud, result of a âlogical ORâ for all the cloud masks
+3rdbit (SNW): snow mask
+4thbit (logical OR between CM7 and CM8): shadow masks of clouds
+5thbit (SHD): topographical shadows mask
+6thbit (HID): hidden areas mask
+7thbit (STL): sun too low mask
+8thbit (TGS): tangent sun mask
+            ]]></Abstract>
+          <LegendURL width="160" height="208">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_MG2_V2"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>S2_L2A_MAJA_SRE_V2</Name>
+        <Title>Sentinel-2 L2A SRE V2 (MAJA)</Title>
+        <Abstract>Sentinel-2 L2A MAJA (MACCS-ATCOR Joint Algorithm) ground reflectance corrected for atmospheric effects, including adjacency effets (FRE) in 10m resolution based on the MAJA processor (https://doi.org/10.5281/zenodo.1209633)</Abstract>
+        <KeywordList>
+          <Keyword>DLR</Keyword>
+          <Keyword>EOC</Keyword>
+          <Keyword>Sentinel</Keyword>
+          <Keyword>S2</Keyword>
+          <Keyword>Copernicus</Keyword>
+          <Keyword>MAJA</Keyword>
+          <Keyword>L2A</Keyword>
+          <Keyword>corrected for atmospheric effects</Keyword>
+          <Keyword>including adjacency effets (SRE)</Keyword>
+        </KeywordList>
+        <CRS>EPSG:32632</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>5.763545036316</westBoundLongitude>
+          <eastBoundLongitude>15.152752876282</eastBoundLongitude>
+          <southBoundLatitude>46.793670654297</southBoundLatitude>
+          <northBoundLatitude>55.945636749268</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="5.763545036316" miny="46.793670654297" maxx="15.152752876282" maxy="55.945636749268"/>
+        <BoundingBox CRS="EPSG:32632" minx="5.763545036316" miny="46.793670654297" maxx="15.152752876282" maxy="55.945636749268"/>
+        <BoundingBox CRS="EPSG:3035" minx="-2340186.6961517544" miny="3642477.721869843" maxx="-2340177.8468493135" maxy="3642488.3441461334"/>
+        <BoundingBox CRS="EPSG:3857" minx="502196.48161993705" miny="46.98236116645746" maxx="502205.84558672213" maxy="56.1712381108645"/>
+        <BoundingBox CRS="EPSG:4258" minx="4.220497312066359E-4" miny="4.511307750702378" maxx="5.045948172439365E-4" maxy="4.511391868647207"/>
+        <BoundingBox CRS="EPSG:4326" minx="4.2204973119271675E-4" miny="4.511307750702378" maxx="5.045948172272949E-4" maxy="4.511391868647208"/>
+        <BoundingBox CRS="EPSG:25832" minx="5.76365683041513" miny="46.79367065387063" maxx="15.152864658623002" maxy="55.945636748758325"/>
+        <BoundingBox CRS="EPSG:900913" minx="502196.48161993705" miny="46.98236116645746" maxx="502205.84558672213" maxy="56.1712381108645"/>
+        <Dimension name="time" default="2026-06-09T10:27:06.47Z" units="ISO8601">2024-12-15T10:07:47.119Z/2026-06-09T10:27:06.470Z/PT1S</Dimension>
+        <Attribution>
+          <Title>DLR/EOC</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.dlr.de/eoc/"/>
+        </Attribution>
+        <MetadataURL type="19139">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:type="simple" xlink:href="https://geoservice.dlr.de/catalogue/srv/eng/catalog.search"/>
+        </MetadataURL>
+        <Style>
+          <Name>s2-l2a-maja-sre</Name>
+          <Title>Sentinel-2 L2A Maja True Color Image (SRE)</Title>
+          <Abstract><![CDATA[
+                ]]></Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_SRE_V2"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-swir</Name>
+          <Title>S2 Short-Wave Infrared</Title>
+          <Abstract>Sentinel-2 Short-Wave Infrared (12,8,4)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_SRE_V2&amp;style=s2-swir"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-land-water</Name>
+          <Title>S2 Land/Water</Title>
+          <Abstract>Sentinel-2 Land/Water (8,11,4)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_SRE_V2&amp;style=s2-land-water"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-natural</Name>
+          <Title>S2 Natural Colors</Title>
+          <Abstract>Sentinel-2 Natural Colors (4,3,2)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_SRE_V2&amp;style=s2-natural"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-vegetation-analysis</Name>
+          <Title>S2 vegetation analysis</Title>
+          <Abstract>Sentinel-2 Vegetation Analysis (11,8,4)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_SRE_V2&amp;style=s2-vegetation-analysis"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-urban</Name>
+          <Title>S2 False Color Urban</Title>
+          <Abstract>Sentinel-2 False Color Urban (12,11,4)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_SRE_V2&amp;style=s2-urban"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-ndvi</Name>
+          <Title>s2-ndvi</Title>
+          <LegendURL width="22" height="181">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_SRE_V2&amp;style=s2-ndvi"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-atmos-penetration</Name>
+          <Title>S2 Atmospheric Penetration</Title>
+          <Abstract>Sentinel-2 Atmospheric Penetration (12,11,8a)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_SRE_V2&amp;style=s2-atmos-penetration"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-infrared</Name>
+          <Title>S2 False Color Infrared</Title>
+          <Abstract>Sentinel-2 False Color Infrared (8,4,3)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_SRE_V2&amp;style=s2-infrared"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-healthy-vegetation</Name>
+          <Title>S2 Healthy Vegetation</Title>
+          <Abstract>Sentinel-2 Healthy Vegetation (8,11,2)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_SRE_V2&amp;style=s2-healthy-vegetation"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-agriculture</Name>
+          <Title>S2 Agriculture</Title>
+          <Abstract>Sentinel-2 Agriculture (11,8,2)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_SRE_V2&amp;style=s2-agriculture"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-natural-atmos-removal</Name>
+          <Title>S2 Natural Colors with Atmospheric Removal</Title>
+          <Abstract>Sentinel-2 Natural Colors with Atmospheric Removal (12,8,3)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L2A_MAJA_SRE_V2&amp;style=s2-natural-atmos-removal"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>S2_L3A_WASP_DTS_P1M</Name>
+        <Title>Sentinel-2 L3A DTS (WASP)</Title>
+        <Abstract>Sentinel-2 L3A WASP (Weighted Average Synthesis Processor) DTS weighted average of the dates used for the weighted average, coded as Int16, expressed in days since January 1st, 2018</Abstract>
+        <KeywordList>
+          <Keyword>DLR</Keyword>
+          <Keyword>EOC</Keyword>
+          <Keyword>Sentinel</Keyword>
+          <Keyword>S2</Keyword>
+          <Keyword>Copernicus</Keyword>
+          <Keyword>MAJA</Keyword>
+          <Keyword>WASP</Keyword>
+          <Keyword>L3A</Keyword>
+          <Keyword>Cloud Free</Keyword>
+          <Keyword>Surface Reflectances</Keyword>
+          <Keyword>Avergage Weighted Dates</Keyword>
+        </KeywordList>
+        <CRS>EPSG:4326</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>5.763545147601</westBoundLongitude>
+          <eastBoundLongitude>15.152753273727</eastBoundLongitude>
+          <southBoundLatitude>46.793670688196</southBoundLatitude>
+          <northBoundLatitude>55.945635321533</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="5.763545147601" miny="46.793670688196" maxx="15.152753273727" maxy="55.945635321533"/>
+        <BoundingBox CRS="EPSG:4326" minx="46.793670688196" miny="5.763545147601" maxx="55.945635321533" maxy="15.152753273727"/>
+        <BoundingBox CRS="EPSG:3035" minx="2631244.6781658754" miny="3997452.9101741733" maxx="3660599.920803509" maxy="4714409.515318532"/>
+        <BoundingBox CRS="EPSG:3857" minx="641594.9109949861" miny="5908460.6659432575" maxx="1686796.7785473987" maxy="7547600.789581146"/>
+        <BoundingBox CRS="EPSG:4258" minx="46.7936707307823" miny="5.763545147601" maxx="55.94563535592244" maxy="15.152753273727"/>
+        <BoundingBox CRS="EPSG:25832" minx="253009.13229829888" miny="5182241.430409335" maxx="969507.5281170765" maxy="6217137.838290029"/>
+        <BoundingBox CRS="EPSG:32632" minx="253009.13210542596" miny="5182241.425798249" maxx="969507.5284846782" maxy="6217137.834594839"/>
+        <BoundingBox CRS="EPSG:900913" minx="641594.9109949861" miny="5908460.6659432575" maxx="1686796.7785473987" maxy="7547600.789581146"/>
+        <Dimension name="time" default="2025-01-06T10:47:46.549Z" units="ISO8601">2015-07-04T10:13:37.922Z/2025-01-06T10:47:46.549Z/PT1S</Dimension>
+        <Attribution>
+          <Title>DLR/EOC</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.dlr.de/eoc/"/>
+        </Attribution>
+        <Style>
+          <Name>s2-l3a-wasp-dts</Name>
+          <Title>s2-l3a-wasp-dts</Title>
+          <LegendURL width="165" height="65">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_DTS_P1M"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>S2_L3A_WASP_FLG_P1M</Name>
+        <Title>Sentinel-2 L3A FLG (WASP)</Title>
+        <Abstract>Sentinel-2 L3A WASP (Weighted Average Synthesis Processor) FLG classification mask coded as 8 bits integer with 5 useful values (0=NoData, 1=Cloud, 2=Snow, 3=Water, 4=Land)</Abstract>
+        <KeywordList>
+          <Keyword>DLR</Keyword>
+          <Keyword>EOC</Keyword>
+          <Keyword>Sentinel</Keyword>
+          <Keyword>S2</Keyword>
+          <Keyword>Copernicus</Keyword>
+          <Keyword>MAJA</Keyword>
+          <Keyword>WASP</Keyword>
+          <Keyword>L3A</Keyword>
+          <Keyword>Cloud Free</Keyword>
+          <Keyword>Surface Reflectances</Keyword>
+          <Keyword>Geophysical Mask</Keyword>
+        </KeywordList>
+        <CRS>EPSG:4326</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>5.763545147601</westBoundLongitude>
+          <eastBoundLongitude>15.152753273727</eastBoundLongitude>
+          <southBoundLatitude>46.793670688196</southBoundLatitude>
+          <northBoundLatitude>55.945635321533</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="5.763545147601" miny="46.793670688196" maxx="15.152753273727" maxy="55.945635321533"/>
+        <BoundingBox CRS="EPSG:4326" minx="46.793670688196" miny="5.763545147601" maxx="55.945635321533" maxy="15.152753273727"/>
+        <BoundingBox CRS="EPSG:3035" minx="2631244.6781658754" miny="3997452.9101741733" maxx="3660599.920803509" maxy="4714409.515318532"/>
+        <BoundingBox CRS="EPSG:3857" minx="641594.9109949861" miny="5908460.6659432575" maxx="1686796.7785473987" maxy="7547600.789581146"/>
+        <BoundingBox CRS="EPSG:4258" minx="46.7936707307823" miny="5.763545147601" maxx="55.94563535592244" maxy="15.152753273727"/>
+        <BoundingBox CRS="EPSG:25832" minx="253009.13229829888" miny="5182241.430409335" maxx="969507.5281170765" maxy="6217137.838290029"/>
+        <BoundingBox CRS="EPSG:32632" minx="253009.13210542596" miny="5182241.425798249" maxx="969507.5284846782" maxy="6217137.834594839"/>
+        <BoundingBox CRS="EPSG:900913" minx="641594.9109949861" miny="5908460.6659432575" maxx="1686796.7785473987" maxy="7547600.789581146"/>
+        <Dimension name="time" default="2025-01-06T10:47:46.549Z" units="ISO8601">2015-07-04T10:13:37.922Z/2025-01-06T10:47:46.549Z/PT1S</Dimension>
+        <Attribution>
+          <Title>DLR/EOC</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.dlr.de/eoc/"/>
+        </Attribution>
+        <Style>
+          <Name>s2-l3a-wasp-flg</Name>
+          <Title>Sentinel-2 L3A WASP FLG</Title>
+          <Abstract><![CDATA[FLG: classification mask coded as 8 bits integers with 5 useful values
+0 = No Data
+1 = Cloud
+2 = Snow
+3 = Water
+4 = Land
+            ]]></Abstract>
+          <LegendURL width="71" height="114">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FLG_P1M"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>S2_L3A_WASP_FRC_P1M</Name>
+        <Title>Sentinel-2 L3A FRC (WASP)</Title>
+        <Abstract>Sentinel-2 L3A WASP (Weighted Average Synthesis Processor) FRC monthly syntheses of cloud free surface reflectance in 10m resolution based on the WASP processor</Abstract>
+        <KeywordList>
+          <Keyword>DLR</Keyword>
+          <Keyword>EOC</Keyword>
+          <Keyword>Sentinel</Keyword>
+          <Keyword>S2</Keyword>
+          <Keyword>Copernicus</Keyword>
+          <Keyword>MAJA</Keyword>
+          <Keyword>WASP</Keyword>
+          <Keyword>L3A</Keyword>
+          <Keyword>Cloud Free</Keyword>
+          <Keyword>Surface Reflectances</Keyword>
+          <Keyword>Monthly</Keyword>
+        </KeywordList>
+        <CRS>EPSG:4326</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>5.763545147601</westBoundLongitude>
+          <eastBoundLongitude>15.152753273727</eastBoundLongitude>
+          <southBoundLatitude>46.793670688196</southBoundLatitude>
+          <northBoundLatitude>55.945635321533</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="5.763545147601" miny="46.793670688196" maxx="15.152753273727" maxy="55.945635321533"/>
+        <BoundingBox CRS="EPSG:4326" minx="46.793670688196" miny="5.763545147601" maxx="55.945635321533" maxy="15.152753273727"/>
+        <BoundingBox CRS="EPSG:3035" minx="2631244.6781658754" miny="3997452.9101741733" maxx="3660599.920803509" maxy="4714409.515318532"/>
+        <BoundingBox CRS="EPSG:3857" minx="641594.9109949861" miny="5908460.6659432575" maxx="1686796.7785473987" maxy="7547600.789581146"/>
+        <BoundingBox CRS="EPSG:4258" minx="46.7936707307823" miny="5.763545147601" maxx="55.94563535592244" maxy="15.152753273727"/>
+        <BoundingBox CRS="EPSG:25832" minx="253009.13229829888" miny="5182241.430409335" maxx="969507.5281170765" maxy="6217137.838290029"/>
+        <BoundingBox CRS="EPSG:32632" minx="253009.13210542596" miny="5182241.425798249" maxx="969507.5284846782" maxy="6217137.834594839"/>
+        <BoundingBox CRS="EPSG:900913" minx="641594.9109949861" miny="5908460.6659432575" maxx="1686796.7785473987" maxy="7547600.789581146"/>
+        <Dimension name="time" default="2025-01-06T10:47:46.549Z" units="ISO8601">2015-07-04T10:13:37.922Z/2025-01-06T10:47:46.549Z/PT1S</Dimension>
+        <Attribution>
+          <Title>DLR/EOC</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.dlr.de/eoc/"/>
+        </Attribution>
+        <Style>
+          <Name>s2-l3a-wasp-frc</Name>
+          <Title>Sentinel-2 L3A WASP True Color Image (FRC)</Title>
+          <Abstract><![CDATA[
+                ]]></Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-swir</Name>
+          <Title>S2 Short-Wave Infrared</Title>
+          <Abstract>Sentinel-2 Short-Wave Infrared (12,8,4)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M&amp;style=s2-swir"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-land-water</Name>
+          <Title>S2 Land/Water</Title>
+          <Abstract>Sentinel-2 Land/Water (8,11,4)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M&amp;style=s2-land-water"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-natural</Name>
+          <Title>S2 Natural Colors</Title>
+          <Abstract>Sentinel-2 Natural Colors (4,3,2)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M&amp;style=s2-natural"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-vegetation-analysis</Name>
+          <Title>S2 vegetation analysis</Title>
+          <Abstract>Sentinel-2 Vegetation Analysis (11,8,4)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M&amp;style=s2-vegetation-analysis"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-urban</Name>
+          <Title>S2 False Color Urban</Title>
+          <Abstract>Sentinel-2 False Color Urban (12,11,4)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M&amp;style=s2-urban"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-ndvi</Name>
+          <Title>s2-ndvi</Title>
+          <LegendURL width="22" height="181">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M&amp;style=s2-ndvi"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-atmos-penetration</Name>
+          <Title>S2 Atmospheric Penetration</Title>
+          <Abstract>Sentinel-2 Atmospheric Penetration (12,11,8a)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M&amp;style=s2-atmos-penetration"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-infrared</Name>
+          <Title>S2 False Color Infrared</Title>
+          <Abstract>Sentinel-2 False Color Infrared (8,4,3)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M&amp;style=s2-infrared"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-healthy-vegetation</Name>
+          <Title>S2 Healthy Vegetation</Title>
+          <Abstract>Sentinel-2 Healthy Vegetation (8,11,2)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M&amp;style=s2-healthy-vegetation"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-agriculture</Name>
+          <Title>S2 Agriculture</Title>
+          <Abstract>Sentinel-2 Agriculture (11,8,2)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M&amp;style=s2-agriculture"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-natural-atmos-removal</Name>
+          <Title>S2 Natural Colors with Atmospheric Removal</Title>
+          <Abstract>Sentinel-2 Natural Colors with Atmospheric Removal (12,8,3)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M&amp;style=s2-natural-atmos-removal"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="1">
+        <Name>S2_L3A_WASP_FRC_P1M_V2</Name>
+        <Title>Sentinel-2 L3A FRC (WASP) V2</Title>
+        <Abstract>Sentinel-2 L3A WASP (Weighted Average Synthesis Processor) FRC monthly syntheses of cloud free surface reflectance in 10m resolution based on the WASP processor</Abstract>
+        <KeywordList>
+          <Keyword>DLR</Keyword>
+          <Keyword>EOC</Keyword>
+          <Keyword>Sentinel</Keyword>
+          <Keyword>S2</Keyword>
+          <Keyword>Copernicus</Keyword>
+          <Keyword>WASP</Keyword>
+          <Keyword>L3A</Keyword>
+          <Keyword>Cloud Free</Keyword>
+          <Keyword>Surface Reflectances</Keyword>
+          <Keyword>Monthly</Keyword>
+        </KeywordList>
+        <CRS>EPSG:4326</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>6.327926635742</westBoundLongitude>
+          <eastBoundLongitude>13.135258674622</eastBoundLongitude>
+          <southBoundLatitude>46.793670654297</southBoundLatitude>
+          <northBoundLatitude>47.853702545166</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="6.327926635742" miny="46.793670654297" maxx="13.135258674622" maxy="47.853702545166"/>
+        <BoundingBox CRS="EPSG:4326" minx="46.793670654297" miny="6.327926635742" maxx="47.853702545166" maxy="13.135258674622"/>
+        <BoundingBox CRS="EPSG:3035" minx="2631173.7029254213" miny="4040512.583040069" maxx="2755726.0888584284" maxy="4560513.696656411"/>
+        <BoundingBox CRS="EPSG:3857" minx="704421.5708679921" miny="5908460.6604313245" maxx="1462210.3070968506" maxy="6082550.569643526"/>
+        <BoundingBox CRS="EPSG:4258" minx="46.79367069688329" miny="6.327926635741999" maxx="47.85370258738232" maxy="13.135258674622001"/>
+        <BoundingBox CRS="EPSG:25832" minx="296077.9094951504" miny="5182314.724024403" maxx="815576.6827227403" maxy="5308323.040685325"/>
+        <BoundingBox CRS="EPSG:32632" minx="296077.90933596075" miny="5182314.719413324" maxx="815576.6829693285" maxy="5308323.036116365"/>
+        <BoundingBox CRS="EPSG:900913" minx="704421.5708679921" miny="5908460.6604313245" maxx="1462210.3070968506" maxy="6082550.569643526"/>
+        <Dimension name="time" default="2026-02-15T00:00:00Z" units="ISO8601">2024-12-15T00:00:00.000Z/2026-02-15T00:00:00.000Z/PT1S</Dimension>
+        <Attribution>
+          <Title>DLR/EOC</Title>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://www.dlr.de/eoc/"/>
+        </Attribution>
+        <MetadataURL type="19139">
+          <Format>text/xml</Format>
+          <OnlineResource xlink:type="simple" xlink:href=" https://geoservice.dlr.de/catalogue/srv/eng/catalog.search"/>
+        </MetadataURL>
+        <Style>
+          <Name>s2-l3a-wasp-frc</Name>
+          <Title>Sentinel-2 L3A WASP True Color Image (FRC)</Title>
+          <Abstract><![CDATA[
+                ]]></Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M_V2"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-swir</Name>
+          <Title>S2 Short-Wave Infrared</Title>
+          <Abstract>Sentinel-2 Short-Wave Infrared (12,8,4)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M_V2&amp;style=s2-swir"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-land-water</Name>
+          <Title>S2 Land/Water</Title>
+          <Abstract>Sentinel-2 Land/Water (8,11,4)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M_V2&amp;style=s2-land-water"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-natural</Name>
+          <Title>S2 Natural Colors</Title>
+          <Abstract>Sentinel-2 Natural Colors (4,3,2)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M_V2&amp;style=s2-natural"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-vegetation-analysis</Name>
+          <Title>S2 vegetation analysis</Title>
+          <Abstract>Sentinel-2 Vegetation Analysis (11,8,4)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M_V2&amp;style=s2-vegetation-analysis"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-urban</Name>
+          <Title>S2 False Color Urban</Title>
+          <Abstract>Sentinel-2 False Color Urban (12,11,4)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M_V2&amp;style=s2-urban"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-ndvi</Name>
+          <Title>s2-ndvi</Title>
+          <LegendURL width="22" height="181">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M_V2&amp;style=s2-ndvi"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-atmos-penetration</Name>
+          <Title>S2 Atmospheric Penetration</Title>
+          <Abstract>Sentinel-2 Atmospheric Penetration (12,11,8a)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M_V2&amp;style=s2-atmos-penetration"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-infrared</Name>
+          <Title>S2 False Color Infrared</Title>
+          <Abstract>Sentinel-2 False Color Infrared (8,4,3)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M_V2&amp;style=s2-infrared"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-healthy-vegetation</Name>
+          <Title>S2 Healthy Vegetation</Title>
+          <Abstract>Sentinel-2 Healthy Vegetation (8,11,2)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M_V2&amp;style=s2-healthy-vegetation"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-agriculture</Name>
+          <Title>S2 Agriculture</Title>
+          <Abstract>Sentinel-2 Agriculture (11,8,2)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M_V2&amp;style=s2-agriculture"/>
+          </LegendURL>
+        </Style>
+        <Style>
+          <Name>s2-natural-atmos-removal</Name>
+          <Title>S2 Natural Colors with Atmospheric Removal</Title>
+          <Abstract>Sentinel-2 Natural Colors with Atmospheric Removal (12,8,3)</Abstract>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_L3A_WASP_FRC_P1M_V2&amp;style=s2-natural-atmos-removal"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1" opaque="0">
+        <Name>S2_TILE_GRID</Name>
+        <Title>S2 Tile Grid System</Title>
+        <Abstract/>
+        <KeywordList>
+          <Keyword>features</Keyword>
+        </KeywordList>
+        <CRS>EPSG:4326</CRS>
+        <CRS>CRS:84</CRS>
+        <EX_GeographicBoundingBox>
+          <westBoundLongitude>-180.0</westBoundLongitude>
+          <eastBoundLongitude>180.0</eastBoundLongitude>
+          <southBoundLatitude>-83.8359527587891</southBoundLatitude>
+          <northBoundLatitude>84.6442794799805</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="CRS:84" minx="-180.0" miny="-83.8359527587891" maxx="180.0" maxy="84.6442794799805"/>
+        <BoundingBox CRS="EPSG:4326" minx="-83.8359527587891" miny="-180.0" maxx="84.6442794799805" maxy="180.0"/>
+        <BoundingBox CRS="EPSG:3035" minx="-9024270.822161352" miny="-6207673.0998127125" maxx="1.4808870452450288E7" maxy="1.4558296471553689E7"/>
+        <BoundingBox CRS="EPSG:3857" minx="-2.0037508342789244E7" miny="-1.863484600485233E7" maxx="2.0037508342789244E7" maxy="1.9532919537499566E7"/>
+        <BoundingBox CRS="EPSG:4258" minx="-83.83595275939962" miny="-180.0" maxx="84.64427948042564" maxy="180.0"/>
+        <BoundingBox CRS="EPSG:25832" minx="-7.99561699516459E7" miny="-2.3293199919223678E8" maxx="2.746965762361023E8" maxy="2.17263129147358E8"/>
+        <BoundingBox CRS="EPSG:32632" minx="-7.99561700459434E7" miny="-2.329319996426767E8" maxx="2.746965762293261E8" maxy="2.172631296359464E8"/>
+        <BoundingBox CRS="EPSG:900913" minx="-2.0037508342789244E7" miny="-1.863484600485233E7" maxx="2.0037508342789244E7" maxy="1.9532919537499566E7"/>
+        <Style>
+          <Name>s2-tile-grid</Name>
+          <Title>S2 Tile Grid Style</Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&amp;version=1.3.0&amp;request=GetLegendGraphic&amp;format=image%2Fpng&amp;width=20&amp;height=20&amp;layer=S2_TILE_GRID"/>
+          </LegendURL>
+        </Style>
+      </Layer>
+    </Layer>
+  </Capability>
+</WMS_Capabilities>

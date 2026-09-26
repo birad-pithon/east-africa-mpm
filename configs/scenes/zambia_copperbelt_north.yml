@@ -1,0 +1,44 @@
+# Auto-generated from configs/analogue_targets.yaml (target: zambia_copperbelt_north)
+# Permissive window — imagery ingest only, never a label source.
+_meta:
+  source: configs/analogue_targets.yaml
+  target_id: zambia_copperbelt_north
+  group: copper_zinc
+  country: zambia
+  analogue: Nkana-Mufulira-Nchanga-Konkola (Zambian Copperbelt ore shale)
+  deposit_model: Sediment-hosted stratiform Cu-Co at the basement-Roan contact and
+    Lower Roan arenite/shale
+  confidence: high
+  enmap_probes_um:
+  - 2.2
+  - 2.33
+  - 0.86
+  dry_season: 2023-05-01 to 2023-09-30
+  guardrail: permissive scene-selection window; NOT a label source
+grid:
+  crs: EPSG:32735
+  resolution_m: 30
+  aoi_wgs84:
+    min_lon: 27.6
+    max_lon: 28.8
+    min_lat: -13.2
+    max_lat: -12.0
+  aoi_utm: null
+sources:
+  sentinel2:
+    collection: COPERNICUS/S2_SR_HARMONIZED
+    bands:
+    - B2
+    - B3
+    - B4
+    - B8
+    - B11
+    - B12
+    date_range:
+      start: '2023-05-01'
+      end: '2023-09-30'
+    cloud_cover_threshold: 0.2
+    scale_m: 30
+  srtm_dem:
+    collection: USGS/SRTMGL1_003
+    resolution_m: 30

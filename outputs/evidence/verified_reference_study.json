@@ -1,0 +1,167 @@
+{
+  "generated_utc": "2026-09-24T13:11:56.792434+00:00",
+  "source": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\data\\raw\\usgs_mrds\\mrds-trim.shp",
+  "evidence_rule": "MRDS DEV_STAT in {Producer, Past Producer}; target commodity code present",
+  "source_statuses": {
+    "verified": [
+      "Past Producer",
+      "Producer"
+    ],
+    "excluded": [
+      "Prospect",
+      "Occurrence",
+      "Unknown",
+      "Plant"
+    ]
+  },
+  "target_commodity_records": 70827,
+  "verified_reference_records": 36122,
+  "unique_reference_sites": 25484,
+  "target_relations": 220061,
+  "groups": {
+    "tin_tungsten_tantalum": {
+      "records": 5383,
+      "unique_sites": 4615,
+      "current_producers": 1412,
+      "past_producers": 3971
+    },
+    "copper_zinc": {
+      "records": 31078,
+      "unique_sites": 21713,
+      "current_producers": 4887,
+      "past_producers": 26191
+    },
+    "bauxite": {
+      "records": 1113,
+      "unique_sites": 921,
+      "current_producers": 341,
+      "past_producers": 772
+    }
+  },
+  "targets": {
+    "ethiopia_southwest_bench": {
+      "group": "bauxite",
+      "relations": 1113,
+      "inside_window": 0,
+      "within_100_km": 0
+    },
+    "kenya_coast_shimba_kwale": {
+      "group": "bauxite",
+      "relations": 1113,
+      "inside_window": 0,
+      "within_100_km": 0
+    },
+    "southern_highlands_mbeya": {
+      "group": "bauxite",
+      "relations": 1113,
+      "inside_window": 0,
+      "within_100_km": 0
+    },
+    "southsudan_equatoria_highlands": {
+      "group": "bauxite",
+      "relations": 1113,
+      "inside_window": 0,
+      "within_100_km": 0
+    },
+    "uganda_busoga_plateau": {
+      "group": "bauxite",
+      "relations": 1113,
+      "inside_window": 0,
+      "within_100_km": 0
+    },
+    "usambara_east_extension": {
+      "group": "bauxite",
+      "relations": 1113,
+      "inside_window": 0,
+      "within_100_km": 0
+    },
+    "arabian_nubian_ethiopia_west": {
+      "group": "copper_zinc",
+      "relations": 31078,
+      "inside_window": 0,
+      "within_100_km": 0
+    },
+    "kibaran_vms_rwanda_west": {
+      "group": "copper_zinc",
+      "relations": 31078,
+      "inside_window": 0,
+      "within_100_km": 0
+    },
+    "lufilian_kolwezi_kambove": {
+      "group": "copper_zinc",
+      "relations": 31078,
+      "inside_window": 18,
+      "within_100_km": 6
+    },
+    "lufilian_likasi_tenke": {
+      "group": "copper_zinc",
+      "relations": 31078,
+      "inside_window": 8,
+      "within_100_km": 15
+    },
+    "ubendian_kate_kipili": {
+      "group": "copper_zinc",
+      "relations": 31078,
+      "inside_window": 0,
+      "within_100_km": 0
+    },
+    "zambia_copperbelt_north": {
+      "group": "copper_zinc",
+      "relations": 31078,
+      "inside_window": 13,
+      "within_100_km": 7
+    },
+    "kab_burundi_north": {
+      "group": "tin_tungsten_tantalum",
+      "relations": 5383,
+      "inside_window": 0,
+      "within_100_km": 3
+    },
+    "kab_tanzania_karagwe": {
+      "group": "tin_tungsten_tantalum",
+      "relations": 5383,
+      "inside_window": 0,
+      "within_100_km": 3
+    },
+    "kab_uganda_southwest": {
+      "group": "tin_tungsten_tantalum",
+      "relations": 5383,
+      "inside_window": 1,
+      "within_100_km": 5
+    },
+    "kibaran_kigoma": {
+      "group": "tin_tungsten_tantalum",
+      "relations": 5383,
+      "inside_window": 0,
+      "within_100_km": 0
+    },
+    "kibaran_ubende_mpanda": {
+      "group": "tin_tungsten_tantalum",
+      "relations": 5383,
+      "inside_window": 0,
+      "within_100_km": 0
+    }
+  },
+  "training_guardrail": {
+    "label_eligible": false,
+    "written_to_training_labels": false,
+    "reason": "external reference deposits are evidence, not in-belt training positives"
+  },
+  "missing_scientific_fields": [
+    "country",
+    "host_rock",
+    "deposit_type",
+    "formation",
+    "age",
+    "alteration",
+    "ore_minerals",
+    "reserves_resources",
+    "grade",
+    "tonnage"
+  ],
+  "outputs": {
+    "points": "outputs\\evidence\\verified_mrds_references.gpkg",
+    "relations": "outputs\\evidence\\verified_mrds_target_relations.gpkg",
+    "report": "outputs\\evidence\\VERIFIED_REFERENCE_STUDY.md"
+  }
+}

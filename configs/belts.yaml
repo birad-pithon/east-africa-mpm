@@ -1,0 +1,69 @@
+# ═══════════════════════════════════════════════════════════════════════
+# Simplified metallogenic belt boundaries (WGS-84, [lon, lat] rings).
+#
+# These are HAND-DIGITISED approximations for label filtering only -
+# they are NOT mapped geological boundaries. Refine against national
+# survey maps (see configs/data_sources.yaml layer 1) before using them
+# for anything beyond coarse positive-label gating.
+# ═══════════════════════════════════════════════════════════════════════
+
+belts:
+
+  karagwe_ankole:
+    name: "Karagwe-Ankole Belt (KAB)"
+    commodities: [sn, w, ta]
+    description: >
+      Mesoproterozoic KIB: Sn-W-Ta pegmatite & quartz-vein fields across
+      Rwanda, Burundi, NW Tanzania, SW Uganda and eastern DRC.
+    countries: [rwanda, burundi, tanzania, uganda, drc]
+    polygon:
+      - [28.8, -4.5]
+      - [32.8, -4.5]
+      - [33.6, -2.0]
+      - [34.2, -0.8]
+      - [31.5, 0.2]
+      - [29.6, -0.5]
+      - [28.8, -2.0]
+
+  central_african_copperbelt:
+    name: "Central African Copperbelt (Lufilian Arc)"
+    commodities: [cu, zn]
+    description: >
+      Neoproterozoic Lufilian fold-thrust belt: sediment-hosted Cu-Co and
+      Cu-Zn-(Pb) from the Zambian Copperbelt through Kolwezi, Kipushi to
+      the Kamoa-Kakula external belt.
+    countries: [drc, zambia]
+    polygon:
+      - [21.5, -13.2]
+      - [26.5, -13.2]
+      - [28.5, -11.6]
+      - [30.8, -10.3]
+      - [29.8, -8.3]
+      - [27.2, -9.3]
+      - [24.5, -10.2]
+      - [22.0, -11.5]
+
+  usambara_bauxite:
+    name: "Usambara lateritic bauxite province"
+    commodities: [al]
+    description: >
+      Lateritic plateau systems of the West Usambara Mountains
+      (Lushoto / Magamba district), Tanga Region, Tanzania.
+    countries: [tanzania]
+    polygon:
+      - [38.0, -5.3]
+      - [38.9, -5.3]
+      - [38.9, -4.4]
+      - [38.0, -4.4]
+
+# Commodity groups -> belt membership + MRDS commodity codes
+groups:
+  tin_tungsten_tantalum:
+    belts: [karagwe_ankole]
+    mrds_codes: [SN, W, TA]
+  copper_zinc:
+    belts: [central_african_copperbelt]
+    mrds_codes: [CU, ZN]
+  bauxite:
+    belts: [usambara_bauxite]
+    mrds_codes: [AL]

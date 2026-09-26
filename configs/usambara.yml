@@ -1,0 +1,92 @@
+# ── Usambara Bauxite Belt (Tanzania) configuration ────────────────────
+# Covers the lateritic bauxite plateaus in the West Usambara Mountains
+
+# Common analysis grid
+grid:
+  crs: "EPSG:32737"        # UTM Zone 37S — covers Tanzania
+  resolution_m: 30          # 30 m to match SRTM / Landsat
+  # AOI bounding box in WGS 84 (lon, lat)
+  aoi_wgs84:
+    min_lon: 38.0
+    max_lon: 39.0
+    min_lat: -5.5
+    max_lat: -4.2
+  # Derived extent in target CRS (filled at runtime)
+  aoi_utm: null             # [min_x, min_y, max_x, max_y] in metres
+
+# ── Data sources ───────────────────────────────────────────────────────
+sources:
+  usgs_mrds:
+    name: "USGS Mineral Resources Data System (MRDS)"
+    shapefile_url: "https://mrdata.usgs.gov/mrds/mrds-trim.zip"
+    csv_url: "https://mrdata.usgs.gov/mrds/mrds-csv.zip"
+    wfs_url: "https://mrdata.usgs.gov/services/wfs/mrds"
+    commodities:
+      - "Bauxite"
+      - "Aluminum"
+    africa_bbox:
+      min_lon: 10.0
+      max_lon: 50.0
+      min_lat: -35.0
+      max_lat: 37.0
+
+  sentinel2:
+    collection: "COPERNICUS/S2_SR_HARMONIZED"
+    bands:
+      - B2   # Blue   (10 m)
+      - B3   # Green  (10 m)
+      - B4   # Red    (10 m)
+      - B8   # NIR    (10 m)
+      - B11   # SWIR1  (20 m)
+      - B12   # SWIR2  (20 m)
+    date_range:
+      start: "2023-06-01"
+      end: "2023-09-30"
+    cloud_cover_threshold: 0.20
+    scale_m: 30
+
+  srtm_dem:
+    collection: "USGS/SRTMGL1_003"
+    resolution_m: 30
+
+# ── Feature engineering ───────────────────────────────────────────────
+features:
+  # Explicit feature-raster allowlist (SAFEGUARD)
+  rasters_by_group:
+    bauxite:
+      - dem/srtm_usambara_aligned.tif
+      - sentinel2/sentinel2_usambara_aligned.tif
+      - features/terrain_features_usambara.tif
+      - features/geology_features_usambara.tif
+      - features/alteration_features_usambara.tif
+      - features/deposit_distance_bauxite.tif
+
+  bauxite:
+    spectral_indices:
+      - NDWI   # Normalized Difference Water Index
+      - MBI    # Mud-sand Bimodal Index (for laterite)
+      - BSI    # Brightness/Surface Index
+    slope_threshold_deg: 5
+    plateau_flatness: true
+
+# ── Model settings ─────────────────────────────────────────────────────
+model:
+  commodity_groups:
+    - bauxite
+  algorithm: "random_forest"
+  params:
+    n_estimators: 500
+    max_depth: 15
+    min_samples_leaf: 3
+    random_state: 42
+  compare_algorithms:
+    - random_forest
+    - xgboost
+    - lightgbm
+
+# ── Spatial cross-validation ───────────────────────────────────────────
+validation:
+  method: "spatial_block"
+  n_groups: 3
+  buffer_km: 5
+  min_train_area_pct: 60

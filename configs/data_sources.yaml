@@ -1,0 +1,686 @@
+# Master data-source registry for the East Africa MPM pipeline.
+#
+# Single source of truth describing every data layer consumed by the
+# pipeline: purpose, provider, access method, format, commodities, status.
+#
+# access:
+#   download         - automated pull (HTTP / Earth Engine / API)
+#   direct-request   - must be requested from the agency; no public bulk URL
+#   portal           - interactive portal / cadastre; manual export then
+#                      register via src.ingest.national_surveys.register_local_data
+#   manual           - from published papers or reports
+#   wms              - OGC web map service (rendered tiles for view / QA;
+#                      not radiometric values for feature mining)
+#
+# status:
+#   configured       - ingestion script implemented + endpoint verified
+#   pending-url      - script implemented, endpoint to configure
+#   request-required - no public bulk access - contact the provider
+#   pending          - planned
+
+grid:
+  crs: "EPSG:32736"        # UTM Zone 36S (Rwanda / Karagwe-Ankole Belt)
+  resolution_m: 30         # matches SRTM / Landsat / Sentinel-2
+
+sources:
+
+  # 1) Regional geological maps - lithology & structural base layer
+  usgs_worldgeol:
+    layer: "Regional geological maps"
+    purpose: "Lithology polygons + geological contacts (production base layer)"
+    provider: "USGS / Geological Survey of Canada - General geologic map of the world (Open File 2915d, ~1:35M)"
+    access: "download"
+    classification: "public"
+    format: "WFS 1.1.0 (GML) -> GeoPackage"
+    wfs_url: "https://mrdata.usgs.gov/services/wfs/worldgeol"
+    layers: [geology, contacts]
+    ingest: "src.ingest.worldgeol"
+    features: "src.features.geology_features"
+    commodities: [all]
+    status: "configured"
+
+  brgm_africa_geology:
+    layer: "Regional geological maps"
+    purpose: "Continental lithology & structure base layer"
+    provider: "BRGM / CGMW - Geological map of Africa at 1:10,000,000"
+    access: "download"
+    classification: "public"
+    format: "GIS package / shapefile-zip"
+    url: null
+    url_candidates:
+      - "https://geobru.brgm.fr"
+      - "https://www.sigafrique.net"
+    commodities: [all]
+    status: "pending-url"
+
+  rmb_geology:
+    layer: "Regional geological maps"
+    purpose: "National lithology & structure (high resolution)"
+    provider: "Rwanda Mines, Petroleum & Gas Board (RMB)"
+    access: "direct-request"
+    contact_url: "https://www.rmb.gov.rw"
+    format: "shapefile / geodatabase / GeoPackage"
+    commodities: [sn, w, ta]
+    status: "request-required"
+
+  gst_geology:
+    layer: "Regional geological maps"
+    purpose: "National lithology & structure"
+    provider: "Tanzania Geological Survey (GST)"
+    access: "direct-request"
+    contact_url: "https://www.gst.go.tz"
+    format: "shapefile / geodatabase"
+    commodities: [ba, sn, w, ta]
+    status: "request-required"
+
+  cami_geology:
+    layer: "Regional geological maps"
+    purpose: "National lithology & structure (DRC Copperbelt)"
+    provider: "DRC CAMU / CAMI"
+    access: "direct-request"
+    contact_url: "https://cami.cd"
+    format: "shapefile / geodatabase"
+    commodities: [cu, zn]
+    status: "request-required"
+
+  dgsm_geology:
+    layer: "Regional geological maps"
+    purpose: "National lithology & structure"
+    provider: "Uganda Directorate of Geological Survey and Mines (DGSM)"
+    access: "direct-request"
+    contact_url: "https://dgsm.go.ug"
+    format: "shapefile / geodatabase"
+    commodities: [sn, w, ta]
+    status: "request-required"
+
+  rmb_geology_50k:
+    layer: "Regional geological maps"
+    purpose: "Rwanda 1:50k sheet-by-sheet upgrade (RMB/RMCA programme): digitised
+      lithology from new field transects, archived observation points and
+      reinterpreted airborne geophysics. Karongi sheet published; request the
+      sheets covering Gatumba / Musha / Nyakabingo first."
+    provider: "Rwanda Mines, Petroleum & Gas Board (RMB) + Royal Museum for
+      Central Africa (RMCA)"
+    access: "direct-request"
+    contact_url: "https://www.rmb.gov.rw"
+    format: "shapefile / geodatabase (per 1:50k sheet)"
+    commodities: [sn, w, ta]
+    notes: "supersedes rmb_geology 1:100k polygons sheet-by-sheet"
+    status: "request-required"
+
+  rmb_geophysics:
+    layer: "Regional geophysics"
+    purpose: "Reinterpreted 1980s airborne magnetic / radiometric anomalies:
+      granitic intrusive bodies + deep-seated structural magnetic anomalies
+      (the layer closest to pegmatite-belt detection)."
+    provider: "RMB / RMCA (digitised survey archive)"
+    access: "direct-request"
+    contact_url: "https://www.rmb.gov.rw"
+    format: "raster / vector anomaly lines"
+    commodities: [sn, w, ta]
+    status: "request-required"
+
+  rmb_pta:
+    layer: "Priority Target Areas"
+    purpose: "RMB's own annual desktop-study targets - expert soft positives
+      independent of this model (ingest via src.labels.pta)."
+    provider: "RMB (legally required annual publication)"
+    access: "direct-request"
+    contact_url: "https://www.rmb.gov.rw"
+    format: "point / polygon layer (pdf table acceptable)"
+    commodities: [all]
+    ingest: "src.labels.pta"
+    status: "request-required"
+
+  rmb_gimcs_licenses:
+    layer: "Cadastral / licence boundaries"
+    purpose: "Active exploration / mining / quarry licence polygons from the
+      Geological Information and Mining Cadastre System (GIMCS) external
+      portal - occupied 3T licences as mineralisation proxies
+      (ingest via src.labels.licenses)."
+    provider: "RMB GIMCS external portal"
+    access: "portal"
+    contact_url: "https://www.rmb.gov.rw"
+    format: "shapefile / GeoJSON"
+    commodities: [sn, w, ta, all]
+    ingest: "src.labels.licenses"
+    status: "request-required"
+
+  rmca_archive_2020:
+    layer: "Archival geo-data"
+    purpose: "2020 RMCA transfer to RMB (2x14 TB): colonial-era and private
+      company geo-data predating the published 1:50k sheets; may hold finer
+      detail than anything public. Request sampling of the KAB-relevant
+      holdings, not bulk transfer."
+    provider: "Royal Museum for Central Africa (Tervuren) via RMB"
+    access: "direct-request"
+    contact_url: "https://www.africamuseum.be"
+    format: "scanned maps / reports / vectorisations"
+    commodities: [sn, w, ta]
+    status: "request-required"
+# 2) Known deposit / occurrence points - positive labels
+  usgs_mrds:
+    layer: "Known deposits / occurrences"
+    purpose: "Positive training labels"
+    provider: "USGS Mineral Resources Data System (MRDS)"
+    access: "download"
+    classification: "public"
+    url: "https://mrdata.usgs.gov/mrds/mrds-trim.zip"
+    wfs_url: "https://mrdata.usgs.gov/services/wfs/mrds"
+    format: "shapefile (point)"
+    commodities: [sn, w, ta, cu, zn, ba]
+    ingest: "src.ingest.usgs_africa"
+    status: "configured"
+
+  usgs_africa_compilation:
+    layer: "Known deposits / occurrences + infrastructure"
+    purpose: "Comprehensive mineral-industry geodatabase for Africa"
+    provider: "USGS - Compilation of Geospatial Data for Mineral Industries and Related Infrastructure of Africa"
+    access: "download"
+    classification: "public"
+    format: "ESRI File Geodatabase / shapefile-zip"
+    url: ""
+    commodities: [all]
+    status: "pending-url"
+
+  deposit_papers:
+    layer: "Known deposits / occurrences"
+    purpose: "Rich attributes (grades, genesis) from published studies"
+    provider: "Deposit-genesis papers (Karagwe-Ankole tungsten-tin studies)"
+    access: "manual"
+    classification: "academic"
+    format: "tables / geocoded references"
+    commodities: [sn, w, ta, cu, zn]
+    status: "manual"
+
+  # 3) Aeromagnetic & gravity surveys
+  emag_magnetic:
+    layer: "Aeromagnetic & gravity surveys"
+    purpose: "Structural/intrusion detection for Sn-W-Ta veins and Cu-Zn traps"
+    provider: "NCEI EMAG2v3 Earth Magnetic Anomaly Grid (2 arc-min, global)"
+    access: "download"
+    classification: "public"
+    format: "GeoTIFF / netCDF"
+    url: "https://www.ncei.noaa.gov/products/earth-magnetic-anomaly-grid"
+    commodities: [sn, w, ta, cu, zn]
+    status: "pending-url"
+
+  wgm_gravity:
+    layer: "Aeromagnetic & gravity surveys"
+    purpose: "Crustal structure / basin geometry for Cu-Zn traps"
+    provider: "BGI WGM2012 World Gravity Map (Bouguer / isostatic)"
+    access: "download"
+    classification: "public"
+    format: "GeoTIFF / netCDF"
+    url: "https://bgi.obs-mip.fr"
+    commodities: [cu, zn]
+    status: "pending-url"
+
+  airborne_report_data:
+    layer: "Aeromagnetic & gravity surveys"
+    purpose: "High-resolution local anomalies from NI 43-101 / JORC filings"
+    provider: "Operators (Ivanhoe, Lindian, Trinity Metals) via technical reports"
+    access: "manual"
+    classification: "published"
+    format: "PDF figures / XY grids (manual parsing)"
+    commodities: [sn, w, ta, cu, zn]
+    status: "manual"
+# 4) Multispectral / hyperspectral imagery
+  sentinel2:
+    layer: "Multispectral imagery"
+    purpose: "Laterite & alteration mapping; clay/iron oxide indices"
+    provider: "ESA Copernicus Sentinel-2 (Surface Reflectance)"
+    access: "download"
+    classification: "public"
+    ee_collection: "COPERNICUS/S2_SR_HARMONIZED"
+    format: "GeoTIFF"
+    commodities: [ba, sn, w, ta]
+    status: "configured"
+
+  landsat:
+    layer: "Multispectral imagery"
+    purpose: "Broad-scale alteration / iron-hydroxide mapping (long archive)"
+    provider: "USGS Landsat 8/9 (EarthExplorer)"
+    access: "portal"
+    classification: "public"
+    ee_collection: "LANDSAT/LC08/C02/T1_L2"
+    format: "GeoTIFF"
+    commodities: [ba, cu, zn]
+    status: "pending-url"
+
+  aster:
+    layer: "Multispectral imagery"
+    purpose: "Shortwave / thermal bands for laterite & alteration"
+    provider: "NASA ASTER archive (EarthExplorer)"
+    access: "portal"
+    classification: "public"
+    ee_collection: "ASTER/AST_L1T_003"
+    format: "GeoTIFF"
+    commodities: [ba, cu, zn]
+    status: "pending"
+
+  # 5) Digital elevation model
+  srtm_dem:
+    layer: "Digital elevation model"
+    purpose: "Plateau geomorphology (bauxite), structural lineaments"
+    provider: "SRTM 30 m (USGS)"
+    access: "download"
+    classification: "public"
+    ee_collection: "USGS/SRTMGL1_003"
+    format: "GeoTIFF"
+    commodities: [ba, all]
+    status: "configured"
+
+  glo30_dem:
+    layer: "Digital elevation model"
+    purpose: "Higher-accuracy Copernicus GLO-30 DEM alternative"
+    provider: "Copernicus GLO-30"
+    access: "download"
+    classification: "public"
+    ee_collection: "COPERNICUS/DEM/GLO30"
+    format: "GeoTIFF"
+    commodities: [all]
+    status: "configured"
+# 6) Stream sediment / soil geochemistry
+  survey_geochem:
+    layer: "Stream sediment / soil geochemistry"
+    purpose: "Cu-Zn-Sn anomaly detection surfaces"
+    provider: "National survey geochemical databases (validated)"
+    access: "direct-request"
+    format: "point CSV / geodatabase"
+    commodities: [cu, zn, sn]
+    status: "request-required"
+
+  report_geochem:
+    layer: "Stream sediment / soil geochemistry"
+    purpose: "Anomaly surfaces from historical exploration reports"
+    provider: "Historical exploration company reports"
+    access: "manual"
+    format: "PDF / tables (manual digitisation)"
+    commodities: [cu, zn, sn]
+    status: "manual"
+
+  # 7) Cadastral / licence boundaries
+  cami_cadastre:
+    layer: "Cadastral / licence boundaries"
+    purpose: "Exclude licensed ground; identify open acreage"
+    provider: "DRC CAMU cadastre portal"
+    access: "portal"
+    contact_url: "https://cami.cd"
+    format: "shapefile / GeoJSON"
+    commodities: [all]
+    status: "pending"
+
+  tmc_tanzania_licenses:
+    layer: "Cadastral / licence boundaries"
+    purpose: "Tanzania mining / exploration licences"
+    provider: "Tanzania Mining Commission"
+    access: "portal"
+    contact_url: "https://www.tmc.go.tz"
+    format: "shapefile"
+    commodities: [ba, sn, w, ta]
+    status: "pending"
+
+  rmb_licenses:
+    layer: "Cadastral / licence boundaries"
+    purpose: "Rwanda exploration / mining licences"
+    provider: "Rwanda RMB licence registry"
+    access: "portal"
+    contact_url: "https://www.rmb.gov.rw"
+    format: "shapefile"
+    commodities: [sn, w, ta]
+    status: "pending"
+
+# 8) Satellite / Earth observation access portals (bulk entry)
+# ── USGS EarthExplorer ────────────────────────────────────────────────
+  earthexplorer:
+    layer: "Satellite imagery portal"
+    purpose: "Landsat 8/9 (OLI/TIRS, 30 m), SRTM DEM (30 m), ASTER GDEM (30 m), Landsat legacy archive - browse + download for 7-country AOI"
+    provider: "USGS / NASA - EarthExplorer"
+    access: "portal"
+    classification: "public"
+    url: "https://earthexplorer.usgs.gov/"
+    format: "GeoTIFF (bulk download), MTK, zipped"
+    commodities: [all]
+    status: "configured"
+    ee_collection: null   # portal-only; mirror: USGS/SRTMGL1_003 via EE
+
+    # ── NASA Earthdata Search ─────────────────────────────────────────────
+  earthdata_search:
+    layer: "Satellite imagery portal"
+    purpose: "Harmonized Landsat-Sentinel (HLS, 30 m), MODIS/VIIRS, SMAP, GEDI canopy height, ASTER, LP-DaAC products - NE Africa coverage"
+    provider: "NASA Earthdata Search / DAAC network"
+    access: "portal"
+    classification: "public"
+    url: "https://earthdata.nasa.gov/"
+    format: "GeoTIFF / netCDF / HDF (download), OGC WCS/WMS (subset)"
+    commodities: [all]
+    status: "configured"
+
+    # ── Copernicus Data Space Ecosystem ───────────────────────────────────
+  copernicus_dse:
+    layer: "Satellite imagery portal"
+    purpose: "Sentinel-1 SAR (10 m), Sentinel-2 MSI (10/20 m), Sentinel-3 OLCI/SLSTR, Copernicus DEM (GLO-30/GLO-90), legacy SciHub - free open access"
+    provider: "ESA / EU Copernicus - Data Space Ecosystem"
+    access: "download"
+    classification: "public"
+    url: "https://dataspace.copernicus.eu/"
+    format: "SAFE / JPEG2000 / COG (Phenix), OData API"
+    commodities: [all]
+    status: "configured"
+
+    # ── NASA ASF Vertex (SAR + DEM) ───────────────────────────────────────
+  asf_vertex:
+    layer: "Satellite imagery / DEM portal"
+    purpose: "ALOS PALSAR 12.5 m DEM (global), Sentinel-1 SAR, InSAR interferograms - structural lineament extraction in East Africa"
+    provider: "NASA ASF DAAC (Alaska Satellite Facility)"
+    access: "portal"
+    classification: "public"
+    url: "https://vertex.daac.asf.alaska.edu/"
+    format: "GeoTIFF (ALOS DEM), SAR products (KMZ/GeoTIFF)"
+    commodities: [sn, w, ta, cu, zn]  # structural proxies
+    status: "configured"
+
+  # ── EnMAP hyperspectral (German DLR) ──────────────────────────────────
+  enmap_hyperspectral:
+    layer: "Hyperspectral imagery"
+    purpose: "224-band VNIR+SWIR cube (420-2450 nm, 30 m, ~30 km swath) - resolves the 2.20 um Al-OH (muscovite/kaolinite/gibbsite) from the 2.33 um Mg-OH/CO3 (chlorite/epidote/carbonate) uptake that Sentinel-2 B12 cannot separate. Feeds src.ingest.enmap + src.features.hyperspectral band-depth / SAM analysis."
+    provider: "DLR (German Aerospace Center) - Environmental Mapping and Analysis Program"
+    access: "portal"
+    classification: "public (free scientific use, registration required)"
+    url: "https://www.enmap.org/"
+    order_url: "https://eoweb.dlr.de/"
+    processing_tools:
+      - "EnPT Python package (atmospheric correction, destriping)"
+      - "EnMAP-Box QGIS plugin (spectral analysis)"
+    targeted_acquisition: "on-demand via Foreground Mission Campaign planning (https://www.enmap.org/foreground-mission)"
+    ingest: "src.ingest.enmap (align_to_grid CLI)"
+    features: "src.features.hyperspectral (band_depth @ 2200/2330/900 nm, spectral_angle_mapper)"
+    format: "GeoTIFF L2A reflectance (DN x 1e4, auto-scaled); ENVI available"
+    products: "L0 / L1B (radiance) / L1C (TOA reflectance) / L2A (BOA reflectance)"
+    commodities: [sn, w, ta, cu, zn, ba, au, gemstones]
+    status: "configured"   # ingest + feature modules implemented; scenes ordered per-belt
+    notes: "SWIR striping near water bands - use EnPT >=1.4.0 along-track destriping. On-demand targeting recommended over the Karagwe-Ankole, Copperbelt and Usambara AOIs."
+
+  # ── PRISMA hyperspectral (Italian ASI) ────────────────────────────────
+  prisma_hyperspectral:
+    layer: "Hyperspectral imagery"
+    purpose: "EnMAP-class alternative hyperspectral cube (VNIR+SWIR, 30 m, 30 km swath) - cross-validation of EnMAP mineral anomalies and fill for acquisition gaps"
+    provider: "ASI (Italian Space Agency) - PRISMA / PRISMA Second Generation"
+    access: "portal"
+    classification: "public (free research use, registration required)"
+    url: "https://prisma.asi.it/"
+    ingest: "src.ingest.enmap (same cube loader - wavelength-parsed band descriptions)"
+    format: "GeoTIFF / HDF5 (L2D BOA reflectance)"
+    commodities: [sn, w, ta, cu, zn, ba, au, gemstones]
+    status: "pending"   # same ingest path as EnMAP; portal account required
+
+# 9) Mineral occurrence / deposit databases
+
+  # -- Mindat.org --
+  mindat:
+    layer: "Known mineral occurrences / deposits"
+    purpose: "Community-curated mineral occurrence database: locality points, species, commodities, references - searchable by country"
+    provider: "Mindat.org (non-profit, Hudson Institute of Mineralogy)"
+    access: "portal"
+    classification: "public"
+    url: "https://www.mindat.org/"
+    format: "Web table / printable reports (manual geocoding)"
+    commodities: [all]
+    status: "pending"
+
+  # -- Natural Earth --
+  natural_earth:
+    layer: "Reference vector data"
+    purpose: "Country boundaries (Admin 0 / 1), roads, populated places, rivers, urban areas - for map reference layers and AOI masking"
+    provider: "Natural Earth (public domain, NACIS)"
+    access: "download"
+    classification: "public"
+    url: "https://www.naturalearthdata.com/"
+    format: "Shapefile / GeoJSON (1:10m, 1:50m, 1:110m)"
+    commodities: [all]
+    status: "configured"
+
+
+  # -- USGS Africa Mineral Compilation --
+  usgs_africa_comp_extra:
+    layer: "Known deposits / occurrences + infrastructure"
+    purpose: "Comprehensive mineral-industry geodatabase for Africa - deposits, mines, exploration permits, infrastructure for all commodities"
+    provider: "USGS - Compilation of Geospatial Data for Mineral Industries and Related Infrastructure of Africa"
+    access: "download"
+    classification: "public"
+    format: "ESRI File Geodatabase / shapefile-zip"
+    url: ""
+    commodities: [all]
+    status: "pending-url"
+
+  # -- GeoNames --
+  geonames:
+    layer: "Reference points (populated places, features)"
+    purpose: "Populated place names, alternate names, country info, elevation - useful for spatial reference and AOI definition"
+    provider: "GeoNames.org (open community database)"
+    access: "download"
+    classification: "public"
+    url: "http://www.geonames.org/"
+    format: "Plain text dump / REST API"
+    commodities: [all]
+    status: "configured"
+
+  # -- OneGeology Portal --
+  onegeology:
+    layer: "Regional geological maps"
+    purpose: "Aggregate of national geological surveys - search African coverage for geology, lithology, structural maps at variable scales"
+    provider: "OneGeology / Commission for the Geological Map of the World (CGMW)"
+    access: "portal"
+    classification: "mixed"
+    url: "https://www.onegeology.org/"
+    format: "WCS / WMS / WFS / shapefile (varies by provider)"
+    commodities: [all]
+    status: "pending"
+
+  # -- African Mineral Deposits (academic) --
+  african_deposit_db:
+    layer: "Known deposits / occurrences"
+    purpose: "Published deposit databases for gold, base metals, industrial minerals, gemstones across East Africa (academic papers, UNESCO reports)"
+    provider: "Academic / UN publications"
+    access: "manual"
+    classification: "academic"
+    format: "Tables / maps (manual geocoding from PDFs)"
+    commodities: [au, cu, zn, sn, w, ta, ba, gemstones]
+    status: "manual"
+
+
+# 10) Regional geophysical compilations
+
+  # -- WDMAM (World Digital Magnetic Anomaly Map) --
+  wdmam:
+    layer: "Aeromagnetic / gravity"
+    purpose: "Global magnetic anomaly map (airborne + satellite + marine) at 5 km resolution - crustal structure proxy for Sn-W-Ta intrusions and Cu-Zn basin mapping"
+    provider: "IGPP / BGI / CGMW - WDMAM iteration"
+    access: "download"
+    classification: "public (registration)"
+    url: "https://wdmam.org/"
+    format: "GeoTIFF / netCDF / ESRI ASCII grid"
+    commodities: [sn, w, ta, cu, zn]
+    status: "pending-url"
+
+  # -- AfricaGEOSS --
+  africa_geoss:
+    layer: "Multi-source geospatial portal"
+    purpose: "Pan-African GEOSS node aggregating satellite, geophysical, and geospatial datasets for Africa - discovery portal"
+    provider: "AfricaGEOSS / AUC / GMES Africa"
+    access: "portal"
+    classification: "mixed"
+    url: "https://africa-geoss.org/"
+    format: "varies by dataset (WMS, WFS, download links)"
+    commodities: [all]
+    status: "pending-url"
+
+
+# 11) National geological surveys (missing countries: Kenya, Ethiopia, South Sudan, Burundi)
+
+  # -- Kenya Geological Survey --
+  gsk_kenya:
+    layer: "Regional geological maps / mineral occurrence / cadastre"
+    purpose: "National lithology, structural, mineral occurrence, historic mining lease maps for Kenya (Nyanza greenstone belt, coastal sediments, Rift valley)"
+    provider: "Geological Survey of Kenya (GSK) / Ministry of Mining"
+    access: "direct-request"
+    contact_url: "https://www.geologicalsurvey.go.ke"
+    format: "shapefile / geodatabase / PDF maps"
+    commodities: [cu, zn, ba, sn, w, ta, au, gemstones]
+    status: "request-required"
+
+  # -- Ethiopian Geological Survey --
+  eg_ethiopia:
+    layer: "Regional geological maps / mineral occurrence / cadastre"
+    purpose: "National geology (Ethiopian Rift, gold fields, industrial minerals), exploration licence register for Ethiopia"
+    provider: "Ethiopian Geological Survey (EGS) / Ministry of Mines (MoM)"
+    access: "direct-request"
+    contact_url: "https://mines.gov.et"
+    format: "shapefile / geodatabase / PDF reports"
+    commodities: [au, cu, zn, sn, w, ta, gemstones, industrial]
+    status: "request-required"
+
+  # -- South Sudan Geological Survey --
+  sud_sudan_survey:
+    layer: "Regional geological maps / mineral occurrence"
+    purpose: "National geology, mineral occurrence data, exploration licence register for South Sudan (Sudd, Imatong Mountains, Nile graben)"
+    provider: "Directorate of Geological Surveys / Ministry of Mining (South Sudan)"
+    access: "direct-request"
+    contact_url: ""
+    format: "shapefile / geodatabase / PDF reports"
+    commodities: [cu, zn, ba, sn, w, ta, au]
+    status: "request-required"
+
+  # -- Burundi National Survey --
+  burundi_survey:
+    layer: "Regional geological maps / mineral occurrence / cadastre"
+    purpose: "National geology, mineral occurrence points, exploration licences for Burundi (Burundi greenstone belt, pegmatites)"
+    provider: "MINEODYN - Ministry of Energy and Mines (Burundi)"
+    access: "direct-request"
+    contact_url: ""
+    format: "shapefile / geodatabase / PDF reports"
+    commodities: [sn, w, ta, au, cu, zn, gemstones]
+    status: "request-required"
+
+
+# 12) Auxiliary / cloud access
+
+  # -- Google Earth Engine --
+  google_earth_engine:
+    layer: "Satellite / DEM access (cloud)"
+    purpose: "Already referenced in configs for SRTM, Sentinel-2, Landsat, ASTER, GLO-30 DEM. Programmatic Python API access to all raster products."
+    provider: "Google Earth Engine (GEE)"
+    access: "download"
+    classification: "public (registration required)"
+    url: "https://earthengine.google.com/"
+    format: "GeoTIFF (Export.image.toDrive / toCloudStorage), numpy array (compute)"
+    commodities: [all]
+    status: "configured"
+
+  # -- Microsoft Planetary Computer --
+  microsoft_pc:
+    layer: "Satellite / DEM access (cloud)"
+    purpose: "STAC-based access to Sentinel-2, Landsat, SRTM, MERIT DEM, ALOS World 3D - STAC API + Python SDK. Alternative to GEE ingestion pipeline."
+    provider: "Microsoft Azure / AI for Earth"
+    access: "download"
+    classification: "public (registration required)"
+    url: "https://planetarycomputer.microsoft.com/"
+    format: "Cloud-Optimised GeoTIFF (COG) via STAC API, Zarr, netCDF"
+    commodities: [all]
+    status: "pending-url"
+
+
+# 13) OGC web map services - DLR EOC (view / reconnaissance layers)
+#
+# Evaluated 2026-09-22 against all three belt AOIs.  The EOC *imagery*
+# service (the reviewed capabilities document) proved unusable for this
+# project: 19 of its 28 layers are Germany/Europe-only and its global
+# layers (EnMAP L0 quicklooks) render empty tiles.  The sibling EOC *land*
+# service does render real data over East Africa and is registered below.
+# WMS returns colour-stretched renderings, not digital numbers, so these
+# layers are context / QA / mask screening only - they never enter the
+# feature matrix.  Helper: src.ingest.dlr_eoc_wms.
+
+  # -- DLR EOC Imagery Map Service (evaluated: no usable data layer) --
+  dlr_eoc_imagery_wms:
+    layer: "Multispectral imagery"
+    purpose: "Orthoimagery map service (Sentinel-2 MAJA + WASP mosaics, MODIS-EU, RapidEye Germany 2015, EnMAP L0 quicklooks, S2 tile grid). Evaluated 2026-09-22: no usable data layer over the East Africa belts - see evaluation_note."
+    provider: "DLR Earth Observation Center (EOC) GeoService"
+    access: "wms"
+    classification: "public (Fees NONE, AccessConstraints NONE)"
+    url: "https://geoservice.dlr.de/eoc/imagery/wms"
+    capabilities_url: "https://geoservice.dlr.de/eoc/imagery/wms?service=WMS&version=1.3.0&request=GetCapabilities"
+    format: "OGC WMS 1.3.0 (image/png, image/geotiff) + GetFeatureInfo"
+    crs: ["EPSG:3857", "EPSG:4326", "CRS:84"]
+    n_layers: 28
+    verified_layers:
+      - name: "S2_TILE_GRID"
+        style: "s2-tile-grid"
+        verdict: "usable - reference grid only (Sentinel-2 tiling scheme)"
+      - name: "ENMAP_HSI_L0_QL_FOOTPRINTS"
+        style: "enmap-l0-ql-footprints"
+        verdict: "empty - 100% transparent tile on every window tested; GetFeatureInfo returns numberReturned=0"
+      - name: "ENMAP_HSI_L0_QL_SWIR"
+        style: "enmap-l0-ql-swir"
+        verdict: "empty - 100% transparent tile (no EnMAP quicklook over the belts)"
+    evaluation_note: "19 of 28 layers are Germany/Europe only: S2 L2A MAJA (FRE/SRE/CLM/MG2) and L3A WASP over Germany, MODIS-EU (bbox starts 27.7N), MODIS Germany mosaic, RapidEye RESA Germany 2015, 3K Brunswick aerial. The only global layers are the nine EnMAP HSI L0 quicklooks and S2_TILE_GRID; all EnMAP quicklook renders came back fully transparent including a Germany control, i.e. the service exposes no EnMAP quicklook data via WMS."
+    verification_module: "src.ingest.dlr_eoc_wms"
+    verified_on: "2026-09-22"
+    commodities: [all]
+    status: "pending"
+
+  # -- DLR EOC Land Map Service (verified usable context layers) --
+  dlr_eoc_land_wms:
+    layer: "Multispectral imagery"
+    purpose: "Context / screening layers over East Africa: SoilSuite bare-surface reflectance composite (Africa, 4-year), TanDEM-X FNF 50 m forest mask, WSF 2019 + Evolution settlement masks, GUF 28 m urban footprint, ESA-CCI land-ocean mask, TimeScan Landsat 2015 composite, Natural Earth countries."
+    provider: "DLR Earth Observation Center (EOC) GeoService"
+    access: "wms"
+    classification: "public (Fees NONE, AccessConstraints NONE; GUF mosaic non-commercial use only)"
+    url: "https://geoservice.dlr.de/eoc/land/wms"
+    capabilities_url: "https://geoservice.dlr.de/eoc/land/wms?service=WMS&version=1.3.0&request=GetCapabilities"
+    format: "OGC WMS 1.3.0 (image/png) + GetFeatureInfo"
+    crs: ["EPSG:3857", "EPSG:4326", "CRS:84"]
+    n_layers: 141
+    ingest: "src.ingest.dlr_eoc_wms"
+    cli: "python -m src.ingest.dlr_eoc_wms --list | --belt bauxite"
+    verified_layers:
+      - name: "SOILSUITE_SRC_AFR_P4Y"
+        style: "soilsuite-src-afr-p4y-fin"
+        verdict: "usable - Karagwe 63% opaque, Usambara 28%; no render over the Copperbelt (product extent starts 28.75E / 7.22S)"
+      - name: "SOILSUITE_SRC-CI95_AFR_P4Y"
+        style: "soilsuite-src-ci95-afr-p4y-fin"
+        verdict: "usable - confidence companion, Karagwe + Usambara"
+      - name: "SOILSUITE_SRC-STD_AFR_P4Y"
+        style: "soilsuite-src-std-afr-p4y-fin"
+        verdict: "usable - temporal variability of the bare-surface composite"
+      - name: "SOILSUITE_SFREQ-BSF_AFR_P4Y"
+        style: "soilsuite-sfreq-bsf-afr-p4y-fin"
+        verdict: "usable - bare-surface frequency (exposure mask), Karagwe + Usambara 100% opaque"
+      - name: "TDM_FNF50"
+        style: "fnf"
+        verdict: "usable - all three belts, 100% opaque, 4 classes (forest mask)"
+      - name: "WSF_2019"
+        style: "wsf2019"
+        verdict: "usable - all three belts (settlement / disturbance mask)"
+      - name: "WSF_Evolution"
+        style: "wsfevolution"
+        verdict: "usable - global extent, sparse over the belts"
+      - name: "GUF28_DLR_v1_Mosaic"
+        style: "guf_8bit"
+        verdict: "usable - coarse urban context (very sparse over rural belts)"
+      - name: "ESA_LAND_OCEAN_MAP"
+        style: "oceanmask"
+        verdict: "usable - global land/water mask"
+      - name: "TS_LANDSAT_2015"
+        style: "timescan-standard"
+        verdict: "usable - all three belts, Landsat median composite for independent QA"
+      - name: "ne_countries"
+        style: ""
+        verdict: "usable - global country boundaries"
+    limitations: "WMS returns 8-bit colour-stretched tiles, not DN / reflectance values, so these layers are context, QA and mask screening only and never enter the feature matrix. Request GetMap in EPSG:3857 or CRS:84; oversized windows on some layers reply with a ServiceExceptionReport. Radiometric hyperspectral ingest remains EnMAP L2A via src.ingest.enmap."
+    verification_module: "src.ingest.dlr_eoc_wms"
+    verified_on: "2026-09-22"
+    commodities: [all]
+    status: "configured"
+

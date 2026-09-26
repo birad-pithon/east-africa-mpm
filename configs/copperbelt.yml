@@ -1,0 +1,91 @@
+# ── Central African Copperbelt (Lufilian Arc) configuration ───────────
+# Covers the copperbelt in DRC/Zambia with Cu-Zn targets
+
+# Common analysis grid
+grid:
+  crs: "EPSG:32735"        # UTM Zone 35S — covers DRC Copperbelt
+  resolution_m: 30          # 30 m to match SRTM / Landsat
+  # AOI bounding box in WGS 84 (lon, lat)
+  aoi_wgs84:
+    min_lon: 26.0
+    max_lon: 28.5
+    min_lat: -11.5
+    max_lat: -9.5
+  # Derived extent in target CRS (filled at runtime)
+  aoi_utm: null             # [min_x, min_y, max_x, max_y] in metres
+
+# ── Data sources ───────────────────────────────────────────────────────
+sources:
+  usgs_mrds:
+    name: "USGS Mineral Resources Data System (MRDS)"
+    shapefile_url: "https://mrdata.usgs.gov/mrds/mrds-trim.zip"
+    csv_url: "https://mrdata.usgs.gov/mrds/mrds-csv.zip"
+    wfs_url: "https://mrdata.usgs.gov/services/wfs/mrds"
+    commodities:
+      - "Copper"
+      - "Zinc"
+      - "Lead"
+      - "Cobalt"
+    africa_bbox:
+      min_lon: 10.0
+      max_lon: 50.0
+      min_lat: -35.0
+      max_lat: 37.0
+
+  sentinel2:
+    collection: "COPERNICUS/S2_SR_HARMONIZED"
+    bands:
+      - B2   # Blue   (10 m)
+      - B3   # Green  (10 m)
+      - B4   # Red    (10 m)
+      - B8   # NIR    (10 m)
+      - B11   # SWIR1  (20 m)
+      - B12   # SWIR2  (20 m)
+    date_range:
+      start: "2023-06-01"
+      end: "2023-09-30"
+    cloud_cover_threshold: 0.20
+    scale_m: 30
+
+  srtm_dem:
+    collection: "USGS/SRTMGL1_003"
+    resolution_m: 30
+
+# ── Feature engineering ───────────────────────────────────────────────
+features:
+  # Explicit feature-raster allowlist (SAFEGUARD)
+  rasters_by_group:
+    copper_zinc:
+      - dem/srtm_copperbelt_aligned.tif
+      - sentinel2/sentinel2_copperbelt_aligned.tif
+      - features/terrain_features_copperbelt.tif
+      - features/geology_features_copperbelt.tif
+      - features/alteration_features_copperbelt.tif
+      - features/deposit_distance_copper_zinc.tif
+
+  copper_zinc:
+    stratigraphic_proxies: true
+    structural_traps: true
+    geochemical_anomaly_surfaces: true
+
+# ── Model settings ─────────────────────────────────────────────────────
+model:
+  commodity_groups:
+    - copper_zinc
+  algorithm: "random_forest"
+  params:
+    n_estimators: 500
+    max_depth: 15
+    min_samples_leaf: 3
+    random_state: 42
+  compare_algorithms:
+    - random_forest
+    - xgboost
+    - lightgbm
+
+# ── Spatial cross-validation ───────────────────────────────────────────
+validation:
+  method: "spatial_block"
+  n_groups: 5
+  buffer_km: 5
+  min_train_area_pct: 60

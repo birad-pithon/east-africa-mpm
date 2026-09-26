@@ -1,0 +1,29 @@
+# Auto-generated lock file - pinned versions of requirements.txt
+# Regenerate with: python scripts/pin_requirements.py
+
+numpy==2.5.2
+pandas==3.0.5
+scipy==1.18.1
+geopandas==1.1.4
+rasterio==1.5.1
+xarray==2026.7.0
+rioxarray==0.23.0
+pyproj==3.7.2
+shapely==2.1.2
+rasterstats==0.21.0
+earthengine-api==1.7.41
+landsatxplore==0.15.0
+sentinelhub==3.11.5
+verde==1.9.0
+requests==2.34.2
+pyyaml==6.0.3
+tqdm==4.70.0
+scikit-learn==1.9.0
+xgboost==3.4.1
+lightgbm==4.7.0
+matplotlib==3.11.1
+leafmap==0.63.1
+folium==0.20.0
+pytest==9.1.1
+pytest-cov==7.1.0
+optuna==4.9.0

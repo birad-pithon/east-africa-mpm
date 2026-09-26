@@ -1,0 +1,2539 @@
+{
+  "root": "d:\\Users\\HP\\COC AI\\east-africa-mpm",
+  "raw": {
+    "error": "ModuleNotFoundError(\"No module named 'fiona'\")"
+  },
+  "africa": {
+    "rows": 680,
+    "crs": "EPSG:4326",
+    "columns": [
+      "SITE_NAME",
+      "CODE_LIST",
+      "DEV_STAT",
+      "URL",
+      "DEP_ID",
+      "geometry"
+    ],
+    "bounds": [
+      10.00144,
+      -34.04647,
+      49.96789,
+      36.9986
+    ],
+    "status": {},
+    "bytes": 315392,
+    "code_col": "CODE_LIST",
+    "tokens": [
+      [
+        "CU",
+        451
+      ],
+      [
+        "NI",
+        109
+      ],
+      [
+        "AU",
+        95
+      ],
+      [
+        "ZN",
+        94
+      ],
+      [
+        "CO",
+        91
+      ],
+      [
+        "PB",
+        83
+      ],
+      [
+        "AG",
+        76
+      ],
+      [
+        "SN",
+        71
+      ],
+      [
+        "PGE_PT",
+        66
+      ],
+      [
+        "AL",
+        60
+      ],
+      [
+        "TA",
+        50
+      ],
+      [
+        "PGE",
+        40
+      ],
+      [
+        "PGE_PD",
+        38
+      ],
+      [
+        "W",
+        37
+      ],
+      [
+        "FE",
+        34
+      ],
+      [
+        "BE",
+        32
+      ],
+      [
+        "LI",
+        30
+      ],
+      [
+        "PGE_IR",
+        29
+      ],
+      [
+        "PGE_RH",
+        26
+      ],
+      [
+        "PGE_OS",
+        24
+      ],
+      [
+        "PGE_RU",
+        23
+      ],
+      [
+        "NB",
+        22
+      ],
+      [
+        "CR",
+        19
+      ],
+      [
+        "U",
+        19
+      ],
+      [
+        "SIL",
+        19
+      ],
+      [
+        "P",
+        14
+      ],
+      [
+        "MN",
+        10
+      ],
+      [
+        "V",
+        10
+      ],
+      [
+        "S_P",
+        10
+      ],
+      [
+        "MG",
+        10
+      ],
+      [
+        "S_A",
+        9
+      ],
+      [
+        "S",
+        9
+      ],
+      [
+        "MO",
+        8
+      ],
+      [
+        "F",
+        7
+      ],
+      [
+        "CA",
+        7
+      ],
+      [
+        "AS",
+        6
+      ],
+      [
+        "TH",
+        5
+      ],
+      [
+        "CD",
+        5
+      ],
+      [
+        "VRM",
+        4
+      ],
+      [
+        "ZR",
+        3
+      ],
+      [
+        "QTZ",
+        3
+      ],
+      [
+        "GE",
+        3
+      ],
+      [
+        "CL",
+        3
+      ],
+      [
+        "NA",
+        3
+      ],
+      [
+        "BA",
+        2
+      ],
+      [
+        "TI_M",
+        2
+      ],
+      [
+        "BI",
+        2
+      ],
+      [
+        "RE",
+        2
+      ],
+      [
+        "TA_S",
+        2
+      ],
+      [
+        "KYN",
+        1
+      ],
+      [
+        "RA",
+        1
+      ],
+      [
+        "DOL",
+        1
+      ],
+      [
+        "HF",
+        1
+      ],
+      [
+        "K",
+        1
+      ],
+      [
+        "SB",
+        1
+      ],
+      [
+        "ASB",
+        1
+      ],
+      [
+        "ABR_G",
+        1
+      ],
+      [
+        "GA",
+        1
+      ],
+      [
+        "TI",
+        1
+      ],
+      [
+        "GEM_E",
+        1
+      ],
+      [
+        "GEM_SP",
+        1
+      ],
+      [
+        "NI_S",
+        1
+      ],
+      [
+        "REE",
+        1
+      ],
+      [
+        "ZN_R",
+        1
+      ],
+      [
+        "SE",
+        1
+      ],
+      [
+        "NI_R",
+        1
+      ],
+      [
+        "AU_R",
+        1
+      ],
+      [
+        "CS",
+        1
+      ],
+      [
+        "CLY_K",
+        1
+      ],
+      [
+        "RB",
+        1
+      ]
+    ]
+  },
+  "belts": {
+    "belts": {
+      "karagwe_ankole": {
+        "name": "Karagwe-Ankole Belt (KAB)",
+        "commodities": [
+          "sn",
+          "w",
+          "ta"
+        ],
+        "description": "Mesoproterozoic KIB: Sn-W-Ta pegmatite & quartz-vein fields across Rwanda, Burundi, NW Tanzania, SW Uganda and eastern DRC.\n",
+        "countries": [
+          "rwanda",
+          "burundi",
+          "tanzania",
+          "uganda",
+          "drc"
+        ],
+        "polygon": [
+          [
+            28.8,
+            -4.5
+          ],
+          [
+            32.8,
+            -4.5
+          ],
+          [
+            33.6,
+            -2.0
+          ],
+          [
+            34.2,
+            -0.8
+          ],
+          [
+            31.5,
+            0.2
+          ],
+          [
+            29.6,
+            -0.5
+          ],
+          [
+            28.8,
+            -2.0
+          ]
+        ]
+      },
+      "central_african_copperbelt": {
+        "name": "Central African Copperbelt (Lufilian Arc)",
+        "commodities": [
+          "cu",
+          "zn"
+        ],
+        "description": "Neoproterozoic Lufilian fold-thrust belt: sediment-hosted Cu-Co and Cu-Zn-(Pb) from the Zambian Copperbelt through Kolwezi, Kipushi to the Kamoa-Kakula external belt.\n",
+        "countries": [
+          "drc",
+          "zambia"
+        ],
+        "polygon": [
+          [
+            21.5,
+            -13.2
+          ],
+          [
+            26.5,
+            -13.2
+          ],
+          [
+            28.5,
+            -11.6
+          ],
+          [
+            30.8,
+            -10.3
+          ],
+          [
+            29.8,
+            -8.3
+          ],
+          [
+            27.2,
+            -9.3
+          ],
+          [
+            24.5,
+            -10.2
+          ],
+          [
+            22.0,
+            -11.5
+          ]
+        ]
+      },
+      "usambara_bauxite": {
+        "name": "Usambara lateritic bauxite province",
+        "commodities": [
+          "al"
+        ],
+        "description": "Lateritic plateau systems of the West Usambara Mountains (Lushoto / Magamba district), Tanga Region, Tanzania.\n",
+        "countries": [
+          "tanzania"
+        ],
+        "polygon": [
+          [
+            38.0,
+            -5.3
+          ],
+          [
+            38.9,
+            -5.3
+          ],
+          [
+            38.9,
+            -4.4
+          ],
+          [
+            38.0,
+            -4.4
+          ]
+        ]
+      }
+    },
+    "groups": {
+      "tin_tungsten_tantalum": {
+        "belts": [
+          "karagwe_ankole"
+        ],
+        "mrds_codes": [
+          "SN",
+          "W",
+          "TA"
+        ]
+      },
+      "copper_zinc": {
+        "belts": [
+          "central_african_copperbelt"
+        ],
+        "mrds_codes": [
+          "CU",
+          "ZN"
+        ]
+      },
+      "bauxite": {
+        "belts": [
+          "usambara_bauxite"
+        ],
+        "mrds_codes": [
+          "AL"
+        ]
+      }
+    }
+  },
+  "configs": {
+    "tin_tungsten_tantalum": {
+      "config": "configs/karagwe.yml",
+      "crs": "EPSG:32736",
+      "res": 30,
+      "aoi": {
+        "min_lon": 29.4,
+        "max_lon": 30.6,
+        "min_lat": -2.4,
+        "max_lat": -1.2
+      },
+      "commodities": [
+        "Tin",
+        "Tungsten",
+        "Tantalum",
+        "Copper",
+        "Zinc",
+        "Bauxite",
+        "Aluminum"
+      ],
+      "model": {
+        "commodity_groups": [
+          "tin_tungsten_tantalum",
+          "copper_zinc",
+          "bauxite"
+        ],
+        "algorithm": "random_forest",
+        "params": {
+          "n_estimators": 150,
+          "max_depth": 3,
+          "learning_rate": 0.298,
+          "subsample": 0.917,
+          "colsample_bytree": 0.593,
+          "min_child_weight": 7,
+          "min_samples_leaf": 3,
+          "random_state": 42
+        },
+        "compare_algorithms": [
+          "random_forest",
+          "xgboost",
+          "lightgbm"
+        ]
+      },
+      "validation": {
+        "method": "spatial_block",
+        "n_groups": 5,
+        "buffer_km": 5,
+        "min_train_area_pct": 60
+      }
+    },
+    "copper_zinc": {
+      "config": "configs/copperbelt.yml",
+      "crs": "EPSG:32735",
+      "res": 30,
+      "aoi": {
+        "min_lon": 26.0,
+        "max_lon": 28.5,
+        "min_lat": -11.5,
+        "max_lat": -9.5
+      },
+      "commodities": [
+        "Copper",
+        "Zinc",
+        "Lead",
+        "Cobalt"
+      ],
+      "model": {
+        "commodity_groups": [
+          "copper_zinc"
+        ],
+        "algorithm": "random_forest",
+        "params": {
+          "n_estimators": 500,
+          "max_depth": 15,
+          "min_samples_leaf": 3,
+          "random_state": 42
+        },
+        "compare_algorithms": [
+          "random_forest",
+          "xgboost",
+          "lightgbm"
+        ]
+      },
+      "validation": {
+        "method": "spatial_block",
+        "n_groups": 5,
+        "buffer_km": 5,
+        "min_train_area_pct": 60
+      }
+    },
+    "bauxite": {
+      "config": "configs/usambara.yml",
+      "crs": "EPSG:32737",
+      "res": 30,
+      "aoi": {
+        "min_lon": 38.0,
+        "max_lon": 39.0,
+        "min_lat": -5.5,
+        "max_lat": -4.2
+      },
+      "commodities": [
+        "Bauxite",
+        "Aluminum"
+      ],
+      "model": {
+        "commodity_groups": [
+          "bauxite"
+        ],
+        "algorithm": "random_forest",
+        "params": {
+          "n_estimators": 500,
+          "max_depth": 15,
+          "min_samples_leaf": 3,
+          "random_state": 42
+        },
+        "compare_algorithms": [
+          "random_forest",
+          "xgboost",
+          "lightgbm"
+        ]
+      },
+      "validation": {
+        "method": "spatial_block",
+        "n_groups": 3,
+        "buffer_km": 5,
+        "min_train_area_pct": 60
+      }
+    }
+  },
+  "groups": {
+    "tin_tungsten_tantalum": {
+      "labels": {
+        "rows": 18,
+        "crs": "EPSG:4326",
+        "columns": [
+          "label",
+          "source",
+          "name",
+          "commodities",
+          "belt",
+          "reference",
+          "geometry"
+        ],
+        "bounds": [
+          29.23459,
+          -2.0416,
+          30.79567,
+          -0.69835
+        ],
+        "status": {
+          "source": {
+            "nonempty": 18,
+            "unique": 2,
+            "top": [
+              [
+                "mrds",
+                14
+              ],
+              [
+                "seed",
+                4
+              ]
+            ]
+          },
+          "label": {
+            "nonempty": 18,
+            "unique": 1,
+            "top": [
+              [
+                "1",
+                18
+              ]
+            ]
+          },
+          "commodities": {
+            "nonempty": 18,
+            "unique": 12,
+            "top": [
+              [
+                "SN W",
+                3
+              ],
+              [
+                "BE NB TA",
+                3
+              ],
+              [
+                "W",
+                2
+              ],
+              [
+                "NB TA",
+                2
+              ],
+              [
+                "W SN",
+                1
+              ],
+              [
+                "SN W TA",
+                1
+              ],
+              [
+                "SN TA W",
+                1
+              ],
+              [
+                "NB SN",
+                1
+              ],
+              [
+                "SN",
+                1
+              ],
+              [
+                "W TA",
+                1
+              ],
+              [
+                "BE TA",
+                1
+              ],
+              [
+                "NB W",
+                1
+              ]
+            ]
+          },
+          "belt": {
+            "nonempty": 18,
+            "unique": 1,
+            "top": [
+              [
+                "karagwe_ankole",
+                18
+              ]
+            ]
+          },
+          "name": {
+            "nonempty": 18,
+            "unique": 18,
+            "top": [
+              [
+                "Nyakabingo",
+                1
+              ],
+              [
+                "Musha",
+                1
+              ],
+              [
+                "Ntunga",
+                1
+              ],
+              [
+                "Gatumba",
+                1
+              ],
+              [
+                "Nyamalilo",
+                1
+              ],
+              [
+                "Somirwa Mine",
+                1
+              ],
+              [
+                "Somirwa",
+                1
+              ],
+              [
+                "Rwenkanga",
+                1
+              ],
+              [
+                "Kaborishoke Kwerya",
+                1
+              ],
+              [
+                "Kivumines/Bishasha",
+                1
+              ],
+              [
+                "Nyangarwentali",
+                1
+              ],
+              [
+                "Kanungu",
+                1
+              ],
+              [
+                "Kabira",
+                1
+              ],
+              [
+                "Bulema",
+                1
+              ],
+              [
+                "Ruhuma",
+                1
+              ],
+              [
+                "Kazumu",
+                1
+              ],
+              [
+                "Kakenena",
+                1
+              ],
+              [
+                "Somirwa (Societe Miniere De Rwanda)",
+                1
+              ]
+            ]
+          },
+          "reference": {
+            "nonempty": 4,
+            "unique": 5,
+            "top": [
+              [
+                "",
+                14
+              ],
+              [
+                "Dewaele et al. 2016; Rulindo District W-vein field",
+                1
+              ],
+              [
+                "Dewaele et al. 2015; Rwamagana District Sn-W veins",
+                1
+              ],
+              [
+                "Dewaele et al. 2015; Musha-Ntunga vein swarm",
+                1
+              ],
+              [
+                "Dewaele et al. 2016; Ngororero Nb-Ta-Sn pegmatites",
+                1
+              ]
+            ]
+          }
+        },
+        "bytes": 98304,
+        "by_source": [
+          [
+            "mrds",
+            14
+          ],
+          [
+            "seed",
+            4
+          ]
+        ],
+        "names": [
+          "Bulema",
+          "Gatumba",
+          "Kabira",
+          "Kaborishoke Kwerya",
+          "Kakenena",
+          "Kanungu",
+          "Kazumu",
+          "Kivumines/Bishasha",
+          "Musha",
+          "Ntunga",
+          "Nyakabingo",
+          "Nyamalilo",
+          "Nyangarwentali",
+          "Ruhuma",
+          "Rwenkanga",
+          "Somirwa",
+          "Somirwa (Societe Miniere De Rwanda)",
+          "Somirwa Mine"
+        ],
+        "tokens": [
+          [
+            "W",
+            10
+          ],
+          [
+            "TA",
+            9
+          ],
+          [
+            "SN",
+            8
+          ],
+          [
+            "NB",
+            7
+          ],
+          [
+            "BE",
+            4
+          ]
+        ]
+      },
+      "background": {
+        "rows": 320,
+        "crs": "EPSG:4326",
+        "columns": [
+          "label",
+          "source",
+          "stratum",
+          "name",
+          "commodities",
+          "belt",
+          "reference",
+          "geometry"
+        ],
+        "bounds": [
+          29.40758957668768,
+          -2.399499699716275,
+          30.597907141458357,
+          -1.2002815957027873
+        ],
+        "status": {
+          "source": {
+            "nonempty": 320,
+            "unique": 1,
+            "top": [
+              [
+                "background",
+                320
+              ]
+            ]
+          },
+          "label": {
+            "nonempty": 320,
+            "unique": 1,
+            "top": [
+              [
+                "0",
+                320
+              ]
+            ]
+          },
+          "stratum": {
+            "nonempty": 320,
+            "unique": 2,
+            "top": [
+              [
+                "barren_halo",
+                160
+              ],
+              [
+                "greenfield",
+                160
+              ]
+            ]
+          },
+          "commodities": {
+            "nonempty": 0,
+            "unique": 1,
+            "top": [
+              [
+                "",
+                320
+              ]
+            ]
+          },
+          "belt": {
+            "nonempty": 320,
+            "unique": 1,
+            "top": [
+              [
+                "karagwe_ankole",
+                320
+              ]
+            ]
+          },
+          "name": {
+            "nonempty": 320,
+            "unique": 320,
+            "top": [
+              [
+                "bg_00000",
+                1
+              ],
+              [
+                "bg_00001",
+                1
+              ],
+              [
+                "bg_00002",
+                1
+              ],
+              [
+                "bg_00003",
+                1
+              ],
+              [
+                "bg_00004",
+                1
+              ],
+              [
+                "bg_00005",
+                1
+              ],
+              [
+                "bg_00006",
+                1
+              ],
+              [
+                "bg_00007",
+                1
+              ],
+              [
+                "bg_00008",
+                1
+              ],
+              [
+                "bg_00009",
+                1
+              ],
+              [
+                "bg_00010",
+                1
+              ],
+              [
+                "bg_00011",
+                1
+              ],
+              [
+                "bg_00012",
+                1
+              ],
+              [
+                "bg_00013",
+                1
+              ],
+              [
+                "bg_00014",
+                1
+              ],
+              [
+                "bg_00015",
+                1
+              ],
+              [
+                "bg_00016",
+                1
+              ],
+              [
+                "bg_00017",
+                1
+              ],
+              [
+                "bg_00018",
+                1
+              ],
+              [
+                "bg_00019",
+                1
+              ]
+            ]
+          },
+          "reference": {
+            "nonempty": 0,
+            "unique": 1,
+            "top": [
+              [
+                "",
+                320
+              ]
+            ]
+          }
+        },
+        "bytes": 172032,
+        "by_source": [
+          [
+            "background",
+            320
+          ]
+        ],
+        "names": [
+          "bg_00000",
+          "bg_00001",
+          "bg_00002",
+          "bg_00003",
+          "bg_00004",
+          "bg_00005",
+          "bg_00006",
+          "bg_00007",
+          "bg_00008",
+          "bg_00009",
+          "bg_00010",
+          "bg_00011",
+          "bg_00012",
+          "bg_00013",
+          "bg_00014",
+          "bg_00015",
+          "bg_00016",
+          "bg_00017",
+          "bg_00018",
+          "bg_00019",
+          "bg_00020",
+          "bg_00021",
+          "bg_00022",
+          "bg_00023",
+          "bg_00024",
+          "bg_00025",
+          "bg_00026",
+          "bg_00027",
+          "bg_00028",
+          "bg_00029",
+          "bg_00030",
+          "bg_00031",
+          "bg_00032",
+          "bg_00033",
+          "bg_00034",
+          "bg_00035",
+          "bg_00036",
+          "bg_00037",
+          "bg_00038",
+          "bg_00039",
+          "bg_00040",
+          "bg_00041",
+          "bg_00042",
+          "bg_00043",
+          "bg_00044",
+          "bg_00045",
+          "bg_00046",
+          "bg_00047",
+          "bg_00048",
+          "bg_00049",
+          "bg_00050",
+          "bg_00051",
+          "bg_00052",
+          "bg_00053",
+          "bg_00054",
+          "bg_00055",
+          "bg_00056",
+          "bg_00057",
+          "bg_00058",
+          "bg_00059",
+          "bg_00060",
+          "bg_00061",
+          "bg_00062",
+          "bg_00063",
+          "bg_00064",
+          "bg_00065",
+          "bg_00066",
+          "bg_00067",
+          "bg_00068",
+          "bg_00069",
+          "bg_00070",
+          "bg_00071",
+          "bg_00072",
+          "bg_00073",
+          "bg_00074",
+          "bg_00075",
+          "bg_00076",
+          "bg_00077",
+          "bg_00078",
+          "bg_00079",
+          "bg_00080",
+          "bg_00081",
+          "bg_00082",
+          "bg_00083",
+          "bg_00084",
+          "bg_00085",
+          "bg_00086",
+          "bg_00087",
+          "bg_00088",
+          "bg_00089",
+          "bg_00090",
+          "bg_00091",
+          "bg_00092",
+          "bg_00093",
+          "bg_00094",
+          "bg_00095",
+          "bg_00096",
+          "bg_00097",
+          "bg_00098",
+          "bg_00099",
+          "bg_00100",
+          "bg_00101",
+          "bg_00102",
+          "bg_00103",
+          "bg_00104",
+          "bg_00105",
+          "bg_00106",
+          "bg_00107",
+          "bg_00108",
+          "bg_00109",
+          "bg_00110",
+          "bg_00111",
+          "bg_00112",
+          "bg_00113",
+          "bg_00114",
+          "bg_00115",
+          "bg_00116",
+          "bg_00117",
+          "bg_00118",
+          "bg_00119",
+          "bg_00120",
+          "bg_00121",
+          "bg_00122",
+          "bg_00123",
+          "bg_00124",
+          "bg_00125",
+          "bg_00126",
+          "bg_00127",
+          "bg_00128",
+          "bg_00129",
+          "bg_00130",
+          "bg_00131",
+          "bg_00132",
+          "bg_00133",
+          "bg_00134",
+          "bg_00135",
+          "bg_00136",
+          "bg_00137",
+          "bg_00138",
+          "bg_00139",
+          "bg_00140",
+          "bg_00141",
+          "bg_00142",
+          "bg_00143",
+          "bg_00144",
+          "bg_00145",
+          "bg_00146",
+          "bg_00147",
+          "bg_00148",
+          "bg_00149",
+          "bg_00150",
+          "bg_00151",
+          "bg_00152",
+          "bg_00153",
+          "bg_00154",
+          "bg_00155",
+          "bg_00156",
+          "bg_00157",
+          "bg_00158",
+          "bg_00159",
+          "bg_00160",
+          "bg_00161",
+          "bg_00162",
+          "bg_00163",
+          "bg_00164",
+          "bg_00165",
+          "bg_00166",
+          "bg_00167",
+          "bg_00168",
+          "bg_00169",
+          "bg_00170",
+          "bg_00171",
+          "bg_00172",
+          "bg_00173",
+          "bg_00174",
+          "bg_00175",
+          "bg_00176",
+          "bg_00177",
+          "bg_00178",
+          "bg_00179",
+          "bg_00180",
+          "bg_00181",
+          "bg_00182",
+          "bg_00183",
+          "bg_00184",
+          "bg_00185",
+          "bg_00186",
+          "bg_00187",
+          "bg_00188",
+          "bg_00189",
+          "bg_00190",
+          "bg_00191",
+          "bg_00192",
+          "bg_00193",
+          "bg_00194",
+          "bg_00195",
+          "bg_00196",
+          "bg_00197",
+          "bg_00198",
+          "bg_00199"
+        ],
+        "tokens": []
+      },
+      "metrics": {
+        "rows": 328,
+        "positives": 9,
+        "best": "lgbm",
+        "results": {
+          "rf": {
+            "ap": 0.04060297797372638,
+            "roc": 0.4369277955881861,
+            "folds": 5
+          },
+          "xgb": {
+            "ap": 0.03870395477538335,
+            "roc": 0.4565803807406887,
+            "folds": 5
+          },
+          "lgbm": {
+            "ap": 0.04695217742269321,
+            "roc": 0.398169088988761,
+            "folds": 5
+          }
+        }
+      }
+    },
+    "copper_zinc": {
+      "labels": {
+        "rows": 78,
+        "crs": "EPSG:4326",
+        "columns": [
+          "label",
+          "source",
+          "name",
+          "commodities",
+          "belt",
+          "reference",
+          "geometry"
+        ],
+        "bounds": [
+          24.1,
+          -12.31603,
+          28.2743,
+          -8.892
+        ],
+        "status": {
+          "source": {
+            "nonempty": 78,
+            "unique": 2,
+            "top": [
+              [
+                "mrds",
+                76
+              ],
+              [
+                "seed",
+                2
+              ]
+            ]
+          },
+          "label": {
+            "nonempty": 78,
+            "unique": 1,
+            "top": [
+              [
+                "1",
+                78
+              ]
+            ]
+          },
+          "commodities": {
+            "nonempty": 78,
+            "unique": 13,
+            "top": [
+              [
+                "CU",
+                36
+              ],
+              [
+                "CU CO",
+                28
+              ],
+              [
+                "CU CO U AU",
+                2
+              ],
+              [
+                "CU CO NI",
+                2
+              ],
+              [
+                "CU CO AG",
+                2
+              ],
+              [
+                "ZN CU PB",
+                1
+              ],
+              [
+                "AU AG CU MO PB PGE_PT PGE_PD",
+                1
+              ],
+              [
+                "CU ZN AG CD GE CO GA MO RE",
+                1
+              ],
+              [
+                "CU AU",
+                1
+              ],
+              [
+                "CO CU",
+                1
+              ],
+              [
+                "ZN",
+                1
+              ],
+              [
+                "CU AG",
+                1
+              ],
+              [
+                "CU CO U",
+                1
+              ]
+            ]
+          },
+          "belt": {
+            "nonempty": 78,
+            "unique": 1,
+            "top": [
+              [
+                "central_african_copperbelt",
+                78
+              ]
+            ]
+          },
+          "name": {
+            "nonempty": 78,
+            "unique": 77,
+            "top": [
+              [
+                "Kipushi",
+                2
+              ],
+              [
+                "Kamoa-Kakula",
+                1
+              ],
+              [
+                "Mupine",
+                1
+              ],
+              [
+                "Kambove West",
+                1
+              ],
+              [
+                "Kazibizi",
+                1
+              ],
+              [
+                "M'Sesa",
+                1
+              ],
+              [
+                "Ruwe",
+                1
+              ],
+              [
+                "Musonoi",
+                1
+              ],
+              [
+                "Kolwezi Processing Plant",
+                1
+              ],
+              [
+                "(Facility) Shituru Smelter",
+                1
+              ],
+              [
+                "Mutoshi",
+                1
+              ],
+              [
+                "Kansanshi",
+                1
+              ],
+              [
+                "Kamoto",
+                1
+              ],
+              [
+                "Kambove / Kamfundwa",
+                1
+              ],
+              [
+                "Kilamusembu",
+                1
+              ],
+              [
+                "Kakanda",
+                1
+              ],
+              [
+                "KOV",
+                1
+              ],
+              [
+                "Lumwana Project",
+                1
+              ],
+              [
+                "(Facility) Luilu Smelter",
+                1
+              ],
+              [
+                "(Facility) Lubumbashi Copper Smelter",
+                1
+              ]
+            ]
+          },
+          "reference": {
+            "nonempty": 2,
+            "unique": 3,
+            "top": [
+              [
+                "",
+                76
+              ],
+              [
+                "Kamona & Friedrich 2007; high-grade Zn-Cu-Pb mine",
+                1
+              ],
+              [
+                "Broughton 2014; Ivanhoe Mines Kakula complex",
+                1
+              ]
+            ]
+          }
+        },
+        "bytes": 106496,
+        "by_source": [
+          [
+            "mrds",
+            76
+          ],
+          [
+            "seed",
+            2
+          ]
+        ],
+        "names": [
+          "(Facility) Lubumbashi Copper Smelter",
+          "(Facility) Luilu Copper Refinery",
+          "(Facility) Luilu Smelter",
+          "(Facility) Shituru Copper Refinery",
+          "(Facility) Shituru Smelter",
+          "Bangwe",
+          "Chimiwungo (Lumwana Project)",
+          "Colline A and Kakifulwe",
+          "DIMA",
+          "Dikulushi",
+          "Disele",
+          "Etoile",
+          "Fwalu",
+          "Judeira",
+          "KOV",
+          "Kababankola",
+          "Kabolela",
+          "Kakanda",
+          "Kakanda East",
+          "Kalongwe",
+          "Kalukundi",
+          "Kalumbila",
+          "Kamatanda",
+          "Kambove / Kamfundwa",
+          "Kambove West",
+          "Kaminafitwe",
+          "Kamoa-Kakula",
+          "Kamoto",
+          "Kananga",
+          "Kansanshi",
+          "Karavia",
+          "Kasala",
+          "Kasonta South",
+          "Kazibizi",
+          "Kikuswe",
+          "Kilamusembu",
+          "Kileba",
+          "Kimbwe",
+          "Kinsevere",
+          "Kipapila",
+          "Kipoi Central",
+          "Kipoi North",
+          "Kipushi",
+          "Kiwana",
+          "Kolwezi",
+          "Kolwezi Processing Plant",
+          "Kwatebala",
+          "Lufomboshi",
+          "Luishia",
+          "Luiswishi",
+          "Luita",
+          "Lukuni",
+          "Lumwana Project",
+          "Lupoto",
+          "M'Sesa",
+          "Malundwe (Lumwana Project)",
+          "Mambilima",
+          "Menda",
+          "Mukondo",
+          "Munaka",
+          "Mupine",
+          "Musonge",
+          "Musonoi",
+          "Mutanda Ya Mukonkota",
+          "Mutoshi",
+          "Mwandinkomba",
+          "Nama Retention License",
+          "Permit 9316",
+          "Ruwe",
+          "Saafi",
+          "Sefu",
+          "Shangolowe",
+          "Shinkolobwe Signal",
+          "Shituru",
+          "Taratara",
+          "Tenke Fungurume",
+          "Tilwezembe"
+        ],
+        "tokens": [
+          [
+            "CU",
+            77
+          ],
+          [
+            "CO",
+            37
+          ],
+          [
+            "AG",
+            5
+          ],
+          [
+            "AU",
+            4
+          ],
+          [
+            "ZN",
+            3
+          ],
+          [
+            "U",
+            3
+          ],
+          [
+            "PB",
+            2
+          ],
+          [
+            "MO",
+            2
+          ],
+          [
+            "NI",
+            2
+          ],
+          [
+            "PGE_PT",
+            1
+          ],
+          [
+            "PGE_PD",
+            1
+          ],
+          [
+            "CD",
+            1
+          ],
+          [
+            "GE",
+            1
+          ],
+          [
+            "GA",
+            1
+          ],
+          [
+            "RE",
+            1
+          ]
+        ]
+      },
+      "background": {
+        "rows": 300,
+        "crs": "EPSG:4326",
+        "columns": [
+          "label",
+          "source",
+          "name",
+          "commodities",
+          "belt",
+          "reference",
+          "geometry"
+        ],
+        "bounds": [
+          21.56846910868435,
+          -13.157775440044615,
+          30.61425276985399,
+          -8.458794172612386
+        ],
+        "status": {
+          "source": {
+            "nonempty": 300,
+            "unique": 1,
+            "top": [
+              [
+                "background",
+                300
+              ]
+            ]
+          },
+          "label": {
+            "nonempty": 300,
+            "unique": 1,
+            "top": [
+              [
+                "0",
+                300
+              ]
+            ]
+          },
+          "commodities": {
+            "nonempty": 0,
+            "unique": 1,
+            "top": [
+              [
+                "",
+                300
+              ]
+            ]
+          },
+          "belt": {
+            "nonempty": 300,
+            "unique": 1,
+            "top": [
+              [
+                "central_african_copperbelt",
+                300
+              ]
+            ]
+          },
+          "name": {
+            "nonempty": 300,
+            "unique": 300,
+            "top": [
+              [
+                "bg_00000",
+                1
+              ],
+              [
+                "bg_00001",
+                1
+              ],
+              [
+                "bg_00002",
+                1
+              ],
+              [
+                "bg_00003",
+                1
+              ],
+              [
+                "bg_00004",
+                1
+              ],
+              [
+                "bg_00005",
+                1
+              ],
+              [
+                "bg_00006",
+                1
+              ],
+              [
+                "bg_00007",
+                1
+              ],
+              [
+                "bg_00008",
+                1
+              ],
+              [
+                "bg_00009",
+                1
+              ],
+              [
+                "bg_00010",
+                1
+              ],
+              [
+                "bg_00011",
+                1
+              ],
+              [
+                "bg_00012",
+                1
+              ],
+              [
+                "bg_00013",
+                1
+              ],
+              [
+                "bg_00014",
+                1
+              ],
+              [
+                "bg_00015",
+                1
+              ],
+              [
+                "bg_00016",
+                1
+              ],
+              [
+                "bg_00017",
+                1
+              ],
+              [
+                "bg_00018",
+                1
+              ],
+              [
+                "bg_00019",
+                1
+              ]
+            ]
+          },
+          "reference": {
+            "nonempty": 0,
+            "unique": 1,
+            "top": [
+              [
+                "",
+                300
+              ]
+            ]
+          }
+        },
+        "bytes": 143360,
+        "by_source": [
+          [
+            "background",
+            300
+          ]
+        ],
+        "names": [
+          "bg_00000",
+          "bg_00001",
+          "bg_00002",
+          "bg_00003",
+          "bg_00004",
+          "bg_00005",
+          "bg_00006",
+          "bg_00007",
+          "bg_00008",
+          "bg_00009",
+          "bg_00010",
+          "bg_00011",
+          "bg_00012",
+          "bg_00013",
+          "bg_00014",
+          "bg_00015",
+          "bg_00016",
+          "bg_00017",
+          "bg_00018",
+          "bg_00019",
+          "bg_00020",
+          "bg_00021",
+          "bg_00022",
+          "bg_00023",
+          "bg_00024",
+          "bg_00025",
+          "bg_00026",
+          "bg_00027",
+          "bg_00028",
+          "bg_00029",
+          "bg_00030",
+          "bg_00031",
+          "bg_00032",
+          "bg_00033",
+          "bg_00034",
+          "bg_00035",
+          "bg_00036",
+          "bg_00037",
+          "bg_00038",
+          "bg_00039",
+          "bg_00040",
+          "bg_00041",
+          "bg_00042",
+          "bg_00043",
+          "bg_00044",
+          "bg_00045",
+          "bg_00046",
+          "bg_00047",
+          "bg_00048",
+          "bg_00049",
+          "bg_00050",
+          "bg_00051",
+          "bg_00052",
+          "bg_00053",
+          "bg_00054",
+          "bg_00055",
+          "bg_00056",
+          "bg_00057",
+          "bg_00058",
+          "bg_00059",
+          "bg_00060",
+          "bg_00061",
+          "bg_00062",
+          "bg_00063",
+          "bg_00064",
+          "bg_00065",
+          "bg_00066",
+          "bg_00067",
+          "bg_00068",
+          "bg_00069",
+          "bg_00070",
+          "bg_00071",
+          "bg_00072",
+          "bg_00073",
+          "bg_00074",
+          "bg_00075",
+          "bg_00076",
+          "bg_00077",
+          "bg_00078",
+          "bg_00079",
+          "bg_00080",
+          "bg_00081",
+          "bg_00082",
+          "bg_00083",
+          "bg_00084",
+          "bg_00085",
+          "bg_00086",
+          "bg_00087",
+          "bg_00088",
+          "bg_00089",
+          "bg_00090",
+          "bg_00091",
+          "bg_00092",
+          "bg_00093",
+          "bg_00094",
+          "bg_00095",
+          "bg_00096",
+          "bg_00097",
+          "bg_00098",
+          "bg_00099",
+          "bg_00100",
+          "bg_00101",
+          "bg_00102",
+          "bg_00103",
+          "bg_00104",
+          "bg_00105",
+          "bg_00106",
+          "bg_00107",
+          "bg_00108",
+          "bg_00109",
+          "bg_00110",
+          "bg_00111",
+          "bg_00112",
+          "bg_00113",
+          "bg_00114",
+          "bg_00115",
+          "bg_00116",
+          "bg_00117",
+          "bg_00118",
+          "bg_00119",
+          "bg_00120",
+          "bg_00121",
+          "bg_00122",
+          "bg_00123",
+          "bg_00124",
+          "bg_00125",
+          "bg_00126",
+          "bg_00127",
+          "bg_00128",
+          "bg_00129",
+          "bg_00130",
+          "bg_00131",
+          "bg_00132",
+          "bg_00133",
+          "bg_00134",
+          "bg_00135",
+          "bg_00136",
+          "bg_00137",
+          "bg_00138",
+          "bg_00139",
+          "bg_00140",
+          "bg_00141",
+          "bg_00142",
+          "bg_00143",
+          "bg_00144",
+          "bg_00145",
+          "bg_00146",
+          "bg_00147",
+          "bg_00148",
+          "bg_00149",
+          "bg_00150",
+          "bg_00151",
+          "bg_00152",
+          "bg_00153",
+          "bg_00154",
+          "bg_00155",
+          "bg_00156",
+          "bg_00157",
+          "bg_00158",
+          "bg_00159",
+          "bg_00160",
+          "bg_00161",
+          "bg_00162",
+          "bg_00163",
+          "bg_00164",
+          "bg_00165",
+          "bg_00166",
+          "bg_00167",
+          "bg_00168",
+          "bg_00169",
+          "bg_00170",
+          "bg_00171",
+          "bg_00172",
+          "bg_00173",
+          "bg_00174",
+          "bg_00175",
+          "bg_00176",
+          "bg_00177",
+          "bg_00178",
+          "bg_00179",
+          "bg_00180",
+          "bg_00181",
+          "bg_00182",
+          "bg_00183",
+          "bg_00184",
+          "bg_00185",
+          "bg_00186",
+          "bg_00187",
+          "bg_00188",
+          "bg_00189",
+          "bg_00190",
+          "bg_00191",
+          "bg_00192",
+          "bg_00193",
+          "bg_00194",
+          "bg_00195",
+          "bg_00196",
+          "bg_00197",
+          "bg_00198",
+          "bg_00199"
+        ],
+        "tokens": []
+      },
+      "metrics": {
+        "rows": 97,
+        "positives": 39,
+        "best": "xgb",
+        "results": {
+          "rf": {
+            "ap": 0.9262900987900988,
+            "roc": 0.9319534632034632,
+            "folds": 5
+          },
+          "xgb": {
+            "ap": 0.9368094090253181,
+            "roc": 0.9193668831168832,
+            "folds": 5
+          },
+          "lgbm": {
+            "ap": 0.9340479904082845,
+            "roc": 0.915400432900433,
+            "folds": 5
+          }
+        }
+      }
+    },
+    "bauxite": {
+      "labels": {
+        "rows": 3,
+        "crs": "EPSG:4326",
+        "columns": [
+          "label",
+          "source",
+          "name",
+          "commodities",
+          "belt",
+          "reference",
+          "geometry"
+        ],
+        "bounds": [
+          38.25118,
+          -4.83131,
+          38.302,
+          -4.767
+        ],
+        "status": {
+          "source": {
+            "nonempty": 3,
+            "unique": 2,
+            "top": [
+              [
+                "seed",
+                2
+              ],
+              [
+                "mrds",
+                1
+              ]
+            ]
+          },
+          "label": {
+            "nonempty": 3,
+            "unique": 1,
+            "top": [
+              [
+                "1",
+                3
+              ]
+            ]
+          },
+          "commodities": {
+            "nonempty": 3,
+            "unique": 1,
+            "top": [
+              [
+                "AL",
+                3
+              ]
+            ]
+          },
+          "belt": {
+            "nonempty": 3,
+            "unique": 1,
+            "top": [
+              [
+                "usambara_bauxite",
+                3
+              ]
+            ]
+          },
+          "name": {
+            "nonempty": 3,
+            "unique": 3,
+            "top": [
+              [
+                "Lushoto",
+                1
+              ],
+              [
+                "Magamba",
+                1
+              ],
+              [
+                "Mombo",
+                1
+              ]
+            ]
+          },
+          "reference": {
+            "nonempty": 2,
+            "unique": 3,
+            "top": [
+              [
+                "Tanzania GSD; Usambara lateritic plateaus",
+                1
+              ],
+              [
+                "Magamba area, West Usambara laterite plateau",
+                1
+              ],
+              [
+                "",
+                1
+              ]
+            ]
+          }
+        },
+        "bytes": 98304,
+        "by_source": [
+          [
+            "seed",
+            2
+          ],
+          [
+            "mrds",
+            1
+          ]
+        ],
+        "names": [
+          "Lushoto",
+          "Magamba",
+          "Mombo"
+        ],
+        "tokens": [
+          [
+            "AL",
+            3
+          ]
+        ]
+      },
+      "background": {
+        "rows": 300,
+        "crs": "EPSG:4326",
+        "columns": [
+          "label",
+          "source",
+          "name",
+          "commodities",
+          "belt",
+          "reference",
+          "geometry"
+        ],
+        "bounds": [
+          38.006626042775906,
+          -5.295628396000449,
+          38.89313800765025,
+          -4.400211196777091
+        ],
+        "status": {
+          "source": {
+            "nonempty": 300,
+            "unique": 1,
+            "top": [
+              [
+                "background",
+                300
+              ]
+            ]
+          },
+          "label": {
+            "nonempty": 300,
+            "unique": 1,
+            "top": [
+              [
+                "0",
+                300
+              ]
+            ]
+          },
+          "commodities": {
+            "nonempty": 0,
+            "unique": 1,
+            "top": [
+              [
+                "",
+                300
+              ]
+            ]
+          },
+          "belt": {
+            "nonempty": 300,
+            "unique": 1,
+            "top": [
+              [
+                "usambara_bauxite",
+                300
+              ]
+            ]
+          },
+          "name": {
+            "nonempty": 300,
+            "unique": 300,
+            "top": [
+              [
+                "bg_00000",
+                1
+              ],
+              [
+                "bg_00001",
+                1
+              ],
+              [
+                "bg_00002",
+                1
+              ],
+              [
+                "bg_00003",
+                1
+              ],
+              [
+                "bg_00004",
+                1
+              ],
+              [
+                "bg_00005",
+                1
+              ],
+              [
+                "bg_00006",
+                1
+              ],
+              [
+                "bg_00007",
+                1
+              ],
+              [
+                "bg_00008",
+                1
+              ],
+              [
+                "bg_00009",
+                1
+              ],
+              [
+                "bg_00010",
+                1
+              ],
+              [
+                "bg_00011",
+                1
+              ],
+              [
+                "bg_00012",
+                1
+              ],
+              [
+                "bg_00013",
+                1
+              ],
+              [
+                "bg_00014",
+                1
+              ],
+              [
+                "bg_00015",
+                1
+              ],
+              [
+                "bg_00016",
+                1
+              ],
+              [
+                "bg_00017",
+                1
+              ],
+              [
+                "bg_00018",
+                1
+              ],
+              [
+                "bg_00019",
+                1
+              ]
+            ]
+          },
+          "reference": {
+            "nonempty": 0,
+            "unique": 1,
+            "top": [
+              [
+                "",
+                300
+              ]
+            ]
+          }
+        },
+        "bytes": 135168,
+        "by_source": [
+          [
+            "background",
+            300
+          ]
+        ],
+        "names": [
+          "bg_00000",
+          "bg_00001",
+          "bg_00002",
+          "bg_00003",
+          "bg_00004",
+          "bg_00005",
+          "bg_00006",
+          "bg_00007",
+          "bg_00008",
+          "bg_00009",
+          "bg_00010",
+          "bg_00011",
+          "bg_00012",
+          "bg_00013",
+          "bg_00014",
+          "bg_00015",
+          "bg_00016",
+          "bg_00017",
+          "bg_00018",
+          "bg_00019",
+          "bg_00020",
+          "bg_00021",
+          "bg_00022",
+          "bg_00023",
+          "bg_00024",
+          "bg_00025",
+          "bg_00026",
+          "bg_00027",
+          "bg_00028",
+          "bg_00029",
+          "bg_00030",
+          "bg_00031",
+          "bg_00032",
+          "bg_00033",
+          "bg_00034",
+          "bg_00035",
+          "bg_00036",
+          "bg_00037",
+          "bg_00038",
+          "bg_00039",
+          "bg_00040",
+          "bg_00041",
+          "bg_00042",
+          "bg_00043",
+          "bg_00044",
+          "bg_00045",
+          "bg_00046",
+          "bg_00047",
+          "bg_00048",
+          "bg_00049",
+          "bg_00050",
+          "bg_00051",
+          "bg_00052",
+          "bg_00053",
+          "bg_00054",
+          "bg_00055",
+          "bg_00056",
+          "bg_00057",
+          "bg_00058",
+          "bg_00059",
+          "bg_00060",
+          "bg_00061",
+          "bg_00062",
+          "bg_00063",
+          "bg_00064",
+          "bg_00065",
+          "bg_00066",
+          "bg_00067",
+          "bg_00068",
+          "bg_00069",
+          "bg_00070",
+          "bg_00071",
+          "bg_00072",
+          "bg_00073",
+          "bg_00074",
+          "bg_00075",
+          "bg_00076",
+          "bg_00077",
+          "bg_00078",
+          "bg_00079",
+          "bg_00080",
+          "bg_00081",
+          "bg_00082",
+          "bg_00083",
+          "bg_00084",
+          "bg_00085",
+          "bg_00086",
+          "bg_00087",
+          "bg_00088",
+          "bg_00089",
+          "bg_00090",
+          "bg_00091",
+          "bg_00092",
+          "bg_00093",
+          "bg_00094",
+          "bg_00095",
+          "bg_00096",
+          "bg_00097",
+          "bg_00098",
+          "bg_00099",
+          "bg_00100",
+          "bg_00101",
+          "bg_00102",
+          "bg_00103",
+          "bg_00104",
+          "bg_00105",
+          "bg_00106",
+          "bg_00107",
+          "bg_00108",
+          "bg_00109",
+          "bg_00110",
+          "bg_00111",
+          "bg_00112",
+          "bg_00113",
+          "bg_00114",
+          "bg_00115",
+          "bg_00116",
+          "bg_00117",
+          "bg_00118",
+          "bg_00119",
+          "bg_00120",
+          "bg_00121",
+          "bg_00122",
+          "bg_00123",
+          "bg_00124",
+          "bg_00125",
+          "bg_00126",
+          "bg_00127",
+          "bg_00128",
+          "bg_00129",
+          "bg_00130",
+          "bg_00131",
+          "bg_00132",
+          "bg_00133",
+          "bg_00134",
+          "bg_00135",
+          "bg_00136",
+          "bg_00137",
+          "bg_00138",
+          "bg_00139",
+          "bg_00140",
+          "bg_00141",
+          "bg_00142",
+          "bg_00143",
+          "bg_00144",
+          "bg_00145",
+          "bg_00146",
+          "bg_00147",
+          "bg_00148",
+          "bg_00149",
+          "bg_00150",
+          "bg_00151",
+          "bg_00152",
+          "bg_00153",
+          "bg_00154",
+          "bg_00155",
+          "bg_00156",
+          "bg_00157",
+          "bg_00158",
+          "bg_00159",
+          "bg_00160",
+          "bg_00161",
+          "bg_00162",
+          "bg_00163",
+          "bg_00164",
+          "bg_00165",
+          "bg_00166",
+          "bg_00167",
+          "bg_00168",
+          "bg_00169",
+          "bg_00170",
+          "bg_00171",
+          "bg_00172",
+          "bg_00173",
+          "bg_00174",
+          "bg_00175",
+          "bg_00176",
+          "bg_00177",
+          "bg_00178",
+          "bg_00179",
+          "bg_00180",
+          "bg_00181",
+          "bg_00182",
+          "bg_00183",
+          "bg_00184",
+          "bg_00185",
+          "bg_00186",
+          "bg_00187",
+          "bg_00188",
+          "bg_00189",
+          "bg_00190",
+          "bg_00191",
+          "bg_00192",
+          "bg_00193",
+          "bg_00194",
+          "bg_00195",
+          "bg_00196",
+          "bg_00197",
+          "bg_00198",
+          "bg_00199"
+        ],
+        "tokens": []
+      },
+      "metrics": {
+        "rows": 303,
+        "positives": 3,
+        "best": "lgbm",
+        "results": {
+          "rf": {
+            "ap": 0.2698412698412698,
+            "roc": 0.9502943441018895,
+            "folds": 5
+          },
+          "xgb": {
+            "ap": 0.20000000000000004,
+            "roc": 0.9479323730390427,
+            "folds": 5
+          },
+          "lgbm": {
+            "ap": 0.4305555555555555,
+            "roc": 0.9310109289617486,
+            "folds": 5
+          }
+        }
+      }
+    }
+  }
+}

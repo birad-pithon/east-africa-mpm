@@ -1,0 +1,1012 @@
+{
+ "global_rows": 304632,
+ "africa_rows": 680,
+ "africa": {
+  "Manono": [
+   {
+    "site": "Manono",
+    "codes": "LI TA_S SN NB",
+    "dev": "Plant",
+    "dep": "10183207",
+    "lon": 27.4513,
+    "lat": -7.277
+   },
+   {
+    "site": "(Facility) Manono Smelter",
+    "codes": "SN TA",
+    "dev": "Plant",
+    "dep": "10231591",
+    "lon": 27.4013,
+    "lat": -7.2978
+   },
+   {
+    "site": "Manono-Kitotolo",
+    "codes": "SN LI TA NB",
+    "dev": "Past Producer",
+    "dep": "60000722",
+    "lon": 27.4513,
+    "lat": -7.2978
+   }
+  ],
+  "Kitotolo": [
+   {
+    "site": "Kitotolo",
+    "codes": "LI NB SN",
+    "dev": "Plant",
+    "dep": "10231544",
+    "lon": 27.3846,
+    "lat": -7.3228
+   },
+   {
+    "site": "Manono-Kitotolo",
+    "codes": "SN LI TA NB",
+    "dev": "Past Producer",
+    "dep": "60000722",
+    "lon": 27.4513,
+    "lat": -7.2978
+   }
+  ],
+  "Bikita": [
+   {
+    "site": "Bikita",
+    "codes": "CS CLY_K SN RB LI",
+    "dev": "Producer",
+    "dep": "60000711",
+    "lon": 31.4346,
+    "lat": -19.9469
+   }
+  ],
+  "Greenbushes": [],
+  "Altenberg": [],
+  "Cinovec": [],
+  "Jos Plateau": [],
+  "Kidd Creek": [],
+  "Kupferschiefer": [],
+  "Bisha": [
+   {
+    "site": "Kivumines/Bishasha",
+    "codes": "SN W",
+    "dev": "Producer",
+    "dep": "10183518",
+    "lon": 29.2346,
+    "lat": -1.665
+   }
+  ],
+  "Weipa": [],
+  "Sangaredi": [],
+  "Boke": [],
+  "Kindia": [],
+  "Minim-Martap": [],
+  "Martap": [
+   {
+    "site": "Minim Martap",
+    "codes": "AL SIL",
+    "dev": "Prospect",
+    "dep": "10183524",
+    "lon": 12.9681,
+    "lat": 6.9343
+   }
+  ],
+  "Trombetas": [],
+  "Tenke": [
+   {
+    "site": "Tenke Fungurume",
+    "codes": "CU CO",
+    "dev": "Prospect",
+    "dep": "10280763",
+    "lon": 26.1533,
+    "lat": -10.58
+   }
+  ],
+  "Fungurume": [
+   {
+    "site": "Tenke Fungurume",
+    "codes": "CU CO",
+    "dev": "Prospect",
+    "dep": "10280763",
+    "lon": 26.1533,
+    "lat": -10.58
+   }
+  ],
+  "Kansanshi": [
+   {
+    "site": "Kansanshi",
+    "codes": "CU AU",
+    "dev": "Past Producer",
+    "dep": "10183134",
+    "lon": 26.433,
+    "lat": -12.0968
+   }
+  ],
+  "Lumwana": [
+   {
+    "site": "Lumwana Project",
+    "codes": "CU CO",
+    "dev": "Prospect",
+    "dep": "10183561",
+    "lon": 25.8847,
+    "lat": -12.2807
+   },
+   {
+    "site": "Malundwe (Lumwana Project)",
+    "codes": "CU CO U AU",
+    "dev": "Prospect",
+    "dep": "10400307",
+    "lon": 25.8119,
+    "lat": -12.2279
+   },
+   {
+    "site": "Chimiwungo (Lumwana Project)",
+    "codes": "CU CO U AU",
+    "dev": "Prospect",
+    "dep": "10400308",
+    "lon": 25.8775,
+    "lat": -12.2843
+   }
+  ],
+  "Konkola": [
+   {
+    "site": "Konkola",
+    "codes": "CU CO AG AU",
+    "dev": "Producer",
+    "dep": "10207788",
+    "lon": 27.7903,
+    "lat": -12.3215
+   }
+  ],
+  "Nchanga": [
+   {
+    "site": "Nchanga Tailings Leach",
+    "codes": "CU",
+    "dev": "Plant",
+    "dep": "10134672",
+    "lon": 27.8513,
+    "lat": -12.4974
+   },
+   {
+    "site": "Nchanga Division",
+    "codes": "CU CO",
+    "dev": "Producer",
+    "dep": "10159181",
+    "lon": 27.85,
+    "lat": -12.5
+   },
+   {
+    "site": "Nchanga Hgl Plant (Facility)",
+    "codes": "CU",
+    "dev": "Plant",
+    "dep": "10280325",
+    "lon": 27.8513,
+    "lat": -12.4974
+   }
+  ],
+  "Nkana": [
+   {
+    "site": "Mindola - Nkana",
+    "codes": "CU CO",
+    "dev": "Producer",
+    "dep": "10184301",
+    "lon": 28.1908,
+    "lat": -12.8233
+   },
+   {
+    "site": "(Facility) Nkana Copper Refinery",
+    "codes": "CU",
+    "dev": "Plant",
+    "dep": "10231608",
+    "lon": 28.1846,
+    "lat": -12.8307
+   },
+   {
+    "site": "(Facility) Nkana Copper Smelter",
+    "codes": "CU S_A",
+    "dev": "Plant",
+    "dep": "10232134",
+    "lon": 28.1846,
+    "lat": -12.8307
+   },
+   {
+    "site": "Nkana Rle Plant (Facility)",
+    "codes": "CO CU",
+    "dev": "Plant",
+    "dep": "10304552",
+    "lon": 28.2096,
+    "lat": -12.8391
+   }
+  ],
+  "Mufulira": [
+   {
+    "site": "(Facility) Mufulira Copper Smelter",
+    "codes": "CU",
+    "dev": "Plant",
+    "dep": "10134819",
+    "lon": 28.2346,
+    "lat": -12.4974
+   },
+   {
+    "site": "Mufulira",
+    "codes": "CU",
+    "dev": "Producer",
+    "dep": "10255912",
+    "lon": 28.2285,
+    "lat": -12.5198
+   },
+   {
+    "site": "(Facility) Mufulira Copper Refinery",
+    "codes": "CU",
+    "dev": "Plant",
+    "dep": "10257195",
+    "lon": 28.2346,
+    "lat": -12.4974
+   }
+  ],
+  "Kipushi": [
+   {
+    "site": "Kipushi",
+    "codes": "CU ZN AG CD GE CO GA MO RE",
+    "dev": "Producer",
+    "dep": "10134596",
+    "lon": 27.2346,
+    "lat": -11.7642
+   }
+  ],
+  "Kolwezi": [
+   {
+    "site": "Kolwezi Processing Plant",
+    "codes": "CU",
+    "dev": "Plant",
+    "dep": "10134837",
+    "lon": 25.4167,
+    "lat": -10.75
+   },
+   {
+    "site": "Kolwezi",
+    "codes": "ZN",
+    "dev": "Plant",
+    "dep": "10255750",
+    "lon": 25.4846,
+    "lat": -10.7142
+   }
+  ],
+  "Kamoa": [],
+  "Kakula": [],
+  "Likasi": [],
+  "Gatumba": [],
+  "Nyakabingo": [],
+  "Musha": [],
+  "Lushoto": [],
+  "Magamba": [],
+  "Mombo": [
+   {
+    "site": "Mombo",
+    "codes": "AL",
+    "dev": "Occurrence",
+    "dep": "10093353",
+    "lon": 38.2512,
+    "lat": -4.8313
+   }
+  ]
+ },
+ "global": {
+  "Manono": [
+   {
+    "site": "Manono",
+    "codes": "LI TA_S SN NB",
+    "dev": "Plant",
+    "dep": "10183207",
+    "lon": 27.4513,
+    "lat": -7.277
+   },
+   {
+    "site": "(Facility) Manono Smelter",
+    "codes": "SN TA",
+    "dev": "Plant",
+    "dep": "10231591",
+    "lon": 27.4013,
+    "lat": -7.2978
+   },
+   {
+    "site": "Manono-Kitotolo",
+    "codes": "SN LI TA NB",
+    "dev": "Past Producer",
+    "dep": "60000722",
+    "lon": 27.4513,
+    "lat": -7.2978
+   }
+  ],
+  "Kitotolo": [
+   {
+    "site": "Kitotolo",
+    "codes": "LI NB SN",
+    "dev": "Plant",
+    "dep": "10231544",
+    "lon": 27.3846,
+    "lat": -7.3228
+   },
+   {
+    "site": "Manono-Kitotolo",
+    "codes": "SN LI TA NB",
+    "dev": "Past Producer",
+    "dep": "60000722",
+    "lon": 27.4513,
+    "lat": -7.2978
+   }
+  ],
+  "Bikita": [
+   {
+    "site": "Al Hayat Pegmatitesbikita",
+    "codes": "BE",
+    "dev": "Producer",
+    "dep": "10280813",
+    "lon": 31.5013,
+    "lat": -19.8969
+   },
+   {
+    "site": "Bikita",
+    "codes": "CS CLY_K SN RB LI",
+    "dev": "Producer",
+    "dep": "60000711",
+    "lon": 31.4346,
+    "lat": -19.9469
+   }
+  ],
+  "Greenbushes": [
+   {
+    "site": "Greenbushes Mine",
+    "codes": "SN TA NB LI",
+    "dev": "Producer",
+    "dep": "10085250",
+    "lon": 116.0646,
+    "lat": -33.8543
+   },
+   {
+    "site": "Greenbushes",
+    "codes": "TA SN",
+    "dev": "Plant",
+    "dep": "10159075",
+    "lon": 115.9993,
+    "lat": -33.996
+   },
+   {
+    "site": "Greenbushes Li",
+    "codes": "LI",
+    "dev": "Producer",
+    "dep": "10239683",
+    "lon": 115.9826,
+    "lat": -33.8293
+   },
+   {
+    "site": "Greenbushes",
+    "codes": "LI CLY_K SN TA NB",
+    "dev": "Producer",
+    "dep": "60000715",
+    "lon": 116.0646,
+    "lat": -33.8554
+   }
+  ],
+  "Altenberg": [
+   {
+    "site": "Waltenberger Mine",
+    "codes": "BA",
+    "dev": "Past Producer",
+    "dep": "10084128",
+    "lon": -84.5691,
+    "lat": 35.5629
+   }
+  ],
+  "Cinovec": [
+   {
+    "site": "Cinovec",
+    "codes": "W SN",
+    "dev": "Occurrence",
+    "dep": "10024813",
+    "lon": 13.7689,
+    "lat": 50.732
+   }
+  ],
+  "Jos Plateau": [],
+  "Kidd Creek": [
+   {
+    "site": "Kidd Creek Mine",
+    "codes": "AG CU ZN PB CD SN AU",
+    "dev": "Producer",
+    "dep": "10073135",
+    "lon": -81.3498,
+    "lat": 48.5
+   },
+   {
+    "site": "Kidd Creek",
+    "codes": "CU AG ZN CD AU PB S_A SN",
+    "dev": "Producer",
+    "dep": "10181635",
+    "lon": -81.3698,
+    "lat": 48.69
+   },
+   {
+    "site": "(Facility) Kidd Creek Copper Refinery",
+    "codes": "CU",
+    "dev": "Plant",
+    "dep": "10181636",
+    "lon": -81.2998,
+    "lat": 48.4667
+   },
+   {
+    "site": "(Facility) Kidd Creek Copper Smelter",
+    "codes": "CU AG S_A",
+    "dev": "Plant",
+    "dep": "10255174",
+    "lon": -81.2998,
+    "lat": 48.4667
+   }
+  ],
+  "Kupferschiefer": [
+   {
+    "site": "Kupferschiefer",
+    "codes": "CU PGE_PT PGE_PD PGE_OS PGE_IR PGE_RH",
+    "dev": "Past Producer",
+    "dep": "10103718",
+    "lon": 11.469,
+    "lat": 51.5987
+   }
+  ],
+  "Bisha": [
+   {
+    "site": "Bibishahr-Ranu",
+    "codes": "PB",
+    "dev": "Occurrence",
+    "dep": "10134153",
+    "lon": 51.5345,
+    "lat": 35.5653
+   },
+   {
+    "site": "Kivumines/Bishasha",
+    "codes": "SN W",
+    "dev": "Producer",
+    "dep": "10183518",
+    "lon": 29.2346,
+    "lat": -1.665
+   }
+  ],
+  "Weipa": [
+   {
+    "site": "North Weipa",
+    "codes": "AL",
+    "dev": "Occurrence",
+    "dep": "10022513",
+    "lon": 144.547,
+    "lat": -22.5705
+   },
+   {
+    "site": "South Weipa",
+    "codes": "AL",
+    "dev": "Occurrence",
+    "dep": "10022544",
+    "lon": 144.547,
+    "lat": -22.5705
+   },
+   {
+    "site": "Weipa-Andoom",
+    "codes": "AL",
+    "dev": "Past Producer",
+    "dep": "10022553",
+    "lon": 144.547,
+    "lat": -22.5705
+   },
+   {
+    "site": "Weipa",
+    "codes": "AL",
+    "dev": "Past Producer",
+    "dep": "10022563",
+    "lon": 144.547,
+    "lat": -22.5705
+   },
+   {
+    "site": "Weipa",
+    "codes": "AL",
+    "dev": "Past Producer",
+    "dep": "10022564",
+    "lon": 144.547,
+    "lat": -22.5705
+   },
+   {
+    "site": "Weipa",
+    "codes": "AL",
+    "dev": "Producer",
+    "dep": "10079687",
+    "lon": 141.9156,
+    "lat": -12.664
+   },
+   {
+    "site": "Weipa Mine",
+    "codes": "AL",
+    "dev": "Producer",
+    "dep": "10085161",
+    "lon": 144.547,
+    "lat": -22.5705
+   },
+   {
+    "site": "Weipa Andoom",
+    "codes": "AL CLY_K",
+    "dev": "Producer",
+    "dep": "10159284",
+    "lon": 141.8931,
+    "lat": -12.6601
+   }
+  ],
+  "Sangaredi": [
+   {
+    "site": "Sangaredi",
+    "codes": "AL",
+    "dev": "Past Producer",
+    "dep": "10022538",
+    "lon": 2.7171,
+    "lat": 46.5297
+   },
+   {
+    "site": "Boke-Sangaredi",
+    "codes": "AL",
+    "dev": "Past Producer",
+    "dep": "10022634",
+    "lon": -10.9404,
+    "lat": 10.4391
+   },
+   {
+    "site": "Sangaredi",
+    "codes": "AL",
+    "dev": "Past Producer",
+    "dep": "10098106",
+    "lon": -10.9404,
+    "lat": 10.4391
+   },
+   {
+    "site": "Sangaredi Boke",
+    "codes": "AL",
+    "dev": "Plant",
+    "dep": "10304756",
+    "lon": -13.5153,
+    "lat": 11.0675
+   }
+  ],
+  "Boke": [
+   {
+    "site": "Boke-Gaoual",
+    "codes": "AL SIL",
+    "dev": "Occurrence",
+    "dep": "10022473",
+    "lon": 2.7171,
+    "lat": 46.5297
+   },
+   {
+    "site": "Boke",
+    "codes": "AL",
+    "dev": "Occurrence",
+    "dep": "10022474",
+    "lon": 2.7171,
+    "lat": 46.5297
+   },
+   {
+    "site": "Boke-Sangaredi",
+    "codes": "AL",
+    "dev": "Past Producer",
+    "dep": "10022634",
+    "lon": -10.9404,
+    "lat": 10.4391
+   },
+   {
+    "site": "Cbg, Boke Project",
+    "codes": "AL",
+    "dev": "Past Producer",
+    "dep": "10081077",
+    "lon": -9.9986,
+    "lat": 9.001
+   },
+   {
+    "site": "Hoboken",
+    "codes": "AU",
+    "dev": "Past Producer",
+    "dep": "10086626",
+    "lon": -122.7619,
+    "lat": 41.7298
+   },
+   {
+    "site": "Bokeo",
+    "codes": "SB",
+    "dev": "Occurrence",
+    "dep": "10091756",
+    "lon": 101.8664,
+    "lat": 18.9497
+   },
+   {
+    "site": "Bokeo",
+    "codes": "ZR ABR_C",
+    "dev": "Prospect",
+    "dep": "10097411",
+    "lon": 107.1663,
+    "lat": 13.7002
+   },
+   {
+    "site": "Hoboken",
+    "codes": "PB_R SB AS BI CU AU_R IN SE AG_R S_A TE SN PGE_PD PGE_PT PGE_RH",
+    "dev": "Plant",
+    "dep": "10158567",
+    "lon": 4.3398,
+    "lat": 51.1872
+   },
+   {
+    "site": "Hoboken Mine",
+    "codes": "AU",
+    "dev": "Past Producer",
+    "dep": "10166227",
+    "lon": -122.7622,
+    "lat": 41.7304
+   },
+   {
+    "site": "Hoboken Mine",
+    "codes": "PB ZN",
+    "dev": "Past Producer",
+    "dep": "10171626",
+    "lon": -94.5385,
+    "lat": 37.0826
+   },
+   {
+    "site": "Bokemier Iron Deposit",
+    "codes": "FE",
+    "dev": "Prospect",
+    "dep": "10180220",
+    "lon": -122.5915,
+    "lat": 45.6823
+   },
+   {
+    "site": "Hoboken and Grand Slide",
+    "codes": "AU",
+    "dev": "Past Producer",
+    "dep": "10238357",
+    "lon": -123.425,
+    "lat": 40.894
+   },
+   {
+    "site": "Sangaredi Boke",
+    "codes": "AL",
+    "dev": "Plant",
+    "dep": "10304756",
+    "lon": -13.5153,
+    "lat": 11.0675
+   }
+  ],
+  "Kindia": [
+   {
+    "site": "Kindia",
+    "codes": "AL",
+    "dev": "Occurrence",
+    "dep": "10022492",
+    "lon": -10.9404,
+    "lat": 10.4391
+   },
+   {
+    "site": "Kindia-Friguiagbe",
+    "codes": "AL",
+    "dev": "Past Producer",
+    "dep": "10022493",
+    "lon": -10.9404,
+    "lat": 10.4391
+   },
+   {
+    "site": "Kindia",
+    "codes": "AL",
+    "dev": "Producer",
+    "dep": "10084834",
+    "lon": -12.8486,
+    "lat": 10.0676
+   },
+   {
+    "site": "Kindia Debele",
+    "codes": "AL",
+    "dev": "Producer",
+    "dep": "10305128",
+    "lon": -12.8153,
+    "lat": 9.9509
+   }
+  ],
+  "Minim-Martap": [],
+  "Martap": [
+   {
+    "site": "Minim Martap",
+    "codes": "AL SIL",
+    "dev": "Prospect",
+    "dep": "10183524",
+    "lon": 12.9681,
+    "lat": 6.9343
+   }
+  ],
+  "Trombetas": [
+   {
+    "site": "Trombetas",
+    "codes": "AL",
+    "dev": "Unknown",
+    "dep": "10022459",
+    "lon": -53.089,
+    "lat": -10.771
+   },
+   {
+    "site": "Trombetas-Amazon Rivers",
+    "codes": "AL",
+    "dev": "Past Producer",
+    "dep": "10022566",
+    "lon": -53.1227,
+    "lat": -4.0339
+   },
+   {
+    "site": "Trombetas -Saraca",
+    "codes": "AL",
+    "dev": "Producer",
+    "dep": "10085112",
+    "lon": -56.4498,
+    "lat": -1.6708
+   },
+   {
+    "site": "Trombetas",
+    "codes": "AL",
+    "dev": "Occurrence",
+    "dep": "10094866",
+    "lon": -53.089,
+    "lat": -10.771
+   },
+   {
+    "site": "Trombetas",
+    "codes": "AL",
+    "dev": "Occurrence",
+    "dep": "10094872",
+    "lon": -56.4993,
+    "lat": -1.7483
+   },
+   {
+    "site": "Trombetas River Region",
+    "codes": "AL",
+    "dev": "Past Producer",
+    "dep": "10098105",
+    "lon": -53.089,
+    "lat": -10.771
+   },
+   {
+    "site": "Trombetas",
+    "codes": "AL SIL",
+    "dev": "Producer",
+    "dep": "10134390",
+    "lon": -55.9659,
+    "lat": -1.4983
+   }
+  ],
+  "Tenke": [
+   {
+    "site": "Tenkergin",
+    "codes": "W SN",
+    "dev": "Prospect",
+    "dep": "10231014",
+    "lon": -178.7371,
+    "lat": 67.7158
+   },
+   {
+    "site": "Tenke Fungurume",
+    "codes": "CU CO",
+    "dev": "Prospect",
+    "dep": "10280763",
+    "lon": 26.1533,
+    "lat": -10.58
+   }
+  ],
+  "Fungurume": [
+   {
+    "site": "Tenke Fungurume",
+    "codes": "CU CO",
+    "dev": "Prospect",
+    "dep": "10280763",
+    "lon": 26.1533,
+    "lat": -10.58
+   }
+  ],
+  "Kansanshi": [
+   {
+    "site": "Kansanshi",
+    "codes": "CU AU",
+    "dev": "Past Producer",
+    "dep": "10183134",
+    "lon": 26.433,
+    "lat": -12.0968
+   }
+  ],
+  "Lumwana": [
+   {
+    "site": "Lumwana Project",
+    "codes": "CU CO",
+    "dev": "Prospect",
+    "dep": "10183561",
+    "lon": 25.8847,
+    "lat": -12.2807
+   },
+   {
+    "site": "Malundwe (Lumwana Project)",
+    "codes": "CU CO U AU",
+    "dev": "Prospect",
+    "dep": "10400307",
+    "lon": 25.8119,
+    "lat": -12.2279
+   },
+   {
+    "site": "Chimiwungo (Lumwana Project)",
+    "codes": "CU CO U AU",
+    "dev": "Prospect",
+    "dep": "10400308",
+    "lon": 25.8775,
+    "lat": -12.2843
+   }
+  ],
+  "Konkola": [
+   {
+    "site": "Konkola",
+    "codes": "CU CO AG AU",
+    "dev": "Producer",
+    "dep": "10207788",
+    "lon": 27.7903,
+    "lat": -12.3215
+   }
+  ],
+  "Nchanga": [
+   {
+    "site": "Nchanga Tailings Leach",
+    "codes": "CU",
+    "dev": "Plant",
+    "dep": "10134672",
+    "lon": 27.8513,
+    "lat": -12.4974
+   },
+   {
+    "site": "Nchanga Division",
+    "codes": "CU CO",
+    "dev": "Producer",
+    "dep": "10159181",
+    "lon": 27.85,
+    "lat": -12.5
+   },
+   {
+    "site": "Nchanga Hgl Plant (Facility)",
+    "codes": "CU",
+    "dev": "Plant",
+    "dep": "10280325",
+    "lon": 27.8513,
+    "lat": -12.4974
+   }
+  ],
+  "Nkana": [
+   {
+    "site": "Mindola - Nkana",
+    "codes": "CU CO",
+    "dev": "Producer",
+    "dep": "10184301",
+    "lon": 28.1908,
+    "lat": -12.8233
+   },
+   {
+    "site": "(Facility) Nkana Copper Refinery",
+    "codes": "CU",
+    "dev": "Plant",
+    "dep": "10231608",
+    "lon": 28.1846,
+    "lat": -12.8307
+   },
+   {
+    "site": "(Facility) Nkana Copper Smelter",
+    "codes": "CU S_A",
+    "dev": "Plant",
+    "dep": "10232134",
+    "lon": 28.1846,
+    "lat": -12.8307
+   },
+   {
+    "site": "Nkana Rle Plant (Facility)",
+    "codes": "CO CU",
+    "dev": "Plant",
+    "dep": "10304552",
+    "lon": 28.2096,
+    "lat": -12.8391
+   }
+  ],
+  "Mufulira": [
+   {
+    "site": "(Facility) Mufulira Copper Smelter",
+    "codes": "CU",
+    "dev": "Plant",
+    "dep": "10134819",
+    "lon": 28.2346,
+    "lat": -12.4974
+   },
+   {
+    "site": "Mufulira",
+    "codes": "CU",
+    "dev": "Producer",
+    "dep": "10255912",
+    "lon": 28.2285,
+    "lat": -12.5198
+   },
+   {
+    "site": "(Facility) Mufulira Copper Refinery",
+    "codes": "CU",
+    "dev": "Plant",
+    "dep": "10257195",
+    "lon": 28.2346,
+    "lat": -12.4974
+   }
+  ],
+  "Kipushi": [
+   {
+    "site": "Kipushi",
+    "codes": "CU ZN AG CD GE CO GA MO RE",
+    "dev": "Producer",
+    "dep": "10134596",
+    "lon": 27.2346,
+    "lat": -11.7642
+   }
+  ],
+  "Kolwezi": [
+   {
+    "site": "Kolwezi Processing Plant",
+    "codes": "CU",
+    "dev": "Plant",
+    "dep": "10134837",
+    "lon": 25.4167,
+    "lat": -10.75
+   },
+   {
+    "site": "Kolwezi",
+    "codes": "ZN",
+    "dev": "Plant",
+    "dep": "10255750",
+    "lon": 25.4846,
+    "lat": -10.7142
+   }
+  ],
+  "Kamoa": [],
+  "Kakula": [
+   {
+    "site": "Srikakulam",
+    "codes": "GRF",
+    "dev": "Prospect",
+    "dep": "60000557",
+    "lon": 83.1003,
+    "lat": 18.3331
+   }
+  ],
+  "Likasi": [],
+  "Gatumba": [],
+  "Nyakabingo": [],
+  "Musha": [
+   {
+    "site": "Samadoglu Gumushacikoy",
+    "codes": "CLY",
+    "dev": "Producer",
+    "dep": "10133795",
+    "lon": 35.5849,
+    "lat": 40.8819
+   },
+   {
+    "site": "Mushal Khot",
+    "codes": "P",
+    "dev": "Occurrence",
+    "dep": "10183238",
+    "lon": 70.0426,
+    "lat": 31.4407
+   }
+  ],
+  "Lushoto": [],
+  "Magamba": [],
+  "Mombo": [
+   {
+    "site": "Mombo",
+    "codes": "AL",
+    "dev": "Occurrence",
+    "dep": "10093353",
+    "lon": 38.2512,
+    "lat": -4.8313
+   }
+  ]
+ }
+}

@@ -1,0 +1,20 @@
+{
+  "group": "bauxite",
+  "algo": "lgbm",
+  "n_rows": 303,
+  "n_positives": 3,
+  "n_folds": 5,
+  "ap_A_full_features": 0.08927738927738929,
+  "ap_B_no_deposit_distance": 0.023310346955461962,
+  "ap_C_no_dd_plus_prior": 0.0346864875166762,
+  "leakage_share_A_minus_B": 0.06596704232192732,
+  "prior_value_C_minus_B": 0.011376140561214235,
+  "prior_sources": [
+    {
+      "name": "deposit_distance",
+      "half_decay_km": 5.0,
+      "weight": 0.75,
+      "sampled": 303
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+# Normalise line endings so the repo behaves identically on Windows and
+# Linux/macOS checkouts. Source checked in with LF; Windows working copies
+# get CRLF back on checkout.
+* text=auto eol=lf
+
+*.py    text diff=python
+*.md    text
+*.yml   text
+*.yaml  text
+*.toml  text
+*.cfg   text
+*.txt   text
+*.json  text
+*.gpkg  binary
+*.tif   binary
+*.joblib binary
+*.png   binary
+*.shp   binary
+*.dbf   binary
+*.shx   binary

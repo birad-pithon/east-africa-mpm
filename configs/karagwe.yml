@@ -1,0 +1,124 @@
+# ── Karagwe-Ankole Belt (KAB) configuration ───────────────────────────
+# Covers the KAB in Rwanda, with Sn-W-Ta targets (tin, tungsten, tantalum)
+# plus shared infrastructure data from USGS MRDS.
+
+# Common analysis grid
+grid:
+  crs: "EPSG:32736"        # UTM Zone 36S — covers Rwanda
+  resolution_m: 30          # 30 m to match SRTM / Landsat
+  # AOI bounding box in WGS 84 (lon, lat)
+  aoi_wgs84:
+    min_lon: 29.4
+    max_lon: 30.6
+    min_lat: -2.4
+    max_lat: -1.2
+  # Derived extent in target CRS (filled at runtime)
+  aoi_utm: null             # [min_x, min_y, max_x, max_y] in metres
+
+# ── Data sources ───────────────────────────────────────────────────────
+sources:
+  usgs_mrds:
+    name: "USGS Mineral Resources Data System (MRDS)"
+    shapefile_url: "https://mrdata.usgs.gov/mrds/mrds-trim.zip"
+    csv_url: "https://mrdata.usgs.gov/mrds/mrds-csv.zip"
+    wfs_url: "https://mrdata.usgs.gov/services/wfs/mrds"
+    commodities:
+      - "Tin"             # MRDS commodity code: Sn-related
+      - "Tungsten"
+      - "Tantalum"
+      - "Copper"
+      - "Zinc"
+      - "Bauxite"
+      - "Aluminum"        # MRDS uses this for bauxite/alumina
+    africa_bbox:
+      min_lon: 10.0       # westernmost Africa longitude
+      max_lon: 50.0       # easternmost Africa longitude
+      min_lat: -35.0      # southernmost Africa latitude
+      max_lat: 37.0       # northernmost Africa latitude
+
+  sentinel2:
+    collection: "COPERNICUS/S2_SR_HARMONIZED"
+    bands:
+      - B2   # Blue   (10 m)
+      - B3   # Green  (10 m)
+      - B4   # Red    (10 m)
+      - B8   # NIR    (10 m)
+      - B11   # SWIR1  (20 m)
+      - B12   # SWIR2  (20 m)
+    # Dry season in Rwanda: June–September (Southern Hemisphere winter)
+    date_range:
+      start: "2023-06-01"
+      end: "2023-09-30"
+    cloud_cover_threshold: 0.20
+    scale_m: 30           # resample all bands to 30 m
+
+  srtm_dem:
+    collection: "USGS/SRTMGL1_003"
+    resolution_m: 30
+
+# ── Feature engineering ───────────────────────────────────────────────
+features:
+  # Explicit feature-raster allowlist (SAFEGUARD): paths relative to
+  # data/interim. Only these files may enter training / prediction for
+  # the group — a stray GeoTIFF in data/interim cannot poison the model.
+  rasters_by_group:
+    tin_tungsten_tantalum:
+      - dem/srtm_kabar_aligned.tif
+      - sentinel2/sentinel2_kabar_aligned.tif
+      - features/terrain_features_kabar.tif
+      - features/geology_features_kabar.tif
+      - features/alteration_features_kabar.tif
+      - features/deposit_distance_tin_tungsten_tantalum.tif
+
+  # Sn / W / Ta (Karagwe-Ankole Belt)
+  tin_tungsten_tantalum:
+    distance_to:
+      - faults
+      - granite_contacts
+    magnetic_gradients: true
+    lithology_encoding: true
+
+  # Cu / Zn (Central African Copperbelt)
+  copper_zinc:
+    stratigraphic_proxies: true
+    structural_traps: true
+    geochemical_anomaly_surfaces: true
+
+  # Bauxite (lateritic plateaus, Tanzania)
+  bauxite:
+    spectral_indices:
+      - NDWI   # Normalized Difference Water Index
+      - MBI    # Mud-sand Bimodal Index (for laterite)
+      - BSI    # Brightness/Surface Index
+    slope_threshold_deg: 5
+    plateau_flatness: true
+
+# ── Model settings ─────────────────────────────────────────────────────
+model:
+  commodity_groups:
+    - tin_tungsten_tantalum
+    - copper_zinc
+    - bauxite
+  algorithm: "random_forest"
+  params:
+    # Tuned via Optuna TPE (50 trials, spatial CV) — best xgb config:
+    # mean AP 0.082 vs 0.037 default.
+    n_estimators: 150
+    max_depth: 3
+    learning_rate: 0.298
+    subsample: 0.917
+    colsample_bytree: 0.593
+    min_child_weight: 7
+    min_samples_leaf: 3
+    random_state: 42
+  compare_algorithms:
+    - random_forest
+    - xgboost
+    - lightgbm
+
+# ── Spatial cross-validation ───────────────────────────────────────────
+validation:
+  method: "spatial_block"
+  n_groups: 5
+  buffer_km: 5
+  min_train_area_pct: 60

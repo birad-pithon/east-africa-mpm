@@ -1,0 +1,26 @@
+{
+  "group": "tin_tungsten_tantalum",
+  "algo": "lgbm",
+  "n_rows": 328,
+  "n_positives": 9,
+  "n_folds": 5,
+  "ap_A_full_features": 0.02334580198387852,
+  "ap_B_no_deposit_distance": 0.025083300278440263,
+  "ap_C_no_dd_plus_prior": 0.02967297093595014,
+  "leakage_share_A_minus_B": -0.0017374982945617436,
+  "prior_value_C_minus_B": 0.004589670657509877,
+  "prior_sources": [
+    {
+      "name": "deposit_distance",
+      "half_decay_km": 5.0,
+      "weight": 1.0,
+      "sampled": 328
+    },
+    {
+      "name": "geology_contact",
+      "half_decay_km": 2.0,
+      "weight": 0.75,
+      "sampled": 328
+    }
+  ]
+}

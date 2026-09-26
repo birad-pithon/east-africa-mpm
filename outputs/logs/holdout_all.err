@@ -1,0 +1,101 @@
+INFO: ======================================================================
+INFO: Created 2 records
+INFO: holdout labels -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\bauxite\labels_bauxite.gpkg (1 removed, 2 remain)
+INFO: Wrote 1-band stack -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\bauxite\features\deposit_distance_bauxite.tif (1 bands)
+INFO: holdout deposit-distance prior -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\bauxite\features\deposit_distance_bauxite.tif (2 points)
+INFO: grid check OK: 6 rasters share the analysis grid
+INFO: sampled 302/302 points (0 dropped, out of extent)
+INFO: dropna: 302/302 rows retained
+INFO: [bauxite] table: 302 rows x 36 features (2 positives)
+INFO: tiny-n preset active (n_pos=2 < 15): shallow/regularized
+INFO: [bauxite] evaluating rf ...
+INFO: spatial CV certified: 5 folds, min train-test separation 5023 m
+WARNING: fold 2 has no positive test labels
+WARNING: fold 3 has no positive test labels
+WARNING: fold 4 has no positive test labels
+INFO: [bauxite] rf AP=0.600
+INFO: [bauxite] evaluating xgb ...
+INFO: spatial CV certified: 5 folds, min train-test separation 5023 m
+WARNING: fold 2 has no positive test labels
+WARNING: fold 3 has no positive test labels
+WARNING: fold 4 has no positive test labels
+INFO: [bauxite] xgb AP=0.267
+INFO: [bauxite] evaluating lgbm ...
+INFO: spatial CV certified: 5 folds, min train-test separation 5023 m
+WARNING: fold 2 has no positive test labels
+WARNING: fold 3 has no positive test labels
+WARNING: fold 4 has no positive test labels
+INFO: [bauxite] lgbm AP=0.667
+INFO: Reliability diagram -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\bauxite\models\reliability_bauxite.png
+INFO: [bauxite] calibration: Brier=0.007 ECE=0.005
+INFO: Model card -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\bauxite\models\model_card_bauxite.md
+INFO: [bauxite] best=lgbm -> model_bauxite_lgbm.joblib
+INFO: probability raster -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\bauxite\proba_bauxite_lgbm.tif
+INFO: holdout report -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\bauxite\holdout_report.json
+INFO: Created 1 records
+INFO: holdout sites -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\bauxite\holdout_sites.geojson (1 features)
+INFO: holdout run complete: bauxite held out Lushoto (rediscovered=True)
+INFO: ======================================================================
+INFO: Created 76 records
+INFO: holdout labels -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\copper_zinc\labels_copper_zinc.gpkg (2 removed, 76 remain)
+INFO: Wrote 1-band stack -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\copper_zinc\features\deposit_distance_copper_zinc.tif (1 bands)
+INFO: holdout deposit-distance prior -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\copper_zinc\features\deposit_distance_copper_zinc.tif (76 points)
+INFO: grid check OK: 6 rasters share the analysis grid
+INFO: sampled 95/376 points (281 dropped, out of extent)
+INFO: dropna: 95/95 rows retained
+INFO: [copper_zinc] table: 95 rows x 36 features (37 positives)
+INFO: [copper_zinc] evaluating rf ...
+INFO: spatial CV certified: 5 folds, min train-test separation 5144 m
+INFO: [copper_zinc] rf AP=0.946
+INFO: [copper_zinc] evaluating xgb ...
+INFO: spatial CV certified: 5 folds, min train-test separation 5144 m
+INFO: [copper_zinc] xgb AP=0.949
+INFO: [copper_zinc] evaluating lgbm ...
+INFO: spatial CV certified: 5 folds, min train-test separation 5144 m
+INFO: [copper_zinc] lgbm AP=0.903
+INFO: Reliability diagram -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\copper_zinc\models\reliability_copper_zinc.png
+INFO: [copper_zinc] calibration: Brier=0.094 ECE=0.037
+INFO: Model card -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\copper_zinc\models\model_card_copper_zinc.md
+INFO: [copper_zinc] best=xgb -> model_copper_zinc_xgb.joblib
+INFO: probability raster -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\copper_zinc\proba_copper_zinc_xgb.tif
+INFO: holdout report -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\copper_zinc\holdout_report.json
+INFO: Created 1 records
+INFO: holdout sites -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\copper_zinc\holdout_sites.geojson (1 features)
+INFO: holdout run complete: copper_zinc held out Tenke Fungurume (rediscovered=False)
+INFO: ======================================================================
+INFO: Created 17 records
+INFO: holdout labels -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\tin_tungsten_tantalum\labels_tin_tungsten_tantalum.gpkg (1 removed, 17 remain)
+INFO: Wrote 1-band stack -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\tin_tungsten_tantalum\features\deposit_distance_tin_tungsten_tantalum.tif (1 bands)
+INFO: holdout deposit-distance prior -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\tin_tungsten_tantalum\features\deposit_distance_tin_tungsten_tantalum.tif (17 points)
+INFO: grid check OK: 6 rasters share the analysis grid
+INFO: sampled 327/337 points (10 dropped, out of extent)
+INFO: dropna: 327/327 rows retained
+INFO: [tin_tungsten_tantalum] table: 327 rows x 36 features (8 positives)
+INFO: tiny-n preset active (n_pos=8 < 15): shallow/regularized
+INFO: [tin_tungsten_tantalum] evaluating rf ...
+INFO: spatial CV certified: 5 folds, min train-test separation 5002 m
+INFO: [tin_tungsten_tantalum] rf AP=0.053
+INFO: [tin_tungsten_tantalum] evaluating xgb ...
+INFO: spatial CV certified: 5 folds, min train-test separation 5002 m
+INFO: [tin_tungsten_tantalum] xgb AP=0.036
+INFO: [tin_tungsten_tantalum] evaluating lgbm ...
+INFO: spatial CV certified: 5 folds, min train-test separation 5002 m
+INFO: [tin_tungsten_tantalum] lgbm AP=0.048
+INFO: Reliability diagram -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\tin_tungsten_tantalum\models\reliability_tin_tungsten_tantalum.png
+INFO: [tin_tungsten_tantalum] calibration: Brier=0.042 ECE=0.111
+INFO: Model card -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\tin_tungsten_tantalum\models\model_card_tin_tungsten_tantalum.md
+INFO: [tin_tungsten_tantalum] best=rf -> model_tin_tungsten_tantalum_rf.joblib
+INFO: probability raster -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\tin_tungsten_tantalum\proba_tin_tungsten_tantalum_rf.tif
+INFO: holdout report -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\tin_tungsten_tantalum\holdout_report.json
+INFO: Created 1 records
+INFO: holdout sites -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\tin_tungsten_tantalum\holdout_sites.geojson (1 features)
+INFO: holdout run complete: tin_tungsten_tantalum held out Nyakabingo (rediscovered=True)
+INFO: holdout report -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\holdout_report.json
+INFO: Created 3 records
+INFO: holdout sites -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\holdout_sites.geojson (3 features)
+INFO: aggregate report -> D:\Users\HP\COC AI\east-africa-mpm\outputs\holdout\holdout_report.json
+INFO: ======================================================================
+INFO: HOLDOUT VALIDATION SUMMARY (tolerance 5.0 km, top-100)
+INFO:   bauxite                  held out Lushoto            REDISCOVERED rank #2 (top-1 7.1 km away)
+INFO:   copper_zinc              held out Tenke Fungurume    not in top 50 (top-1 163.3 km away)
+INFO:   tin_tungsten_tantalum    held out Nyakabingo         REDISCOVERED rank #1 (top-1 1.1 km away)

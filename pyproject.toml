@@ -1,0 +1,122 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "east-africa-mpm"
+version = "0.1.0"
+description = "Mineral prospectivity mapping pipeline for East Africa (Sn/W/Ta, Cu/Zn, bauxite)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "MPM Team"},
+]
+keywords = ["geospatial", "mining", "prospectivity", "machine-learning", "africa"]
+
+# ── Core geospatial stack ──────────────────────────────────────────────
+dependencies = [
+    # Core data / array
+    "numpy>=1.26",
+    "pandas>=2.0",
+    "scipy>=1.11",
+
+    # Geospatial I/O
+    "geopandas>=0.14",
+    "rasterio>=1.3",
+    "xarray>=2023.0",
+    "rioxarray>=0.15",
+    "pyproj>=3.5",
+    "shapely>=2.0",
+    "rasterstats>=0.21",
+
+    # Earth observation access
+    "earthengine-api>=0.1.370",        # Google Earth Engine
+    "landsatxplore>=0.4.0",            # USGS EarthExplorer archives (Landsat/ASTER)
+    "sentinelhub>=3.9",                # Copernicus Data Space Ecosystem (S2 etc.)
+
+    # Spatial validation (verde supports spatial/block CV & gridding)
+    "verde>=1.8",
+
+    # HTTP / download helpers
+    "requests>=2.31",
+
+    # Config / utilities
+    "pyyaml>=6.0",
+    "tqdm>=4.65",
+
+    # Machine learning
+    "scikit-learn>=1.3",
+    "xgboost>=2.0",
+    "lightgbm>=4.0",
+
+    # Visualization
+    "matplotlib>=3.7",
+    "leafmap>=0.30",
+    "folium>=0.14",
+
+    # Google auth for EE / Cloud
+    "google-auth>=2.22",
+    "earthengine-api>=0.2.370",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "jupyter>=1.0",
+    "notebook>=7.0",
+    "ipykernel>=6.0",
+    "ruff>=0.1.0",
+]
+dashboard = [
+    "streamlit>=1.30",
+    "streamlit-folium>=0.27",
+    "plotly>=5.14",
+]
+
+# Image-patch deep learning — NOT installed by default.
+# Only needed if moving to CNN patch classifiers later.
+cnn = [
+    "torch>=2.0",
+    "torchvision>=0.15",
+]
+
+# Optional dataset versioning for large rasters
+dvc = [
+    "dvc>=3.0",
+    "dvc-gdrive",
+]
+
+# Bayesian hyperparameter optimization (TPE)
+bayes = [
+    "optuna>=4.0",
+]
+
+[project.scripts]
+mpm-ingest-worldgeol = "src.ingest.worldgeol:main"
+mpm-labels = "src.labels.build_labels:main"
+mpm-field-merge = "src.labels.field_update:main"
+mpm-reference-study = "src.labels.reference_study:main"
+mpm-preprocess = "src.preprocess.main:main"
+mpm-train = "src.models.main:main"
+mpm-model-card = "src.models.model_card:main"
+mpm-predict = "src.predict.main:main"
+mpm-active = "src.predict.active:main"
+mpm-holdout = "src.models.holdout:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-v --tb=short"

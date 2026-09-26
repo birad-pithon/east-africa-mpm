@@ -1,0 +1,53 @@
+# ── East Africa MPM — Python dependencies ─────────────────────────────
+# Mirrors the `[project.dependencies]` section of pyproject.toml.
+# Install with:  pip install -r requirements.txt
+#
+# Recommended stack mapping:
+#   Geospatial core ............ rasterio, geopandas, shapely, pyproj (+ GDAL via wheels)
+#   Earth observation access ... earthengine-api (GEE), sentinelhub (Copernicus DS),
+#                                landsatxplore (USGS EarthExplorer)
+#   Machine learning ........... scikit-learn, xgboost, lightgbm
+#   Spatial validation ......... verde (spatial/block CV; sklearn CV is not spatial)
+#   Visualisation / QA ......... matplotlib, leafmap, folium  (QGIS used manually)
+#   Data management (optional) . dvc  →  pip install -e ".[dvc]"
+#   CNN patch models (optional)  torch →  pip install -e ".[cnn]"
+
+numpy>=1.26
+pandas>=2.0
+scipy>=1.11
+
+geopandas>=0.14
+rasterio>=1.3
+xarray>=2023.0
+rioxarray>=0.15
+pyproj>=3.5
+shapely>=2.0
+rasterstats>=0.21
+
+# Earth observation access
+earthengine-api>=0.1.370
+landsatxplore>=0.4.0
+sentinelhub>=3.9
+
+# Spatial validation / gridding
+verde>=1.8
+
+requests>=2.31
+pyyaml>=6.0
+tqdm>=4.65
+
+scikit-learn>=1.3
+xgboost>=2.0
+lightgbm>=4.0
+
+matplotlib>=3.7
+leafmap>=0.30
+folium>=0.14
+
+# Developer / test tooling
+pytest>=7.4
+pytest-cov>=4.1
+jupyter>=1.0
+notebook>=7.0
+ipykernel>=6.0
+ruff>=0.1.0

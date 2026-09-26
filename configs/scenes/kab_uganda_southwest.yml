@@ -1,0 +1,43 @@
+# Auto-generated from configs/analogue_targets.yaml (target: kab_uganda_southwest)
+# Permissive window — imagery ingest only, never a label source.
+_meta:
+  source: configs/analogue_targets.yaml
+  target_id: kab_uganda_southwest
+  group: tin_tungsten_tantalum
+  country: uganda
+  analogue: Bikita (Zimbabwe LCT pegmatite) + KAB vein swarms
+  deposit_model: Sn-W pegmatite + quartz-vein swarms in KAB metasediments near granite
+    cupolas
+  confidence: high
+  enmap_probes_um:
+  - 2.2
+  - 2.35
+  dry_season: 2023-06-01 to 2023-09-30 (supplement Jan-Feb for equatorial cloud)
+  guardrail: permissive scene-selection window; NOT a label source
+grid:
+  crs: EPSG:32736
+  resolution_m: 30
+  aoi_wgs84:
+    min_lon: 29.7
+    max_lon: 30.6
+    min_lat: -1.4
+    max_lat: -0.5
+  aoi_utm: null
+sources:
+  sentinel2:
+    collection: COPERNICUS/S2_SR_HARMONIZED
+    bands:
+    - B2
+    - B3
+    - B4
+    - B8
+    - B11
+    - B12
+    date_range:
+      start: '2023-06-01'
+      end: '2023-09-30'
+    cloud_cover_threshold: 0.2
+    scale_m: 30
+  srtm_dem:
+    collection: USGS/SRTMGL1_003
+    resolution_m: 30

@@ -1,0 +1,43 @@
+# Auto-generated from configs/analogue_targets.yaml (target: kab_burundi_north)
+# Permissive window — imagery ingest only, never a label source.
+_meta:
+  source: configs/analogue_targets.yaml
+  target_id: kab_burundi_north
+  group: tin_tungsten_tantalum
+  country: burundi
+  analogue: Manono-Kitotolo (Kibaran LCT pegmatite) + Burundian belt fields
+  deposit_model: LCT pegmatite swarms + Sn-W quartz veins around G4 granite cupolas
+    in Kibaran metapelites
+  confidence: high
+  enmap_probes_um:
+  - 2.2
+  - 2.35
+  dry_season: 2023-06-01 to 2023-09-30
+  guardrail: permissive scene-selection window; NOT a label source
+grid:
+  crs: EPSG:32736
+  resolution_m: 30
+  aoi_wgs84:
+    min_lon: 29.3
+    max_lon: 30.3
+    min_lat: -3.5
+    max_lat: -2.4
+  aoi_utm: null
+sources:
+  sentinel2:
+    collection: COPERNICUS/S2_SR_HARMONIZED
+    bands:
+    - B2
+    - B3
+    - B4
+    - B8
+    - B11
+    - B12
+    date_range:
+      start: '2023-06-01'
+      end: '2023-09-30'
+    cloud_cover_threshold: 0.2
+    scale_m: 30
+  srtm_dem:
+    collection: USGS/SRTMGL1_003
+    resolution_m: 30

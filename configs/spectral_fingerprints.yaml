@@ -1,0 +1,116 @@
+# ── Commodity spectral fingerprint registry ──────────────────────────────
+# Encodes the mineral-system evidence model per commodity group:
+#   * alteration:  which spectral indices (src.features.spectral bands) carry
+#     signal, in which direction, and which minerals they proxy;
+#   * geology:     distance-decay priors for Bayesian spatial conditioning
+#     (src.features.priors) - half-decay distance at which proximity evidence
+#     becomes neutral, and its log-odds weight;
+#   * hyperspectral: probe wavelengths for EnMAP-class follow-up (Sentinel-2
+#     CANNOT separate the 2.20 um Al-OH from the 2.33 um Mg-OH/CO3 uptake -
+#     those require hyperspectral resolution and are marked accordingly).
+#
+# Consumed by:
+#   * src.features.priors        (geology.decay entries)
+#   * src.ingest.enmap / future src.features.hyperspectral (probe wavelengths)
+#   * model cards (interpretability: why each feature group exists)
+
+version: 1
+
+fingerprints:
+
+  tin_tungsten_tantalum:
+    commodities: "Cassiterite (Sn), Wolframite (W), Coltan (Ta-Nb)"
+    belt: "Karagwe-Ankole / Kibaran (Rwanda)"
+    deposit_style: >
+      Pegmatite- and greisen-hosted Sn-W-Ta around post-tectonic granite
+      cupolas; structurally controlled, high fault density.
+    alteration:
+      primary:
+        index: aloh_ratio
+        direction: high            # >1 = 2.20 um Al-OH uptake
+        minerals: [muscovite, sericite, lepidolite]   # Al-rich mica
+      secondary:
+        index: mgoh_carbonate_proxy
+        direction: high
+        minerals: [carbonate, chlorite]               # greisen/carbonate halos
+        sentinel2_caveat: "2.35 um carbonate uptake NOT resolvable by S2 B12"
+      gossan:
+        index: iron_oxide_ratio
+        direction: high
+        minerals: [hematite, goethite]                # weathered sulphides
+    geology:
+      decay:
+        - raster: deposit_distance          # LOO prior (auto-resolves
+          half_decay_km: 5.0                #   deposit_distance_<group>.tif)
+          weight: 1.0
+          note: deposits cluster along belt structures
+        - raster: geology_contact           # band dist_to_contact_m
+          half_decay_km: 2.0
+          weight: 0.75
+          note: granite contact aureoles host pegmatite swarms
+    hyperspectral:
+      probe_wavelengths_um: [2.20, 2.35]
+      discriminate: [muscovite, lepidolite, carbonate]   # needs EnMAP
+
+  copper_zinc:
+    commodities: "Chalcopyrite/Bornite (Cu), Sphalerite (Zn)"
+    belt: "Central African Copperbelt / Lufilian Arc (DRC-Zambia)"
+    deposit_style: >
+      Sediment-hosted stratiform Cu-Co and vein Cu-Zn; phyllic-propylitic
+      halos, dolomitization and silicification, gossanous caps.
+    alteration:
+      primary:
+        index: aloh_ratio
+        direction: high
+        minerals: [sericite, muscovite, kaolinite]    # phyllic 2.20 um
+      secondary:
+        index: mgoh_carbonate_proxy
+        direction: high
+        minerals: [chlorite, epidote, carbonate]      # propylitic 2.33 um
+        sentinel2_caveat: "propylitic 2.33 um NOT resolvable by S2 B12"
+      gossan:
+        index: iron_oxide_ratio
+        direction: high
+        minerals: [hematite, goethite, jarosite]      # 0.86 um gossans
+    geology:
+      decay:
+        - raster: deposit_distance
+          half_decay_km: 5.0
+          weight: 1.0
+          note: basin-scale structural control on ore shale horizon
+        - raster: geology_contact
+          half_decay_km: 3.0
+          weight: 0.5
+          note: weaker intrusive control than 3Ts
+    hyperspectral:
+      probe_wavelengths_um: [2.20, 2.33, 0.86]
+      discriminate: [sericite, kaolinite, chlorite, epidote]
+
+  bauxite:
+    commodities: "Gibbsite / Boehmite (Al-hydroxide)"
+    belt: "West Usambara lateritic plateau (Tanzania)"
+    deposit_style: >
+      Residual lateritic caps on plateau surfaces; deep weathering, flat
+      terrain, strong Al-OH and Fe-oxide signatures, no structural control.
+    alteration:
+      primary:
+        index: aloh_ratio
+        direction: high
+        minerals: [gibbsite, boehmite, kaolinite]     # 2.20 um Al-OH
+      secondary:
+        index: iron_oxide_ratio
+        direction: high
+        minerals: [hematite, goethite]                # 0.85-0.90 um Fe-oxide
+      gossan: null
+    geology:
+      decay:
+        - raster: deposit_distance
+          half_decay_km: 5.0
+          weight: 0.75
+          note: weak prior - only 3 labelled deposits
+      geomorphology:
+        slope_threshold_deg: 5
+        plateau_flatness: true                        # terrain plateau_index
+    hyperspectral:
+      probe_wavelengths_um: [2.20, 0.90]
+      discriminate: [gibbsite, boehmite, kaolinite]   # needs EnMAP

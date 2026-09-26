@@ -1,0 +1,370 @@
+# ═══════════════════════════════════════════════════════════════════════
+# Analogue-informed target scenes: world-deposit knowledge applied to
+# the 7-country East Africa region (Rwanda, Uganda, Kenya, Tanzania,
+# Burundi, South Sudan, Ethiopia).
+#
+# Each entry is a PERMISSIVE search window (WGS-84 bbox), NOT a mapped
+# geological boundary and NOT a claim of mineralisation. Windows were
+# chosen by transferring deposit-model criteria from world-class
+# analogues (see ANALOGUE_DEPOSITS_EVALUATION.md) onto permissive
+# geology inside the region: Kibaran/Karagwe-Ankolean metasediments +
+# G4-type granite cupolas (Sn-W-Ta), reduced-basin / greenstone-hosted
+# Cu-Zn ground (Cu-Zn), and humid tropical plateaus with deep laterite
+# (bauxite).
+#
+# Usage: run the standard pipeline per scene by pointing any belt config's
+# grid.aoi_wgs84 at the window, or ingest scenes directly:
+#   python -m src.ingest.sentinel2_ee  (dry-season window per target)
+#   python -m src.ingest.srtm_dem
+#   EnMAP L2A on-demand over flagged anomalies (see ordering notes).
+# Do NOT invent positive labels inside these windows: positives come only
+# from USGS MRDS in-belt filtering + national surveys + field validation
+# (src.labels.build_labels). Analogue deposit points must never be added
+# as positives unless they fall on the same feature grid (domain shift).
+# ═══════════════════════════════════════════════════════════════════════
+
+version: 1
+defaults:
+  resolution_m: 30
+  note: "30 m common grid (SRTM / Sentinel-2 / EnMAP-compatible)"
+
+targets:
+  # ── Sn-W-Ta: LCT-pegmatite / greisen analogues ──────────────────────
+  # World analogues: Manono-Kitotolo (DRC, same Kibaran orogen),
+  # Greenbushes (Australia), Bikita (Zimbabwe), Erzgebirge greisen
+  # (Altenberg/Cinovec), Jos Plateau (Nigeria).
+  - id: kab_burundi_north
+    group: tin_tungsten_tantalum
+    country: burundi
+    bbox_wgs84: {min_lon: 29.3, max_lon: 30.3, min_lat: -3.5, max_lat: -2.4}
+    crs: "EPSG:32736"
+    resolution_m: 30
+    analogue: "Manono-Kitotolo (Kibaran LCT pegmatite) + Burundian belt fields"
+    deposit_model: "LCT pegmatite swarms + Sn-W quartz veins around G4 granite cupolas in Kibaran metapelites"
+    rationale: >
+      Direct along-strike continuation of the Rwanda KAB AOI into the
+      Burundian segment of the Karagwe-Ankolean belt (same 1.4-1.0 Ga
+      metasediments, same S-type granite generation). Highest-confidence
+      Sn-W-Ta extension scene.
+    signatures:
+      spectral: ["aloh_ratio high (muscovite/lepidolite, 2.20 um)", "iron_oxide_ratio gossan check"]
+      terrain: ["fault density high", "dist_to_contact_m <= ~2 km aureole"]
+      geophysics: ["magnetic low over cupola + gradients at contacts", "radiometric K-Th-U high"]
+      enmap_probes_um: [2.20, 2.35]
+    dry_season: "2023-06-01 to 2023-09-30"
+    confidence: high
+  - id: kab_tanzania_karagwe
+    group: tin_tungsten_tantalum
+    country: tanzania
+    bbox_wgs84: {min_lon: 30.5, max_lon: 31.8, min_lat: -2.8, max_lat: -1.4}
+    crs: "EPSG:32736"
+    resolution_m: 30
+    analogue: "Manono-Kitotolo + Greenbushes (zoned pegmatite field)"
+    deposit_model: "LCT pegmatite / greisen Sn-W-Ta at granite-metapelite contacts"
+    rationale: >
+      NW-Tanzanian Karagwe district ground: same Kibaran metasediments and
+      granite suite as the Rwanda AOI, eastward along strike. Tests the
+      pegmatite-swarm model outside the current AOI.
+    signatures:
+      spectral: ["aloh_ratio high", "mgoh_carbonate_proxy greisen/carbonate halo screen"]
+      terrain: ["fault density high", "dist_to_contact_m <= ~2 km"]
+      geophysics: ["magnetic gradients at contacts"]
+      enmap_probes_um: [2.20, 2.35]
+    dry_season: "2023-06-01 to 2023-09-30"
+    confidence: high
+  - id: kab_uganda_southwest
+    group: tin_tungsten_tantalum
+    country: uganda
+    bbox_wgs84: {min_lon: 29.7, max_lon: 30.6, min_lat: -1.4, max_lat: -0.5}
+    crs: "EPSG:32736"
+    resolution_m: 30
+    analogue: "Bikita (Zimbabwe LCT pegmatite) + KAB vein swarms"
+    deposit_model: "Sn-W pegmatite + quartz-vein swarms in KAB metasediments near granite cupolas"
+    rationale: >
+      SW-Uganda continuation of the Karagwe-Ankolean belt (Ntungamo/Kabale
+      corridor). Same host package as Rwanda seeds (Musha-Ntunga style
+      vein swarms). DGSM geology maps required for contact refinement.
+    signatures:
+      spectral: ["aloh_ratio high", "iron_oxide_ratio gossan check"]
+      terrain: ["fault density high", "dist_to_contact_m <= ~2 km"]
+      geophysics: ["magnetic lineaments (shear corridors)"]
+      enmap_probes_um: [2.20, 2.35]
+    dry_season: "2023-06-01 to 2023-09-30 (supplement Jan-Feb for equatorial cloud)"
+    confidence: high
+  - id: kibaran_kigoma
+    group: tin_tungsten_tantalum
+    country: tanzania
+    bbox_wgs84: {min_lon: 29.4, max_lon: 30.6, min_lat: -6.0, max_lat: -4.5}
+    crs: "EPSG:32736"
+    resolution_m: 30
+    analogue: "Erzgebirge greisen (Altenberg/Cinovec) + Jos Plateau granite Sn"
+    deposit_model: "Greisen / vein Sn-W around evolved granite cupolas in Kibaran metasediments"
+    rationale: >
+      Western-Tanzanian Kibaran inlier (Kigoma/Uvinza corridor). Same-age
+      orogen, felsic intrusives reported; greisen-style model applies if
+      evolved cupolas present. Moderate confidence: granite chemistry must
+      be confirmed from GST maps before EnMAP ordering.
+    signatures:
+      spectral: ["aloh_ratio high (muscovite-topaz greisen)", "iron_oxide_ratio"]
+      terrain: ["contact aureole proximity", "fault intersections"]
+      geophysics: ["radiometric K anomaly + magnetic low"]
+      enmap_probes_um: [2.20, 2.35]
+    dry_season: "2023-06-01 to 2023-09-30"
+    confidence: moderate
+  - id: kibaran_ubende_mpanda
+    group: tin_tungsten_tantalum
+    country: tanzania
+    bbox_wgs84: {min_lon: 30.6, max_lon: 32.0, min_lat: -7.4, max_lat: -6.0}
+    crs: "EPSG:32736"
+    resolution_m: 30
+    analogue: "Jos Plateau (Nigeria) + Erzgebirge greisen"
+    deposit_model: "Granite-related Sn-W veins/greisen in Ubende/Kibaran shear-belt corridor"
+    rationale: >
+      Mpanda corridor in the Ubende shear belt south of the Kigoma window.
+      Tests the granite-Sn model in a structurally reworked Kibaran
+      segment. Lower confidence: shear overprint may disrupt cupola
+      geometry; needs GST structural maps first.
+    signatures:
+      spectral: ["aloh_ratio high", "iron_oxide_ratio"]
+      terrain: ["shear-corridor lineaments", "dist_to_contact_m"]
+      geophysics: ["magnetic lineaments", "radiometric K"]
+      enmap_probes_um: [2.20, 2.35]
+    dry_season: "2023-06-01 to 2023-09-30"
+    confidence: low
+  # ── Cu-Zn: sediment-hosted stratiform + Kipushi + VMS analogues ─────
+  # World analogues: Konkola/Nchanga/Nkana (Zambian Copperbelt),
+  # Kamoa-Kakula/Kolwezi (DRC external belt), Kipushi (fault-carbonate
+  # Zn-Cu), Kupferschiefer (redox-front model), Kidd Creek/Noranda (VMS).
+  - id: lufilian_kolwezi_kambove
+    group: copper_zinc
+    country: drc
+    bbox_wgs84: {min_lon: 25.2, max_lon: 27.0, min_lat: -11.2, max_lat: -10.0}
+    crs: "EPSG:32735"
+    resolution_m: 30
+    analogue: "Kolwezi/Likasi + Kipushi (fault-carbonate Zn-Cu)"
+    deposit_model: "Sediment-hosted stratiform Cu-Co (Mines Subgroup ore shale) + Kipushi-style fault-carbonate Zn-Cu breccia"
+    rationale: >
+      Central Lufilian Arc ground between the Kipushi seed (27.23 E) and
+      the Kamoa-Kakula seed (24.10 E): same Roan stratigraphy, same
+      Mines Subgroup ore-shale horizon, Kipushi-Fault structural style.
+      Highest-confidence Cu-Zn extension scene.
+    signatures:
+      spectral: ["aloh_ratio (phyllic sericite)", "mgoh_carbonate_proxy (dolomitization)", "iron_oxide_ratio (gossan 0.86 um)"]
+      terrain: ["basin-margin / fault corridors", "stratigraphic position"]
+      geophysics: ["magnetic basement fabric", "gravity basin architecture"]
+      enmap_probes_um: [2.20, 2.33, 0.86]
+    dry_season: "2023-05-01 to 2023-09-30"
+    confidence: high
+  - id: lufilian_likasi_tenke
+    group: copper_zinc
+    country: drc
+    bbox_wgs84: {min_lon: 26.2, max_lon: 27.4, min_lat: -11.2, max_lat: -10.2}
+    crs: "EPSG:32735"
+    resolution_m: 30
+    analogue: "Tenke-Fungurume + Konkola (ore-shale Cu-Co)"
+    deposit_model: "Stratiform Cu-Co on the Mines Subgroup ore-shale horizon"
+    rationale: >
+      Tenke-Fungurume/Likasi corridor in the Congolese Copperbelt: the
+      type ore-shale ground. Redox-front model (Kupferschiefer comparison)
+      + dilational fold hinges as structural traps.
+    signatures:
+      spectral: ["aloh_ratio", "mgoh_carbonate_proxy", "iron_oxide_ratio gossan"]
+      terrain: ["fold-hinge / fault-trap corridors"]
+      geophysics: ["magnetic + gravity basin mapping"]
+      enmap_probes_um: [2.20, 2.33, 0.86]
+    dry_season: "2023-05-01 to 2023-09-30"
+    confidence: high
+  - id: zambia_copperbelt_north
+    group: copper_zinc
+    country: zambia
+    bbox_wgs84: {min_lon: 27.6, max_lon: 28.8, min_lat: -13.2, max_lat: -12.0}
+    crs: "EPSG:32735"
+    resolution_m: 30
+    analogue: "Nkana-Mufulira-Nchanga-Konkola (Zambian Copperbelt ore shale)"
+    deposit_model: "Sediment-hosted stratiform Cu-Co at the basement-Roan contact and Lower Roan arenite/shale"
+    rationale: >
+      Zambian Copperbelt (Kitwe-Chingola-Chililabombwe corridor):
+      world-class ore-shale stratigraphy with the densest training-signal
+      analogue on Earth for the Cu-Zn group (AP 0.937 already). Captures
+      basement-contact redox traps for transfer back to DRC-side scenes.
+    signatures:
+      spectral: ["aloh_ratio", "mgoh_carbonate_proxy", "iron_oxide_ratio (gossan over sulphides)"]
+      terrain: ["basement-contact proximity", "fold/fault traps"]
+      geophysics: ["magnetic basement highs", "gravity"]
+      enmap_probes_um: [2.20, 2.33, 0.86]
+    dry_season: "2023-05-01 to 2023-09-30"
+    confidence: high
+  - id: kibaran_vms_rwanda_west
+    group: copper_zinc
+    country: rwanda
+    bbox_wgs84: {min_lon: 29.0, max_lon: 29.6, min_lat: -2.6, max_lat: -1.8}
+    crs: "EPSG:32736"
+    resolution_m: 30
+    analogue: "Kidd Creek / Noranda (VMS) + Bisha (Arabian-Nubian VMS)"
+    deposit_model: "Bimodal-volcanic VMS Cu-Zn lenses in Kibaran metavolcanic centres (NOT Copperbelt stratiform)"
+    rationale: >
+      Western Rwanda Kibaran metavolcanic centres: felsic-mafic bimodal
+      piles are the permissive VMS host. SEPARATE fingerprint from the
+      sediment-hosted model (Fe-oxide/chlorite-sericite zonation rather
+      than ore-shale redox).
+    signatures:
+      spectral: ["iron_oxide_ratio high (gossan cap)", "aloh_ratio (sericite core)", "mgoh_carbonate_proxy (chlorite footwall)"]
+      terrain: ["volcanic-centre morphology", "synvolcanic fault corridors"]
+      geophysics: ["magnetic volcanic stratigraphy + EM conductors where available"]
+      enmap_probes_um: [2.20, 2.33, 0.86]
+    dry_season: "2023-06-01 to 2023-09-30"
+    confidence: moderate
+  - id: arabian_nubian_ethiopia_west
+    group: copper_zinc
+    country: ethiopia
+    bbox_wgs84: {min_lon: 35.4, max_lon: 36.4, min_lat: 7.6, max_lat: 9.0}
+    crs: "EPSG:32736"
+    resolution_m: 30
+    analogue: "Bisha (Eritrea) VMS Cu-Zn-Au - same Arabian-Nubian Shield"
+    deposit_model: "Neoproterozoic bimodal-volcanic VMS Cu-Zn in the Arabian-Nubian Shield (Tulu Kapi/Asosa corridor)"
+    rationale: >
+      Western Ethiopia greenstone belts (Asosa/Gimbi corridor): same
+      shield, same age, same bimodal-volcanic VMS style as Bisha. Gossan +
+      chlorite-sericite zonation model; EGS maps + stream-sediment
+      geochemistry available for follow-up.
+    signatures:
+      spectral: ["iron_oxide_ratio (gossan)", "aloh_ratio vs mgoh_carbonate_proxy zonation"]
+      terrain: ["volcanic stratigraphy", "shear corridors"]
+      geophysics: ["magnetics + EM"]
+      enmap_probes_um: [2.20, 2.33, 0.86]
+    dry_season: "2023-11-01 to 2024-02-28"
+    confidence: moderate
+  - id: ubendian_kate_kipili
+    group: copper_zinc
+    country: tanzania
+    bbox_wgs84: {min_lon: 30.0, max_lon: 31.2, min_lat: -8.2, max_lat: -7.0}
+    crs: "EPSG:32736"
+    resolution_m: 30
+    analogue: "Kipushi (structural carbonate Zn-Cu, distal)"
+    deposit_model: "Structurally controlled carbonate-hosted Zn-Cu (Kipushi-distal style) in Ubendian marbles/dolomites"
+    rationale: >
+      Kate-Kipili Ubendian carbonate panels with shear-zone overprint:
+      the only carbonate-hosted Zn concept inside the 7-country set
+      outside the Lufilian Arc. Low confidence: carbonate facies and
+      breccia bodies must be confirmed on GST maps before any EnMAP.
+    signatures:
+      spectral: ["mgoh_carbonate_proxy (dolomitization)", "iron_oxide_ratio (gossan)", "aloh_ratio screen"]
+      terrain: ["shear/fault intersections in carbonate panels"]
+      geophysics: ["magnetic lineaments", "gravity"]
+      enmap_probes_um: [2.20, 2.33, 0.86]
+    dry_season: "2023-06-01 to 2023-09-30"
+    confidence: low
+  # Bauxite: lateritic-plateau analogues (Weipa, Sangaredi/Boke,
+  # Minim-Martap Cameroon, Trombetas, Kindia).
+  - id: usambara_east_extension
+    group: bauxite
+    country: tanzania
+    bbox_wgs84: {min_lon: 38.3, max_lon: 39.1, min_lat: -5.2, max_lat: -4.4}
+    crs: "EPSG:32737"
+    resolution_m: 30
+    analogue: "Minim-Martap (Cameroon plateau bauxite)"
+    deposit_model: "Residual lateritic bauxite caps on plateau surfaces (gibbsite/boehmite over kaolinite)"
+    rationale: >
+      East Usambara / Pare foothill plateaus adjoining the trained
+      Lushoto-Magamba AOI: same Eastern Arc climate and
+      plateau-and-scarp geomorphology. Nearest high-confidence extension.
+    signatures:
+      spectral: ["aloh_ratio high (gibbsite/boehmite)", "iron_oxide_ratio (duricrust)", "MBI/BSI bareness"]
+      terrain: ["plateau_index high", "slope <= 5 deg"]
+      geophysics: ["radiometric Th/U residual-enrichment check"]
+      enmap_probes_um: [2.20, 0.90]
+    dry_season: "2023-06-01 to 2023-09-30"
+    confidence: high
+  - id: southern_highlands_mbeya
+    group: bauxite
+    country: tanzania
+    bbox_wgs84: {min_lon: 33.2, max_lon: 34.4, min_lat: -9.6, max_lat: -8.4}
+    crs: "EPSG:32736"
+    resolution_m: 30
+    analogue: "Sangaredi/Boke (Guinea high-plateau bauxite)"
+    deposit_model: "High-plateau lateritic bauxite on deeply weathered felsic basement (Mbeya/Poroto ranges)"
+    rationale: >
+      Mbeya southern-highland plateaus: elevation, rainfall and deep
+      weathering regime closest to the Guinean type inside Tanzania.
+    signatures:
+      spectral: ["aloh_ratio", "iron_oxide_ratio", "MBI/BSI"]
+      terrain: ["plateau_index high", "slope <= 5 deg"]
+      geophysics: ["radiometric"]
+      enmap_probes_um: [2.20, 0.90]
+    dry_season: "2023-06-01 to 2023-09-30"
+    confidence: moderate
+  - id: kenya_coast_shimba_kwale
+    group: bauxite
+    country: kenya
+    bbox_wgs84: {min_lon: 39.0, max_lon: 39.8, min_lat: -4.8, max_lat: -4.0}
+    crs: "EPSG:32737"
+    resolution_m: 30
+    analogue: "Weipa (Australia coastal-plateau bauxite)"
+    deposit_model: "Coastal-plateau bauxite on deeply weathered Shimba Hills/Kwale uplands"
+    rationale: >
+      Shimba Hills / Kwale coastal plateaus: humid coastal climate with
+      plateau remnants above the coastal plain, the Weipa-type setting.
+      GSK maps + legacy bauxite reports to confirm before EnMAP.
+    signatures:
+      spectral: ["aloh_ratio", "iron_oxide_ratio", "MBI/BSI"]
+      terrain: ["plateau remnants", "slope <= 5 deg"]
+      geophysics: ["radiometric"]
+      enmap_probes_um: [2.20, 0.90]
+    dry_season: "2024-01-01 to 2024-03-31"
+    confidence: moderate
+  - id: ethiopia_southwest_bench
+    group: bauxite
+    country: ethiopia
+    bbox_wgs84: {min_lon: 35.2, max_lon: 36.4, min_lat: 6.4, max_lat: 7.6}
+    crs: "EPSG:32737"
+    resolution_m: 30
+    analogue: "Minim-Martap + Kindia (high-rainfall plateau bauxite)"
+    deposit_model: "Southwest highland plateau lateritic bauxite (Bench-Maji/Guraferda uplands)"
+    rationale: >
+      SW-Ethiopian highlands: highest rainfall in the country on plateau
+      uplands with deep weathering profiles. Needs EGS laterite mapping
+      to confirm gibbsite vs kaolinite dominance.
+    signatures:
+      spectral: ["aloh_ratio", "iron_oxide_ratio", "MBI/BSI"]
+      terrain: ["plateau_index high", "slope <= 5 deg"]
+      geophysics: ["radiometric"]
+      enmap_probes_um: [2.20, 0.90]
+    dry_season: "2023-11-01 to 2024-02-28"
+    confidence: moderate
+  - id: uganda_busoga_plateau
+    group: bauxite
+    country: uganda
+    bbox_wgs84: {min_lon: 33.0, max_lon: 34.0, min_lat: 0.6, max_lat: 1.6}
+    crs: "EPSG:32736"
+    resolution_m: 30
+    analogue: "Trombetas (Brazil) + Weipa (plateau bauxite on cratonic cover)"
+    deposit_model: "Plateau laterite bauxite on Busoga/Buganda surface uplands"
+    rationale: >
+      Eastern-Uganda plateau surfaces with documented laterite/bauxite
+      occurrences in DGSM records. DGSM occurrence check first.
+    signatures:
+      spectral: ["aloh_ratio", "iron_oxide_ratio", "MBI/BSI"]
+      terrain: ["plateau_index", "drainage position (good drainage required)"]
+      geophysics: ["radiometric"]
+      enmap_probes_um: [2.20, 0.90]
+    dry_season: "2023-12-01 to 2024-02-29 (supplement Jun-Aug)"
+    confidence: low
+  - id: southsudan_equatoria_highlands
+    group: bauxite
+    country: southsudan
+    bbox_wgs84: {min_lon: 30.8, max_lon: 32.4, min_lat: 3.4, max_lat: 5.0}
+    crs: "EPSG:32736"
+    resolution_m: 30
+    analogue: "Minim-Martap (humid plateau bauxite, greenfield)"
+    deposit_model: "Equatoria highland plateau laterite (Imatong/Didinga foothill surfaces)"
+    rationale: >
+      Greenfield reconnaissance only: humid highland plateaus with the
+      right climate-topography combination but almost no ground data.
+      Lowest priority; starts with literature + SRTM plateau screening.
+    signatures:
+      spectral: ["aloh_ratio", "iron_oxide_ratio", "MBI/BSI"]
+      terrain: ["plateau_index", "slope <= 5 deg"]
+      geophysics: ["radiometric (if available)"]
+      enmap_probes_um: [2.20, 0.90]
+    dry_season: "2023-12-01 to 2024-02-29"
+    confidence: low

@@ -1,0 +1,304 @@
+{
+  "group": "bauxite",
+  "n_rows": 302,
+  "n_positives": 2,
+  "features": [
+    "srtm_usambara_aligned:elevation_m",
+    "sentinel2_usambara_aligned:B2",
+    "sentinel2_usambara_aligned:B3",
+    "sentinel2_usambara_aligned:B4",
+    "sentinel2_usambara_aligned:B8",
+    "sentinel2_usambara_aligned:B11",
+    "sentinel2_usambara_aligned:B12",
+    "terrain_features_usambara:elevation",
+    "terrain_features_usambara:slope_deg",
+    "terrain_features_usambara:aspect_deg",
+    "terrain_features_usambara:tpi_630m",
+    "terrain_features_usambara:relief_900m",
+    "terrain_features_usambara:plateau_index",
+    "geology_features_usambara:lithology_code",
+    "geology_features_usambara:geol_is_plutonic_or_metamorphic",
+    "geology_features_usambara:dist_to_plutonic_or_metamorphic_m",
+    "geology_features_usambara:geol_is_sedimentary",
+    "geology_features_usambara:dist_to_sedimentary_m",
+    "geology_features_usambara:geol_is_mixed_sedimentary_volcanic",
+    "geology_features_usambara:dist_to_mixed_sedimentary_volcanic_m",
+    "geology_features_usambara:geol_is_unknown",
+    "geology_features_usambara:dist_to_unknown_m",
+    "geology_features_usambara:geol_is_volcanic",
+    "geology_features_usambara:dist_to_volcanic_m",
+    "geology_features_usambara:dist_to_contact_m",
+    "alteration_features_usambara:ndwi",
+    "alteration_features_usambara:mbi",
+    "alteration_features_usambara:bsi",
+    "alteration_features_usambara:evi",
+    "alteration_features_usambara:savi",
+    "alteration_features_usambara:nirv",
+    "alteration_features_usambara:ferrous_iron_ratio",
+    "alteration_features_usambara:iron_oxide_ratio",
+    "alteration_features_usambara:aloh_ratio",
+    "alteration_features_usambara:mgoh_carbonate_proxy",
+    "deposit_distance_bauxite:dist_to_deposit_loo_m"
+  ],
+  "buffer_km": 5.0,
+  "block_m": 10000.0,
+  "oversample": false,
+  "anomaly_baseline": false,
+  "pu": false,
+  "ensemble": false,
+  "best_algo": "lgbm",
+  "results": {
+    "rf": {
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 0,
+          "n_train": 201,
+          "n_test": 62,
+          "n_test_positives": 1,
+          "average_precision": 0.2,
+          "roc_auc": 0.9344262295081966,
+          "precision_at_top_decile": 0.14285714285714285
+        },
+        {
+          "fold": 1,
+          "n_train": 208,
+          "n_test": 65,
+          "n_test_positives": 1,
+          "average_precision": 1.0,
+          "roc_auc": 1.0,
+          "precision_at_top_decile": 0.14285714285714285
+        },
+        {
+          "fold": 2,
+          "n_train": 209,
+          "n_test": 63,
+          "n_test_positives": 0
+        },
+        {
+          "fold": 3,
+          "n_train": 199,
+          "n_test": 56,
+          "n_test_positives": 0
+        },
+        {
+          "fold": 4,
+          "n_train": 216,
+          "n_test": 56,
+          "n_test_positives": 0
+        }
+      ],
+      "mean_average_precision": 0.6,
+      "std_average_precision": 0.4,
+      "mean_roc_auc": 0.9672131147540983,
+      "mean_precision_at_top_decile": 0.14285714285714285
+    },
+    "xgb": {
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 0,
+          "n_train": 201,
+          "n_test": 62,
+          "n_test_positives": 1,
+          "average_precision": 0.3333333333333333,
+          "roc_auc": 0.9754098360655739,
+          "precision_at_top_decile": 0.14285714285714285
+        },
+        {
+          "fold": 1,
+          "n_train": 208,
+          "n_test": 65,
+          "n_test_positives": 1,
+          "average_precision": 0.2,
+          "roc_auc": 0.96875,
+          "precision_at_top_decile": 0.14285714285714285
+        },
+        {
+          "fold": 2,
+          "n_train": 209,
+          "n_test": 63,
+          "n_test_positives": 0
+        },
+        {
+          "fold": 3,
+          "n_train": 199,
+          "n_test": 56,
+          "n_test_positives": 0
+        },
+        {
+          "fold": 4,
+          "n_train": 216,
+          "n_test": 56,
+          "n_test_positives": 0
+        }
+      ],
+      "mean_average_precision": 0.26666666666666666,
+      "std_average_precision": 0.06666666666666665,
+      "mean_roc_auc": 0.9720799180327869,
+      "mean_precision_at_top_decile": 0.14285714285714285
+    },
+    "lgbm": {
+      "n_folds": 5,
+      "folds": [
+        {
+          "fold": 0,
+          "n_train": 201,
+          "n_test": 62,
+          "n_test_positives": 1,
+          "average_precision": 0.3333333333333333,
+          "roc_auc": 0.9672131147540983,
+          "precision_at_top_decile": 0.14285714285714285
+        },
+        {
+          "fold": 1,
+          "n_train": 208,
+          "n_test": 65,
+          "n_test_positives": 1,
+          "average_precision": 1.0,
+          "roc_auc": 1.0,
+          "precision_at_top_decile": 0.14285714285714285
+        },
+        {
+          "fold": 2,
+          "n_train": 209,
+          "n_test": 63,
+          "n_test_positives": 0
+        },
+        {
+          "fold": 3,
+          "n_train": 199,
+          "n_test": 56,
+          "n_test_positives": 0
+        },
+        {
+          "fold": 4,
+          "n_train": 216,
+          "n_test": 56,
+          "n_test_positives": 0
+        }
+      ],
+      "mean_average_precision": 0.6666666666666666,
+      "std_average_precision": 0.33333333333333337,
+      "mean_roc_auc": 0.9836065573770492,
+      "mean_precision_at_top_decile": 0.14285714285714285
+    }
+  },
+  "provenance": {
+    "timestamp_utc": "2026-09-26T06:12:02+00:00",
+    "git": {
+      "commit": "ef8765896fab5d09b75a34e617d56246275dbcab",
+      "branch": "main",
+      "dirty": true
+    },
+    "packages": {
+      "python": "3.13.3",
+      "numpy": "2.5.2",
+      "pandas": "3.0.5",
+      "scipy": "1.18.1",
+      "geopandas": "1.1.4",
+      "rasterio": "1.5.1",
+      "shapely": "2.1.2",
+      "pyproj": "3.7.2",
+      "PyYAML": "6.0.3",
+      "requests": "2.34.2",
+      "scikit-learn": "1.9.0",
+      "xgboost": "3.4.1",
+      "lightgbm": "4.7.0",
+      "ruff": "0.16.5",
+      "pytest": "9.1.1"
+    },
+    "input_sha256": {
+      "labels_bauxite.gpkg": "4ad11a7aeb05656f28cd5bf448fb247e532933ba264a21c09b6939de2e74d9ab",
+      "background_bauxite.gpkg": "bf0796ba37e2764edac736798ad0c12d4f9bf0d93c9f28e77a657e7b89b54447",
+      "srtm_usambara_aligned.tif": "9962263d3917fdca72ca040754fa7375608fa99c20797a787b1512fe0fde68e9",
+      "sentinel2_usambara_aligned.tif": "c7ef1af4c2fc491c0775562a97a243928d47f604adfecc9ab526e4837db609f4",
+      "terrain_features_usambara.tif": "a81a41206f831373c50bda7a143a49241af486125541f7b6400eed3e372ac6b1",
+      "geology_features_usambara.tif": "6e19308b422a09b5744fe2f0cb79afbb120ed09303ded0f86693dfdde43e65ce",
+      "alteration_features_usambara.tif": "8969b0e5e6803a9b45faded0f462b62409eb6a807258ebdf0d36f1cd455ea70e",
+      "deposit_distance_bauxite.tif": "8ff2036d46214131d8aecff65e0259bad1bc6a19d8a2b6f71e3a532b62f47052"
+    },
+    "config_snapshot": "# \u2500\u2500 Usambara Bauxite Belt (Tanzania) configuration \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# Covers the lateritic bauxite plateaus in the West Usambara Mountains\n\n# Common analysis grid\ngrid:\n  crs: \"EPSG:32737\"        # UTM Zone 37S \u2014 covers Tanzania\n  resolution_m: 30          # 30 m to match SRTM / Landsat\n  # AOI bounding box in WGS 84 (lon, lat)\n  aoi_wgs84:\n    min_lon: 38.0\n    max_lon: 39.0\n    min_lat: -5.5\n    max_lat: -4.2\n  # Derived extent in target CRS (filled at runtime)\n  aoi_utm: null             # [min_x, min_y, max_x, max_y] in metres\n\n# \u2500\u2500 Data sources \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nsources:\n  usgs_mrds:\n    name: \"USGS Mineral Resources Data System (MRDS)\"\n    shapefile_url: \"https://mrdata.usgs.gov/mrds/mrds-trim.zip\"\n    csv_url: \"https://mrdata.usgs.gov/mrds/mrds-csv.zip\"\n    wfs_url: \"https://mrdata.usgs.gov/services/wfs/mrds\"\n    commodities:\n      - \"Bauxite\"\n      - \"Aluminum\"\n    africa_bbox:\n      min_lon: 10.0\n      max_lon: 50.0\n      min_lat: -35.0\n      max_lat: 37.0\n\n  sentinel2:\n    collection: \"COPERNICUS/S2_SR_HARMONIZED\"\n    bands:\n      - B2   # Blue   (10 m)\n      - B3   # Green  (10 m)\n      - B4   # Red    (10 m)\n      - B8   # NIR    (10 m)\n      - B11   # SWIR1  (20 m)\n      - B12   # SWIR2  (20 m)\n    date_range:\n      start: \"2023-06-01\"\n      end: \"2023-09-30\"\n    cloud_cover_threshold: 0.20\n    scale_m: 30\n\n  srtm_dem:\n    collection: \"USGS/SRTMGL1_003\"\n    resolution_m: 30\n\n# \u2500\u2500 Feature engineering \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfeatures:\n  # Explicit feature-raster allowlist (SAFEGUARD)\n  rasters_by_group:\n    bauxite:\n      - dem/srtm_usambara_aligned.tif\n      - sentinel2/sentinel2_usambara_aligned.tif\n      - features/terrain_features_usambara.tif\n      - features/geology_features_usambara.tif\n      - features/alteration_features_usambara.tif\n      - features/deposit_distance_bauxite.tif\n\n  bauxite:\n    spectral_indices:\n      - NDWI   # Normalized Difference Water Index\n      - MBI    # Mud-sand Bimodal Index (for laterite)\n      - BSI    # Brightness/Surface Index\n    slope_threshold_deg: 5\n    plateau_flatness: true\n\n# \u2500\u2500 Model settings \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nmodel:\n  commodity_groups:\n    - bauxite\n  algorithm: \"random_forest\"\n  params:\n    n_estimators: 500\n    max_depth: 15\n    min_samples_leaf: 3\n    random_state: 42\n  compare_algorithms:\n    - random_forest\n    - xgboost\n    - lightgbm\n\n# \u2500\u2500 Spatial cross-validation \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nvalidation:\n  method: \"spatial_block\"\n  n_groups: 3\n  buffer_km: 5\n  min_train_area_pct: 60\n"
+  },
+  "calibration": {
+    "n": 302,
+    "n_positives": 2,
+    "n_bins_requested": 10,
+    "n_bins_usable": 10,
+    "brier": 0.006889871133375633,
+    "ece": 0.005162000103443709,
+    "max_abs_gap": 0.03329322076453569,
+    "bins": [
+      {
+        "bin_lo": 1.6455008228462077e-08,
+        "bin_hi": 2.6354527629950335e-07,
+        "n": 31,
+        "mean_predicted": 1.2555307331027472e-07,
+        "fraction_positive": 0.0
+      },
+      {
+        "bin_lo": 2.6354527629950335e-07,
+        "bin_hi": 8.384380141548194e-07,
+        "n": 30,
+        "mean_predicted": 5.721457179563417e-07,
+        "fraction_positive": 0.0
+      },
+      {
+        "bin_lo": 8.384380141548194e-07,
+        "bin_hi": 1.8062674221666463e-06,
+        "n": 30,
+        "mean_predicted": 1.243380827840855e-06,
+        "fraction_positive": 0.0
+      },
+      {
+        "bin_lo": 1.8062674221666463e-06,
+        "bin_hi": 3.172900682259642e-06,
+        "n": 30,
+        "mean_predicted": 2.5866043571281984e-06,
+        "fraction_positive": 0.0
+      },
+      {
+        "bin_lo": 3.172900682259642e-06,
+        "bin_hi": 4.383452249946556e-06,
+        "n": 30,
+        "mean_predicted": 3.968894341674976e-06,
+        "fraction_positive": 0.0
+      },
+      {
+        "bin_lo": 4.383452249946556e-06,
+        "bin_hi": 4.383509037977099e-06,
+        "n": 30,
+        "mean_predicted": 4.383502168919992e-06,
+        "fraction_positive": 0.0
+      },
+      {
+        "bin_lo": 4.383509037977099e-06,
+        "bin_hi": 7.118426068973313e-06,
+        "n": 30,
+        "mean_predicted": 4.883795987814711e-06,
+        "fraction_positive": 0.0
+      },
+      {
+        "bin_lo": 7.118426068973313e-06,
+        "bin_hi": 1.7393585263238044e-05,
+        "n": 30,
+        "mean_predicted": 1.0734475039826515e-05,
+        "fraction_positive": 0.0
+      },
+      {
+        "bin_lo": 1.7393585263238044e-05,
+        "bin_hi": 0.00015390889377128554,
+        "n": 30,
+        "mean_predicted": 4.0112568797643424e-05,
+        "fraction_positive": 0.03333333333333333
+      },
+      {
+        "bin_lo": 0.00015390889377128554,
+        "bin_hi": 0.31040620379049966,
+        "n": 31,
+        "mean_predicted": 0.014217021541760579,
+        "fraction_positive": 0.03225806451612903
+      }
+    ]
+  }
+}
