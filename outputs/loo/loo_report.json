@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-26T10:13:45.632040+00:00",
-  "n_groups": 1,
+  "generated_at": "2026-09-27T09:35:42.846555+00:00",
+  "n_groups": 2,
   "groups": [
     {
-      "generated_at": "2026-09-26T10:13:45.629946+00:00",
+      "generated_at": "2026-09-26T10:13:45.623452+00:00",
       "group": "bauxite",
       "n_folds_total": 3,
       "n_folds_done": 3,
@@ -109,6 +109,68 @@
           "mean_ap": NaN,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\bauxite\\fold_02_Mombo\\bauxite\\models\\metrics_bauxite.json",
           "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\bauxite\\fold_02_Mombo\\bauxite\\proba_bauxite_rf.tif"
+        }
+      ]
+    },
+    {
+      "generated_at": "2026-09-26T10:00:01.720021+00:00",
+      "group": "copper_zinc",
+      "n_folds_total": 39,
+      "n_folds_done": 1,
+      "errors": {},
+      "summary": {
+        "group": "copper_zinc",
+        "n_folds": 1,
+        "n_folds_scored": 1,
+        "n_folds_unscored": 0,
+        "n_rediscovered": 1,
+        "rediscovery_rate": 1.0,
+        "n_top_1pct": 1,
+        "rate_top_1pct": 1.0,
+        "n_top_0p1pct": 1,
+        "rate_top_0p1pct": 1.0,
+        "rank_median": 1.0,
+        "rank_mean": 1.0,
+        "rank_min": 1.0,
+        "rank_max": 1.0,
+        "percentile_median": 100.0,
+        "percentile_mean": 100.0,
+        "distance_to_top1_km_median": 52.206728291712224,
+        "distance_to_top1_km_mean": 52.206728291712224,
+        "mean_ap_median": 0.9545981795981795,
+        "mean_ap_min": 0.9545981795981795,
+        "mean_ap_max": 0.9545981795981795,
+        "best_algo_counts": {
+          "rf": 1
+        },
+        "n_positives_trained_on_min": 38,
+        "top_n": 100,
+        "tolerance_km": 5.0,
+        "unscored_folds": []
+      },
+      "records": [
+        {
+          "fold_idx": 0,
+          "label_row": 3,
+          "name": "Kambove West",
+          "lon": 26.59858,
+          "lat": -10.88616,
+          "best_algo": "rf",
+          "in_extent": true,
+          "rank": 1.0,
+          "rank_in_top50": 1,
+          "rediscovered": true,
+          "percentile": 100.0,
+          "prob_at_holdout": 0.9762507081031799,
+          "n_valid_cells": 67527280,
+          "distance_to_top1_km": 52.206728291712224,
+          "n_candidates_within_5km": 107,
+          "n_labels_removed": 1,
+          "n_labels_remaining": 77,
+          "n_positives_trained_on": 38,
+          "mean_ap": 0.9545981795981795,
+          "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_00_Kambove_West\\copper_zinc\\models\\metrics_copper_zinc.json",
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_00_Kambove_West\\copper_zinc\\proba_copper_zinc_rf.tif"
         }
       ]
     }

@@ -386,6 +386,26 @@ class TestReports:
         text = loo_markdown([_payload("empty", ranks=())], tmp_path).read_text(encoding="utf-8")
         assert "n/a" in text
 
+    def test_markdown_explains_unavailable_ap(self, tmp_path):
+        """A reader seeing `n/a` in the AP column gets told what it means."""
+        text = loo_markdown([_payload("demo")], tmp_path).read_text(encoding="utf-8")
+        assert "A `n/a` AP means the fold could not be scored" in text
+        assert "not the CV fold" in text
+
+    def test_markdown_flags_partial_group(self, tmp_path):
+        """An unfinished group must not read as a finished 100 %."""
+        payload = _payload("demo")
+        payload["n_folds_total"] = 39
+        payload["n_folds_done"] = 1
+        text = loo_markdown([payload], tmp_path).read_text(encoding="utf-8")
+        assert "1/39" in text
+        assert "**partial**" in text
+        assert "`partial` means the group's run is unfinished" in text
+
+    def test_markdown_complete_group_has_no_partial_marker(self, tmp_path):
+        text = loo_markdown([_payload("demo")], tmp_path).read_text(encoding="utf-8")
+        assert "**partial**" not in text
+
     def test_markdown_handles_no_groups(self, tmp_path):
         path = loo_markdown([], tmp_path)
         assert path.exists()
@@ -512,3 +532,35 @@ class TestCli:
         main()  # must not retrain, must not sys.exit
         assert (tmp_path / "loo_report.json").exists()
         assert (tmp_path / "LOO_VALIDATION.md").exists()
+
+    def test_report_only_flags_partial_group(self, tmp_path, monkeypatch, caplog):
+        """A 1-of-39 run must print PARTIAL, never a bare 100 %."""
+        import logging
+
+        group_dir = tmp_path / "bauxite"
+        group_dir.mkdir(parents=True)
+        record = compact_record(_result(3), _fold(0, "Lushoto"))
+        (group_dir / "loo_partial.json").write_text(
+            json.dumps(
+                {"group": "bauxite", "n_folds_total": 39, "records": [record], "errors": {}}
+            ),
+            encoding="utf-8",
+        )
+        monkeypatch.setattr(
+            sys,
+            "argv",
+            [
+                "loo_validation.py",
+                "--group",
+                "bauxite",
+                "--report-only",
+                "--out-root",
+                str(tmp_path),
+            ],
+        )
+        with caplog.at_level(logging.INFO, logger="src.models.loo"):
+            main()
+        assert "PARTIAL: 1/39 folds done" in caplog.text
+        # the markdown agrees with the CLI
+        md = (tmp_path / "LOO_VALIDATION.md").read_text(encoding="utf-8")
+        assert "1/39" in md and "**partial**" in md

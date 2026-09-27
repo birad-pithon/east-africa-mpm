@@ -1,6 +1,6 @@
 # Leave-one-deposit-out (LOO) rediscovery validation
 
-Generated: 2026-09-26 10:13 UTC
+Generated: 2026-09-27 09:35 UTC
 
 ## Method
 
@@ -18,6 +18,7 @@ Every in-extent verified deposit is withheld once, in turn. For each fold the ha
 | group | folds | scored | rediscovered | rate | median rank | median pct | in top 1% | median top-1 dist (km) | median AP | min. positives trained on |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | bauxite | 3 | 3 | 3 | 100.0 % | 26 | 100.00 % | 100.0 % | 7.4 | 0.625 | 2 |
+| copper_zinc | 1/39 | 1 | 1 | **partial** (100.0 %) | 1 | 100.00 % | 100.0 % | 52.2 | 0.955 | 38 |
 
 ## bauxite — per-fold detail
 
@@ -27,9 +28,17 @@ Every in-extent verified deposit is withheld once, in turn. For each fold the ha
 | 1 | Magamba | xgb | 26 | 100.00 | yes | 9.3 | 0.583 | 2 |
 | 2 | Mombo | rf | 53 | 100.00 | yes | 7.4 | n/a | 2 |
 
+## copper_zinc — per-fold detail
+
+| fold | deposit | best | rank | percentile | rediscovered | top-1 dist (km) | AP | trained on |
+|---:|---|---|---:|---:|:--:|---:|---:|---:|
+| 0 | Kambove West | rf | 1 | 100.00 | yes | 52.2 | 0.955 | 38 |
+
 ## Caveats
 
 * **Rates are not comparable across groups.** `bauxite` has only 3 in-extent seeds, so each fold trains on 2 positives — its rate is near-meaningless statistically. `copper_zinc` trains on ~38 positives over a 67.5 M-cell AOI. Read the `trained on` column.
 * **A miss is not proof of failure.** A withheld deposit in the 99.9th percentile that still lands below rank 100 shows the surface concentrating where it should; the percentile column shows that.
 * **Background points are reused unchanged.** Background sampling excluded a buffer around the original labels, so a small hole in background density survives near each withheld deposit. It encodes no holdout information into any feature.
+* **`partial` means the group's run is unfinished.** The rate beside it covers only the folds done so far and is not a final rediscovery rate — re-run to completion before quoting it.
+* **A `n/a` AP means the fold could not be scored**, not a bad score. With only 2 positives in the group, a blocked fold's training batch can hold a single class (and other folds hold no positive test label), so cross-validated average precision is undefined for that fold. Rediscovery rank is unaffected: it comes from the full-group retrain, not the CV fold.
 * **Folds are independent single-deposit removals**, not a nested resampling of model selection: the algorithm choice is re-made inside each fold from the same 3-algorithm comparison.

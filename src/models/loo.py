@@ -528,12 +528,23 @@ def loo_markdown(groups: list[dict], out_dir: Path | str) -> Path:
     ]
     for payload in groups:
         summary = payload.get("summary") or {}
+        total = int(payload.get("n_folds_total") or 0)
+        done = int(payload.get("n_folds_done") or summary.get("n_folds") or 0)
+        # An unfinished group must never read as a completed 100 %: show
+        # "1/39" rather than "1", and suppress the rate so a partial run
+        # cannot be mistaken for a final rediscovery rate.
+        if total and done < total:
+            folds_cell = f"{done}/{total}"
+            rate_cell = f"**partial** ({_pct(summary.get('rediscovery_rate'))})"
+        else:
+            folds_cell = str(summary.get("n_folds", done))
+            rate_cell = _pct(summary.get("rediscovery_rate"))
         lines.append(
             f"| {summary.get('group')} "
-            f"| {summary.get('n_folds', 0)} "
+            f"| {folds_cell} "
             f"| {summary.get('n_folds_scored', 0)} "
             f"| {summary.get('n_rediscovered', 0)} "
-            f"| {_pct(summary.get('rediscovery_rate'))} "
+            f"| {rate_cell} "
             f"| {_fmt(summary.get('rank_median'), '.0f')} "
             f"| {_fmt(summary.get('percentile_median'), '.2f', ' %')} "
             f"| {_pct(summary.get('rate_top_1pct'))} "
@@ -580,6 +591,15 @@ def loo_markdown(groups: list[dict], out_dir: Path | str) -> Path:
         "excluded a buffer around the original labels, so a small hole in "
         "background density survives near each withheld deposit. It encodes "
         "no holdout information into any feature.",
+        "* **`partial` means the group's run is unfinished.** The rate "
+        "beside it covers only the folds done so far and is not a final "
+        "rediscovery rate — re-run to completion before quoting it.",
+        "* **A `n/a` AP means the fold could not be scored**, not a bad "
+        "score. With only 2 positives in the group, a blocked fold's "
+        "training batch can hold a single class (and other folds hold no "
+        "positive test label), so cross-validated average precision is "
+        "undefined for that fold. Rediscovery rank is unaffected: it comes "
+        "from the full-group retrain, not the CV fold.",
         "* **Folds are independent single-deposit removals**, not a nested "
         "resampling of model selection: the algorithm choice is re-made "
         "inside each fold from the same 3-algorithm comparison.",
@@ -680,13 +700,28 @@ def main() -> None:
     )
     for payload in groups:
         summary = payload["summary"]
-        logger.info(
-            "  %-24s %d/%d rediscovered %s",
-            summary["group"],
-            summary["n_rediscovered"],
-            summary["n_folds_scored"],
-            _pct(summary["rediscovery_rate"]),
-        )
+        total = int(payload.get("n_folds_total") or 0)
+        done = int(payload.get("n_folds_done") or summary["n_folds"])
+        # An unfinished group must not print as "1/1 rediscovered 100 %":
+        # show the planned denominator and flag it as partial.
+        if total and done < total:
+            logger.info(
+                "  %-24s %d/%d rediscovered %s (PARTIAL: %d/%d folds done)",
+                summary["group"],
+                summary["n_rediscovered"],
+                summary["n_folds_scored"],
+                _pct(summary["rediscovery_rate"]),
+                done,
+                total,
+            )
+        else:
+            logger.info(
+                "  %-24s %d/%d rediscovered %s",
+                summary["group"],
+                summary["n_rediscovered"],
+                summary["n_folds_scored"],
+                _pct(summary["rediscovery_rate"]),
+            )
     failed = {p["group"]: p["errors"] for p in groups if p.get("errors")}
     if failed:
         logger.error("folds failed: %s", failed)
