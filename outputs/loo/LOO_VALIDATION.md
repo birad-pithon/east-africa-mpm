@@ -1,6 +1,6 @@
 # Leave-one-deposit-out (LOO) rediscovery validation
 
-Generated: 2026-09-28 09:36 UTC
+Generated: 2026-09-28 13:20 UTC
 
 ## Method
 
@@ -15,11 +15,11 @@ Every in-extent verified deposit is withheld once, in turn. For each fold the ha
 
 ## Rediscovery rate by group
 
-| group | folds | scored | rediscovered | rate | median rank | median pct | in top 1% | median top-1 dist (km) | median AP | min. positives trained on |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| bauxite | 3 | 3 | 3 | 100.0 % | 26 | 100.00 % | 100.0 % | 7.4 | 0.625 | 2 |
-| copper_zinc | 39 | 39 | 23 | 59.0 % | 1 | 100.00 % | 92.3 % | 46.9 | 0.935 | 36 |
-| tin_tungsten_tantalum | 9 | 9 | 2 | 22.2 % | 9818 | 99.95 % | 100.0 % | 48.1 | 0.059 | 8 |
+| group | folds | scored | rediscovered | rate | median rank | median pct | in top 1% | median top-1 dist (km) | median AP | median base rate | min. positives trained on |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| bauxite | 3 | 3 | 3 | 100.0 % | 26 | 100.00 % | 100.0 % | 7.4 | 0.625 | 0.0066 | 2 |
+| copper_zinc | 39 | 39 | 23 | 59.0 % | 1 | 100.00 % | 92.3 % | 46.9 | 0.935 | 0.3958 | 36 |
+| tin_tungsten_tantalum | 9 | 9 | 2 | 22.2 % | 9818 | 99.95 % | 100.0 % | 48.1 | 0.059 | 0.0245 | 8 |
 
 ## bauxite — per-fold detail
 
@@ -90,8 +90,8 @@ Every in-extent verified deposit is withheld once, in turn. For each fold the ha
 ## Caveats
 
 * **Rates are not comparable across groups.** `bauxite` has only 3 in-extent seeds, so each fold trains on 2 positives — its rate is near-meaningless statistically. `copper_zinc` trains on ~38 positives over a 67.5 M-cell AOI. Read the `trained on` column.
+* **`median AP` means nothing without `median base rate`.** AP is averaged precision on the sampled table; the base rate is how much of that table is positive, i.e. what a random ranker scores. `copper_zinc` (~40 % positive, AP 0.935) and `tin_tungsten_tantalum` (~2 % positive, AP 0.059) sit at a comparable lift over base — the raw APs are not comparable to each other.
 * **A miss is not proof of failure.** A withheld deposit in the 99.9th percentile that still lands below rank 100 shows the surface concentrating where it should; the percentile column shows that.
 * **Background points are reused unchanged.** Background sampling excluded a buffer around the original labels, so a small hole in background density survives near each withheld deposit. It encodes no holdout information into any feature.
-* **`partial` means the group's run is unfinished.** The rate beside it covers only the folds done so far and is not a final rediscovery rate — re-run to completion before quoting it.
 * **A `n/a` AP means the fold could not be scored**, not a bad score. With only 2 positives in the group, a blocked fold's training batch can hold a single class (and other folds hold no positive test label), so cross-validated average precision is undefined for that fold. Rediscovery rank is unaffected: it comes from the full-group retrain, not the CV fold.
 * **Folds are independent single-deposit removals**, not a nested resampling of model selection: the algorithm choice is re-made inside each fold from the same 3-algorithm comparison.

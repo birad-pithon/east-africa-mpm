@@ -26,7 +26,8 @@
       "n_positives_trained_on": 2,
       "mean_ap": 0.6666666666666666,
       "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\bauxite\\fold_00_Lushoto\\bauxite\\models\\metrics_bauxite.json",
-      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\bauxite\\fold_00_Lushoto\\bauxite\\proba_bauxite_lgbm.tif"
+      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\bauxite\\fold_00_Lushoto\\bauxite\\proba_bauxite_lgbm.tif",
+      "n_rows_sampled": 302
     },
     {
       "fold_idx": 1,
@@ -49,7 +50,8 @@
       "n_positives_trained_on": 2,
       "mean_ap": 0.5833333333333334,
       "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\bauxite\\fold_01_Magamba\\bauxite\\models\\metrics_bauxite.json",
-      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\bauxite\\fold_01_Magamba\\bauxite\\proba_bauxite_xgb.tif"
+      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\bauxite\\fold_01_Magamba\\bauxite\\proba_bauxite_xgb.tif",
+      "n_rows_sampled": 302
     },
     {
       "fold_idx": 2,
@@ -72,7 +74,8 @@
       "n_positives_trained_on": 2,
       "mean_ap": NaN,
       "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\bauxite\\fold_02_Mombo\\bauxite\\models\\metrics_bauxite.json",
-      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\bauxite\\fold_02_Mombo\\bauxite\\proba_bauxite_rf.tif"
+      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\bauxite\\fold_02_Mombo\\bauxite\\proba_bauxite_rf.tif",
+      "n_rows_sampled": 302
     }
   ]
 }

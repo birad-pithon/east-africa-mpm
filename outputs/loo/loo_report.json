@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-09-28T09:36:07.989758+00:00",
+  "generated_at": "2026-09-28T13:20:50.533392+00:00",
   "n_groups": 3,
   "groups": [
     {
-      "generated_at": "2026-09-28T04:18:54.421587+00:00",
+      "generated_at": "2026-09-26T10:13:45.623452+00:00",
       "group": "bauxite",
       "n_folds_total": 3,
       "n_folds_done": 3,
@@ -30,6 +30,7 @@
         "mean_ap_median": 0.625,
         "mean_ap_min": 0.5833333333333334,
         "mean_ap_max": 0.6666666666666666,
+        "base_rate_median": 0.006622516556291391,
         "best_algo_counts": {
           "lgbm": 1,
           "xgb": 1,
@@ -62,7 +63,8 @@
           "n_positives_trained_on": 2,
           "mean_ap": 0.6666666666666666,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\bauxite\\fold_00_Lushoto\\bauxite\\models\\metrics_bauxite.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\bauxite\\fold_00_Lushoto\\bauxite\\proba_bauxite_lgbm.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\bauxite\\fold_00_Lushoto\\bauxite\\proba_bauxite_lgbm.tif",
+          "n_rows_sampled": 302
         },
         {
           "fold_idx": 1,
@@ -85,7 +87,8 @@
           "n_positives_trained_on": 2,
           "mean_ap": 0.5833333333333334,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\bauxite\\fold_01_Magamba\\bauxite\\models\\metrics_bauxite.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\bauxite\\fold_01_Magamba\\bauxite\\proba_bauxite_xgb.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\bauxite\\fold_01_Magamba\\bauxite\\proba_bauxite_xgb.tif",
+          "n_rows_sampled": 302
         },
         {
           "fold_idx": 2,
@@ -108,12 +111,13 @@
           "n_positives_trained_on": 2,
           "mean_ap": NaN,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\bauxite\\fold_02_Mombo\\bauxite\\models\\metrics_bauxite.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\bauxite\\fold_02_Mombo\\bauxite\\proba_bauxite_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\bauxite\\fold_02_Mombo\\bauxite\\proba_bauxite_rf.tif",
+          "n_rows_sampled": 302
         }
       ]
     },
     {
-      "generated_at": "2026-09-28T07:32:14.397901+00:00",
+      "generated_at": "2026-09-28T07:32:14.380088+00:00",
       "group": "copper_zinc",
       "n_folds_total": 39,
       "n_folds_done": 39,
@@ -140,6 +144,7 @@
         "mean_ap_median": 0.9345115995115993,
         "mean_ap_min": 0.907150072150072,
         "mean_ap_max": 0.9743310657596371,
+        "base_rate_median": 0.3958333333333333,
         "best_algo_counts": {
           "rf": 31,
           "xgb": 8
@@ -171,7 +176,8 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.9545981795981795,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_00_Kambove_West\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_00_Kambove_West\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_00_Kambove_West\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 96
         },
         {
           "fold_idx": 1,
@@ -194,7 +200,8 @@
           "n_positives_trained_on": 37,
           "mean_ap": 0.9283378237259816,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_01_Kazibizi\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_01_Kazibizi\\copper_zinc\\proba_copper_zinc_xgb.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_01_Kazibizi\\copper_zinc\\proba_copper_zinc_xgb.tif",
+          "n_rows_sampled": 95
         },
         {
           "fold_idx": 2,
@@ -217,7 +224,8 @@
           "n_positives_trained_on": 37,
           "mean_ap": 0.9283378237259816,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_02_M_Sesa\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_02_M_Sesa\\copper_zinc\\proba_copper_zinc_xgb.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_02_M_Sesa\\copper_zinc\\proba_copper_zinc_xgb.tif",
+          "n_rows_sampled": 95
         },
         {
           "fold_idx": 3,
@@ -240,7 +248,8 @@
           "n_positives_trained_on": 36,
           "mean_ap": 0.907150072150072,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_03_Facility_Shituru_Smelter\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_03_Facility_Shituru_Smelter\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_03_Facility_Shituru_Smelter\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 94
         },
         {
           "fold_idx": 4,
@@ -263,7 +272,8 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.94241341991342,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_04_Kakanda\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_04_Kakanda\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_04_Kakanda\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 96
         },
         {
           "fold_idx": 5,
@@ -286,7 +296,8 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.9271226176420981,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_05_Shituru\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_05_Shituru\\copper_zinc\\proba_copper_zinc_xgb.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_05_Shituru\\copper_zinc\\proba_copper_zinc_xgb.tif",
+          "n_rows_sampled": 96
         },
         {
           "fold_idx": 6,
@@ -309,7 +320,8 @@
           "n_positives_trained_on": 36,
           "mean_ap": 0.907150072150072,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_06_Facility_Shituru_Copper_Refinery\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_06_Facility_Shituru_Copper_Refinery\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_06_Facility_Shituru_Copper_Refinery\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 94
         },
         {
           "fold_idx": 7,
@@ -332,7 +344,8 @@
           "n_positives_trained_on": 37,
           "mean_ap": 0.9486507936507937,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_07_Tenke_Fungurume\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_07_Tenke_Fungurume\\copper_zinc\\proba_copper_zinc_xgb.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_07_Tenke_Fungurume\\copper_zinc\\proba_copper_zinc_xgb.tif",
+          "n_rows_sampled": 95
         },
         {
           "fold_idx": 8,
@@ -355,7 +368,8 @@
           "n_positives_trained_on": 37,
           "mean_ap": 0.9242735042735042,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_08_Disele\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_08_Disele\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_08_Disele\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 95
         },
         {
           "fold_idx": 9,
@@ -378,7 +392,8 @@
           "n_positives_trained_on": 37,
           "mean_ap": 0.9217338217338217,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_09_Bangwe\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_09_Bangwe\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_09_Bangwe\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 95
         },
         {
           "fold_idx": 10,
@@ -401,7 +416,8 @@
           "n_positives_trained_on": 37,
           "mean_ap": 0.9486507936507937,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_10_Fwalu\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_10_Fwalu\\copper_zinc\\proba_copper_zinc_xgb.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_10_Fwalu\\copper_zinc\\proba_copper_zinc_xgb.tif",
+          "n_rows_sampled": 95
         },
         {
           "fold_idx": 11,
@@ -424,7 +440,8 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.9479761904761904,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_11_Judeira\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_11_Judeira\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_11_Judeira\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 96
         },
         {
           "fold_idx": 12,
@@ -447,7 +464,8 @@
           "n_positives_trained_on": 36,
           "mean_ap": 0.924035409035409,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_12_Kababankola\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_12_Kababankola\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_12_Kababankola\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 94
         },
         {
           "fold_idx": 13,
@@ -470,7 +488,8 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.9452197924624395,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_13_Kabolela\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_13_Kabolela\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_13_Kabolela\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 96
         },
         {
           "fold_idx": 14,
@@ -493,7 +512,8 @@
           "n_positives_trained_on": 36,
           "mean_ap": 0.924035409035409,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_14_Kakanda_East\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_14_Kakanda_East\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_14_Kakanda_East\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 94
         },
         {
           "fold_idx": 15,
@@ -516,7 +536,8 @@
           "n_positives_trained_on": 36,
           "mean_ap": 0.907150072150072,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_15_Kamatanda\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_15_Kamatanda\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_15_Kamatanda\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 94
         },
         {
           "fold_idx": 16,
@@ -539,7 +560,8 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.9574278499278499,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_16_Kaminafitwe\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_16_Kaminafitwe\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_16_Kaminafitwe\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 96
         },
         {
           "fold_idx": 17,
@@ -562,7 +584,8 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.9420893812070282,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_17_Kasala\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_17_Kasala\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_17_Kasala\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 96
         },
         {
           "fold_idx": 18,
@@ -585,7 +608,8 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.9407948532948532,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_18_Kikuswe\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_18_Kikuswe\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_18_Kikuswe\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 96
         },
         {
           "fold_idx": 19,
@@ -608,7 +632,8 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.9301292069459361,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_19_Kileba\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_19_Kileba\\copper_zinc\\proba_copper_zinc_xgb.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_19_Kileba\\copper_zinc\\proba_copper_zinc_xgb.tif",
+          "n_rows_sampled": 96
         },
         {
           "fold_idx": 20,
@@ -631,7 +656,8 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.9459992784992783,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_20_Kimbwe\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_20_Kimbwe\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_20_Kimbwe\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 96
         },
         {
           "fold_idx": 21,
@@ -654,7 +680,8 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.973968253968254,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_21_Kinsevere\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_21_Kinsevere\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_21_Kinsevere\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 96
         },
         {
           "fold_idx": 22,
@@ -677,7 +704,8 @@
           "n_positives_trained_on": 37,
           "mean_ap": 0.9307740672026386,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_22_Kipoi_Central\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_22_Kipoi_Central\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_22_Kipoi_Central\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 95
         },
         {
           "fold_idx": 23,
@@ -700,7 +728,8 @@
           "n_positives_trained_on": 37,
           "mean_ap": 0.9307740672026386,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_23_Kipoi_North\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_23_Kipoi_North\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_23_Kipoi_North\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 95
         },
         {
           "fold_idx": 24,
@@ -723,7 +752,8 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.9339041514041513,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_24_Kiwana\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_24_Kiwana\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_24_Kiwana\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 96
         },
         {
           "fold_idx": 25,
@@ -746,7 +776,8 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.9393945578231293,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_25_Kwatebala\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_25_Kwatebala\\copper_zinc\\proba_copper_zinc_xgb.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_25_Kwatebala\\copper_zinc\\proba_copper_zinc_xgb.tif",
+          "n_rows_sampled": 96
         },
         {
           "fold_idx": 26,
@@ -769,7 +800,8 @@
           "n_positives_trained_on": 37,
           "mean_ap": 0.9242735042735042,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_26_Lufomboshi\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_26_Lufomboshi\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_26_Lufomboshi\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 95
         },
         {
           "fold_idx": 27,
@@ -792,7 +824,8 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.9625396825396825,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_27_Luishia\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_27_Luishia\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_27_Luishia\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 96
         },
         {
           "fold_idx": 28,
@@ -815,7 +848,8 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.9316723356009071,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_28_Luita\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_28_Luita\\copper_zinc\\proba_copper_zinc_xgb.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_28_Luita\\copper_zinc\\proba_copper_zinc_xgb.tif",
+          "n_rows_sampled": 96
         },
         {
           "fold_idx": 29,
@@ -838,7 +872,8 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.9468578643578643,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_29_Mambilima\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_29_Mambilima\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_29_Mambilima\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 96
         },
         {
           "fold_idx": 30,
@@ -861,7 +896,8 @@
           "n_positives_trained_on": 37,
           "mean_ap": 0.923531746031746,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_30_Mukondo\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_30_Mukondo\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_30_Mukondo\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 95
         },
         {
           "fold_idx": 31,
@@ -884,7 +920,8 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.93747557997558,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_31_Shangolowe\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_31_Shangolowe\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_31_Shangolowe\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 96
         },
         {
           "fold_idx": 32,
@@ -907,7 +944,8 @@
           "n_positives_trained_on": 36,
           "mean_ap": 0.924035409035409,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_32_Saafi\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_32_Saafi\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_32_Saafi\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 94
         },
         {
           "fold_idx": 33,
@@ -930,7 +968,8 @@
           "n_positives_trained_on": 36,
           "mean_ap": 0.9345115995115993,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_33_Taratara\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_33_Taratara\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_33_Taratara\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 94
         },
         {
           "fold_idx": 34,
@@ -953,7 +992,8 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.949635642135642,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_34_Mwandinkomba\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_34_Mwandinkomba\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_34_Mwandinkomba\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 96
         },
         {
           "fold_idx": 35,
@@ -976,7 +1016,8 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.9243528693528693,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_35_Sefu\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_35_Sefu\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_35_Sefu\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 96
         },
         {
           "fold_idx": 36,
@@ -999,7 +1040,8 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.9447691197691197,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_36_Munaka\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_36_Munaka\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_36_Munaka\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 96
         },
         {
           "fold_idx": 37,
@@ -1022,7 +1064,8 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.9455215419501133,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_37_Musonge\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_37_Musonge\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_37_Musonge\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 96
         },
         {
           "fold_idx": 38,
@@ -1045,12 +1088,13 @@
           "n_positives_trained_on": 38,
           "mean_ap": 0.9743310657596371,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_38_Shinkolobwe_Signal\\copper_zinc\\models\\metrics_copper_zinc.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_38_Shinkolobwe_Signal\\copper_zinc\\proba_copper_zinc_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_38_Shinkolobwe_Signal\\copper_zinc\\proba_copper_zinc_rf.tif",
+          "n_rows_sampled": 96
         }
       ]
     },
     {
-      "generated_at": "2026-09-28T09:36:07.981924+00:00",
+      "generated_at": "2026-09-28T09:36:07.972053+00:00",
       "group": "tin_tungsten_tantalum",
       "n_folds_total": 9,
       "n_folds_done": 9,
@@ -1077,6 +1121,7 @@
         "mean_ap_median": 0.058892348697446154,
         "mean_ap_min": 0.028981592238171185,
         "mean_ap_max": 0.10268316522011105,
+        "base_rate_median": 0.024464831804281346,
         "best_algo_counts": {
           "rf": 2,
           "xgb": 5,
@@ -1109,7 +1154,8 @@
           "n_positives_trained_on": 8,
           "mean_ap": 0.05332656838215253,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_00_Nyakabingo\\tin_tungsten_tantalum\\models\\metrics_tin_tungsten_tantalum.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_00_Nyakabingo\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_00_Nyakabingo\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_rf.tif",
+          "n_rows_sampled": 327
         },
         {
           "fold_idx": 1,
@@ -1132,7 +1178,8 @@
           "n_positives_trained_on": 8,
           "mean_ap": 0.028981592238171185,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_01_Musha\\tin_tungsten_tantalum\\models\\metrics_tin_tungsten_tantalum.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_01_Musha\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_rf.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_01_Musha\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_rf.tif",
+          "n_rows_sampled": 327
         },
         {
           "fold_idx": 2,
@@ -1155,7 +1202,8 @@
           "n_positives_trained_on": 8,
           "mean_ap": 0.03637045392090835,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_02_Ntunga\\tin_tungsten_tantalum\\models\\metrics_tin_tungsten_tantalum.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_02_Ntunga\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_xgb.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_02_Ntunga\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_xgb.tif",
+          "n_rows_sampled": 327
         },
         {
           "fold_idx": 3,
@@ -1178,7 +1226,8 @@
           "n_positives_trained_on": 8,
           "mean_ap": 0.07719991631321681,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_03_Gatumba\\tin_tungsten_tantalum\\models\\metrics_tin_tungsten_tantalum.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_03_Gatumba\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_xgb.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_03_Gatumba\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_xgb.tif",
+          "n_rows_sampled": 327
         },
         {
           "fold_idx": 4,
@@ -1201,7 +1250,8 @@
           "n_positives_trained_on": 8,
           "mean_ap": 0.061176182308257776,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_04_Nyamalilo\\tin_tungsten_tantalum\\models\\metrics_tin_tungsten_tantalum.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_04_Nyamalilo\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_xgb.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_04_Nyamalilo\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_xgb.tif",
+          "n_rows_sampled": 327
         },
         {
           "fold_idx": 5,
@@ -1224,7 +1274,8 @@
           "n_positives_trained_on": 8,
           "mean_ap": 0.10268316522011105,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_05_Somirwa_Mine\\tin_tungsten_tantalum\\models\\metrics_tin_tungsten_tantalum.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_05_Somirwa_Mine\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_lgbm.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_05_Somirwa_Mine\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_lgbm.tif",
+          "n_rows_sampled": 327
         },
         {
           "fold_idx": 6,
@@ -1247,7 +1298,8 @@
           "n_positives_trained_on": 8,
           "mean_ap": 0.0425490208498424,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_06_Somirwa\\tin_tungsten_tantalum\\models\\metrics_tin_tungsten_tantalum.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_06_Somirwa\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_xgb.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_06_Somirwa\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_xgb.tif",
+          "n_rows_sampled": 327
         },
         {
           "fold_idx": 7,
@@ -1270,7 +1322,8 @@
           "n_positives_trained_on": 8,
           "mean_ap": 0.058892348697446154,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_07_Ruhuma\\tin_tungsten_tantalum\\models\\metrics_tin_tungsten_tantalum.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_07_Ruhuma\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_lgbm.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_07_Ruhuma\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_lgbm.tif",
+          "n_rows_sampled": 327
         },
         {
           "fold_idx": 8,
@@ -1293,7 +1346,8 @@
           "n_positives_trained_on": 8,
           "mean_ap": 0.06527275487225423,
           "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_08_Somirwa_Societe_Miniere_De_Rwanda\\tin_tungsten_tantalum\\models\\metrics_tin_tungsten_tantalum.json",
-          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_08_Somirwa_Societe_Miniere_De_Rwanda\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_xgb.tif"
+          "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_08_Somirwa_Societe_Miniere_De_Rwanda\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_xgb.tif",
+          "n_rows_sampled": 327
         }
       ]
     }

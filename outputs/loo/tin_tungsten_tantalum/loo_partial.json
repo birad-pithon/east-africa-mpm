@@ -26,7 +26,8 @@
       "n_positives_trained_on": 8,
       "mean_ap": 0.05332656838215253,
       "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_00_Nyakabingo\\tin_tungsten_tantalum\\models\\metrics_tin_tungsten_tantalum.json",
-      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_00_Nyakabingo\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_rf.tif"
+      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_00_Nyakabingo\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_rf.tif",
+      "n_rows_sampled": 327
     },
     {
       "fold_idx": 1,
@@ -49,7 +50,8 @@
       "n_positives_trained_on": 8,
       "mean_ap": 0.028981592238171185,
       "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_01_Musha\\tin_tungsten_tantalum\\models\\metrics_tin_tungsten_tantalum.json",
-      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_01_Musha\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_rf.tif"
+      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_01_Musha\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_rf.tif",
+      "n_rows_sampled": 327
     },
     {
       "fold_idx": 2,
@@ -72,7 +74,8 @@
       "n_positives_trained_on": 8,
       "mean_ap": 0.03637045392090835,
       "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_02_Ntunga\\tin_tungsten_tantalum\\models\\metrics_tin_tungsten_tantalum.json",
-      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_02_Ntunga\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_xgb.tif"
+      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_02_Ntunga\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_xgb.tif",
+      "n_rows_sampled": 327
     },
     {
       "fold_idx": 3,
@@ -95,7 +98,8 @@
       "n_positives_trained_on": 8,
       "mean_ap": 0.07719991631321681,
       "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_03_Gatumba\\tin_tungsten_tantalum\\models\\metrics_tin_tungsten_tantalum.json",
-      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_03_Gatumba\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_xgb.tif"
+      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_03_Gatumba\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_xgb.tif",
+      "n_rows_sampled": 327
     },
     {
       "fold_idx": 4,
@@ -118,7 +122,8 @@
       "n_positives_trained_on": 8,
       "mean_ap": 0.061176182308257776,
       "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_04_Nyamalilo\\tin_tungsten_tantalum\\models\\metrics_tin_tungsten_tantalum.json",
-      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_04_Nyamalilo\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_xgb.tif"
+      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_04_Nyamalilo\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_xgb.tif",
+      "n_rows_sampled": 327
     },
     {
       "fold_idx": 5,
@@ -141,7 +146,8 @@
       "n_positives_trained_on": 8,
       "mean_ap": 0.10268316522011105,
       "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_05_Somirwa_Mine\\tin_tungsten_tantalum\\models\\metrics_tin_tungsten_tantalum.json",
-      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_05_Somirwa_Mine\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_lgbm.tif"
+      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_05_Somirwa_Mine\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_lgbm.tif",
+      "n_rows_sampled": 327
     },
     {
       "fold_idx": 6,
@@ -164,7 +170,8 @@
       "n_positives_trained_on": 8,
       "mean_ap": 0.0425490208498424,
       "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_06_Somirwa\\tin_tungsten_tantalum\\models\\metrics_tin_tungsten_tantalum.json",
-      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_06_Somirwa\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_xgb.tif"
+      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_06_Somirwa\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_xgb.tif",
+      "n_rows_sampled": 327
     },
     {
       "fold_idx": 7,
@@ -187,7 +194,8 @@
       "n_positives_trained_on": 8,
       "mean_ap": 0.058892348697446154,
       "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_07_Ruhuma\\tin_tungsten_tantalum\\models\\metrics_tin_tungsten_tantalum.json",
-      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_07_Ruhuma\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_lgbm.tif"
+      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_07_Ruhuma\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_lgbm.tif",
+      "n_rows_sampled": 327
     },
     {
       "fold_idx": 8,
@@ -210,7 +218,8 @@
       "n_positives_trained_on": 8,
       "mean_ap": 0.06527275487225423,
       "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_08_Somirwa_Societe_Miniere_De_Rwanda\\tin_tungsten_tantalum\\models\\metrics_tin_tungsten_tantalum.json",
-      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_08_Somirwa_Societe_Miniere_De_Rwanda\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_xgb.tif"
+      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_08_Somirwa_Societe_Miniere_De_Rwanda\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_xgb.tif",
+      "n_rows_sampled": 327
     }
   ]
 }

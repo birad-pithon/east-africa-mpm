@@ -231,6 +231,9 @@ def compact_record(result: dict, fold: dict) -> dict:
         "n_positives_trained_on": int(
             metrics.get("n_positives") or result.get("n_labels_remaining") or 0
         ),
+        # total rows that reached the model (positives + background); the
+        # denominator needed to read mean_ap against its base rate
+        "n_rows_sampled": int(metrics.get("n_rows") or 0),
         "mean_ap": _mean_ap(metrics, best_algo),
         "metrics_path": result.get("metrics_path"),
         "proba_raster": result.get("proba_raster"),
@@ -300,6 +303,16 @@ def summarize(
         "mean_ap_median": _quantile(aps, 0.5),
         "mean_ap_min": (float(np.nanmin(np.asarray(aps, dtype=float))) if denom else float("nan")),
         "mean_ap_max": (float(np.nanmax(np.asarray(aps, dtype=float))) if denom else float("nan")),
+        # what a random ranker scores on the same sampled table: mean_ap is
+        # uninterpretable across groups without it (2.5 % vs 40 % positives)
+        "base_rate_median": _quantile(
+            [
+                float(r["n_positives_trained_on"]) / float(r["n_rows_sampled"])
+                for r in scored
+                if r.get("n_rows_sampled") and r.get("n_positives_trained_on")
+            ],
+            0.5,
+        ),
         "best_algo_counts": algos,
         "n_positives_trained_on_min": (
             min((r.get("n_positives_trained_on", 0) for r in scored), default=0)
@@ -523,8 +536,8 @@ def loo_markdown(groups: list[dict], out_dir: Path | str) -> Path:
         "",
         "| group | folds | scored | rediscovered | rate | median rank | "
         "median pct | in top 1% | median top-1 dist (km) | median AP | "
-        "min. positives trained on |",
-        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
+        "median base rate | min. positives trained on |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for payload in groups:
         summary = payload.get("summary") or {}
@@ -550,6 +563,7 @@ def loo_markdown(groups: list[dict], out_dir: Path | str) -> Path:
             f"| {_pct(summary.get('rate_top_1pct'))} "
             f"| {_fmt(summary.get('distance_to_top1_km_median'), '.1f')} "
             f"| {_fmt(summary.get('mean_ap_median'), '.3f')} "
+            f"| {_fmt(summary.get('base_rate_median'), '.4f')} "
             f"| {summary.get('n_positives_trained_on_min', 0)} |"
         )
     lines.append("")
@@ -577,13 +591,28 @@ def loo_markdown(groups: list[dict], out_dir: Path | str) -> Path:
             )
         lines.append("")
 
-    lines += [
+    # a `partial` legend is only worth printing when the table actually
+    # carries the marker — otherwise it documents a symbol that never appears
+    any_partial = any(
+        int(p.get("n_folds_total") or 0)
+        and int(p.get("n_folds_done") or p.get("summary", {}).get("n_folds") or 0)
+        < int(p.get("n_folds_total") or 0)
+        for p in groups
+    )
+    caveats = [
         "## Caveats",
         "",
         "* **Rates are not comparable across groups.** `bauxite` has only 3 "
         "in-extent seeds, so each fold trains on 2 positives — its rate is "
         "near-meaningless statistically. `copper_zinc` trains on ~38 "
         "positives over a 67.5 M-cell AOI. Read the `trained on` column.",
+        "* **`median AP` means nothing without `median base rate`.** AP is "
+        "averaged precision on the sampled table; the base rate is how much "
+        "of that table is positive, i.e. what a random ranker scores. "
+        "`copper_zinc` (~40 % positive, AP 0.935) and "
+        "`tin_tungsten_tantalum` (~2 % positive, AP 0.059) sit at a "
+        "comparable lift over base — the raw APs are not comparable to "
+        "each other.",
         "* **A miss is not proof of failure.** A withheld deposit in the "
         "99.9th percentile that still lands below rank 100 shows the surface "
         "concentrating where it should; the percentile column shows that.",
@@ -591,9 +620,14 @@ def loo_markdown(groups: list[dict], out_dir: Path | str) -> Path:
         "excluded a buffer around the original labels, so a small hole in "
         "background density survives near each withheld deposit. It encodes "
         "no holdout information into any feature.",
-        "* **`partial` means the group's run is unfinished.** The rate "
-        "beside it covers only the folds done so far and is not a final "
-        "rediscovery rate — re-run to completion before quoting it.",
+    ]
+    if any_partial:
+        caveats.append(
+            "* **`partial` means the group's run is unfinished.** The rate "
+            "beside it covers only the folds done so far and is not a final "
+            "rediscovery rate — re-run to completion before quoting it."
+        )
+    caveats += [
         "* **A `n/a` AP means the fold could not be scored**, not a bad "
         "score. With only 2 positives in the group, a blocked fold's "
         "training batch can hold a single class (and other folds hold no "
@@ -605,6 +639,7 @@ def loo_markdown(groups: list[dict], out_dir: Path | str) -> Path:
         "inside each fold from the same 3-algorithm comparison.",
         "",
     ]
+    lines += caveats
 
     path.write_text("\n".join(lines), encoding="utf-8")
     logger.info("LOO markdown -> %s", path)

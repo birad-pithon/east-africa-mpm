@@ -44,14 +44,17 @@ def _labels() -> gpd.GeoDataFrame:
     )
 
 
-def _result(rank, *, best_algo="rf", ap=0.5, n_remaining=8, in_extent=True):
+def _result(rank, *, best_algo="rf", ap=0.5, n_remaining=8, in_extent=True, n_rows=100):
     """Minimal harness result payload shaped like run_holdout_test's."""
     return {
         "group": "demo",
         "best_algo": best_algo,
         "n_labels_removed": 1,
         "n_labels_remaining": n_remaining,
-        "metrics": {"results": {best_algo: {"mean_average_precision": ap}}},
+        "metrics": {
+            "results": {best_algo: {"mean_average_precision": ap}},
+            "n_rows": n_rows,
+        },
         "metrics_path": "metrics.json",
         "proba_raster": "proba.tif",
         "sites": [
@@ -165,6 +168,15 @@ class TestCompactRecord:
     def test_positives_trained_on_falls_back_to_labels_remaining(self):
         result = _result(5, n_remaining=4)
         assert compact_record(result, _fold(0))["n_positives_trained_on"] == 4
+
+    def test_keeps_sampled_row_count_for_base_rate(self):
+        """The base rate denominator, so mean_ap can be read against it."""
+        assert compact_record(_result(5, n_rows=327), _fold(0))["n_rows_sampled"] == 327
+
+    def test_missing_row_count_is_zero_not_nan(self):
+        result = _result(5)
+        del result["metrics"]["n_rows"]
+        assert compact_record(result, _fold(0))["n_rows_sampled"] == 0
 
     def test_missing_metrics_yields_nan(self):
         result = _result(5)
@@ -339,6 +351,73 @@ class TestSummarize:
         assert summary["best_algo_counts"] == {"lgbm": 1, "rf": 1}
         assert summary["n_positives_trained_on_min"] == 2
 
+    def test_base_rate_median_is_positives_over_rows(self):
+        """A random ranker's AP, so mean_ap can be read as a lift over it."""
+        records = [
+            {
+                "fold_idx": i,
+                "rank": 1,
+                "in_extent": True,
+                "rediscovered": True,
+                "percentile": 100.0,
+                "distance_to_top1_km": 1.0,
+                "mean_ap": 0.9,
+                "best_algo": "rf",
+                "n_positives_trained_on": pos,
+                "n_rows_sampled": rows,
+            }
+            for i, (pos, rows) in enumerate([(8, 327), (8, 327), (8, 327)])
+        ]
+        assert summarize("demo", records)["base_rate_median"] == pytest.approx(8 / 327)
+
+    def test_base_rate_median_ignores_records_without_row_count(self):
+        """Pre-base-rate records (no n_rows_sampled) must not poison it."""
+        records = [
+            {
+                "fold_idx": 0,
+                "rank": 1,
+                "in_extent": True,
+                "rediscovered": True,
+                "percentile": 100.0,
+                "distance_to_top1_km": 1.0,
+                "mean_ap": 0.9,
+                "best_algo": "rf",
+                "n_positives_trained_on": 8,
+                "n_rows_sampled": 100,
+            },
+            {
+                "fold_idx": 1,
+                "rank": 1,
+                "in_extent": True,
+                "rediscovered": True,
+                "percentile": 100.0,
+                "distance_to_top1_km": 1.0,
+                "mean_ap": 0.9,
+                "best_algo": "rf",
+                "n_positives_trained_on": 8,
+            },
+        ]
+        assert summarize("demo", records)["base_rate_median"] == pytest.approx(0.08)
+
+    def test_base_rate_median_nan_without_any_row_count(self):
+        summary = summarize(
+            "demo",
+            [
+                {
+                    "fold_idx": 0,
+                    "rank": 1,
+                    "in_extent": True,
+                    "rediscovered": True,
+                    "percentile": 100.0,
+                    "distance_to_top1_km": 1.0,
+                    "mean_ap": 0.9,
+                    "best_algo": "rf",
+                    "n_positives_trained_on": 8,
+                }
+            ],
+        )
+        assert np.isnan(summary["base_rate_median"])
+
     def test_empty_records_gives_nan_rate(self):
         summary = summarize("demo", [])
         assert summary["n_folds"] == 0
@@ -392,6 +471,13 @@ class TestReports:
         assert "A `n/a` AP means the fold could not be scored" in text
         assert "not the CV fold" in text
 
+    def test_markdown_prints_base_rate_beside_ap(self, tmp_path):
+        """AP is unreadable without the share of the table that is positive."""
+        text = loo_markdown([_payload("demo")], tmp_path).read_text(encoding="utf-8")
+        header = next(line for line in text.splitlines() if line.startswith("| group |"))
+        assert "median base rate" in header
+        assert "means nothing without `median base rate`" in text
+
     def test_markdown_flags_partial_group(self, tmp_path):
         """An unfinished group must not read as a finished 100 %."""
         payload = _payload("demo")
@@ -405,6 +491,8 @@ class TestReports:
     def test_markdown_complete_group_has_no_partial_marker(self, tmp_path):
         text = loo_markdown([_payload("demo")], tmp_path).read_text(encoding="utf-8")
         assert "**partial**" not in text
+        # a finished run also drops the legend explaining the marker
+        assert "`partial` means the group's run is unfinished" not in text
 
     def test_markdown_handles_no_groups(self, tmp_path):
         path = loo_markdown([], tmp_path)
