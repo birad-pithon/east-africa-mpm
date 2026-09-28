@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "holdout_sites",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "group": "copper_zinc", "name": "Kimbwe", "lon": 27.4943, "lat": -11.1454, "tolerance_km": 5.0, "top_n": 100, "in_extent": true, "prob_at_holdout": 0.38757127523422241, "rank": 277055, "percentile": 99.58971544537259, "rediscovered": false, "distance_to_top1_km": 126.68463550921018, "n_within_tolerance": 87260, "n_top50_within_tolerance": 0, "n_valid_cells": 67527280 }, "geometry": { "type": "Point", "coordinates": [ 27.4943, -11.1454 ] } }
+]
+}

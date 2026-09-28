@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "holdout_sites",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "group": "copper_zinc", "name": "Munaka", "lon": 27.3292, "lat": -11.2125, "tolerance_km": 5.0, "top_n": 100, "in_extent": true, "prob_at_holdout": 0.93111538887023926, "rank": 207703, "percentile": 99.692417642173652, "rediscovered": false, "distance_to_top1_km": 114.02618056027484, "n_within_tolerance": 87266, "n_top50_within_tolerance": 0, "n_valid_cells": 67527280 }, "geometry": { "type": "Point", "coordinates": [ 27.3292, -11.2125 ] } }
+]
+}

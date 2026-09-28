@@ -49,11 +49,11 @@ Anomaly-baseline (IsolationForest-on-barren) reference AP: **n/a** â€” supe
 
 ## Provenance
 
-* git: commit `a9b8e06cecf9cbf10eba66b59b2f5495186c85b3` (branch `main`, dirty=True)
-* trained: 2026-09-26T10:00:59+00:00
+* git: commit `ea322f247acd54c610ca2beb48baa95e3a3a8140` (branch `main`, dirty=True)
+* trained: 2026-09-27T10:10:41+00:00
 * key versions: python 3.13.3, scikit-learn 1.9.0, pandas 3.0.5, geopandas 1.1.4
 * input SHA-256:
-  * `labels_copper_zinc.gpkg`: `9ab413ccd22a85dd...`
+  * `labels_copper_zinc.gpkg`: `7bf9fa161cb78eaa...`
   * `background_copper_zinc.gpkg`: `cd8f5bcbc3f9cdeb...`
   * `srtm_copperbelt_aligned.tif`: `e1b2a48305ed1823...`
   * `sentinel2_copperbelt_aligned.tif`: `4c6fb15d7a40557d...`

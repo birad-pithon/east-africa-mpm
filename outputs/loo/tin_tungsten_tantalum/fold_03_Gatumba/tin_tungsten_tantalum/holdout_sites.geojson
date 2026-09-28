@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "holdout_sites",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "group": "tin_tungsten_tantalum", "name": "Gatumba", "lon": 29.64, "lat": -1.994, "tolerance_km": 5.0, "top_n": 100, "in_extent": true, "prob_at_holdout": 0.01176660880446434, "rank": 94244, "percentile": 99.523753214588737, "rediscovered": false, "distance_to_top1_km": 48.073217022024672, "n_within_tolerance": 87256, "n_top50_within_tolerance": 0, "n_valid_cells": 19788690 }, "geometry": { "type": "Point", "coordinates": [ 29.64, -1.994 ] } }
+]
+}

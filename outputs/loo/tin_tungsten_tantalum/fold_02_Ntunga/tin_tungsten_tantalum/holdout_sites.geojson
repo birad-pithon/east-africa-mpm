@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "holdout_sites",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "group": "tin_tungsten_tantalum", "name": "Ntunga", "lon": 30.35, "lat": -2.017, "tolerance_km": 5.0, "top_n": 100, "in_extent": true, "prob_at_holdout": 0.021348444744944572, "rank": 9818, "percentile": 99.950390854573996, "rediscovered": false, "distance_to_top1_km": 37.490078206417962, "n_within_tolerance": 87278, "n_top50_within_tolerance": 0, "n_valid_cells": 19788690 }, "geometry": { "type": "Point", "coordinates": [ 30.35, -2.017 ] } }
+]
+}

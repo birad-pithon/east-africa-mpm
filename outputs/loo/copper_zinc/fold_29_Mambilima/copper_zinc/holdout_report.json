@@ -1,0 +1,393 @@
+{
+  "generated_at": "2026-09-28T05:48:11.823373+00:00",
+  "n_results": 1,
+  "results": [
+    {
+      "group": "copper_zinc",
+      "config": "configs/copperbelt.yml",
+      "holdout_deposit": "Mambilima",
+      "holdout_coords": [
+        26.2434,
+        -10.611
+      ],
+      "holdout_names": [
+        "Mambilima"
+      ],
+      "n_labels_total": 78,
+      "n_labels_removed": 1,
+      "n_labels_remaining": 77,
+      "n_seeds_in_extent": 39,
+      "seeds_in_training": 77,
+      "deposit_distance_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_29_Mambilima\\copper_zinc\\features\\deposit_distance_copper_zinc.tif",
+      "feature_rasters": [
+        "D:\\Users\\HP\\COC AI\\east-africa-mpm\\data\\interim\\dem\\srtm_copperbelt_aligned.tif",
+        "D:\\Users\\HP\\COC AI\\east-africa-mpm\\data\\interim\\sentinel2\\sentinel2_copperbelt_aligned.tif",
+        "D:\\Users\\HP\\COC AI\\east-africa-mpm\\data\\interim\\features\\terrain_features_copperbelt.tif",
+        "D:\\Users\\HP\\COC AI\\east-africa-mpm\\data\\interim\\features\\geology_features_copperbelt.tif",
+        "D:\\Users\\HP\\COC AI\\east-africa-mpm\\data\\interim\\features\\alteration_features_copperbelt.tif",
+        "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_29_Mambilima\\copper_zinc\\features\\deposit_distance_copper_zinc.tif"
+      ],
+      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_29_Mambilima\\copper_zinc\\proba_copper_zinc_rf.tif",
+      "model_bundle": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_29_Mambilima\\copper_zinc\\models\\model_copper_zinc_rf.joblib",
+      "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\copper_zinc\\fold_29_Mambilima\\copper_zinc\\models\\metrics_copper_zinc.json",
+      "best_algo": "rf",
+      "metrics": {
+        "group": "copper_zinc",
+        "n_rows": 96,
+        "n_positives": 38,
+        "features": [
+          "srtm_copperbelt_aligned:elevation_m",
+          "sentinel2_copperbelt_aligned:B2",
+          "sentinel2_copperbelt_aligned:B3",
+          "sentinel2_copperbelt_aligned:B4",
+          "sentinel2_copperbelt_aligned:B8",
+          "sentinel2_copperbelt_aligned:B11",
+          "sentinel2_copperbelt_aligned:B12",
+          "terrain_features_copperbelt:elevation",
+          "terrain_features_copperbelt:slope_deg",
+          "terrain_features_copperbelt:aspect_deg",
+          "terrain_features_copperbelt:tpi_630m",
+          "terrain_features_copperbelt:relief_900m",
+          "terrain_features_copperbelt:plateau_index",
+          "geology_features_copperbelt:lithology_code",
+          "geology_features_copperbelt:geol_is_plutonic_or_metamorphic",
+          "geology_features_copperbelt:dist_to_plutonic_or_metamorphic_m",
+          "geology_features_copperbelt:geol_is_sedimentary",
+          "geology_features_copperbelt:dist_to_sedimentary_m",
+          "geology_features_copperbelt:geol_is_mixed_sedimentary_volcanic",
+          "geology_features_copperbelt:dist_to_mixed_sedimentary_volcanic_m",
+          "geology_features_copperbelt:geol_is_unknown",
+          "geology_features_copperbelt:dist_to_unknown_m",
+          "geology_features_copperbelt:geol_is_volcanic",
+          "geology_features_copperbelt:dist_to_volcanic_m",
+          "geology_features_copperbelt:dist_to_contact_m",
+          "alteration_features_copperbelt:ndwi",
+          "alteration_features_copperbelt:mbi",
+          "alteration_features_copperbelt:bsi",
+          "alteration_features_copperbelt:evi",
+          "alteration_features_copperbelt:savi",
+          "alteration_features_copperbelt:nirv",
+          "alteration_features_copperbelt:ferrous_iron_ratio",
+          "alteration_features_copperbelt:iron_oxide_ratio",
+          "alteration_features_copperbelt:aloh_ratio",
+          "alteration_features_copperbelt:mgoh_carbonate_proxy",
+          "deposit_distance_copper_zinc:dist_to_deposit_loo_m"
+        ],
+        "buffer_km": 5.0,
+        "block_m": 10000.0,
+        "oversample": false,
+        "anomaly_baseline": false,
+        "pu": false,
+        "ensemble": false,
+        "best_algo": "rf",
+        "results": {
+          "rf": {
+            "n_folds": 5,
+            "folds": [
+              {
+                "fold": 0,
+                "n_train": 70,
+                "n_test": 21,
+                "n_test_positives": 11,
+                "average_precision": 0.9715909090909092,
+                "roc_auc": 0.9545454545454546,
+                "precision_at_top_decile": 1.0
+              },
+              {
+                "fold": 1,
+                "n_train": 74,
+                "n_test": 20,
+                "n_test_positives": 8,
+                "average_precision": 0.9416666666666667,
+                "roc_auc": 0.9270833333333334,
+                "precision_at_top_decile": 1.0
+              },
+              {
+                "fold": 2,
+                "n_train": 72,
+                "n_test": 18,
+                "n_test_positives": 7,
+                "average_precision": 0.9571428571428571,
+                "roc_auc": 0.961038961038961,
+                "precision_at_top_decile": 1.0
+              },
+              {
+                "fold": 3,
+                "n_train": 78,
+                "n_test": 17,
+                "n_test_positives": 6,
+                "average_precision": 0.9333333333333332,
+                "roc_auc": 0.9393939393939394,
+                "precision_at_top_decile": 1.0
+              },
+              {
+                "fold": 4,
+                "n_train": 72,
+                "n_test": 20,
+                "n_test_positives": 6,
+                "average_precision": 0.9305555555555556,
+                "roc_auc": 0.9642857142857143,
+                "precision_at_top_decile": 1.0
+              }
+            ],
+            "mean_average_precision": 0.9468578643578643,
+            "std_average_precision": 0.015447532641445258,
+            "mean_roc_auc": 0.9492694805194806,
+            "mean_precision_at_top_decile": 1.0
+          },
+          "xgb": {
+            "n_folds": 5,
+            "folds": [
+              {
+                "fold": 0,
+                "n_train": 70,
+                "n_test": 21,
+                "n_test_positives": 11,
+                "average_precision": 0.934266106036441,
+                "roc_auc": 0.8999999999999999,
+                "precision_at_top_decile": 1.0
+              },
+              {
+                "fold": 1,
+                "n_train": 74,
+                "n_test": 20,
+                "n_test_positives": 8,
+                "average_precision": 0.9519230769230769,
+                "roc_auc": 0.9479166666666666,
+                "precision_at_top_decile": 1.0
+              },
+              {
+                "fold": 2,
+                "n_train": 72,
+                "n_test": 18,
+                "n_test_positives": 7,
+                "average_precision": 0.9126984126984126,
+                "roc_auc": 0.8571428571428571,
+                "precision_at_top_decile": 1.0
+              },
+              {
+                "fold": 3,
+                "n_train": 78,
+                "n_test": 17,
+                "n_test_positives": 6,
+                "average_precision": 0.9333333333333332,
+                "roc_auc": 0.9393939393939394,
+                "precision_at_top_decile": 1.0
+              },
+              {
+                "fold": 4,
+                "n_train": 72,
+                "n_test": 20,
+                "n_test_positives": 6,
+                "average_precision": 0.9583333333333333,
+                "roc_auc": 0.9761904761904763,
+                "precision_at_top_decile": 1.0
+              }
+            ],
+            "mean_average_precision": 0.9381108524649194,
+            "std_average_precision": 0.016019520192528836,
+            "mean_roc_auc": 0.9241287878787879,
+            "mean_precision_at_top_decile": 1.0
+          },
+          "lgbm": {
+            "n_folds": 5,
+            "folds": [
+              {
+                "fold": 0,
+                "n_train": 70,
+                "n_test": 21,
+                "n_test_positives": 11,
+                "average_precision": 0.9508264462809919,
+                "roc_auc": 0.9090909090909091,
+                "precision_at_top_decile": 1.0
+              },
+              {
+                "fold": 1,
+                "n_train": 74,
+                "n_test": 20,
+                "n_test_positives": 8,
+                "average_precision": 0.7328399122807017,
+                "roc_auc": 0.7604166666666666,
+                "precision_at_top_decile": 1.0
+              },
+              {
+                "fold": 2,
+                "n_train": 72,
+                "n_test": 18,
+                "n_test_positives": 7,
+                "average_precision": 0.9126984126984126,
+                "roc_auc": 0.8571428571428571,
+                "precision_at_top_decile": 1.0
+              },
+              {
+                "fold": 3,
+                "n_train": 78,
+                "n_test": 17,
+                "n_test_positives": 6,
+                "average_precision": 0.9333333333333332,
+                "roc_auc": 0.9393939393939394,
+                "precision_at_top_decile": 1.0
+              },
+              {
+                "fold": 4,
+                "n_train": 72,
+                "n_test": 20,
+                "n_test_positives": 6,
+                "average_precision": 0.9055555555555554,
+                "roc_auc": 0.9404761904761905,
+                "precision_at_top_decile": 1.0
+              }
+            ],
+            "mean_average_precision": 0.8870507320297989,
+            "std_average_precision": 0.07872817774692727,
+            "mean_roc_auc": 0.8813041125541126,
+            "mean_precision_at_top_decile": 1.0
+          }
+        },
+        "provenance": {
+          "timestamp_utc": "2026-09-28T05:40:22+00:00",
+          "git": {
+            "commit": "ea322f247acd54c610ca2beb48baa95e3a3a8140",
+            "branch": "main",
+            "dirty": true
+          },
+          "packages": {
+            "python": "3.13.3",
+            "numpy": "2.5.2",
+            "pandas": "3.0.5",
+            "scipy": "1.18.1",
+            "geopandas": "1.1.4",
+            "rasterio": "1.5.1",
+            "shapely": "2.1.2",
+            "pyproj": "3.7.2",
+            "PyYAML": "6.0.3",
+            "requests": "2.34.2",
+            "scikit-learn": "1.9.0",
+            "xgboost": "3.4.1",
+            "lightgbm": "4.7.0",
+            "ruff": "0.16.5",
+            "pytest": "9.1.1"
+          },
+          "input_sha256": {
+            "labels_copper_zinc.gpkg": "4a51999adeecb645d5deddd1a28b108e4505c727dd11d59a6d6bd503ff3130c9",
+            "background_copper_zinc.gpkg": "cd8f5bcbc3f9cdeb094a7d3cea1fe1504057d681443646b25f0f34d26faac3c2",
+            "srtm_copperbelt_aligned.tif": "e1b2a48305ed182344666f7f38d3780d22c06b2dd2cbfa275ff80876078bb581",
+            "sentinel2_copperbelt_aligned.tif": "4c6fb15d7a40557dc865f1ff375cc00c534ce7e75820115731ff3746e1d9bb93",
+            "terrain_features_copperbelt.tif": "dd310c04019e7c190f6a5c027037b4216bf5e3d95fa789112c9f109b4ea412eb",
+            "geology_features_copperbelt.tif": "ac24b869552b235107e6e81735e30e1c7e51b0adbbb91e2b2a405e95366490e0",
+            "alteration_features_copperbelt.tif": "040e6c0166bb23bcfa974391a4557fc1a6e5287e6b8c771d898a7b181e033443",
+            "deposit_distance_copper_zinc.tif": "2ea4c0e06afe00c7a893236fe29eca5adc67e5568e93e1fbe0111da08abea7b7"
+          },
+          "config_snapshot": "# \u2500\u2500 Central African Copperbelt (Lufilian Arc) configuration \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# Covers the copperbelt in DRC/Zambia with Cu-Zn targets\n\n# Common analysis grid\ngrid:\n  crs: \"EPSG:32735\"        # UTM Zone 35S \u2014 covers DRC Copperbelt\n  resolution_m: 30          # 30 m to match SRTM / Landsat\n  # AOI bounding box in WGS 84 (lon, lat)\n  aoi_wgs84:\n    min_lon: 26.0\n    max_lon: 28.5\n    min_lat: -11.5\n    max_lat: -9.5\n  # Derived extent in target CRS (filled at runtime)\n  aoi_utm: null             # [min_x, min_y, max_x, max_y] in metres\n\n# \u2500\u2500 Data sources \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nsources:\n  usgs_mrds:\n    name: \"USGS Mineral Resources Data System (MRDS)\"\n    shapefile_url: \"https://mrdata.usgs.gov/mrds/mrds-trim.zip\"\n    csv_url: \"https://mrdata.usgs.gov/mrds/mrds-csv.zip\"\n    wfs_url: \"https://mrdata.usgs.gov/services/wfs/mrds\"\n    commodities:\n      - \"Copper\"\n      - \"Zinc\"\n      - \"Lead\"\n      - \"Cobalt\"\n    africa_bbox:\n      min_lon: 10.0\n      max_lon: 50.0\n      min_lat: -35.0\n      max_lat: 37.0\n\n  sentinel2:\n    collection: \"COPERNICUS/S2_SR_HARMONIZED\"\n    bands:\n      - B2   # Blue   (10 m)\n      - B3   # Green  (10 m)\n      - B4   # Red    (10 m)\n      - B8   # NIR    (10 m)\n      - B11   # SWIR1  (20 m)\n      - B12   # SWIR2  (20 m)\n    date_range:\n      start: \"2023-06-01\"\n      end: \"2023-09-30\"\n    cloud_cover_threshold: 0.20\n    scale_m: 30\n\n  srtm_dem:\n    collection: \"USGS/SRTMGL1_003\"\n    resolution_m: 30\n\n# \u2500\u2500 Feature engineering \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfeatures:\n  # Explicit feature-raster allowlist (SAFEGUARD)\n  rasters_by_group:\n    copper_zinc:\n      - dem/srtm_copperbelt_aligned.tif\n      - sentinel2/sentinel2_copperbelt_aligned.tif\n      - features/terrain_features_copperbelt.tif\n      - features/geology_features_copperbelt.tif\n      - features/alteration_features_copperbelt.tif\n      - features/deposit_distance_copper_zinc.tif\n\n  copper_zinc:\n    stratigraphic_proxies: true\n    structural_traps: true\n    geochemical_anomaly_surfaces: true\n\n# \u2500\u2500 Model settings \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nmodel:\n  commodity_groups:\n    - copper_zinc\n  algorithm: \"random_forest\"\n  params:\n    n_estimators: 500\n    max_depth: 15\n    min_samples_leaf: 3\n    random_state: 42\n  compare_algorithms:\n    - random_forest\n    - xgboost\n    - lightgbm\n\n# \u2500\u2500 Spatial cross-validation \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nvalidation:\n  method: \"spatial_block\"\n  n_groups: 5\n  buffer_km: 5\n  min_train_area_pct: 60\n"
+        },
+        "calibration": {
+          "n": 96,
+          "n_positives": 38,
+          "n_bins_requested": 10,
+          "n_bins_usable": 6,
+          "brier": 0.07679461074013584,
+          "ece": 0.05073561828041552,
+          "max_abs_gap": 0.2014615168724578,
+          "bins": [
+            {
+              "bin_lo": 0.0016382978723404253,
+              "bin_hi": 0.02386262059520612,
+              "n": 10,
+              "mean_predicted": 0.010520269881328271,
+              "fraction_positive": 0.0
+            },
+            {
+              "bin_lo": 0.02386262059520612,
+              "bin_hi": 0.05676078419651199,
+              "n": 9,
+              "mean_predicted": 0.037344953506391096,
+              "fraction_positive": 0.1111111111111111
+            },
+            {
+              "bin_lo": 0.05676078419651199,
+              "bin_hi": 0.1074322377513012,
+              "n": 10,
+              "mean_predicted": 0.07574140657797296,
+              "fraction_positive": 0.0
+            },
+            {
+              "bin_lo": 0.1074322377513012,
+              "bin_hi": 0.1394845780524291,
+              "n": 9,
+              "mean_predicted": 0.12216906257718271,
+              "fraction_positive": 0.2222222222222222
+            },
+            {
+              "bin_lo": 0.1394845780524291,
+              "bin_hi": 0.20490445287739395,
+              "n": 10,
+              "mean_predicted": 0.17291812119141267,
+              "fraction_positive": 0.1
+            },
+            {
+              "bin_lo": 0.20490445287739395,
+              "bin_hi": 0.38613663327191866,
+              "n": 10,
+              "mean_predicted": 0.3014615168724578,
+              "fraction_positive": 0.1
+            },
+            {
+              "bin_lo": 0.38613663327191866,
+              "bin_hi": 0.8570166093392617,
+              "n": 9,
+              "mean_predicted": 0.6005136870810618,
+              "fraction_positive": 0.5555555555555556
+            },
+            {
+              "bin_lo": 0.8570166093392617,
+              "bin_hi": 0.9434259896980665,
+              "n": 9,
+              "mean_predicted": 0.8926234888771946,
+              "fraction_positive": 1.0
+            },
+            {
+              "bin_lo": 0.9434259896980665,
+              "bin_hi": 0.9734614617714099,
+              "n": 10,
+              "mean_predicted": 0.9580360915358371,
+              "fraction_positive": 1.0
+            },
+            {
+              "bin_lo": 0.9734614617714099,
+              "bin_hi": 0.9900207844405932,
+              "n": 10,
+              "mean_predicted": 0.9844567125046544,
+              "fraction_positive": 0.9
+            }
+          ]
+        }
+      },
+      "sites": [
+        {
+          "group": "copper_zinc",
+          "name": "Mambilima",
+          "lon": 26.2434,
+          "lat": -10.611,
+          "tolerance_km": 5.0,
+          "top_n": 100,
+          "in_extent": true,
+          "prob_at_holdout": 0.9869266748428345,
+          "rank": 103124,
+          "percentile": 99.84728690390017,
+          "rediscovered": false,
+          "distance_to_top1_km": 23.585878086568894,
+          "n_within_tolerance": 87267,
+          "n_top50_within_tolerance": 0,
+          "n_valid_cells": 67527280
+        }
+      ],
+      "rediscovery": {
+        "rank_in_top50": null,
+        "distance_to_top1_km": 23.585878086568894,
+        "num_candidates_within_5km": 0,
+        "percentile": 99.84728690390017,
+        "rediscovered": false
+      }
+    }
+  ]
+}

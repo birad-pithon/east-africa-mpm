@@ -212,9 +212,9 @@
     }
   },
   "provenance": {
-    "timestamp_utc": "2026-09-26T10:00:59+00:00",
+    "timestamp_utc": "2026-09-27T10:10:41+00:00",
     "git": {
-      "commit": "a9b8e06cecf9cbf10eba66b59b2f5495186c85b3",
+      "commit": "ea322f247acd54c610ca2beb48baa95e3a3a8140",
       "branch": "main",
       "dirty": true
     },
@@ -236,7 +236,7 @@
       "pytest": "9.1.1"
     },
     "input_sha256": {
-      "labels_copper_zinc.gpkg": "9ab413ccd22a85dd59c7e13a49673676320380e3c0401c18901ce8a21c056844",
+      "labels_copper_zinc.gpkg": "7bf9fa161cb78eaa57dbabb934947b1089b7fe53646d4ac1f5afa32a1e2cae12",
       "background_copper_zinc.gpkg": "cd8f5bcbc3f9cdeb094a7d3cea1fe1504057d681443646b25f0f34d26faac3c2",
       "srtm_copperbelt_aligned.tif": "e1b2a48305ed182344666f7f38d3780d22c06b2dd2cbfa275ff80876078bb581",
       "sentinel2_copperbelt_aligned.tif": "4c6fb15d7a40557dc865f1ff375cc00c534ce7e75820115731ff3746e1d9bb93",

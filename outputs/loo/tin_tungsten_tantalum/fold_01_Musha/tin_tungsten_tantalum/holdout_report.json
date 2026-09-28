@@ -1,0 +1,393 @@
+{
+  "generated_at": "2026-09-28T07:37:40.802643+00:00",
+  "n_results": 1,
+  "results": [
+    {
+      "group": "tin_tungsten_tantalum",
+      "config": "configs/karagwe.yml",
+      "holdout_deposit": "Musha",
+      "holdout_coords": [
+        30.3,
+        -1.95
+      ],
+      "holdout_names": [
+        "Musha"
+      ],
+      "n_labels_total": 18,
+      "n_labels_removed": 1,
+      "n_labels_remaining": 17,
+      "n_seeds_in_extent": 9,
+      "seeds_in_training": 17,
+      "deposit_distance_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_01_Musha\\tin_tungsten_tantalum\\features\\deposit_distance_tin_tungsten_tantalum.tif",
+      "feature_rasters": [
+        "D:\\Users\\HP\\COC AI\\east-africa-mpm\\data\\interim\\dem\\srtm_kabar_aligned.tif",
+        "D:\\Users\\HP\\COC AI\\east-africa-mpm\\data\\interim\\sentinel2\\sentinel2_kabar_aligned.tif",
+        "D:\\Users\\HP\\COC AI\\east-africa-mpm\\data\\interim\\features\\terrain_features_kabar.tif",
+        "D:\\Users\\HP\\COC AI\\east-africa-mpm\\data\\interim\\features\\geology_features_kabar.tif",
+        "D:\\Users\\HP\\COC AI\\east-africa-mpm\\data\\interim\\features\\alteration_features_kabar.tif",
+        "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_01_Musha\\tin_tungsten_tantalum\\features\\deposit_distance_tin_tungsten_tantalum.tif"
+      ],
+      "proba_raster": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_01_Musha\\tin_tungsten_tantalum\\proba_tin_tungsten_tantalum_rf.tif",
+      "model_bundle": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_01_Musha\\tin_tungsten_tantalum\\models\\model_tin_tungsten_tantalum_rf.joblib",
+      "metrics_path": "D:\\Users\\HP\\COC AI\\east-africa-mpm\\outputs\\loo\\tin_tungsten_tantalum\\fold_01_Musha\\tin_tungsten_tantalum\\models\\metrics_tin_tungsten_tantalum.json",
+      "best_algo": "rf",
+      "metrics": {
+        "group": "tin_tungsten_tantalum",
+        "n_rows": 327,
+        "n_positives": 8,
+        "features": [
+          "srtm_kabar_aligned:elevation_m",
+          "sentinel2_kabar_aligned:B2",
+          "sentinel2_kabar_aligned:B3",
+          "sentinel2_kabar_aligned:B4",
+          "sentinel2_kabar_aligned:B8",
+          "sentinel2_kabar_aligned:B11",
+          "sentinel2_kabar_aligned:B12",
+          "terrain_features_kabar:elevation",
+          "terrain_features_kabar:slope_deg",
+          "terrain_features_kabar:aspect_deg",
+          "terrain_features_kabar:tpi_630m",
+          "terrain_features_kabar:relief_900m",
+          "terrain_features_kabar:plateau_index",
+          "geology_features_kabar:lithology_code",
+          "geology_features_kabar:geol_is_plutonic_or_metamorphic",
+          "geology_features_kabar:dist_to_plutonic_or_metamorphic_m",
+          "geology_features_kabar:geol_is_sedimentary",
+          "geology_features_kabar:dist_to_sedimentary_m",
+          "geology_features_kabar:geol_is_mixed_sedimentary_volcanic",
+          "geology_features_kabar:dist_to_mixed_sedimentary_volcanic_m",
+          "geology_features_kabar:geol_is_unknown",
+          "geology_features_kabar:dist_to_unknown_m",
+          "geology_features_kabar:geol_is_volcanic",
+          "geology_features_kabar:dist_to_volcanic_m",
+          "geology_features_kabar:dist_to_contact_m",
+          "alteration_features_kabar:ndwi",
+          "alteration_features_kabar:mbi",
+          "alteration_features_kabar:bsi",
+          "alteration_features_kabar:evi",
+          "alteration_features_kabar:savi",
+          "alteration_features_kabar:nirv",
+          "alteration_features_kabar:ferrous_iron_ratio",
+          "alteration_features_kabar:iron_oxide_ratio",
+          "alteration_features_kabar:aloh_ratio",
+          "alteration_features_kabar:mgoh_carbonate_proxy",
+          "deposit_distance_tin_tungsten_tantalum:dist_to_deposit_loo_m"
+        ],
+        "buffer_km": 5.0,
+        "block_m": 10000.0,
+        "oversample": false,
+        "anomaly_baseline": false,
+        "pu": false,
+        "ensemble": false,
+        "best_algo": "rf",
+        "results": {
+          "rf": {
+            "n_folds": 5,
+            "folds": [
+              {
+                "fold": 0,
+                "n_train": 226,
+                "n_test": 70,
+                "n_test_positives": 3,
+                "average_precision": 0.04314574314574315,
+                "roc_auc": 0.3333333333333333,
+                "precision_at_top_decile": 0.0
+              },
+              {
+                "fold": 1,
+                "n_train": 240,
+                "n_test": 60,
+                "n_test_positives": 2,
+                "average_precision": 0.02857142857142857,
+                "roc_auc": 0.14655172413793105,
+                "precision_at_top_decile": 0.0
+              },
+              {
+                "fold": 2,
+                "n_train": 224,
+                "n_test": 71,
+                "n_test_positives": 1,
+                "average_precision": 0.015625,
+                "roc_auc": 0.09999999999999998,
+                "precision_at_top_decile": 0.0
+              },
+              {
+                "fold": 3,
+                "n_train": 241,
+                "n_test": 60,
+                "n_test_positives": 1,
+                "average_precision": 0.02631578947368421,
+                "roc_auc": 0.3728813559322034,
+                "precision_at_top_decile": 0.0
+              },
+              {
+                "fold": 4,
+                "n_train": 232,
+                "n_test": 66,
+                "n_test_positives": 1,
+                "average_precision": 0.03125,
+                "roc_auc": 0.523076923076923,
+                "precision_at_top_decile": 0.0
+              }
+            ],
+            "mean_average_precision": 0.028981592238171185,
+            "std_average_precision": 0.00884807481360588,
+            "mean_roc_auc": 0.29516866729607816,
+            "mean_precision_at_top_decile": 0.0
+          },
+          "xgb": {
+            "n_folds": 5,
+            "folds": [
+              {
+                "fold": 0,
+                "n_train": 226,
+                "n_test": 70,
+                "n_test_positives": 3,
+                "average_precision": 0.046620693910923924,
+                "roc_auc": 0.417910447761194,
+                "precision_at_top_decile": 0.0
+              },
+              {
+                "fold": 1,
+                "n_train": 240,
+                "n_test": 60,
+                "n_test_positives": 2,
+                "average_precision": 0.033028455284552845,
+                "roc_auc": 0.2586206896551724,
+                "precision_at_top_decile": 0.0
+              },
+              {
+                "fold": 2,
+                "n_train": 224,
+                "n_test": 71,
+                "n_test_positives": 1,
+                "average_precision": 0.015873015873015872,
+                "roc_auc": 0.11428571428571432,
+                "precision_at_top_decile": 0.0
+              },
+              {
+                "fold": 3,
+                "n_train": 241,
+                "n_test": 60,
+                "n_test_positives": 1,
+                "average_precision": 0.02631578947368421,
+                "roc_auc": 0.3728813559322034,
+                "precision_at_top_decile": 0.0
+              },
+              {
+                "fold": 4,
+                "n_train": 232,
+                "n_test": 66,
+                "n_test_positives": 1,
+                "average_precision": 0.021739130434782608,
+                "roc_auc": 0.3076923076923077,
+                "precision_at_top_decile": 0.0
+              }
+            ],
+            "mean_average_precision": 0.028715416995391894,
+            "std_average_precision": 0.010569345237168973,
+            "mean_roc_auc": 0.2942781030653184,
+            "mean_precision_at_top_decile": 0.0
+          },
+          "lgbm": {
+            "n_folds": 5,
+            "folds": [
+              {
+                "fold": 0,
+                "n_train": 226,
+                "n_test": 70,
+                "n_test_positives": 3,
+                "average_precision": 0.04727727727727728,
+                "roc_auc": 0.417910447761194,
+                "precision_at_top_decile": 0.0
+              },
+              {
+                "fold": 1,
+                "n_train": 240,
+                "n_test": 60,
+                "n_test_positives": 2,
+                "average_precision": 0.032467532467532464,
+                "roc_auc": 0.25,
+                "precision_at_top_decile": 0.0
+              },
+              {
+                "fold": 2,
+                "n_train": 224,
+                "n_test": 71,
+                "n_test_positives": 1,
+                "average_precision": 0.014705882352941176,
+                "roc_auc": 0.042857142857142816,
+                "precision_at_top_decile": 0.0
+              },
+              {
+                "fold": 3,
+                "n_train": 241,
+                "n_test": 60,
+                "n_test_positives": 1,
+                "average_precision": 0.01694915254237288,
+                "roc_auc": 0.016949152542372836,
+                "precision_at_top_decile": 0.0
+              },
+              {
+                "fold": 4,
+                "n_train": 232,
+                "n_test": 66,
+                "n_test_positives": 1,
+                "average_precision": 0.01639344262295082,
+                "roc_auc": 0.07692307692307687,
+                "precision_at_top_decile": 0.0
+              }
+            ],
+            "mean_average_precision": 0.025558657452614923,
+            "std_average_precision": 0.012612204138035854,
+            "mean_roc_auc": 0.1609279640167573,
+            "mean_precision_at_top_decile": 0.0
+          }
+        },
+        "provenance": {
+          "timestamp_utc": "2026-09-28T07:35:34+00:00",
+          "git": {
+            "commit": "ea322f247acd54c610ca2beb48baa95e3a3a8140",
+            "branch": "main",
+            "dirty": true
+          },
+          "packages": {
+            "python": "3.13.3",
+            "numpy": "2.5.2",
+            "pandas": "3.0.5",
+            "scipy": "1.18.1",
+            "geopandas": "1.1.4",
+            "rasterio": "1.5.1",
+            "shapely": "2.1.2",
+            "pyproj": "3.7.2",
+            "PyYAML": "6.0.3",
+            "requests": "2.34.2",
+            "scikit-learn": "1.9.0",
+            "xgboost": "3.4.1",
+            "lightgbm": "4.7.0",
+            "ruff": "0.16.5",
+            "pytest": "9.1.1"
+          },
+          "input_sha256": {
+            "labels_tin_tungsten_tantalum.gpkg": "6dc610123d8ecb4e9a8f2eab1db651bd6731b0ac6f6b428c863e8f1f3400e5ba",
+            "background_tin_tungsten_tantalum.gpkg": "ef4de3d79ed22ad243c413c3158ab010e34518f83c494bf6aed3ffdd1d78af9c",
+            "srtm_kabar_aligned.tif": "413779db5124ba2c03f68230a7f4b61f0b9efda17abd3a8b1b2d61fd2e14b002",
+            "sentinel2_kabar_aligned.tif": "cbfcfa82852d792f573ce1b79ed205047fac8f69bf5cb3bdcbabcc46c574450c",
+            "terrain_features_kabar.tif": "8d6d2fa74a73608a9f39fbc093a30777dcd33f748a28b411ad7e9f4778a75ed6",
+            "geology_features_kabar.tif": "a311452c7e9105e3a6fb9a53e00b8b6f01c85093651eedbae49f7ae928efdd6c",
+            "alteration_features_kabar.tif": "1eec9699fdde46d877228d157571ef18210a214c0e9fca04ea1c11e349b9abee",
+            "deposit_distance_tin_tungsten_tantalum.tif": "e7b85cce9bf6c918215ab0d62844485578183779dec39a4e5a99cf3d47e494f6"
+          },
+          "config_snapshot": "# \u2500\u2500 Karagwe-Ankole Belt (KAB) configuration \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n# Covers the KAB in Rwanda, with Sn-W-Ta targets (tin, tungsten, tantalum)\n# plus shared infrastructure data from USGS MRDS.\n\n# Common analysis grid\ngrid:\n  crs: \"EPSG:32736\"        # UTM Zone 36S \u2014 covers Rwanda\n  resolution_m: 30          # 30 m to match SRTM / Landsat\n  # AOI bounding box in WGS 84 (lon, lat)\n  aoi_wgs84:\n    min_lon: 29.4\n    max_lon: 30.6\n    min_lat: -2.4\n    max_lat: -1.2\n  # Derived extent in target CRS (filled at runtime)\n  aoi_utm: null             # [min_x, min_y, max_x, max_y] in metres\n\n# \u2500\u2500 Data sources \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nsources:\n  usgs_mrds:\n    name: \"USGS Mineral Resources Data System (MRDS)\"\n    shapefile_url: \"https://mrdata.usgs.gov/mrds/mrds-trim.zip\"\n    csv_url: \"https://mrdata.usgs.gov/mrds/mrds-csv.zip\"\n    wfs_url: \"https://mrdata.usgs.gov/services/wfs/mrds\"\n    commodities:\n      - \"Tin\"             # MRDS commodity code: Sn-related\n      - \"Tungsten\"\n      - \"Tantalum\"\n      - \"Copper\"\n      - \"Zinc\"\n      - \"Bauxite\"\n      - \"Aluminum\"        # MRDS uses this for bauxite/alumina\n    africa_bbox:\n      min_lon: 10.0       # westernmost Africa longitude\n      max_lon: 50.0       # easternmost Africa longitude\n      min_lat: -35.0      # southernmost Africa latitude\n      max_lat: 37.0       # northernmost Africa latitude\n\n  sentinel2:\n    collection: \"COPERNICUS/S2_SR_HARMONIZED\"\n    bands:\n      - B2   # Blue   (10 m)\n      - B3   # Green  (10 m)\n      - B4   # Red    (10 m)\n      - B8   # NIR    (10 m)\n      - B11   # SWIR1  (20 m)\n      - B12   # SWIR2  (20 m)\n    # Dry season in Rwanda: June\u2013September (Southern Hemisphere winter)\n    date_range:\n      start: \"2023-06-01\"\n      end: \"2023-09-30\"\n    cloud_cover_threshold: 0.20\n    scale_m: 30           # resample all bands to 30 m\n\n  srtm_dem:\n    collection: \"USGS/SRTMGL1_003\"\n    resolution_m: 30\n\n# \u2500\u2500 Feature engineering \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nfeatures:\n  # Explicit feature-raster allowlist (SAFEGUARD): paths relative to\n  # data/interim. Only these files may enter training / prediction for\n  # the group \u2014 a stray GeoTIFF in data/interim cannot poison the model.\n  rasters_by_group:\n    tin_tungsten_tantalum:\n      - dem/srtm_kabar_aligned.tif\n      - sentinel2/sentinel2_kabar_aligned.tif\n      - features/terrain_features_kabar.tif\n      - features/geology_features_kabar.tif\n      - features/alteration_features_kabar.tif\n      - features/deposit_distance_tin_tungsten_tantalum.tif\n\n  # Sn / W / Ta (Karagwe-Ankole Belt)\n  tin_tungsten_tantalum:\n    distance_to:\n      - faults\n      - granite_contacts\n    magnetic_gradients: true\n    lithology_encoding: true\n\n  # Cu / Zn (Central African Copperbelt)\n  copper_zinc:\n    stratigraphic_proxies: true\n    structural_traps: true\n    geochemical_anomaly_surfaces: true\n\n  # Bauxite (lateritic plateaus, Tanzania)\n  bauxite:\n    spectral_indices:\n      - NDWI   # Normalized Difference Water Index\n      - MBI    # Mud-sand Bimodal Index (for laterite)\n      - BSI    # Brightness/Surface Index\n    slope_threshold_deg: 5\n    plateau_flatness: true\n\n# \u2500\u2500 Model settings \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nmodel:\n  commodity_groups:\n    - tin_tungsten_tantalum\n    - copper_zinc\n    - bauxite\n  algorithm: \"random_forest\"\n  params:\n    # Tuned via Optuna TPE (50 trials, spatial CV) \u2014 best xgb config:\n    # mean AP 0.082 vs 0.037 default.\n    n_estimators: 150\n    max_depth: 3\n    learning_rate: 0.298\n    subsample: 0.917\n    colsample_bytree: 0.593\n    min_child_weight: 7\n    min_samples_leaf: 3\n    random_state: 42\n  compare_algorithms:\n    - random_forest\n    - xgboost\n    - lightgbm\n\n# \u2500\u2500 Spatial cross-validation \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nvalidation:\n  method: \"spatial_block\"\n  n_groups: 5\n  buffer_km: 5\n  min_train_area_pct: 60"
+        },
+        "calibration": {
+          "n": 327,
+          "n_positives": 8,
+          "n_bins_requested": 10,
+          "n_bins_usable": 10,
+          "brier": 0.044842287130281565,
+          "ece": 0.11676454449169653,
+          "max_abs_gap": 0.2956270191049287,
+          "bins": [
+            {
+              "bin_lo": 0.0023605150214592264,
+              "bin_hi": 0.03999996451317844,
+              "n": 33,
+              "mean_predicted": 0.025640281100152172,
+              "fraction_positive": 0.06060606060606061
+            },
+            {
+              "bin_lo": 0.03999996451317844,
+              "bin_hi": 0.06108837155332377,
+              "n": 33,
+              "mean_predicted": 0.052586022893763094,
+              "fraction_positive": 0.06060606060606061
+            },
+            {
+              "bin_lo": 0.06108837155332377,
+              "bin_hi": 0.07797810968410068,
+              "n": 32,
+              "mean_predicted": 0.070258458195443,
+              "fraction_positive": 0.03125
+            },
+            {
+              "bin_lo": 0.07797810968410068,
+              "bin_hi": 0.09067339370182563,
+              "n": 33,
+              "mean_predicted": 0.08460580242507584,
+              "fraction_positive": 0.0
+            },
+            {
+              "bin_lo": 0.09067339370182563,
+              "bin_hi": 0.11706167419091269,
+              "n": 32,
+              "mean_predicted": 0.10171870126207608,
+              "fraction_positive": 0.0
+            },
+            {
+              "bin_lo": 0.11706167419091269,
+              "bin_hi": 0.13593381355964,
+              "n": 33,
+              "mean_predicted": 0.12655776174137856,
+              "fraction_positive": 0.06060606060606061
+            },
+            {
+              "bin_lo": 0.13593381355964,
+              "bin_hi": 0.1700811174502146,
+              "n": 33,
+              "mean_predicted": 0.15277614776718182,
+              "fraction_positive": 0.030303030303030304
+            },
+            {
+              "bin_lo": 0.1700811174502146,
+              "bin_hi": 0.20181012436201387,
+              "n": 32,
+              "mean_predicted": 0.1878600910035407,
+              "fraction_positive": 0.0
+            },
+            {
+              "bin_lo": 0.20181012436201387,
+              "bin_hi": 0.24857145920086135,
+              "n": 33,
+              "mean_predicted": 0.22675696792598202,
+              "fraction_positive": 0.0
+            },
+            {
+              "bin_lo": 0.24857145920086135,
+              "bin_hi": 0.37457532208765165,
+              "n": 33,
+              "mean_predicted": 0.2956270191049287,
+              "fraction_positive": 0.0
+            }
+          ]
+        }
+      },
+      "sites": [
+        {
+          "group": "tin_tungsten_tantalum",
+          "name": "Musha",
+          "lon": 30.3,
+          "lat": -1.95,
+          "tolerance_km": 5.0,
+          "top_n": 100,
+          "in_extent": true,
+          "prob_at_holdout": 0.1481187343597412,
+          "rank": 4530,
+          "percentile": 99.97711318940263,
+          "rediscovered": false,
+          "distance_to_top1_km": 65.6925506864359,
+          "n_within_tolerance": 87264,
+          "n_top50_within_tolerance": 0,
+          "n_valid_cells": 19788690
+        }
+      ],
+      "rediscovery": {
+        "rank_in_top50": null,
+        "distance_to_top1_km": 65.6925506864359,
+        "num_candidates_within_5km": 0,
+        "percentile": 99.97711318940263,
+        "rediscovered": false
+      }
+    }
+  ]
+}
