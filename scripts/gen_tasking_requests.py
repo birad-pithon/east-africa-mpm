@@ -6,7 +6,14 @@ tool converts exploit (high-probability) and explore (high-uncertainty)
 targets into buffered acquisition-request polygons for EnMAP/PRISMA
 tasking, one set per commodity group.
 
+Each group's probability raster defaults to the one its *shipped* model
+produced (``outputs/models/metrics_<group>.json`` -> ``best_algo``), so a
+re-train that changes the winning algorithm cannot leave acquisition polygons
+- and therefore EnMAP AOIs, which cannot be cancelled once ordered - pointing
+at an outdated raster. ``--proba`` still overrides.
+
 Usage:
+    python scripts/gen_tasking_requests.py --all --min-dist-to-label-km 5
     python scripts/gen_tasking_requests.py --group copper_zinc \
         --config configs/copperbelt.yml --proba outputs/models/proba_copper_zinc_xgb.tif
     python scripts/gen_tasking_requests.py --all
@@ -14,6 +21,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import json
 import logging
 import sys
 from pathlib import Path
@@ -21,24 +29,40 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import geopandas as gpd
-import pandas as pd
 from shapely.geometry import Point
 
+from src.models.catalog import GROUP_CONFIGS
 from src.predict.active import rank_candidates_active
-from src.utils import load_config, project_path
 from src.preprocess.grid import GridSpec
+from src.utils import load_config, project_path
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
-CATALOG = {
-    "tin_tungsten_tantalum": ("configs/karagwe.yml",
-                              "outputs/models/proba_tin_tungsten_tantalum_lgbm.tif"),
-    "copper_zinc": ("configs/copperbelt.yml",
-                    "outputs/models/proba_copper_zinc_xgb.tif"),
-    "bauxite": ("configs/usambara.yml",
-                "outputs/models/proba_bauxite_lgbm.tif"),
-}
+# configs come from the trained catalogue (src.models.catalog), not a copy
+CATALOG = GROUP_CONFIGS
+
+
+def shipped_proba(group: str) -> str | None:
+    """Relative path of the probability raster for the group's *shipped* model.
+
+    Naming one algorithm per group here was an ordering hazard: after a
+    re-train that changes ``best_algo`` the tasking polygons (and therefore the
+    EnMAP AOIs) would be built from the previous raster, and an EOWEB order
+    can neither be changed nor cancelled through the portal. ``metrics_<group>.
+    json`` is what ``train_group`` just wrote, so it cannot go stale.
+    """
+    metrics = project_path("outputs", "models", f"metrics_{group}.json")
+    if not metrics.exists():
+        logger.error("[%s] no metrics file %s - cannot resolve the shipped "
+                     "model; pass --proba explicitly", group, metrics)
+        return None
+    algo = json.loads(metrics.read_text(encoding="utf-8")).get("best_algo")
+    if not algo:
+        logger.error("[%s] %s has no best_algo - pass --proba explicitly",
+                     group, metrics)
+        return None
+    return f"outputs/models/proba_{group}_{algo}.tif"
 
 
 def requests_for_group(group: str, proba: str | Path, config: str | Path,
@@ -61,7 +85,8 @@ def requests_for_group(group: str, proba: str | Path, config: str | Path,
 
     pts = gpd.GeoDataFrame(
         df.copy(),
-        geometry=[Point(lon, lat) for lon, lat in zip(df["lon"], df["lat"])],
+        geometry=[Point(lon, lat)
+                  for lon, lat in zip(df["lon"], df["lat"], strict=True)],
         crs="EPSG:4326").to_crs(grid.crs)
 
     # Buffer in projected metres, then return to WGS84 for GeoJSON.
@@ -96,18 +121,24 @@ def main() -> None:
     maps = project_path("outputs", "maps")
     maps.mkdir(parents=True, exist_ok=True)
 
-    jobs = (list(CATALOG.items()) if args.all
-            else [(args.group,
-                   (args.config or CATALOG.get(args.group, (None, None))[0],
-                    args.proba or CATALOG.get(args.group, (None, None))[1]))])
+    if not args.all and not args.group:
+        parser.error("pass --group <key> or --all")
+    groups = list(CATALOG) if args.all else [args.group]
 
-    for group, (config, proba) in jobs:
+    jobs = []
+    for group in groups:
+        config = args.config or CATALOG.get(group)
+        proba = args.proba or shipped_proba(group)
         if config is None or proba is None:
-            logger.error("[%s] missing config/proba - skipped", group)
+            logger.error("[%s] unknown group or unresolved raster - skipped "
+                         "(known groups: %s)", group, ", ".join(sorted(CATALOG)))
             continue
+        jobs.append((group, config, proba))
+
+    for group, config, proba in jobs:
         if not project_path(proba).exists():
             logger.error("[%s] proba raster missing: %s - skipped",
-                         group, proba)
+                         group, project_path(proba))
             continue
 
         labels_path = None
