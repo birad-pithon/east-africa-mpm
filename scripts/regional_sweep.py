@@ -19,6 +19,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+from src.models.catalog import GROUP_CONFIGS
 from src.models.dataset import default_feature_rasters
 from src.models.predict import predict_raster
 from src.predict.rank import rank_candidates
@@ -27,11 +28,9 @@ from src.utils import load_config, project_path
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
-CATALOG = {
-    "tin_tungsten_tantalum": "configs/karagwe.yml",
-    "copper_zinc": "configs/copperbelt.yml",
-    "bauxite": "configs/usambara.yml",
-}
+# shared with `python -m src.models.main --group all` so the sweep can never
+# drift from the groups/configs that were actually trained
+CATALOG = GROUP_CONFIGS
 
 
 def _best_algo(group: str) -> str:

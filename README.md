@@ -276,6 +276,12 @@ python -m src.models.main --group tin_tungsten_tantalum \
 python -m src.models.main --group tin_tungsten_tantalum \
     --algos rf xgb --block-m 8000 --buffer-km 3 --oversample \
     --anomaly-baseline --predict
+
+# retrain EVERY category in the catalogue in one command: each group runs
+# on its own belt config (src.models.catalog), and one group's failure
+# never aborts the rest - the summary lists what trained and what failed
+python -m src.models.main --group all --algos rf xgb lgbm \
+    --predict --prior
 ```
 
 Outputs (`outputs/models/`) per run:
