@@ -142,7 +142,7 @@ def distance_to_known_deposits_loo(
         ok = (rows_pt >= 0) & (rows_pt < h) & (cols_pt >= 0) & (cols_pt < w)
         # Co-located records collapsing onto one cell: keep the MAXIMUM
         # LOO distance of the group (most conservative = least leaky).
-        for r, c in zip(rows_pt[ok], cols_pt[ok]):
+        for r, c in zip(rows_pt[ok], cols_pt[ok], strict=True):
             sel = ok & (rows_pt == r) & (cols_pt == c)
             dist[r, c] = nearest_other[sel].max()
     else:

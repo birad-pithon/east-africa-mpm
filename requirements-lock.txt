@@ -1,5 +1,9 @@
 # Auto-generated lock file - pinned versions of requirements.txt
 # Regenerate with: python scripts/pin_requirements.py
+#
+# landsatxplore is deliberately absent: it requires shapely<2, which
+# cannot coexist with geopandas 1.x (shapely>=2.0) and made the whole
+# install unsatisfiable. It lives in the [landsat] extra instead.
 
 numpy==2.5.2
 pandas==3.0.5
@@ -12,8 +16,8 @@ pyproj==3.7.2
 shapely==2.1.2
 rasterstats==0.21.0
 earthengine-api==1.7.41
-landsatxplore==0.15.0
 sentinelhub==3.11.5
+google-auth==2.57.0
 verde==1.9.0
 requests==2.34.2
 pyyaml==6.0.3
@@ -26,4 +30,5 @@ leafmap==0.63.1
 folium==0.20.0
 pytest==9.1.1
 pytest-cov==7.1.0
+ruff==0.16.5
 optuna==4.9.0

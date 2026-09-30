@@ -4,8 +4,8 @@
 #
 # Recommended stack mapping:
 #   Geospatial core ............ rasterio, geopandas, shapely, pyproj (+ GDAL via wheels)
-#   Earth observation access ... earthengine-api (GEE), sentinelhub (Copernicus DS),
-#                                landsatxplore (USGS EarthExplorer)
+#   Earth observation access ... earthengine-api (GEE), sentinelhub (Copernicus DS)
+#                                (USGS archive search: extra [landsat], see below)
 #   Machine learning ........... scikit-learn, xgboost, lightgbm
 #   Spatial validation ......... verde (spatial/block CV; sklearn CV is not spatial)
 #   Visualisation / QA ......... matplotlib, leafmap, folium  (QGIS used manually)
@@ -25,9 +25,16 @@ shapely>=2.0
 rasterstats>=0.21
 
 # Earth observation access
-earthengine-api>=0.1.370
-landsatxplore>=0.4.0
+earthengine-api>=0.2.370
 sentinelhub>=3.9
+google-auth>=2.22
+# NOTE: no landsatxplore here on purpose. Every landsatxplore release since
+# 0.13.0 (latest: 0.15.0) pins shapely>=1.7,<2.0 and click<8.0, which cannot be
+# satisfied next to geopandas 1.x (shapely>=2.0) - having it in this file made
+# `pip install -r requirements-lock.txt -r requirements.txt` die with
+# ResolutionImpossible, so CI could never build an environment. It is an opt-in
+# extra (pip install -e ".[landsat]") to be used in its own venv, and nothing in
+# src/ or scripts/ imports it.
 
 # Spatial validation / gridding
 verde>=1.8

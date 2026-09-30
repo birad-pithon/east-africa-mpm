@@ -17,14 +17,14 @@ from src.features.distances import (
     distance_to_features,
     distance_to_known_deposits_loo,
 )
+from src.features.geology_features import build_geology_features
+from src.features.lithology import encode_lithology
+from src.features.magnetic import magnetic_gradient_features
 from src.features.priors import (
     apply_logit_prior,
     apply_prior_to_raster,
     distance_decay_logit,
 )
-from src.features.geology_features import build_geology_features
-from src.features.lithology import encode_lithology
-from src.features.magnetic import magnetic_gradient_features
 from src.features.spectral import compute_spectral_features, spectral_indices
 from src.features.stack import build_feature_stack
 from src.features.terrain import (

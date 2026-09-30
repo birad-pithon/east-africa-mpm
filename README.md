@@ -359,7 +359,7 @@ Use the sidebar to switch between commodity groups (Sn-W-Ta, Cu-Zn, Bauxite).
 |---|---|---|
 | Language / environment | Python 3.11+, `venv` / conda | ✅ Python 3.13 + `pip install -e .` |
 | Geospatial core | rasterio, geopandas, GDAL/OGR, shapely, pyproj | ✅ installed & used throughout |
-| Earth observation access | `earthengine-api` (GEE), Copernicus Data Space API (`sentinelhub`), `landsatxplore` (USGS archives) | ✅ installed; GEE + CDSE wired in `src/ingest/` |
+| Earth observation access | `earthengine-api` (GEE), Copernicus Data Space API (`sentinelhub`); USGS archive search via `landsatxplore` is opt-in (`[landsat]` extra — it pins `shapely<2` and cannot coexist with geopandas 1.x) | ✅ installed; GEE + CDSE wired in `src/ingest/` |
 | Machine learning | scikit-learn, xgboost, lightgbm | ✅ installed (PyTorch deferred — see extras) |
 | Spatial validation | `verde`, or custom spatial k-fold / buffered blocks (**not** sklearn's random CV) | ✅ `src/validate/spatial_cv.py`: `SpatialBlockCV` (grid blocks) + `BufferedSpatialCV` (KD-tree exclusion buffer), both sklearn-`cv=` compatible |
 | Visualisation / QA | matplotlib, leafmap / folium; QGIS for manual review | ✅ installed (QGIS is external/manual) |

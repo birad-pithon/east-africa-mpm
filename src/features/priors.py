@@ -236,10 +236,9 @@ def lift_report(
     protocol.  Quantify residual leakage with
     ``src.validate.evaluate_loso`` before field targeting.
     """
-    from sklearn.metrics import average_precision_score
-
-    import pandas as pd
     import geopandas as gpd
+    import pandas as pd
+    from sklearn.metrics import average_precision_score
 
     processed = project_path("data", "processed")
     pos = gpd.read_file(processed / f"labels_{group}.gpkg")

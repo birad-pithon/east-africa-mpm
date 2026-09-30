@@ -19,8 +19,7 @@ WLS = [456.3, 553.1, 652.4, 832.7, 1610.5, 2185.2]   # 6-band toy cube
 
 @pytest.fixture
 def grid300():
-    from src.utils import grid_dimensions, load_config, \
-        make_grid_transform, wgs84_to_utm
+    from src.utils import grid_dimensions, load_config, make_grid_transform, wgs84_to_utm
     cfg = load_config("configs/karagwe.yml")
     g = cfg["grid"]
     res = 300

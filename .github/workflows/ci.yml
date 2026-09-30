@@ -23,6 +23,14 @@ jobs:
           pip install -r requirements-lock.txt -r requirements.txt
           pip install -e ".[dev,bayes]" ruff
 
+      # Name the offending package instead of dumping resolver internals if a
+      # pin ever becomes unsatisfiable again. landsatxplore (which needs
+      # shapely<2, impossible beside geopandas' shapely>=2) used to sit in the
+      # core set, and every CI run died in the step above without reaching the
+      # linter or the tests.
+      - name: Environment is self-consistent (pip check)
+        run: python -m pip check
+
       - name: Lint (ruff)
         run: ruff check src tests
 

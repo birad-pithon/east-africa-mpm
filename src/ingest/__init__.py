@@ -4,9 +4,9 @@ from src.ingest.brgm_geology import ingest_brgm_geology
 from src.ingest.dlr_eoc_wms import (
     DASHBOARD_LAYERS,
     VERIFIED_LAYERS,
-    layer_summary,
     fetch_belt_context,
     fetch_wms_map,
+    layer_summary,
     save_wms_map,
 )
 from src.ingest.national_surveys import (

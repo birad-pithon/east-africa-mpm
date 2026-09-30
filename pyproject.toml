@@ -31,9 +31,8 @@ dependencies = [
     "rasterstats>=0.21",
 
     # Earth observation access
-    "earthengine-api>=0.1.370",        # Google Earth Engine
-    "landsatxplore>=0.4.0",            # USGS EarthExplorer archives (Landsat/ASTER)
-    "sentinelhub>=3.9",                # Copernicus Data Space Ecosystem (S2 etc.)
+    "earthengine-api>=0.2.370",          # Google Earth Engine
+    "sentinelhub>=3.9",                  # Copernicus Data Space Ecosystem (S2 etc.)
 
     # Spatial validation (verde supports spatial/block CV & gridding)
     "verde>=1.8",
@@ -57,7 +56,6 @@ dependencies = [
 
     # Google auth for EE / Cloud
     "google-auth>=2.22",
-    "earthengine-api>=0.2.370",
 ]
 
 [project.optional-dependencies]
@@ -91,6 +89,18 @@ dvc = [
 # Bayesian hyperparameter optimization (TPE)
 bayes = [
     "optuna>=4.0",
+]
+
+# USGS EarthExplorer archive search (Landsat / ASTER scenes). Deliberately NOT a
+# core dependency: every landsatxplore release since 0.13.0 - including the
+# latest, 0.15.0 - pins shapely>=1.7,<2.0 and click<8.0, which is unsatisfiable
+# beside the rest of the geospatial stack (geopandas 1.x needs shapely>=2.0).
+# With it in the core set, `pip install -r requirements-lock.txt
+# -r requirements.txt` aborts with ResolutionImpossible, i.e. the environment
+# cannot be built at all. Nothing under src/ or scripts/ imports it. When it is
+# wanted, use a separate venv or `pip install --no-deps landsatxplore`.
+landsat = [
+    "landsatxplore>=0.15",
 ]
 
 [project.scripts]

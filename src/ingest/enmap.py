@@ -32,10 +32,10 @@ from pathlib import Path
 
 import numpy as np
 import rasterio
-from rasterio.warp import reproject, Resampling
+from rasterio.warp import Resampling, reproject
 
 from src.preprocess.grid import GridSpec
-from src.utils import load_config, project_path
+from src.utils import load_config
 
 logger = logging.getLogger(__name__)
 

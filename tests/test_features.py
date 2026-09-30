@@ -222,6 +222,7 @@ class TestDepositDistanceLOO:
 
     def test_empty_deposits_raise(self, grid300):
         import geopandas as gpd
+
         from src.features import distance_to_known_deposits_loo
         empty = gpd.GeoDataFrame({"geometry": []}, crs="EPSG:4326")
         with pytest.raises(ValueError, match="empty"):
