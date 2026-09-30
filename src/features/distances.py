@@ -1,7 +1,12 @@
 from __future__ import annotations
 
+import math
+from typing import Any
+
 import geopandas as gpd
 import numpy as np
+from affine import Affine
+from rasterio.crs import CRS
 from rasterio.features import rasterize
 from scipy.ndimage import distance_transform_edt
 
@@ -149,3 +154,82 @@ def distance_to_known_deposits_loo(
         )
 
     return {"dist_to_deposit_loo_m": dist}
+
+
+def cell_size_m(
+    transform: Affine,
+    crs: Any,
+    shape: tuple[int, int],
+) -> tuple[float, float]:
+    """``(cell height, cell width)`` in metres for a grid in *crs*.
+
+    Projected grids (every belt config is UTM metres) are read straight off
+    the affine. For a geographic grid the degrees are scaled by the grid's
+    mean latitude, so metric thresholds stay comparable without having to
+    reproject an otherwise fine raster.
+
+    *crs* may be a ``rasterio.crs.CRS`` or a string such as ``"EPSG:32736"``.
+    """
+    cell_w, cell_h = abs(transform.a), abs(transform.e)
+    if isinstance(crs, str):
+        crs = CRS.from_user_input(crs)
+    if crs is None or not getattr(crs, "is_geographic", False):
+        return cell_h, cell_w
+    top = transform.f
+    bottom = transform.f + transform.e * shape[0]
+    mid_lat = (top + bottom) / 2.0
+    m_per_deg_lon = 111_320.0 * max(1e-6, math.cos(math.radians(mid_lat)))
+    return cell_h * 110_540.0, cell_w * m_per_deg_lon
+
+
+def distance_to_points_m(
+    points_gdf: gpd.GeoDataFrame,
+    transform: Affine,
+    shape: tuple[int, int],
+    crs: Any,
+) -> np.ndarray:
+    """Distance from every cell centre to the nearest point, in metres.
+
+    Deliberately *not* the leave-one-out raster of
+    :func:`distance_to_known_deposits_loo`. LOO reports a point's own cell as
+    the distance to the **next** point, so with several points spaced apart a
+    deposit inside a kilometre exclusion ring would read a large distance,
+    pass the filter and be selected as "novel" ground. Here a point's own
+    cell reads 0, which is what an exclusion radius needs.
+
+    Parameters
+    ----------
+    points_gdf : positive points in any CRS (reprojected to *crs*).
+    transform, shape, crs : grid definition, straight from an open raster.
+        *crs* is used for the reprojection and to decide how cell size is
+        converted to metres (:func:`cell_size_m`).
+
+    Returns
+    -------
+    float32 array of *shape* holding metres.
+
+    Raises
+    ------
+    ValueError if ``points_gdf`` holds no points.
+    """
+    if points_gdf is None or len(points_gdf) == 0:
+        raise ValueError("points_gdf is empty - no distance field possible")
+
+    if crs is not None and points_gdf.crs is not None:
+        pts = points_gdf.to_crs(crs)
+    else:
+        pts = points_gdf
+
+    seed = rasterize(
+        ((geom, 1) for geom in pts.geometry),
+        out_shape=shape,
+        transform=transform,
+        fill=0,
+        dtype="uint8",
+        all_touched=False,
+    )
+    cell_h, cell_w = cell_size_m(transform, crs, shape)
+    # `seed == 0` is True away from a point and False on it, so the EDT
+    # returns 0 on the point cells and metres elsewhere.
+    dist = distance_transform_edt(seed == 0, sampling=[cell_h, cell_w])
+    return dist.astype(np.float32)

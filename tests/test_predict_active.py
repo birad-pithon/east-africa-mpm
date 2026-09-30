@@ -72,3 +72,87 @@ class TestActive:
         df = rank_candidates_active(p, n_exploit=5, n_explore=5,
                                     min_prob=0.99)
         assert len(df) == 0
+
+
+def _write_labels(tmp_path, points, name="labels.gpkg"):
+    """Small WGS84 point GeoPackage used as the exclusion set."""
+    import geopandas as gpd
+    from shapely.geometry import Point
+
+    gdf = gpd.GeoDataFrame(
+        {"site": [f"p{i}" for i in range(len(points))]},
+        geometry=[Point(lon, lat) for lon, lat in points],
+        crs="EPSG:4326")
+    path = tmp_path / name
+    gdf.to_file(path, driver="GPKG")
+    return path
+
+
+# centre of the hotspot cells written by _write_proba (rows/cols 3-5)
+_HOTSPOT_CENTRE = (29.035, -1.035)
+
+
+class TestNovelGroundFilter:
+    """``min_dist_to_label_km`` keeps selection off already-known ground."""
+
+    def test_requires_a_label_file(self, tmp_path):
+        p = _write_proba(tmp_path)
+        with pytest.raises(ValueError, match="labels_path"):
+            rank_candidates_active(p, min_dist_to_label_km=5.0)
+
+    def test_negative_radius_rejected(self, tmp_path):
+        p = _write_proba(tmp_path)
+        with pytest.raises(ValueError, match="min_dist_to_label_km"):
+            rank_candidates_active(p, min_dist_to_label_km=-1.0)
+
+    def test_without_the_filter_the_hotspot_is_selected(self, tmp_path):
+        """Baseline: the labelled cell is the top-probability cell."""
+        p = _write_proba(tmp_path)
+        df = rank_candidates_active(p, n_exploit=3, n_explore=3,
+                                    spacing_cells=1)
+        hot = df[df["strategy"] == _EXPLOIT]
+        assert ((hot["row"] >= 3) & (hot["row"] <= 4)
+                & (hot["col"] >= 3) & (hot["col"] <= 4)).any()
+
+    def test_with_the_filter_the_hotspot_is_skipped(self, tmp_path):
+        p = _write_proba(tmp_path)
+        labels = _write_labels(tmp_path, [_HOTSPOT_CENTRE])
+        df = rank_candidates_active(p, n_exploit=3, n_explore=3,
+                                    spacing_cells=1,
+                                    labels_path=labels,
+                                    min_dist_to_label_km=5.0)
+        assert len(df) == 6                      # same picks, different cells
+        hot = df[df["strategy"] == _EXPLOIT]
+        on_hotspot = ((hot["row"] >= 3) & (hot["row"] <= 4)
+                      & (hot["col"] >= 3) & (hot["col"] <= 4))
+        assert not on_hotspot.any()
+
+    def test_no_pick_lands_inside_the_exclusion_ring(self, tmp_path):
+        p = _write_proba(tmp_path)
+        labels = _write_labels(tmp_path, [_HOTSPOT_CENTRE])
+        df = rank_candidates_active(p, n_exploit=3, n_explore=3,
+                                    spacing_cells=1,
+                                    labels_path=labels,
+                                    min_dist_to_label_km=5.0)
+        assert not df.empty
+        lon, lat = _HOTSPOT_CENTRE
+        import geopandas as gpd
+        from shapely.geometry import Point
+
+        picked = gpd.GeoSeries(gpd.points_from_xy(df["lon"], df["lat"]),
+                               crs="EPSG:4326")
+        ring = (gpd.GeoSeries([Point(lon, lat)], crs="EPSG:4326")
+                .to_crs(32736).buffer(5000).to_crs("EPSG:4326").iloc[0])
+        assert not picked.intersects(ring).any()
+
+    def test_radius_that_excludes_nothing_changes_nothing(self, tmp_path):
+        """A ring narrower than one cell cannot remove any candidate."""
+        p = _write_proba(tmp_path)
+        labels = _write_labels(tmp_path, [_HOTSPOT_CENTRE])
+        df = rank_candidates_active(p, n_exploit=3, n_explore=3,
+                                    spacing_cells=1,
+                                    labels_path=labels,
+                                    min_dist_to_label_km=0.01)
+        hot = df[df["strategy"] == _EXPLOIT]
+        assert ((hot["row"] >= 3) & (hot["row"] <= 4)
+                & (hot["col"] >= 3) & (hot["col"] <= 4)).any()

@@ -50,8 +50,8 @@ Probe wavelengths: **2.20, 0.90 µm** (from `configs/spectral_fingerprints.yaml`
 
 | scene id | tier | cells merged | max prob | bbox (min_lon, min_lat, max_lon, max_lat) | size (km) | tiles | dry season |
 |---|---|---:|---:|---|---:|---:|---|
-| `bauxite_exploit_01` | exploit | 10 | 1.000 | 38.233, -4.8493, 38.32, -4.7429 | 9.6 × 11.8 | 1 | outside all registered windows (nearest `usambara_east_extension` 47 km) - verify season before ordering |
-| `bauxite_explore_01` | explore | 15 | 0.500 | 38.1938, -4.8911, 38.3493, -4.7298 | 17.2 × 17.9 | 1 | outside all registered windows (nearest `usambara_east_extension` 48 km) - verify season before ordering |
+| `bauxite_exploit_01` | exploit | 10 | 1.000 | 38.2705, -4.8098, 38.3663, -4.7071 | 10.6 × 11.4 | 1 | 2023-06-01 to 2023-09-30 (inside `usambara_east_extension`) |
+| `bauxite_explore_01` | explore | 15 | 0.501 | 38.1936, -4.8911, 38.3533, -4.7038 | 17.7 × 20.8 | 1 | outside all registered windows (nearest `usambara_east_extension` 49 km) - verify season before ordering |
 
 ## copper_zinc
 
@@ -59,11 +59,11 @@ Probe wavelengths: **2.20, 2.33, 0.86 µm** (from `configs/spectral_fingerprints
 
 | scene id | tier | cells merged | max prob | bbox (min_lon, min_lat, max_lon, max_lat) | size (km) | tiles | dry season |
 |---|---|---:|---:|---|---:|---:|---|
-| `copper_zinc_exploit_01` | exploit | 9 | 0.999 | 27.0061, -11.3154, 27.5243, -11.0318 | 56.5 × 31.5 | 4 | 2023-05-01 to 2023-09-30 (inside `lufilian_likasi_tenke`) |
+| `copper_zinc_exploit_01` | exploit | 9 | 0.999 | 27.0061, -11.3154, 27.481, -11.0248 | 51.8 × 32.3 | 4 | 2023-05-01 to 2023-09-30 (inside `lufilian_likasi_tenke`) |
 | `copper_zinc_exploit_02` | exploit | 1 | 0.999 | 26.2138, -10.8259, 26.2504, -10.7897 | 4.0 × 4.0 | 1 | 2023-05-01 to 2023-09-30 (inside `lufilian_kolwezi_kambove`) |
-| `copper_zinc_explore_01` | explore | 4 | 0.500 | 26.1698, -10.9938, 26.2856, -10.5323 | 12.7 × 51.3 | 2 | 2023-05-01 to 2023-09-30 (inside `lufilian_kolwezi_kambove`) |
+| `copper_zinc_explore_01` | explore | 5 | 0.500 | 26.1698, -10.9938, 26.3096, -10.5323 | 15.3 × 51.3 | 2 | 2023-05-01 to 2023-09-30 (inside `lufilian_kolwezi_kambove`) |
 | `copper_zinc_explore_02` | explore | 9 | 0.500 | 27.1164, -11.4935, 27.8112, -10.9455 | 75.8 × 60.9 | 9 | outside all registered windows (nearest `lufilian_likasi_tenke` 100 km) - verify season before ordering |
-| `copper_zinc_explore_03` | explore | 2 | 0.500 | 26.6117, -11.0676, 26.8788, -10.9863 | 29.2 × 9.0 | 1 | 2023-05-01 to 2023-09-30 (inside `lufilian_kolwezi_kambove`) |
+| `copper_zinc_explore_03` | explore | 1 | 0.500 | 26.8421, -11.0224, 26.8788, -10.9863 | 4.0 × 4.0 | 1 | 2023-05-01 to 2023-09-30 (inside `lufilian_kolwezi_kambove`) |
 
 ## tin_tungsten_tantalum
 
@@ -71,15 +71,14 @@ Probe wavelengths: **2.20, 2.35 µm** (from `configs/spectral_fingerprints.yaml`
 
 | scene id | tier | cells merged | max prob | bbox (min_lon, min_lat, max_lon, max_lat) | size (km) | tiles | dry season |
 |---|---|---:|---:|---|---:|---:|---|
-| `tin_tungsten_tantalum_exploit_01` | exploit | 3 | 1.000 | 29.5699, -2.0201, 29.6774, -1.965 | 11.9 × 6.1 | 1 | outside all registered windows (nearest `kab_burundi_north` 108 km) - verify season before ordering |
-| `tin_tungsten_tantalum_exploit_02` | exploit | 5 | 1.000 | 30.0487, -2.0118, 30.3221, -1.8634 | 30.4 × 16.5 | 2 | outside all registered windows (nearest `kab_tanzania_karagwe` 103 km) - verify season before ordering |
-| `tin_tungsten_tantalum_exploit_03` | exploit | 1 | 1.000 | 29.8276, -1.7002, 29.8636, -1.664 | 4.0 × 4.0 | 1 | outside all registered windows (nearest `kab_uganda_southwest` 88 km) - verify season before ordering |
-| `tin_tungsten_tantalum_exploit_04` | exploit | 1 | 1.000 | 30.2015, -1.2439, 30.2374, -1.2078 | 4.0 × 4.0 | 1 | 2023-06-01 to 2023-09-30 (supplement Jan-Feb for equatorial cloud) (inside `kab_uganda_southwest`) |
-| `tin_tungsten_tantalum_explore_01` | explore | 4 | 0.500 | 30.0496, -2.1348, 30.1104, -1.8042 | 6.8 × 36.8 | 2 | outside all registered windows (nearest `kab_uganda_southwest` 108 km) - verify season before ordering |
-| `tin_tungsten_tantalum_explore_02` | explore | 1 | 0.500 | 30.4439, -1.723, 30.4799, -1.6869 | 4.0 × 4.0 | 1 | outside all registered windows (nearest `kab_tanzania_karagwe` 88 km) - verify season before ordering |
-| `tin_tungsten_tantalum_explore_03` | explore | 5 | 0.500 | 29.4577, -2.0856, 29.651, -1.902 | 21.5 × 20.4 | 1 | outside all registered windows (nearest `kab_burundi_north` 108 km) - verify season before ordering |
-| `tin_tungsten_tantalum_explore_04` | explore | 3 | 0.500 | 30.1075, -1.2989, 30.2088, -1.2242 | 11.3 × 8.3 | 1 | 2023-06-01 to 2023-09-30 (supplement Jan-Feb for equatorial cloud) (inside `kab_uganda_southwest`) |
-| `tin_tungsten_tantalum_explore_05` | explore | 2 | 0.500 | 29.4541, -1.5411, 29.6734, -1.3388 | 24.4 × 22.5 | 1 | outside all registered windows (nearest `kab_uganda_southwest` 85 km) - verify season before ordering |
+| `tin_tungsten_tantalum_exploit_01` | exploit | 2 | 1.000 | 29.5699, -2.0056, 29.6077, -1.9678 | 4.2 × 4.2 | 1 | outside all registered windows (nearest `kab_burundi_north` 110 km) - verify season before ordering |
+| `tin_tungsten_tantalum_exploit_02` | exploit | 6 | 1.000 | 29.893, -2.0126, 30.2967, -1.6766 | 44.9 × 37.4 | 4 | outside all registered windows (nearest `kab_uganda_southwest` 104 km) - verify season before ordering |
+| `tin_tungsten_tantalum_exploit_03` | exploit | 2 | 1.000 | 30.1317, -1.3119, 30.2374, -1.2078 | 11.8 × 11.6 | 1 | 2023-06-01 to 2023-09-30 (supplement Jan-Feb for equatorial cloud) (inside `kab_uganda_southwest`) |
+| `tin_tungsten_tantalum_explore_01` | explore | 5 | 0.500 | 30.0744, -2.1348, 30.4799, -1.6869 | 45.1 × 49.8 | 4 | outside all registered windows (nearest `kab_tanzania_karagwe` 93 km) - verify season before ordering |
+| `tin_tungsten_tantalum_explore_02` | explore | 3 | 0.500 | 29.4577, -2.0856, 29.7238, -1.902 | 29.6 × 20.4 | 1 | outside all registered windows (nearest `kab_burundi_north` 109 km) - verify season before ordering |
+| `tin_tungsten_tantalum_explore_03` | explore | 3 | 0.500 | 29.4541, -1.5411, 29.6734, -1.2498 | 24.4 × 32.4 | 2 | outside all registered windows (nearest `kab_uganda_southwest` 82 km) - verify season before ordering |
+| `tin_tungsten_tantalum_explore_04` | explore | 2 | 0.500 | 30.0496, -1.8464, 30.0901, -1.8042 | 4.5 × 4.7 | 1 | outside all registered windows (nearest `kab_uganda_southwest` 98 km) - verify season before ordering |
+| `tin_tungsten_tantalum_explore_05` | explore | 2 | 0.500 | 30.1075, -1.2921, 30.1747, -1.2242 | 7.5 × 7.6 | 1 | 2023-06-01 to 2023-09-30 (supplement Jan-Feb for equatorial cloud) (inside `kab_uganda_southwest`) |
 
 ## Order tracker
 
@@ -98,7 +97,6 @@ the scene; `order id` comes from the confirmation page.
 | `tin_tungsten_tantalum_exploit_01` | L2A | | | | | | `data/raw/enmap/` |
 | `tin_tungsten_tantalum_exploit_02` | L2A | | | | | | `data/raw/enmap/` |
 | `tin_tungsten_tantalum_exploit_03` | L2A | | | | | | `data/raw/enmap/` |
-| `tin_tungsten_tantalum_exploit_04` | L2A | | | | | | `data/raw/enmap/` |
 | `tin_tungsten_tantalum_explore_01` | L2A | | | | | | `data/raw/enmap/` |
 | `tin_tungsten_tantalum_explore_02` | L2A | | | | | | `data/raw/enmap/` |
 | `tin_tungsten_tantalum_explore_03` | L2A | | | | | | `data/raw/enmap/` |
@@ -109,7 +107,7 @@ the scene; `order id` comes from the confirmation page.
 
 * **bauxite**: 1 exploit scene(s) + 1 explore scene(s) = **2 AOIs**, ~2 EnMAP tile(s) at 30 km.
 * **copper_zinc**: 2 exploit scene(s) + 3 explore scene(s) = **5 AOIs**, ~17 EnMAP tile(s) at 30 km.
-* **tin_tungsten_tantalum**: 4 exploit scene(s) + 5 explore scene(s) = **9 AOIs**, ~11 EnMAP tile(s) at 30 km.
+* **tin_tungsten_tantalum**: 3 exploit scene(s) + 5 explore scene(s) = **8 AOIs**, ~15 EnMAP tile(s) at 30 km.
 
 * Scene AOIs assume a 2 km pad around the clustered cells and
   the ~30 km EnMAP swath; treat `tiles` as an estimate — EOWEB reports

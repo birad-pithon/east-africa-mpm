@@ -297,3 +297,92 @@ class TestFeatureStack:
         bad = np.zeros((10, 10), dtype=np.float32)
         with pytest.raises(ValueError, match="shape"):
             build_feature_stack(grid300, {"bad": bad}, tmp_path / "x.tif")
+
+
+class TestDistanceToPoints:
+    """Plain (non-LOO) distance field behind the novel-ground exclusion."""
+
+    def _points(self, grid, offsets):
+        import geopandas as gpd
+        from shapely.geometry import Point
+
+        tf = grid.transform
+        pts = [Point(tf.c + (dc + 0.5) * tf.a, tf.f + (dr + 0.5) * tf.e)
+               for dc, dr in offsets]
+        return gpd.GeoDataFrame(geometry=pts, crs=grid.crs).to_crs("EPSG:4326")
+
+    def test_own_cell_reads_zero_where_loo_does_not(self, grid300):
+        # LOO reports a deposit as the distance to the NEXT deposit, so with a
+        # 2 km exclusion ring this deposit (3 km from its neighbour) would pass
+        # the filter and be requested as "novel" ground. The plain field must
+        # read 0 on the deposit cell itself.
+        from src.features.distances import (
+            distance_to_known_deposits_loo,
+            distance_to_points_m,
+        )
+        pts = self._points(grid300, [(2, 2), (12, 2)])
+        plain = distance_to_points_m(pts, grid300.transform, grid300.shape,
+                                     grid300.crs)
+        loo = distance_to_known_deposits_loo(grid300, pts, res_m=300)[
+            "dist_to_deposit_loo_m"]
+        ring_m = 2000.0
+        assert plain[2, 2] <= ring_m      # correctly excluded
+        assert loo[2, 2] > ring_m         # LOO would have let it through
+
+    def test_background_cell_measures_nearest_point(self, grid300):
+        from src.features.distances import distance_to_points_m
+        pts = self._points(grid300, [(2, 2)])
+        d = distance_to_points_m(pts, grid300.transform, grid300.shape,
+                                 grid300.crs)
+        assert d[2, 5] == pytest.approx(3 * 300, rel=0.05)   # 3 cells east
+
+    def test_every_point_cell_is_zero(self, grid300):
+        from src.features.distances import distance_to_points_m
+        pts = self._points(grid300, [(2, 2), (12, 12), (5, 15)])
+        d = distance_to_points_m(pts, grid300.transform, grid300.shape,
+                                 grid300.crs)
+        for dc, dr in [(2, 2), (12, 12), (5, 15)]:
+            assert d[dr, dc] == pytest.approx(0.0, abs=1e-6)
+
+    def test_shape_and_dtype(self, grid300):
+        from src.features.distances import distance_to_points_m
+        d = distance_to_points_m(self._points(grid300, [(1, 1)]),
+                                 grid300.transform, grid300.shape,
+                                 grid300.crs)
+        assert d.shape == grid300.shape
+        assert d.dtype == np.float32
+
+    def test_empty_points_raise(self, grid300):
+        import geopandas as gpd
+
+        from src.features.distances import distance_to_points_m
+
+        with pytest.raises(ValueError, match="empty"):
+            distance_to_points_m(gpd.GeoDataFrame(geometry=[], crs="EPSG:4326"),
+                                 grid300.transform, grid300.shape,
+                                 grid300.crs)
+
+
+class TestCellSizeM:
+    def test_projected_grid_reads_the_affine(self, grid300):
+        from src.features.distances import cell_size_m
+        assert cell_size_m(grid300.transform, grid300.crs,
+                           grid300.shape) == (300.0, 300.0)
+
+    def test_string_crs_is_not_mistaken_for_geographic(self, grid300):
+        # grid.crs is the literal string "EPSG:32736"; skipping the string
+        # branch would leave a UTM grid mistaken for a degree grid.
+        from src.features.distances import cell_size_m
+        h, w = cell_size_m(grid300.transform, grid300.crs, grid300.shape)
+        assert h == pytest.approx(300.0, rel=1e-9)
+        assert w == pytest.approx(300.0, rel=1e-9)
+
+    def test_geographic_grid_converts_degrees_to_metres(self):
+        from affine import Affine
+
+        from src.features.distances import cell_size_m
+        # 0.01 degree cells centred near the equator
+        tf = Affine(0.01, 0.0, 29.0, 0.0, -0.01, -1.0)
+        h, w = cell_size_m(tf, "EPSG:4326", (20, 20))
+        assert h == pytest.approx(0.01 * 110_540, rel=0.01)
+        assert w == pytest.approx(0.01 * 111_320, rel=0.01)

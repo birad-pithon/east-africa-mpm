@@ -255,6 +255,40 @@ def write_aoi(scene: dict[str, Any], out_dir: str | Path | None = None) -> Path:
     return path
 
 
+def prune_stale_aois(
+    scenes_by_group: dict[str, list[dict[str, Any]]],
+    out_dir: str | Path | None = None,
+) -> list[Path]:
+    """Delete AOI files from an earlier run whose scene no longer exists.
+
+    :func:`write_aoi` only ever overwrites the files it still produces, so when
+    the target set shrinks the leftover rectangles keep describing ground that
+    is no longer targeted. An EnMAP order cannot be cancelled through EOWEB,
+    so a stale drag-and-drop AOI is a genuine hazard rather than untidy:
+    remove it.
+
+    Only files that look like this script's own output are considered
+    (``<group>_<tier>_<NN>.geojson`` for the groups in *scenes_by_group*);
+    anything else in the directory is left alone, as are the AOIs belonging to
+    groups that were skipped this run.
+    """
+    out = (Path(out_dir) if out_dir
+           else project_path("data", "raw", "enmap", "aois_model"))
+    if not out.is_dir():
+        return []
+    keep = {scene["scene_id"]
+            for scenes in scenes_by_group.values() for scene in scenes}
+    ours = tuple(f"{group}_{TIER_LABEL[tier]}_"
+                 for group in scenes_by_group for tier in TIERS)
+    removed: list[Path] = []
+    for path in sorted(out.glob("*.geojson")):
+        if path.stem in keep or not path.stem.startswith(ours):
+            continue
+        path.unlink()
+        removed.append(path)
+    return removed
+
+
 def render_manifest(scenes_by_group: dict[str, list[dict[str, Any]]],
                     pad_km: float) -> str:
     """Render the order runbook + tracker as markdown."""
@@ -436,6 +470,9 @@ def main() -> None:
     out.write_text(render_manifest(scenes_by_group, args.pad_km),
                    encoding="utf-8")
     logger.info("manifest -> %s", out)
+
+    for path in prune_stale_aois(scenes_by_group, args.aoi_dir):
+        logger.info("pruned stale AOI: %s", path.name)
 
 
 if __name__ == "__main__":

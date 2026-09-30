@@ -42,12 +42,16 @@ CATALOG = {
 
 
 def requests_for_group(group: str, proba: str | Path, config: str | Path,
-                       n_exploit: int, n_explore: int, radius_km: float
+                       n_exploit: int, n_explore: int, radius_km: float,
+                       labels_path: str | Path | None = None,
+                       min_dist_to_label_km: float = 0.0,
                        ) -> gpd.GeoDataFrame:
     df = rank_candidates_active(proba, n_exploit=n_exploit,
                                 n_explore=n_explore,
                                 explore_strategy="margin",
-                                spacing_cells=2)
+                                spacing_cells=2,
+                                labels_path=labels_path,
+                                min_dist_to_label_km=min_dist_to_label_km)
     if not len(df):
         logger.warning("[%s] no targets selected", group)
         return gpd.GeoDataFrame()
@@ -81,6 +85,12 @@ def main() -> None:
     parser.add_argument("--n-explore", type=int, default=15)
     parser.add_argument("--radius-km", type=float, default=2.0,
                         help="request polygon radius around each target")
+    parser.add_argument("--min-dist-to-label-km", type=float, default=0.0,
+                        help="novel-ground filter: drop candidate cells within "
+                             "this many km of the group's own training labels, "
+                             "so high-probability cells that merely re-find a "
+                             "known deposit are never requested. 0 (default) "
+                             "ranks on probability alone")
     args = parser.parse_args()
 
     maps = project_path("outputs", "maps")
@@ -99,10 +109,24 @@ def main() -> None:
             logger.error("[%s] proba raster missing: %s - skipped",
                          group, proba)
             continue
+
+        labels_path = None
+        if args.min_dist_to_label_km > 0:
+            labels_path = project_path("data", "processed",
+                                       f"labels_{group}.gpkg")
+            if not labels_path.exists():
+                logger.error("[%s] labels missing: %s - skipped", group,
+                             labels_path)
+                continue
+            logger.info("[%s] novel-ground filter: keeping cells > %.1f km "
+                        "from any label", group, args.min_dist_to_label_km)
+
         gdf = requests_for_group(group, project_path(proba),
                                  project_path(config),
                                  args.n_exploit, args.n_explore,
-                                 args.radius_km)
+                                 args.radius_km,
+                                 labels_path=labels_path,
+                                 min_dist_to_label_km=args.min_dist_to_label_km)
         if not len(gdf):
             continue
         out = maps / f"tasking_{group}.geojson"

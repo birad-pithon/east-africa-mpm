@@ -17,6 +17,7 @@ from scripts.gen_enmap_order_manifest import (
     cluster_indices,
     haversine_km,
     load_tier_targets,
+    prune_stale_aois,
     render_manifest,
     season_context,
     write_aoi,
@@ -234,6 +235,57 @@ class TestWriteAoi:
         lats = [p[1] for p in ring]
         assert min(lons) == scene["bbox"]["min_lon"]
         assert max(lats) == scene["bbox"]["max_lat"]
+
+
+class TestPruneStaleAois:
+    """A leftover AOI would order ground we no longer want, so drop it."""
+
+    def _group(self, n=1, group="bauxite", tier="top_prob"):
+        targets = [_target(38.27 + i * 0.6, -4.79) for i in range(n)]
+        return {group: build_scenes(group, tier, targets, 30.0, 2.0)}
+
+    def test_scene_that_no_longer_exists_is_deleted(self, tmp_path):
+        scenes = self._group(3)
+        for scene in scenes["bauxite"]:
+            write_aoi(scene, tmp_path)
+        assert len(list(tmp_path.glob("*.geojson"))) == 3
+
+        removed = prune_stale_aois({"bauxite": scenes["bauxite"][:2]},
+                                   tmp_path)
+        assert [p.name for p in removed] == ["bauxite_exploit_03.geojson"]
+        assert not (tmp_path / "bauxite_exploit_03.geojson").exists()
+        assert len(list(tmp_path.glob("*.geojson"))) == 2
+
+    def test_current_scenes_survive(self, tmp_path):
+        scenes = self._group(3)
+        for scene in scenes["bauxite"]:
+            write_aoi(scene, tmp_path)
+        assert prune_stale_aois(scenes, tmp_path) == []
+        assert len(list(tmp_path.glob("*.geojson"))) == 3
+
+    def test_groups_skipped_this_run_are_left_alone(self, tmp_path):
+        tin = self._group(1, group="tin_tungsten_tantalum")
+        for scene in tin["tin_tungsten_tantalum"]:
+            write_aoi(scene, tmp_path)
+        bauxite = self._group(1)
+        for scene in bauxite["bauxite"]:
+            write_aoi(scene, tmp_path)
+
+        assert prune_stale_aois(bauxite, tmp_path) == []
+        assert (tmp_path / "tin_tungsten_tantalum_exploit_01.geojson"
+                ).exists()
+
+    def test_files_we_did_not_write_are_never_touched(self, tmp_path):
+        (tmp_path / "analogue_scene.geojson").write_text("{}", encoding="utf-8")
+        (tmp_path / "bauxite_manual_01.geojson").write_text(
+            "{}", encoding="utf-8")
+
+        assert prune_stale_aois(self._group(1), tmp_path) == []
+        assert (tmp_path / "analogue_scene.geojson").exists()
+        assert (tmp_path / "bauxite_manual_01.geojson").exists()
+
+    def test_missing_directory_is_not_an_error(self, tmp_path):
+        assert prune_stale_aois(self._group(1), tmp_path / "absent") == []
 
 
 class TestRenderManifest:

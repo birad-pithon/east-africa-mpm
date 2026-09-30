@@ -25,6 +25,7 @@ import numpy as np
 import pandas as pd
 import rasterio
 
+from src.features.distances import distance_to_points_m
 from src.predict.rank import _licence_cell_mask, load_licence_mask
 
 logger = logging.getLogger(__name__)
@@ -74,6 +75,8 @@ def rank_candidates_active(
     licence_path: Path | str | None = None,
     min_prob: float = 0.0,
     spacing_cells: int = 2,
+    labels_path: Path | str | None = None,
+    min_dist_to_label_km: float = 0.0,
 ) -> pd.DataFrame:
     """Exploit + explore candidate cells from a probability raster.
 
@@ -83,6 +86,13 @@ def rank_candidates_active(
     n_explore : exploration picks (most uncertain). The explore picks are
         spatial-declustered from the exploit anchors.
     explore_strategy : ``margin`` or ``entropy``.
+    labels_path : positive-point file used to hold selection away from
+        already-known ground. Requires ``min_dist_to_label_km``.
+    min_dist_to_label_km : drop candidate cells closer than this to a label.
+        Without it the exploit tier largely re-ranks the training deposits —
+        with very few labels (bauxite has 3) the model has memorised them and
+        every top cell sits on one. ``0`` (the default) keeps the old
+        behaviour of no exclusion.
     Others as in :func:`src.predict.rank.rank_candidates`.
 
     Returns
@@ -94,6 +104,13 @@ def rank_candidates_active(
         raise ValueError(
             f"explore_strategy must be 'margin' or 'entropy', "
             f"got '{explore_strategy}'")
+    if min_dist_to_label_km < 0:
+        raise ValueError(
+            f"min_dist_to_label_km must be >= 0, got {min_dist_to_label_km}")
+    if min_dist_to_label_km > 0 and labels_path is None:
+        raise ValueError(
+            "min_dist_to_label_km requires labels_path - with no label file "
+            "there is nothing to exclude the candidate cells against")
 
     with rasterio.open(proba_path) as src:
         arr = src.read(1).astype("float64")
@@ -110,11 +127,29 @@ def rank_candidates_active(
     if lic_mask is not None:
         valid &= ~lic_mask
 
+    n_near_labels = 0
+    if labels_path is not None and min_dist_to_label_km > 0:
+        labels = gpd.read_file(labels_path)
+        near = distance_to_points_m(labels, tf, arr.shape, crs) <= (
+            float(min_dist_to_label_km) * 1000.0)
+        n_near_labels = int(np.count_nonzero(near & valid))
+        valid &= ~near
+
     rows, cols = np.where(valid)
     if not len(rows):
         logger.warning("no valid cells after masking/prob filter")
         return pd.DataFrame(columns=["rank", "row", "col", "prob", "lon",
                                      "lat", "strategy", "score"])
+    if n_near_labels:
+        logger.info(
+            "novel-ground filter: dropped %d of %d candidate cell(s) within "
+            "%.1f km of a label",
+            n_near_labels, n_near_labels + len(rows),
+            min_dist_to_label_km)
+    elif min_dist_to_label_km > 0:
+        logger.warning(
+            "novel-ground filter: no cell within %.1f km of a label to drop",
+            min_dist_to_label_km)
 
     picked_i: list[int] = []
     picked_strat: list[str] = []
@@ -193,6 +228,11 @@ def main() -> None:
     parser.add_argument("--licences", default=None)
     parser.add_argument("--min-prob", type=float, default=0.0)
     parser.add_argument("--spacing-cells", type=int, default=2)
+    parser.add_argument("--labels", default=None,
+                        help="positive-point file for novel-ground exclusion")
+    parser.add_argument("--min-dist-to-label-km", type=float, default=0.0,
+                        help="drop candidate cells within this many km of a "
+                             "label (novel-ground selection; 0 disables)")
     parser.add_argument("--out-dir", default=None)
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO,
@@ -206,6 +246,8 @@ def main() -> None:
         licence_path=args.licences,
         min_prob=args.min_prob,
         spacing_cells=args.spacing_cells,
+        labels_path=args.labels,
+        min_dist_to_label_km=args.min_dist_to_label_km,
     )
     if not len(df):
         print("no candidates returned")
