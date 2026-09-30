@@ -8,6 +8,7 @@ from shapely.geometry import box
 
 from src.labels.build_labels import aoi_extent, sample_background, seed_points
 from src.models.dataset import default_feature_rasters
+from src.utils import load_config, project_path
 from src.utils.provenance import collect_provenance, sha256_file
 
 # provenance: deterministic hashing + config snapshot + package versions
@@ -41,8 +42,37 @@ class TestProvenance:
 
 # feature allowlist: only configured rasters fed to the model (no stray TIFFs)
 
+@pytest.fixture
+def interim(tmp_path, monkeypatch):
+    """A placeholder ``data/interim`` holding every allowlisted layer.
+
+    The real ``data/interim`` is gitignored pipeline output - gigabytes of
+    GeoTIFF - so a fresh clone (and CI) has none of it, and the allowlist code
+    raises ``FileNotFoundError`` instead of deciding anything. Path selection is
+    what the safeguard actually guards, so build the exact filenames the three
+    belt configs list, plus decoys that must never be selected.
+    """
+    import src.models.dataset as ds
+
+    root = tmp_path / "data" / "interim"
+    for _, config, _ in BELT_CONFIGS:
+        by_group = load_config(config).get("features", {}) \
+                                       .get("rasters_by_group", {})
+        for relpaths in by_group.values():
+            for rel in relpaths:
+                target = root / rel
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(b"placeholder")
+    for decoy in ("terrain_features.tif", "geology_features.tif"):
+        (root / decoy).write_bytes(b"placeholder")
+
+    monkeypatch.setattr(ds, "project_path",
+                        lambda *parts: tmp_path.joinpath(*parts))
+    return root
+
+
 class TestFeatureAllowlist:
-    def test_allowlisted_group_resolves_config_files(self):
+    def test_allowlisted_group_resolves_config_files(self, interim):
         paths = default_feature_rasters("tin_tungsten_tantalum")
         names = {p.name for p in paths}
         assert names == {
@@ -54,22 +84,33 @@ class TestFeatureAllowlist:
             "deposit_distance_tin_tungsten_tantalum.tif",
         }
 
-    def test_stray_tif_excluded_from_allowlist(self, tmp_path, monkeypatch):
+    def test_stray_tif_excluded_from_allowlist(self, interim):
         """A file in data/interim NOT on the allowlist must be ignored."""
-        from src.utils import project_path
-
-        root = project_path("data", "interim")
-        stray = root / "_stray_probe.tif"
+        stray = interim / "_stray_probe.tif"
         stray.write_bytes(b"x")
-        try:
-            paths = default_feature_rasters("tin_tungsten_tantalum")
-            assert stray not in paths
-        finally:
-            stray.unlink()
+        paths = default_feature_rasters("tin_tungsten_tantalum")
+        assert stray not in paths
 
-    def test_unknown_group_falls_back_to_glob(self):
+    def test_unknown_group_falls_back_to_glob(self, interim):
         paths = default_feature_rasters("group_without_allowlist")
         assert paths                       # glob fallback still returns files
+        assert {p.name for p in paths} & {
+            "terrain_features.tif", "geology_features.tif",
+        }                                  # the decoys are seen by the glob
+
+    def test_configured_rasters_exist_in_a_full_checkout(self):
+        """Real data only: every allowlisted layer must exist in a generated
+        ``data/interim``. A fresh clone has none of that gitignored output, so
+        it skips there - the placeholder fixture above already proves the
+        selection logic; this one guards against a config naming a layer the
+        pipeline no longer writes."""
+        root = project_path("data", "interim")
+        if not list(root.glob("*/*.tif")):
+            pytest.skip("feature rasters not generated in this checkout")
+        for _, config, _ in BELT_CONFIGS:
+            by_group = load_config(config)["features"]["rasters_by_group"]
+            for rel in [r for rels in by_group.values() for r in rels]:
+                assert (root / rel).is_file(), f"{rel} missing from data/interim"
 
 
 # provenance inputs: the manifest must list the rasters that actually
@@ -88,7 +129,8 @@ class _StopAfterProvenance(Exception):
 
 class TestProvenanceInputs:
     @pytest.mark.parametrize("group,config,expected", BELT_CONFIGS)
-    def test_only_allowlisted_rasters_recorded(self, group, config, expected):
+    def test_only_allowlisted_rasters_recorded(self, group, config, expected,
+                                               interim):
         """The per-belt config selects exactly the 6 belt rasters."""
         from src.models.train import provenance_input_paths
 
@@ -106,7 +148,7 @@ class TestProvenanceInputs:
             if other not in expected:
                 assert not any(other in name for name in rasters)
 
-    def test_no_allowlist_fallback_warning(self, caplog):
+    def test_no_allowlist_fallback_warning(self, caplog, interim):
         """Regression: resolving provenance without ``config_path`` logged a
         bogus 'no explicit feature allowlist' warning and returned every
         TIFF under data/interim (mixed UTM grids included)."""
