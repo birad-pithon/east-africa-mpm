@@ -26,7 +26,6 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import geopandas as gpd
-import rasterio
 
 from src.features.distances import distance_to_known_deposits_loo
 from src.features.spectral import spectral_indices

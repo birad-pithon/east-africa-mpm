@@ -5,12 +5,12 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
+import pytest
+
 # Make `src` importable no matter where pytest is invoked from.
 PROJECT_ROOT = Path(__file__).resolve().parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
-
-import pytest
 
 CONFIG_PATH = PROJECT_ROOT / "configs" / "karagwe.yml"
 
@@ -50,11 +50,10 @@ def usgs_data(config: dict, tmp_path_factory: pytest.TempPathFactory) -> Path:
 @pytest.fixture(scope="session")
 def common_grid(config: dict) -> dict:
     """Compute the common analysis grid (CRS, transform, dims)."""
-    import affine
     from src.utils import (
-        wgs84_to_utm,
-        make_grid_transform,
         grid_dimensions,
+        make_grid_transform,
+        wgs84_to_utm,
     )
 
     g = config["grid"]

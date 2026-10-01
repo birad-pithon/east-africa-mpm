@@ -23,7 +23,7 @@ from src.models.catalog import GROUP_CONFIGS
 from src.models.dataset import default_feature_rasters
 from src.models.predict import predict_raster
 from src.predict.rank import rank_candidates
-from src.utils import load_config, project_path
+from src.utils import project_path
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)

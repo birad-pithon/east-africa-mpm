@@ -15,7 +15,6 @@ from pathlib import Path
 # Add project root to path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-import numpy as np
 import rasterio
 
 from src.preprocess.dem_features import dem_features
@@ -93,8 +92,9 @@ def main():
 
     if geology_file.exists():
         logger.info("Generating geology features...")
-        from src.features.geology_features import build_geology_features
         import geopandas as gpd
+
+        from src.features.geology_features import build_geology_features
 
         geology = gpd.read_file(geology_file)
         contacts = gpd.read_file(contacts_file) if contacts_file.exists() else None

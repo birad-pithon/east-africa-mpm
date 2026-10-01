@@ -10,6 +10,9 @@ copper-zinc, bauxite).
 from __future__ import annotations
 
 import json
+
+# Make src importable when running from the project root
+import sys
 from pathlib import Path
 
 import folium
@@ -20,8 +23,6 @@ import rasterio
 import streamlit as st
 from streamlit_folium import st_folium
 
-# Make src importable when running from the project root
-import sys
 sys.path.insert(0, str(Path(__file__).parent))
 from src.utils import project_path  # noqa: E402
 
@@ -124,7 +125,8 @@ def raster_summary(path: Path) -> dict:
             "max": round(float(arr.max()), 4),
             "mean": round(float(arr.mean()), 4),
             "median": round(float(np.median(arr.compressed())), 4) if arr.count() > 0 else None,
-            "p90": round(float(np.percentile(arr.compressed(), 90)), 4) if arr.count() > 0 else None,
+            "p90": (round(float(np.percentile(arr.compressed(), 90)), 4)
+                    if arr.count() > 0 else None),
         }
 
 
@@ -184,6 +186,7 @@ def render_folium_map(
     # (folium ImageOverlay doesn't accept PIL objects directly)
     if valid.any():
         import tempfile
+
         from PIL import Image as PILImage
         with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tf:
             PNG_PATH = tf.name
@@ -272,7 +275,10 @@ metrics = load_metrics(group)
 
 st.title("East Africa Mineral Prospectivity Mapping")
 st.markdown(f"### {cfg['color']} {cfg['label']}")
-st.markdown(f"**Config:** `{cfg['config']}` | **Best algorithm:** `{metrics.get('best_algo', 'N/A')}`")
+st.markdown(
+    f"**Config:** `{cfg['config']}` | **Best algorithm:** "
+    f"`{metrics.get('best_algo', 'N/A')}`"
+)
 
 # ── Summary cards ──────────────────────────────────────────────────────
 
@@ -573,7 +579,10 @@ with tab_calib:
         with col_cal[2]:
             st.metric("Max |Calibration Gap|", f"{calib.get('max_abs_gap', 0):.4f}")
 
-        st.markdown(f"**n = {calib.get('n', 0)} samples** ({calib.get('n_positives', 0)} positives)")
+        st.markdown(
+            f"**n = {calib.get('n', 0)} samples** "
+            f"({calib.get('n_positives', 0)} positives)"
+        )
 
         bins = calib.get("bins", [])
         if bins:
@@ -581,13 +590,18 @@ with tab_calib:
             bins_df["confidence_gap"] = bins_df["fraction_positive"] - bins_df["mean_predicted"]
             st.markdown("#### Reliability Bin Table")
             st.dataframe(
-                bins_df[["bin_lo", "bin_hi", "n", "mean_predicted", "fraction_positive", "confidence_gap"]],
+                bins_df[["bin_lo", "bin_hi", "n", "mean_predicted",
+                         "fraction_positive", "confidence_gap"]],
                 use_container_width=True, hide_index=True,
                 column_config={
                     "bin_lo": st.column_config.NumberColumn("Lower Bound", format="%.2e"),
                     "bin_hi": st.column_config.NumberColumn("Upper Bound", format="%.2e"),
-                    "mean_predicted": st.column_config.NumberColumn("Mean Predicted", format="%.4f"),
-                    "fraction_positive": st.column_config.NumberColumn("Fraction Positive", format="%.4f"),
+                    "mean_predicted": st.column_config.NumberColumn(
+                        "Mean Predicted", format="%.4f"
+                    ),
+                    "fraction_positive": st.column_config.NumberColumn(
+                        "Fraction Positive", format="%.4f"
+                    ),
                     "confidence_gap": st.column_config.NumberColumn("Gap", format="%.4f"),
                 },
             )

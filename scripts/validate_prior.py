@@ -34,12 +34,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import json
 
 import numpy as np
-import rasterio
 
-from src.models.train import evaluate_spatial_cv, make_model, \
-    prepare_training_table
+from src.models.train import make_model, prepare_training_table
 from src.preprocess.grid import GridSpec
-from src.utils import load_config, project_path
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -107,7 +104,7 @@ def run_group(group: str, config_path: str, algo: str,
         oof_b[te] = m2.predict_proba(Xb[te])[:, 1]
 
     contrib, details = prior_contributions_at_points(cfg, group, pts)
-    from src.features.priors import _sigmoid, _logit
+    from src.features.priors import _logit, _sigmoid
     oof_c = _sigmoid(_logit(oof_b) + contrib)
 
     ap = lambda p: float(average_precision_score(y, p))   # noqa: E731
