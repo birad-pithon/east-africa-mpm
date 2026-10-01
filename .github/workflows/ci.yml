@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.13"
           cache: pip
@@ -31,8 +31,14 @@ jobs:
       - name: Environment is self-consistent (pip check)
         run: python -m pip check
 
+      # Whole repo on purpose: `.` keeps every future directory covered instead
+      # of relying on someone to widen this list when code moves. src/, tests/,
+      # scripts/, app.py and the root validation scripts are all clean now.
       - name: Lint (ruff)
-        run: ruff check src tests
+        run: ruff check .
 
+      # -rs prints the reason for every skip: on CI the data-dependent checks
+      # skip (data/interim is gitignored), and that must stay distinguishable
+      # from a test that silently stopped running.
       - name: Tests
-        run: pytest tests -q --no-header
+        run: pytest tests -q --no-header -rs

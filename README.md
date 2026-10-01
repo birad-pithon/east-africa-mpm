@@ -148,7 +148,7 @@ Grid math lives in `src/utils/__init__.py` (`make_grid_transform`,
 9. **Grid-alignment confirmation** — tests in `tests/test_ingest_align.py`
    and `tests/test_sources.py` verify USGS points reproject into `EPSG:32736`
    and rasters land exactly on the common 30 m grid
-   (`pytest` → **140 passed** at last full run, incl. the five
+   (`pytest` → **393 passed** at last full run, incl. the five
    pipeline-safeguard suites).
 
 ## Quick Start
@@ -180,8 +180,9 @@ python -m src.models.main --group tin_tungsten_tantalum \
 #    any data you receive from them
 python -m src.ingest.national_surveys --print-requests
 
-# 8. Run the test suite (140 tests incl. pipeline-safeguard suites)
+# 8. Run the test suite (393 tests incl. pipeline-safeguard suites)
 pytest -v
+#    add -rs to see why individual tests skip (CI has no data/interim - see CI)
 ```
 
 ## Next Steps
@@ -372,6 +373,28 @@ pip install -e ".[cnn]"   # PyTorch + torchvision — only for image-patch CNNs 
 pip install -e ".[dvc]"   # DVC dataset versioning
 pip install -e ".[dashboard]"  # Streamlit web dashboard
 ```
+
+## CI
+
+`.github/workflows/ci.yml` runs on every push to `main` and every PR, on
+`ubuntu-latest` with Python 3.13:
+
+| Step | Command | Why it is there |
+|---|---|---|
+| Install | `pip install -r requirements-lock.txt -r requirements.txt` + `pip install -e ".[dev,bayes]" ruff` | the lock fixes the versions CI must not drift from |
+| Consistency | `python -m pip check` | names the offending package when a pin becomes unsatisfiable — `landsatxplore` (`shapely<2`) did exactly that to every single run before it moved to the `[landsat]` extra |
+| Lint | `ruff check .` | whole repository, so a new directory is covered without editing the workflow |
+| Tests | `pytest tests -q --no-header -rs` | `-rs` prints a reason for every skip |
+
+`data/interim/` is gitignored, so a CI checkout has no rasters at all. Tests that
+need raster inputs either build tiny ones under `tmp_path` (see
+`tests/test_production_safeguards.py`) or skip with an explicit reason, which is
+why CI reports a couple of skips while a local run with populated `data/interim/`
+reports none. `tests/test_dependency_consistency.py` keeps the three dependency
+sources (this repository's `pyproject.toml`, `requirements.txt`,
+`requirements-lock.txt`) and the extras CI installs from drifting apart;
+regenerate the lock with `python scripts/pin_requirements.py` and any name it
+cannot pin is written into the lock file as a comment that same test reads.
 
 ## Contributing
 
