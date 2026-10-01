@@ -32,3 +32,9 @@ pytest==9.1.1
 pytest-cov==7.1.0
 ruff==0.16.5
 optuna==4.9.0
+
+# Not pinned: absent from the environment that regenerates this file,
+# so CI installs them (and their transitive deps) unpinned from PyPI:
+#   jupyter
+#   notebook
+#   ipykernel

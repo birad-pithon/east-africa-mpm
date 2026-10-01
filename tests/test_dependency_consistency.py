@@ -143,6 +143,60 @@ def test_requirements_files_and_pyproject_do_not_drift():
     orphan = req_names - known
     assert not orphan, f"requirements.txt lists packages pyproject never mentions: {orphan}"
 
+
+
+# --- CI workflow vs pyproject.toml vs the lock file ----------------------
+# CI installs `pip install -e ".[dev,bayes]"`. That step, the extras declared in
+# pyproject.toml and the pins in requirements-lock.txt have to agree: an extra
+# that CI installs but the lock never pinned leaves CI on whatever PyPI serves
+# that day, which is how the Jupyter stack drifted while CI still looked green.
+CI_YAML = (ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
+LOCK_TEXT = (ROOT / "requirements-lock.txt").read_text(encoding="utf-8")
+
+
+def _norm(name: str) -> str:
+    """Same name normalisation scripts/pin_requirements.py applies."""
+    return name.lower().replace("_", "-")
+
+
+def _ci_extras() -> list[str]:
+    match = re.search(r'-e\s+"\.\[([\w,\s-]+)\]"', CI_YAML)
+    assert match, 'ci.yml no longer has a `pip install -e ".[extras]"` step'
+    return [n.strip() for n in match.group(1).split(",") if n.strip()]
+
+
+# Names the generator could not pin, read straight out of the comment block it
+# writes for them, so this guardrail cannot drift away from that script.
+UNPINNED_BY_GENERATOR = {_norm(n) for n in
+                         re.findall(r"^#\s{2,}([A-Za-z][\w.-]*)$", LOCK_TEXT,
+                                    re.MULTILINE)}
+LOCK_NORMALISED = {_norm(name) for name in LOCK}
+
+
+def test_ci_installs_only_declared_extras():
+    """No typo'd or deleted extra may slip into the CI install line."""
+    installed = _ci_extras()
+    assert "dev" in installed, "ci.yml must install the dev extra: pytest lives there"
+    undeclared = set(installed) - set(EXTRA_DEPS)
+    assert not undeclared, f"ci.yml installs extras pyproject never declares: {sorted(undeclared)}"
+    # landsatxplore requires shapely<2 and would make CI unsatisfiable again.
+    assert "landsat" not in installed, "the landsat extra must stay out of CI"
+
+
+def test_ci_extra_requirements_are_pinned_or_documented():
+    """Everything CI installs through an extra is pinned, or says why not."""
+    drifting = [
+        f"{extra}: {dep}"
+        for extra in _ci_extras()
+        for dep in EXTRA_DEPS.get(extra, [])
+        if _norm(dep) not in LOCK_NORMALISED
+        and _norm(dep) not in UNPINNED_BY_GENERATOR
+    ]
+    assert not drifting, (
+        "installed by CI but neither pinned nor documented as unpinned in "
+        f"requirements-lock.txt: {drifting}"
+    )
+
     dupes: dict[str, list[str]] = {}
     for raw in PYPROJECT["project"]["dependencies"]:
         dupes.setdefault(Requirement(raw).name, []).append(raw)

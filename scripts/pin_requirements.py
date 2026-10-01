@@ -8,7 +8,9 @@ the lock file (a dropped pin means CI installs an unpinned, drifting version):
 3. whatever the previous lock file already pinned.
 
 A name that is not installed locally keeps its previous pin when it has one and
-is reported; only genuinely new, unpinned names are skipped.
+is reported; only genuinely new, unpinned names are skipped - and those are
+written into the lock file as a comment, so ``tests/test_dependency_consistency.py``
+can tell "unpinned on purpose" from "a pin was dropped by accident".
 
 Usage::
 
@@ -96,6 +98,16 @@ def main() -> None:
                 kept_previous.append(name)
             else:
                 missing.append(name)
+
+    if missing:
+        # Record them in the file itself: test_dependency_consistency reads this
+        # block to tell "unpinned on purpose" from "pin dropped by accident".
+        lines += [
+            "",
+            "# Not pinned: absent from the environment that regenerates this file,",
+            "# so CI installs them (and their transitive deps) unpinned from PyPI:",
+        ]
+        lines += [f"#   {name}" for name in missing]
 
     tmp = lock_path.with_name("requirements-lock.txt.tmp")
     tmp.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
